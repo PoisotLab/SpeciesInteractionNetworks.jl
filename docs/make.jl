@@ -13,7 +13,7 @@ makedocs(;
 
 deploydocs(;
     deps = Deps.pip("mkdocs", "pygments", "python-markdown-math", "mkdocs-material"),
-    repo = "github.com/PoisotLab/EcologicalNetworks.jl.git",
+    repo = "github.com/PoisotLab/SpeciesInteractionNetworks.jl.git",
     devbranch = "main",
     make = () -> run(`mkdocs build`),
     target = "site",
