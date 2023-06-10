@@ -1,0 +1,4 @@
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+DocumenterMarkdown = "997ab1e6-3595-5248-9280-8efb232c3433"
+SpeciesInteractionNetworks = "f03a62fe-f8ab-5b77-a061-bb599b765229"

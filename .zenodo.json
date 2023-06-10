@@ -1,0 +1,53 @@
+{
+   "title": "Ecological networks analyses in Julia",
+   "description": "This package provides a common platform to perform analyzes of the structure of ecological networks, using the Julia language.",
+   "grants": [
+      {}
+   ],
+   "related_identifiers": [
+      {
+         "relation": "isSupplementTo",
+         "identifier": "10.1111/ecog.04310"
+      }
+   ],
+   "upload_type": "software",
+   "creators": [
+      {
+         "affiliation": "Université de Montréal",
+         "name": "Poisot, Timothée",
+         "orcid": "0000-0002-0735-5184"
+      },
+      {
+         "affiliation": "Ghent University",
+         "name": "Stock, Michiel",
+         "orcid": "0000-0003-0903-6061"
+      },
+      {
+         "affiliation": "Ghent University",
+         "name": "Hoebeke, Laura",
+         "orcid": "0000-0003-3721-3977"
+      },
+     {
+         "affiliation": "Faculty of Science, University of South Bohemia",
+         "name": "Szefer, Piotr",
+         "orcid": "0000-0002-7332-2516"
+      },
+      {
+         "affiliation": "Université de Montréal",
+         "name": "Banville, Francis",
+         "orcid": "0000-0001-9051-0597"
+      },
+      {
+      "affiliation": "School of Mathematics and Statistics, University of Canterbury",
+      "name": "Dalla Riva, Giulio V.",
+      "orcid": "0000-0002-3454-0633"
+      },
+      {
+      "affiliation": "Tokyo University of Technology",
+      "name": "Shuta Ito",
+      "orcid": "0000-0003-0030-4648"
+      }
+   ],
+   "access_right": "open",
+   "license": "mit-license"
+}
