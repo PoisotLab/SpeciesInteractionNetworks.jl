@@ -148,7 +148,7 @@ be valid.
 struct Probabilistic{T <: AbstractFloat} <: Interactions{T}
     edges::SparseMatrixCSC{T}
     function Probabilistic(edges::SparseMatrixCSC{T}) where {T <: AbstractFloat}
-        if any(0.0 .< edges .< 1.0)
+        if ~all(0.0 .<= edges .<= 1.0)
             throw(ArgumentError("Probabilities must be in the unit interval"))
         end
         return new{T}(edges)
