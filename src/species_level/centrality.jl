@@ -18,39 +18,39 @@ This type is used to perform the Katz centrality analysis.
 abstract type KatzCentrality <: CentralityMethod end
 
 """
-    centrality(::Type{KatzCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, Probabilistic}}; a::AbstractFloat=0.1, k::Integer=5)
+    centrality(::Type{KatzCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, Probabilistic}}; α::AbstractFloat=0.1)
 
-This measure can work on different path length (`k`), and give a different
-weight to every subsequent connection (`a`). `k` must be at least 1 (only
-immediate neighbors are considered, in which case the measure becomes analogue
-to the degree centrality). `a` is a weight, specifically the weight of each
-subsequent move away from the node, and therefore must be positive.
+This measure gives a different weight to every subsequent connection (`α`). `α`
+is a weight, specifically the weight of each subsequent move away from the node,
+and therefore must be positive.
+
+Note that internally, this function uses linear algebra shortcuts (rather than a
+sum over path lengths) to calculate the centrality, which is faster.
+
+The values are returned as a dictionary, and the values are futher ranged so
+that the sum of centralities is equal to one.
 
 ###### References
 
 [Katz1953new](@cite)
-"""
-function centrality(::Type{KatzCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, Probabilistic}}; a::AbstractFloat=0.1, k::Integer=5)
-    @assert 0.0 <= a <= 1.0
-    @assert k >= 1
 
-	centr = sum(hcat(map((x) -> vec(sum((a^x).*(N.edges.edges^x); dims=1)), [1:k;])...); dims=2)
-	return Dict(zip(species(N), centr ./ sum(centr)))
+[Junker2008Analysis](@cite)
+"""
+function centrality(::Type{KatzCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, Probabilistic}}; α::AbstractFloat=0.1)    
+    @assert 0.0 <= α <= 1.0
+
+    A = Matrix(N.edges.edges)
+    C = (inv(I - α*A')-I)*ones(richness(N))
+
+	return Dict(zip(species(N), C ./ sum(C)))
 end
 
 @testitem "We cannot use Katz centrality with a outside the unit interval" begin
     nodes = Unipartite([:A, :B, :C])
     edges = Binary(Bool[0 1 1; 1 0 1; 0 1 0])
     N = SpeciesInteractionNetwork(nodes, edges)
-    @test_throws AssertionError centrality(KatzCentrality, N; a = 1.2)
-    @test_throws AssertionError centrality(KatzCentrality, N; a = -0.5)
-end
-
-@testitem "We cannot use Katz centrality with k = 0" begin
-    nodes = Unipartite([:A, :B, :C])
-    edges = Binary(Bool[0 1 1; 1 0 1; 0 1 0])
-    N = SpeciesInteractionNetwork(nodes, edges)
-    @test_throws AssertionError centrality(KatzCentrality, N; k = 0)
+    @test_throws AssertionError centrality(KatzCentrality, N; α = 1.2)
+    @test_throws AssertionError centrality(KatzCentrality, N; α = -0.5)
 end
 
 #=
