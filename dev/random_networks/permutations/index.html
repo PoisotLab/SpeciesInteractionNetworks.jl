@@ -465,8 +465,9 @@
 <strong><code>SpeciesInteractionNetworks.PermutationConstraint</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">PermutationConstraint</span>
 </code></pre></div>
-<p>The <code>PermutationConstraint</code> specifies which structural constraint is enforced. The values are <code>Degree</code> (degree distribution is maintained), <code>Generality</code> (number of out-going links is maintained), <code>Vulnerability</code> (number of in-going links is maintained), and <code>Connectance</code> (only the connectance is maintained). Note that <em>in addition</em>, species cannot become disconnected, even if the constraint is not acting on the degree / degree distribution.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/4c1b95c51fd9feae9d5c5aba333f991ff271b275/src/random/permutations.jl#L3-L12' class='documenter-source'>source</a><br></p>
+<p>The <code>PermutationConstraint</code> specifies which structural constraint is enforced. It is defined as an abstract type, and the subtypes can be passed as the second argument to <code>swap!</code>.</p>
+<p>Currently supported constraints are <code>Degree</code> (degree distribution is maintained), <code>Generality</code> (number of out-going links is maintained), <code>Vulnerability</code> (number of in-going links is maintained), and <code>Connectance</code> (only the connectance is maintained). Note that <em>in addition</em>, species cannot become disconnected, even if the constraint is not acting on the degree / degree distribution.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8328b787e0825dd0a0793da53e7c028d00f144e7/src/random/permutations.jl#L3-L16' class='documenter-source'>source</a><br></p>
 <p><a id='Permutation-of-a-network'></a></p>
 <p><a id='Permutation-of-a-network-1'></a></p>
 <h2 id="permutation-of-a-network">Permutation of a network</h2>
