@@ -32,3 +32,5 @@ nav:
   - Getting started:
     - Building a network: getting_started/demonstration.md
     - Type system: getting_started/types.md
+  - Random networks:
+    - Permutations: random_networks/permutations.md
