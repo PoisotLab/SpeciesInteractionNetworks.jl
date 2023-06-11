@@ -64,8 +64,8 @@ nodes = Bipartite(edges)
 N = SpeciesInteractionNetwork(nodes, edges)
 ```
 
-The initial nestedness of this network is (network, top-level contribution,
-bottom-level contribution):
+The initial nestedness of this network, measured using [η](@ref) is (network,
+top-level contribution, bottom-level contribution):
 
 ```@example 1
 (η(N), η(N,1), η(N,2))
