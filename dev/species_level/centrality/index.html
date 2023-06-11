@@ -604,13 +604,13 @@
 <div class="highlight"><pre><span></span><code><span class="n">CentralityMethod</span>
 </code></pre></div>
 <p>All algorithms for centrality are subtypes of <code>CentralityMethod</code>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/1bf5c1e4057300657ed5d49e1a0eb1d0d4c5e4fe/src/species_level/centrality.jl#L1-L5' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/62a4aca17bfa7c5533c4203523b732ad02eba1d6/src/species_level/centrality.jl#L1-L5' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.KatzCentrality' href='#SpeciesInteractionNetworks.KatzCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.KatzCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">KatzCentrality</span>
 </code></pre></div>
 <p>This type is used to perform the Katz centrality analysis.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/1bf5c1e4057300657ed5d49e1a0eb1d0d4c5e4fe/src/species_level/centrality.jl#L13-L17' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/62a4aca17bfa7c5533c4203523b732ad02eba1d6/src/species_level/centrality.jl#L13-L17' class='documenter-source'>source</a><br></p>
 <p><a id='Centrality-function'></a></p>
 <p><a id='Centrality-function-1'></a></p>
 <h2 id="centrality-function">Centrality function</h2>
@@ -624,7 +624,11 @@
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Katz1953new">Leo Katz (1953)</a></p>
 <p><a href="../../bibliography/#Junker2008Analysis"> (2008)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/1bf5c1e4057300657ed5d49e1a0eb1d0d4c5e4fe/src/species_level/centrality.jl#L20-L38' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/62a4aca17bfa7c5533c4203523b732ad02eba1d6/src/species_level/centrality.jl#L20-L38' class='documenter-source'>source</a><br></p>
+<div class="highlight"><pre><span></span><code>centrality(::Type{EigenvectorCentrality}, N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Interactions})
+</code></pre></div>
+<p>Eigencentrality, corrected so that the centralities in the network sum to one.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/62a4aca17bfa7c5533c4203523b732ad02eba1d6/src/species_level/centrality.jl#L57-L61' class='documenter-source'>source</a><br></p>
 
 
 
