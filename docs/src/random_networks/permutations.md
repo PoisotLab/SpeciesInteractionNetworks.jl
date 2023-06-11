@@ -89,7 +89,7 @@ end
     When we perform the `swap!` operation, we are modifying the network (this is
     what we want!), but we are also modifying the `edges` object. If you want to
     re-use the edges in another network, be mindful of the fact that this will
-    be the *randomized* edges.
+    be the *randomized* edges. See [`copy`](@ref) for a way to create new copies of a network.
 
 Finally, we can plot the result, to check that 1000 swaps are enough to bring us
 to some sort of equilibrium of the randomized nestedness:

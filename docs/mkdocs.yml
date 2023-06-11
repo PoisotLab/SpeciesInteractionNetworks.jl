@@ -39,3 +39,4 @@ nav:
   - Random networks:
     - Permutations: random_networks/permutations.md
   - Bibliography: bibliography.md
+  - Internals: internals.md

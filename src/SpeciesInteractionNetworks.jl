@@ -29,6 +29,8 @@ include("types/constructors.jl")
 include("types/interface.jl")
 export species, richness
 
+include("types/copy.jl")
+
 include("interfaces/abstractarray.jl")
 include("interfaces/iteration.jl")
 

@@ -1,4 +1,4 @@
-function pdi(impacts::Vector{T}) where {T <: Number}
+function pdi(impacts::AbstractArray{T,1}) where {T <: Number}
     norm_impact = impacts/maximum(impacts)
     paired_differences = (1.0 .- sort(norm_impact/maximum(norm_impact), rev=true))[2:end]
     return sum(paired_differences)/length(paired_differences)
