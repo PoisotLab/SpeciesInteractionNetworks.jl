@@ -5,7 +5,7 @@ using DocumenterMarkdown
 using DocumenterCitations
 using SpeciesInteractionNetworks
 
-bibliography = CitationBibliography("SpeciesInteractionNetworks.bib", sorting = :nyt)
+bibliography = CitationBibliography(joinpath(@__DIR__, "SpeciesInteractionNetworks.bib"), sorting = :nyt)
 
 makedocs(
     bibliography;
