@@ -45,6 +45,9 @@ include("random/permutations.jl")
 export PermutationConstraint, Degree, Generality, Vulnerability, Connectance
 export swap!
 
+include("community_level/nestedness.jl")
+export η
+
 # include(joinpath(".", "types", "conversions.jl"))
 
 # Datasets
