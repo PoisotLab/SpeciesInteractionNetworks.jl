@@ -13,20 +13,22 @@
       
       
       
+        <link rel="prev" href="../../getting_started/types/">
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>SpeciesInteractionNetworks.jl</title>
+        <title>Permutations - SpeciesInteractionNetworks.jl</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -42,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="/assets/Documenter.css">
+      <link rel="stylesheet" href="../../assets/Documenter.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -68,6 +70,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#permutations-of-networks" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -80,7 +87,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="SpeciesInteractionNetworks.jl" class="md-header__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
+    <a href="../.." title="SpeciesInteractionNetworks.jl" class="md-header__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -99,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Permutations
             
           </span>
         </div>
@@ -180,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="SpeciesInteractionNetworks.jl" class="md-nav__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
+    <a href="../.." title="SpeciesInteractionNetworks.jl" class="md-nav__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -211,7 +218,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -253,7 +260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting_started/demonstration/" class="md-nav__link">
+      <a href="../../getting_started/demonstration/" class="md-nav__link">
         Building a network
       </a>
     </li>
@@ -267,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/getting_started/types/" class="md-nav__link">
+      <a href="../../getting_started/types/" class="md-nav__link">
         Type system
       </a>
     </li>
@@ -287,14 +294,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
       
       
       
@@ -303,7 +312,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           Random networks
@@ -314,11 +323,59 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/random_networks/permutations/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Permutations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Permutations
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#permutation-constraints" class="md-nav__link">
+    Permutation constraints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permutation-of-a-network" class="md-nav__link">
+    Permutation of a network
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -347,6 +404,30 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#permutation-constraints" class="md-nav__link">
+    Permutation constraints
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permutation-of-a-network" class="md-nav__link">
+    Permutation of a network
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -358,8 +439,44 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+  
+  
+
+
+<p><a id='Permutations-of-networks'></a></p>
+<p><a id='Permutations-of-networks-1'></a></p>
+<h1 id="permutations-of-networks">Permutations of networks</h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>The methods presented in this page perform network <em>permutation</em>, <em>i.e.</em> they move interactions around while also respecting a number of constraints. Permutations are used in null hypothesis testing, or can be used alongside <em>e.g.</em> simulated annealing to bring networks closer to a specified structure.</p>
+</div>
+<p>The functions for permutations are using an edge-swap algorithm, in which the endpoint of interactions is switched to re-wire the network without changing the degree distribution. Each call to the <code>swap!</code> function will <em>modify</em> the network, and perform a single edge swap.</p>
+<div class="admonition info">
+<p class="admonition-title">Maximum iterations when doing permutations</p>
+<p>Every permutation will try up to <code>SpeciesInteractionNetworks.SWAP_MAXITER</code> times (defaults to 100) to find a suitable pair of edges to swap, and then return the network <em>unshuffled</em> if they failed to find a suitable pair of edges to swap. This value <em>can</em> be changed.</p>
+</div>
+<p><a id='Permutation-constraints'></a></p>
+<p><a id='Permutation-constraints-1'></a></p>
+<h2 id="permutation-constraints">Permutation constraints</h2>
+<p>Permutations are constrained, in that we can guarantee that the resulting network may have structural properties that are similar to the original network. The type of constraint we apply is determined by the <code>PermutationConstrant</code> enumerated type.</p>
+<p><a id='SpeciesInteractionNetworks.PermutationConstraint' href='#SpeciesInteractionNetworks.PermutationConstraint'>#</a>
+<strong><code>SpeciesInteractionNetworks.PermutationConstraint</code></strong> &mdash; <em>Type</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">PermutationConstraint</span>
+</code></pre></div>
+<p>The <code>PermutationConstraint</code> specifies which structural constraint is enforced. The values are <code>Degree</code> (degree distribution is maintained), <code>Generality</code> (number of out-going links is maintained), <code>Vulnerability</code> (number of in-going links is maintained), and <code>Connectance</code> (only the connectance is maintained). Note that <em>in addition</em>, species cannot become disconnected, even if the constraint is not acting on the degree / degree distribution.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/4c1b95c51fd9feae9d5c5aba333f991ff271b275/src/random/permutations.jl#L3-L12' class='documenter-source'>source</a><br></p>
+<p><a id='Permutation-of-a-network'></a></p>
+<p><a id='Permutation-of-a-network-1'></a></p>
+<h2 id="permutation-of-a-network">Permutation of a network</h2>
+<p>Note that the permutations are currently limited to networks with <code>Binary</code> interactions.</p>
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -391,14 +508,14 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "/", "features": [], "search": "/assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
       
-        <script src="/assets/mathjaxhelper.js"></script>
+        <script src="../../assets/mathjaxhelper.js"></script>
       
     
   </body>
