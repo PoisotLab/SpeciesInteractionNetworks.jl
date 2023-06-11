@@ -17,7 +17,7 @@ function Base.isempty(N::T) where {T <: SpeciesInteractionNetwork}
     return iszero(length(N))
 end
 
-function _network_state(N::T, i::Int64) where {T <: SpeciesInteractionNetwork}
+function _network_state(N::T, i::Integer) where {T <: SpeciesInteractionNetwork}
     f,t = findall(!iszero, N.edges.edges)[i].I
     return (species(N,1)[f],species(N,2)[t], N[f,t])
 end
@@ -27,7 +27,7 @@ function Base.iterate(N::T) where {T <: SpeciesInteractionNetwork}
     return (_network_state(N, 1), 1)
 end
 
-function Base.iterate(N::T, state::Int64) where {T <: SpeciesInteractionNetwork}
+function Base.iterate(N::T, state::Integer) where {T <: SpeciesInteractionNetwork}
     next = state == length(N) ? nothing : state+1
     isnothing(next) && return nothing
     return (_network_state(N, next), next)
