@@ -4,3 +4,4 @@ docs/site/
 network.png
 Manifest.toml
 .vscode/*
+docs/*.bib.sav

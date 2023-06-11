@@ -45,6 +45,9 @@ include("random/permutations.jl")
 export PermutationConstraint, Degree, Generality, Vulnerability, Connectance
 export swap!
 
+include("species_level/specificity.jl")
+export specificity
+
 include("community_level/nestedness.jl")
 export η
 
