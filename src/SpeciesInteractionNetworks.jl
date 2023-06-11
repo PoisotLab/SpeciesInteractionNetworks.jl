@@ -42,7 +42,7 @@ include("basics/subgraphs.jl")
 export subgraph
 
 include("random/permutations.jl")
-export PermutationConstraint
+export PermutationConstraint, Degree, Generality, Vulnerability, Connectance
 export swap!
 
 # include(joinpath(".", "types", "conversions.jl"))

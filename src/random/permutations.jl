@@ -4,20 +4,23 @@ const SWAP_MAXITER = 100
     PermutationConstraint
 
 The `PermutationConstraint` specifies which structural constraint is enforced.
-The values are `Degree` (degree distribution is maintained), `Generality`
-(number of out-going links is maintained), `Vulnerability` (number of in-going
-links is maintained), and `Connectance` (only the connectance is maintained).
-Note that *in addition*, species cannot become disconnected, even if the
-constraint is not acting on the degree / degree distribution.
-"""
-@enum PermutationConstraint begin
-    Degree = 1
-    Generality = 2
-    Vulnerability = 3
-    Connectance = 4
-end
+It is defined as an abstract type, and the subtypes can be passed as the second
+argument to `swap!`.
 
-function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, constraint::PermutationConstraint=Degree)
+Currently supported constraints are `Degree` (degree distribution is
+maintained), `Generality` (number of out-going links is maintained),
+`Vulnerability` (number of in-going links is maintained), and `Connectance`
+(only the connectance is maintained). Note that *in addition*, species cannot
+become disconnected, even if the constraint is not acting on the degree / degree
+distribution.
+"""
+abstract type PermutationConstraint end
+abstract type Degree <: PermutationConstraint end
+abstract type Generality <: PermutationConstraint end
+abstract type Vulnerability <: PermutationConstraint end
+abstract type Connectance <: PermutationConstraint end
+    
+function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, constraint::Type{PC}) where {PC <: PermutationConstraint}
     if length(N) < 2 
         throw(ArgumentError("Impossible to swap a network with fewer than two interactions"))
     end
