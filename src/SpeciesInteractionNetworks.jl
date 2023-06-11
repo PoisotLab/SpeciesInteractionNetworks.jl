@@ -50,6 +50,10 @@ export swap!
 include("species_level/specificity.jl")
 export specificity
 
+include("species_level/centrality.jl")
+export CentralityMethod, KatzCentrality, HarmonicCentrality, EigenvectorCentrality, DegreeCentrality, ClosenessCentrality
+export centrality
+
 include("community_level/nestedness.jl")
 export η
 
