@@ -604,13 +604,13 @@
 <div class="highlight"><pre><span></span><code><span class="n">CentralityMethod</span>
 </code></pre></div>
 <p>All algorithms for centrality are subtypes of <code>CentralityMethod</code>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/f2c0a17cd289ad08c7602f3cce28e2c8e0238a4c/src/species_level/centrality.jl#L1-L5' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/4532f073e24bee7c2903c31aae74418a256588a5/src/species_level/centrality.jl#L1-L5' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.KatzCentrality' href='#SpeciesInteractionNetworks.KatzCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.KatzCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">KatzCentrality</span>
 </code></pre></div>
 <p>This type is used to perform the Katz centrality analysis.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/f2c0a17cd289ad08c7602f3cce28e2c8e0238a4c/src/species_level/centrality.jl#L13-L17' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/4532f073e24bee7c2903c31aae74418a256588a5/src/species_level/centrality.jl#L13-L17' class='documenter-source'>source</a><br></p>
 <p><a id='Centrality-function'></a></p>
 <p><a id='Centrality-function-1'></a></p>
 <h2 id="centrality-function">Centrality function</h2>
@@ -618,10 +618,10 @@
 <strong><code>SpeciesInteractionNetworks.centrality</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">centrality</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">KatzCentrality</span><span class="p">},</span><span class="w"> </span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Unipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Binary</span><span class="p">,</span><span class="w"> </span><span class="kt">Probabilistic</span><span class="p">}};</span><span class="w"> </span><span class="n">a</span><span class="o">::</span><span class="kt">AbstractFloat</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="o">::</span><span class="kt">Integer</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
-<p>This measure can work on different path length (<code>k</code>), and give a different weight to every subsequent connection (<code>a</code>). <code>k</code> must be at least 1 (only immediate neighbors are considered). <code>a</code> (being a weight), must be positive.</p>
+<p>This measure can work on different path length (<code>k</code>), and give a different weight to every subsequent connection (<code>a</code>). <code>k</code> must be at least 1 (only immediate neighbors are considered, in which case the measure becomes analogue to the degree centrality). <code>a</code> is a weight, specifically the weight of each subsequent move away from the node, and therefore must be positive.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Katz1953new">Leo Katz (1953)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/f2c0a17cd289ad08c7602f3cce28e2c8e0238a4c/src/species_level/centrality.jl#L20-L30' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/4532f073e24bee7c2903c31aae74418a256588a5/src/species_level/centrality.jl#L20-L32' class='documenter-source'>source</a><br></p>
 
 
 
