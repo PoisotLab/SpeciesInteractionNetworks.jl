@@ -53,6 +53,20 @@ end
     @test_throws AssertionError centrality(KatzCentrality, N; α = -0.5)
 end
 
+
+"""
+    centrality(::Type{EigenvectorCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions})
+
+Eigencentrality, corrected so that the centralities in the network sum to one.
+"""
+function centrality(::Type{EigenvectorCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions})
+  evals, evecs = eigen(Array(N.edges.edges))
+  emax, epos = findmax(real.(evals))
+  cvals = vec(real.(evecs[:,epos]))
+  cvals ./= sum(cvals)
+  return Dict(zip(species(N), cvals))
+end
+
 #=
 
 """
@@ -106,20 +120,5 @@ function centrality_degree(N::UnipartiteNetwork)
   d = degree(N)
   dm = maximum(values(d))
   return Dict([p.first=>p.second/dm for p in d])
-end
-
-
-"""
-    centrality_eigenvector(N::AbstractUnipartiteNetwork)
-
-Eigen centrality, corrected by the maximum degree (the most central species has
-a degree of 1).
-"""
-function centrality_eigenvector(N::AbstractUnipartiteNetwork)
-  evals, evecs = eigen(Array(N.edges))
-  emax, epos = findmax(real.(evals))
-  cvals = vec(real.(evecs[:,epos]))
-  cvals ./= maximum(cvals)
-  return Dict(zip(species(N), cvals))
 end
 =#
