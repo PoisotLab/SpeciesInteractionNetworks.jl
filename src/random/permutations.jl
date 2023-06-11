@@ -58,8 +58,20 @@ function swap_degree!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary})
     return N
 end
 
-@testitem "We can swap a network with enough interactions" begin
+@testitem "We can swap a unipartite network with enough interactions" begin
     nodes = Unipartite([:A, :B, :C, :D, :E, :F])
+    edges = Binary(rand(Bool, (richness(nodes,1), richness(nodes, 2))))
+    N = SpeciesInteractionNetwork(nodes, edges)
+    it_orig = interactions(N)
+    for i in 1:10
+        swap!(N, Degree)
+    end
+    it_swap = interactions(N)
+    @test it_orig !== it_swap
+end
+
+@testitem "We can swap a bipartite network with enough interactions" begin
+    nodes = Bipartite([:A, :B, :C, :D, :E, :F], [:a, :b, :c, :d, :e, :f, :g, :h])
     edges = Binary(rand(Bool, (richness(nodes,1), richness(nodes, 2))))
     N = SpeciesInteractionNetwork(nodes, edges)
     it_orig = interactions(N)
