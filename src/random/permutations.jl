@@ -19,25 +19,20 @@ abstract type Degree <: PermutationConstraint end
 abstract type Generality <: PermutationConstraint end
 abstract type Vulnerability <: PermutationConstraint end
 abstract type Connectance <: PermutationConstraint end
-    
-function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, constraint::Type{PC}) where {PC <: PermutationConstraint}
+
+"""
+    swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary})
+
+Performs *one* swap of interactions in the network. If no
+`PermutationConstraint` is given as a second argument, the degree distribution
+of all species will be maintained.
+"""
+swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}) = swap!(N, Degree)
+
+function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Degree})
     if length(N) < 2 
         throw(ArgumentError("Impossible to swap a network with fewer than two interactions"))
     end
-    (constraint == Degree) && swap_degree!(N)
-    return N
-end
-
-swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}) = swap!(N, Degree)
-
-@testitem "We cannot swap a network with fewer than two interactions" begin
-    nodes = Unipartite([:a, :b, :c])
-    edges = Binary(zeros(Bool, (3,3)))
-    N = SpeciesInteractionNetwork(nodes, edges)
-    @test_throws ArgumentError swap!(N, Degree)
-end
-
-function swap_degree!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary})
     intpool = interactions(N)
     intpair = StatsBase.sample(intpool, 2, replace=false)
     swappair = [(intpair[1][1],intpair[2][2],true), (intpair[2][1],intpair[1][2],true)]
@@ -58,7 +53,57 @@ function swap_degree!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary})
     return N
 end
 
-@testitem "We can swap a unipartite network with enough interactions" begin
+function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Generality})
+    if length(N) < 2 
+        throw(ArgumentError("Impossible to swap a network with fewer than two interactions"))
+    end
+    intpool = interactions(N)
+    intpair = rand(intpool)
+    newstem = rand(species(N, 2))
+    valid = (length(predecessors(N, intpair[2])) > 1)&(iszero(N[intpair[1], newstem]))
+    iters = 0
+    while (!valid)&&(iters < SpeciesInteractionNetworks.SWAP_MAXITER)
+        intpair = rand(intpool)
+        newstem = rand(species(N, 2))
+        valid = (length(predecessors(N, intpair[2])) > 1)&(iszero(N[intpair[1], newstem]))
+        iters += 1
+    end
+    if iters <= SpeciesInteractionNetworks.SWAP_MAXITER
+        N[intpair] = false
+        N[intpair[1], newstem] = true
+    end
+    return N
+end
+
+function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Vulnerability})
+    if length(N) < 2 
+        throw(ArgumentError("Impossible to swap a network with fewer than two interactions"))
+    end
+    intpool = interactions(N)
+    intpair = rand(intpool)
+    newroot = rand(species(N, 1))
+    valid = (length(successors(N, intpair[1])) > 1)&(iszero(N[newroot, intpair[2]]))
+    iters = 0
+    while (!valid)&&(iters < SpeciesInteractionNetworks.SWAP_MAXITER)
+        intpair = rand(intpool)
+        newroot = rand(species(N, 1))
+        valid = (length(successors(N, intpair[1])) > 1)&(iszero(N[newroot, intpair[2]]))
+        iters += 1
+    end
+    if iters <= SpeciesInteractionNetworks.SWAP_MAXITER
+        N[intpair] = false
+        N[newroot, intpair[2]] = true
+    end
+    return N
+end
+
+function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Connectance})
+    strategy = rand([Generality, Vulnerability, Degree])
+    swap!(N, strategy)
+    return N
+end
+
+@testitem "We can degree-swap a unipartite network with enough interactions" begin
     nodes = Unipartite([:A, :B, :C, :D, :E, :F])
     edges = Binary(rand(Bool, (richness(nodes,1), richness(nodes, 2))))
     N = SpeciesInteractionNetwork(nodes, edges)
@@ -70,7 +115,7 @@ end
     @test it_orig !== it_swap
 end
 
-@testitem "We can swap a bipartite network with enough interactions" begin
+@testitem "We can degree-swap a bipartite network with enough interactions" begin
     nodes = Bipartite([:A, :B, :C, :D, :E, :F], [:a, :b, :c, :d, :e, :f, :g, :h])
     edges = Binary(rand(Bool, (richness(nodes,1), richness(nodes, 2))))
     N = SpeciesInteractionNetwork(nodes, edges)
@@ -80,4 +125,47 @@ end
     end
     it_swap = interactions(N)
     @test it_orig !== it_swap
+end
+
+@testitem "We can generality-swap a bipartite network with enough interactions" begin
+    nodes = Bipartite([:A, :B, :C, :D, :E, :F], [:a, :b, :c, :d, :e, :f, :g, :h])
+    edges = Binary(rand(Bool, (richness(nodes,1), richness(nodes, 2))))
+    N = SpeciesInteractionNetwork(nodes, edges)
+    it_orig = interactions(N)
+    for i in 1:10
+        swap!(N, Generality)
+    end
+    it_swap = interactions(N)
+    @test it_orig !== it_swap
+end
+
+@testitem "We can vulnerability-swap a bipartite network with enough interactions" begin
+    nodes = Bipartite([:A, :B, :C, :D, :E, :F], [:a, :b, :c, :d, :e, :f, :g, :h])
+    edges = Binary(rand(Bool, (richness(nodes,1), richness(nodes, 2))))
+    N = SpeciesInteractionNetwork(nodes, edges)
+    it_orig = interactions(N)
+    for i in 1:10
+        swap!(N, Vulnerability)
+    end
+    it_swap = interactions(N)
+    @test it_orig !== it_swap
+end
+
+@testitem "We can connectance-swap a bipartite network with enough interactions" begin
+    nodes = Bipartite([:A, :B, :C, :D, :E, :F], [:a, :b, :c, :d, :e, :f, :g, :h])
+    edges = Binary(rand(Bool, (richness(nodes,1), richness(nodes, 2))))
+    N = SpeciesInteractionNetwork(nodes, edges)
+    it_orig = interactions(N)
+    for i in 1:10
+        swap!(N, Connectance)
+    end
+    it_swap = interactions(N)
+    @test it_orig !== it_swap
+end
+
+@testitem "We cannot swap a network with fewer than two interactions" begin
+    nodes = Unipartite([:a, :b, :c])
+    edges = Binary(zeros(Bool, (3,3)))
+    N = SpeciesInteractionNetwork(nodes, edges)
+    @test_throws ArgumentError swap!(N, Degree)
 end
