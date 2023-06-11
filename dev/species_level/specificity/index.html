@@ -502,6 +502,21 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../internals/" class="md-nav__link">
+        Internals
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -578,29 +593,39 @@
 <p>For a deterministic network, this function will return a dictionary mapping each top-level species to its specificity. The same index (Paired Differences Index) is used for binary and quantitative networks. A value of one corresponds to maximum specialism, and a value of zero to maximum generalism. The index is symmetrical, so that a species with a value of one half is neither specialist nor generalist.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Poisot2012comparative">Timothée Poisot, Elsa Canard, Nicolas Mouquet, Michael E. Hochberg (2012)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/06c3cce346fd228200dea495fc2bc7db37e42c0d/src/species_level/specificity.jl#L19-L32' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7cd61d2608a2b29b361f10566197b633554d5c90/src/species_level/specificity.jl#L19-L32' class='documenter-source'>source</a><br></p>
 <p><a id='Illustration'></a></p>
 <p><a id='Illustration-1'></a></p>
 <h2 id="illustration">Illustration</h2>
 <p>We can generate an example network with three different degrees of specificity:</p>
-<p>```@example 1
-using SpeciesInteractionNetwork</p>
-<p>nodes = Bipartite([:A, :B, :C, :D], [:a, :b, :c, :d, :e, :f])
-edges = Quantitative([1 0 0 0 0; 2 0 0 0 0; 1 1 1 0 0; 4 3 2 1 0])
-N = SpeciesInteractionNetwork(nodes, edges)
-<div class="highlight"><pre><span></span><code>We can calculate the specificity of the top-level species:
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">SpeciesInteractionNetworks</span>
 
-
-```@example 1
-spe_scores = specificity(N)
-</code></pre></div></p>
+<span class="n">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bipartite</span><span class="p">([</span><span class="ss">:A</span><span class="p">,</span><span class="w"> </span><span class="ss">:B</span><span class="p">,</span><span class="w"> </span><span class="ss">:C</span><span class="p">,</span><span class="w"> </span><span class="ss">:D</span><span class="p">,</span><span class="w"> </span><span class="ss">:E</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="ss">:a</span><span class="p">,</span><span class="w"> </span><span class="ss">:b</span><span class="p">,</span><span class="w"> </span><span class="ss">:c</span><span class="p">,</span><span class="w"> </span><span class="ss">:d</span><span class="p">,</span><span class="w"> </span><span class="ss">:e</span><span class="p">,</span><span class="w"> </span><span class="ss">:f</span><span class="p">])</span>
+<span class="n">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Quantitative</span><span class="p">([</span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">0</span><span class="p">])</span>
+<span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SpeciesInteractionNetwork</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="w"> </span><span class="n">edges</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>SpeciesInteractionNetwork{Bipartite{Symbol}, Quantitative{Int64}}(Bipartite{Symbol}([:A, :B, :C, :D, :E], [:a, :b, :c, :d, :e, :f]), Quantitative{Int64}(sparse([1, 2, 3, 4, 5, 3, 4, 5, 3, 4, 5, 4, 5], [1, 1, 1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4], [1, 2, 1, 4, 4, 1, 3, 4, 1, 2, 4, 1, 3], 5, 5)))
+</code></pre></div>
+<p>We can calculate the specificity of the top-level species:</p>
+<div class="highlight"><pre><span></span><code><span class="n">spe_scores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">specificity</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Dict{Symbol, Float64} with 5 entries:
+  :A =&gt; 1.0
+  :D =&gt; 0.625
+  :B =&gt; 1.0
+  :E =&gt; 0.3125
+  :C =&gt; 0.5
+</code></pre></div>
+<p>The output of specificity is a dictionary, where the <code>species(N, 1)</code> are keys, and the score for each of these species are the values. We can, for example, look at the specificity for species <code>:D</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">spe_scores</span><span class="p">[</span><span class="ss">:D</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.625
+</code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Making sense of the score</p>
 <p>The Paired Differences Index will <em>always</em> return values in the unit interval, and these values are independent from one species to the next. In the example above, species <code>:A</code> and <code>:B</code> have the same (maximum) specificity because they use a single resource. The purpose of the Paired Differences Index is to express specificity in a way that is <em>not</em> affected by the total interaction strenght of the species, because what is well understood can be measured without confounders.</p>
 </div>
-<p>The output of specificity is a dictionary, where the <code>species(N, 1)</code> are keys, and the score for each of these species are the values. We can, for example, look at the specificity for species <code>:D</code>:</p>
-<p><code>@example 1
-spe_scores[:D]</code></p>
+<p>As always, keep in mind that the ordering of keys in the dictionary is not fixed. Therefore, it is probably safer to iterate over the <code>species(N, 1)</code> when looking for specific values.</p>
 
 
 

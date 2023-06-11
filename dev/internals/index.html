@@ -13,22 +13,22 @@
       
       
       
+        <link rel="prev" href="../bibliography/">
       
-        <link rel="next" href="getting_started/demonstration/">
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
     
     
       
-        <title>SpeciesInteractionNetworks.jl</title>
+        <title>Internals - SpeciesInteractionNetworks.jl</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="assets/Documenter.css">
+      <link rel="stylesheet" href="../assets/Documenter.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#species-interaction-networks" class="md-skip">
+        <a href="#internals" class="md-skip">
           Skip to content
         </a>
       
@@ -87,7 +87,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="SpeciesInteractionNetworks.jl" class="md-header__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
+    <a href=".." title="SpeciesInteractionNetworks.jl" class="md-header__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Internals
             
           </span>
         </div>
@@ -187,7 +187,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="SpeciesInteractionNetworks.jl" class="md-nav__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
+    <a href=".." title="SpeciesInteractionNetworks.jl" class="md-nav__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -216,21 +216,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         Home
       </a>
-      
     </li>
   
 
@@ -270,7 +260,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting_started/demonstration/" class="md-nav__link">
+      <a href="../getting_started/demonstration/" class="md-nav__link">
         Building a network
       </a>
     </li>
@@ -284,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="getting_started/types/" class="md-nav__link">
+      <a href="../getting_started/types/" class="md-nav__link">
         Type system
       </a>
     </li>
@@ -333,7 +323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="species_level/specificity/" class="md-nav__link">
+      <a href="../species_level/specificity/" class="md-nav__link">
         Specificity
       </a>
     </li>
@@ -382,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community_level/nestedness/" class="md-nav__link">
+      <a href="../community_level/nestedness/" class="md-nav__link">
         Nestedness
       </a>
     </li>
@@ -431,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="random_networks/permutations/" class="md-nav__link">
+      <a href="../random_networks/permutations/" class="md-nav__link">
         Permutations
       </a>
     </li>
@@ -453,7 +443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="bibliography/" class="md-nav__link">
+      <a href="../bibliography/" class="md-nav__link">
         Bibliography
       </a>
     </li>
@@ -466,11 +456,59 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="internals/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Internals
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Internals
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#network-dimensions" class="md-nav__link">
+    Network dimensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copy-of-network-data" class="md-nav__link">
+    Copy of network data
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -495,6 +533,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#network-dimensions" class="md-nav__link">
+    Network dimensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copy-of-network-data" class="md-nav__link">
+    Copy of network data
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -511,16 +571,21 @@
   
 
 
-<p><a id='Species-Interaction-Networks'></a></p>
-<p><a id='Species-Interaction-Networks-1'></a></p>
-<h1 id="species-interaction-networks">Species Interaction Networks</h1>
-<p>The <code>SpeciesInteractionNetworks</code> package enables analyses of species interaction networks in <em>Julia</em>. It is a re-master (director's cut?) of <a href="https://github.com/PoisotLab/EcologicalNetworks.jl/"><code>EcologicalNetworks</code></a>.</p>
-<div class="admonition question">
-<p class="admonition-title">Why a new package?</p>
-<p>Code rot, experience, and truth in advertising. <code>EcologicalNetworks</code> was initially written in the days of <em>Julia</em> 0.5, and never really caught up with changes in the language (or with accumulated experience in writing code that is easy to maintain). After realizing the the former's type system was often preventing elegant dispatch and was due for a re-write, it made sense to initiate a susbtantial refactor. Additionally, there are ecological networks that do not describe species interactions, which were not covered by the package.</p>
-</div>
-<p>The package is built around a type system for species interaction networks, which is intended to capture the different types of data and communities ecologists need to handle. This makes the package extensible, both by writing additional methods with a very fine-tuned dispatch, or by adding additional types that should work out of the box (or be very close to).</p>
-<p>This package is a library for the analysis of ecological networks. On purpose, we do not provide "wrapper"-type functions that would perform an entire analysis. We experimented with this idea during development, and rapidly realized that even for the most simple research project, we needed to make small tweaks that made the wrappers a nuisance. We decided to give you the parts, and it's your job to build the kick-ass spaceship.</p>
+<p><a id='Internals'></a></p>
+<p><a id='Internals-1'></a></p>
+<h1 id="internals">Internals</h1>
+<p><a id='Network-dimensions'></a></p>
+<p><a id='Network-dimensions-1'></a></p>
+<h2 id="network-dimensions">Network dimensions</h2>
+<p><a id='Copy-of-network-data'></a></p>
+<p><a id='Copy-of-network-data-1'></a></p>
+<h2 id="copy-of-network-data">Copy of network data</h2>
+<p><a id='Base.copy-Tuple{SpeciesInteractionNetwork}' href='#Base.copy-Tuple{SpeciesInteractionNetwork}'>#</a>
+<strong><code>Base.copy</code></strong> &mdash; <em>Method</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Base</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">)</span>
+</code></pre></div>
+<p>A copy of a network is created by wrapping together a copy of the nodes and a copy of the edges.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7cd61d2608a2b29b361f10566197b633554d5c90/src/types/copy.jl#L13-L18' class='documenter-source'>source</a><br></p>
 
 
 
@@ -558,14 +623,14 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
       
-        <script src="assets/mathjaxhelper.js"></script>
+        <script src="../assets/mathjaxhelper.js"></script>
       
     
   </body>
