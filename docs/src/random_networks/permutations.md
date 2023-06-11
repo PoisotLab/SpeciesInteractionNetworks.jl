@@ -26,3 +26,71 @@ Note that the permutations are currently limited to networks with `Binary` inter
 ```@docs
 swap!
 ```
+
+##  Illustration
+
+To showcase `swap!` in practice, we will work through through a simple example
+of (i) generating a perfectly nested network, (ii) shuffling interactions by
+maintaining the generality of top-level species, and (iii) looking at the way
+nestdeness of top and bottom level species changes with each successive swaps.
+
+```@example 1
+using SpeciesInteractionNetworks
+import CairoMakie
+CairoMakie.activate!(px_per_unit=2)
+```
+
+We can generate a nested network rather easily, by creating a matrix of binary
+interactions, where the species interact with species from a lower rank:
+
+```@example 1
+A = zeros(Bool, (10, 14))
+for i in axes(A, 1)
+    for j in axes(A, 2)
+        if i <= j
+            A[i,j] = true
+        end
+    end
+end
+```
+
+We can declare a network *without* having to define all of the species, by first
+wrapping our matrix inside a `Binary` type, and then generating a `Bipartite`
+species set with the right number of species:
+
+```@example 1
+edges = Binary(A)
+nodes = Bipartite(edges)
+N = SpeciesInteractionNetwork(nodes, edges)
+```
+
+The initial nestedness of this network is (network, top-level contribution,
+bottom-level contribution):
+
+```@example 1
+(η(N), η(N,1), η(N,2))
+```
+
+In order to generate the series of successive permutations, we will define an
+empty array of values, and then for each successive step, calculate the
+nestedness of the network, and then swap interactions under the given
+constraint.
+
+```@example 1
+nestedness_series = zeros(Float64, 1000)
+for i in axes(nestedness_series, 1)
+    nestedness_series[i] = η(N)
+    swap!(N, Generality)
+end
+```
+
+Finally, we can plot the result, to check that 1000 swaps are enough to bring us
+to some sort of equilibrium of the randomized nestedness:
+
+```@example 1
+f = CairoMakie.Figure(backgroundcolor = :transparent, resolution = (800, 300))
+ax = CairoMakie.Axis(f[1,1], xlabel="Swap", ylabel = "Nestedness")
+CairoMakie.lines!(ax, nestedness_series, color=:black)
+CairoMakie.tightlimits!(ax)
+CairoMakie.current_figure()
+```
