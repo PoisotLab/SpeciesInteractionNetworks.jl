@@ -317,3 +317,45 @@ end
     B[(:A, :A, 0.1)] = 1.0
     @test B[:A, :A] == 1.0
 end
+
+function Base.permutedims(N::SpeciesInteractionNetwork{<:Bipartite, <:Interactions})
+    nodes = Bipartite(N.nodes.bottom, N.nodes.top)
+    edges = typeof(N.edges).name.wrapper(permutedims(N.edges.edges))
+    return SpeciesInteractionNetwork(nodes, edges)
+end
+
+function Base.permutedims(N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions})
+    nodes = Unipartite(N.nodes.margin)
+    edges = typeof(N.edges).name.wrapper(permutedims(N.edges.edges))
+    return SpeciesInteractionNetwork(nodes, edges)
+end
+
+@testitem "We can permute the dimensions of a bipartite network" begin
+    nodes = Bipartite([:A, :B, :C], [:a, :b, :c])
+    edges = Binary(Bool[0 1 1; 1 0 1; 0 1 0])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    P = permutedims(N)
+    @test sort(species(N)) == sort(species(P))
+    @test sort(species(N,1)) == sort(species(P,2))
+    @test sort(species(N,2)) == sort(species(P,1))
+    for s1 in species(N, 1)
+        for s2 in species(N, 2)
+            @test N[s1, s2] == P[s2, s1]
+        end
+    end
+end
+
+@testitem "We can permute the dimensions of a unipartite network" begin
+    nodes = Unipartite([:A, :B, :C])
+    edges = Binary(Bool[0 1 1; 1 0 1; 0 1 0])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    P = permutedims(N)
+    @test sort(species(N)) == sort(species(P))
+    @test sort(species(N,1)) == sort(species(P,2))
+    @test sort(species(N,2)) == sort(species(P,1))
+    for s1 in species(N, 1)
+        for s2 in species(N, 2)
+            @test N[s1, s2] == P[s2, s1]
+        end
+    end
+end
