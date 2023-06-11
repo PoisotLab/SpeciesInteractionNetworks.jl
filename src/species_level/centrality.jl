@@ -22,7 +22,9 @@ abstract type KatzCentrality <: CentralityMethod end
 
 This measure can work on different path length (`k`), and give a different
 weight to every subsequent connection (`a`). `k` must be at least 1 (only
-immediate neighbors are considered). `a` (being a weight), must be positive.
+immediate neighbors are considered, in which case the measure becomes analogue
+to the degree centrality). `a` is a weight, specifically the weight of each
+subsequent move away from the node, and therefore must be positive.
 
 ###### References
 
