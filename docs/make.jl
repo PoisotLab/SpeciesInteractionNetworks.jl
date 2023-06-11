@@ -2,9 +2,13 @@ push!(LOAD_PATH, "../src/")
 
 using Documenter
 using DocumenterMarkdown
+using DocumenterCitations
 using SpeciesInteractionNetworks
 
-makedocs(;
+bibliography = CitationBibliography("SpeciesInteractionNetworks.bib", sorting = :nyt)
+
+makedocs(
+    bibliography;
     sitename = "SpeciesInteractionNetworks",
     authors = "Timothée Poisot",
     modules = [SpeciesInteractionNetworks],

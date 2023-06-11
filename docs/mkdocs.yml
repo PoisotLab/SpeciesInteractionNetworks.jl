@@ -36,3 +36,4 @@ nav:
     - Nestedness: community_level/nestedness.md
   - Random networks:
     - Permutations: random_networks/permutations.md
+  - Bibliography: bibliography.md

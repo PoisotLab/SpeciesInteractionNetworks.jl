@@ -22,6 +22,8 @@ default), or for either side of the network (`1` for rows, `2` for columns).
 
 The measure for the entire network is the average of the nestedness of rows and
 columns.
+
+[Bastolla2009Architecture](@cite)
 """
 function η(
     N::SpeciesInteractionNetwork{<:Bipartite, <:Union{Binary, Probabilistic}},
