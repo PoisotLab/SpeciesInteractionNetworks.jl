@@ -28,6 +28,8 @@ function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, constraint
     return N
 end
 
+swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}) = swap!(N, Degree)
+
 @testitem "We cannot swap a network with fewer than two interactions" begin
     nodes = Unipartite([:a, :b, :c])
     edges = Binary(zeros(Bool, (3,3)))
@@ -39,19 +41,31 @@ function swap_degree!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary})
     intpool = interactions(N)
     intpair = StatsBase.sample(intpool, 2, replace=false)
     swappair = [(intpair[1][1],intpair[2][2],true), (intpair[2][1],intpair[1][2],true)]
-    valid = all(iszero.(N, swappair))
+    valid = all(iszero.([N[swp] for swp in swappair]))
     iters = 0
-    while (!valid)||(iter < SWAP_MAXITER)
+    while (!valid)&&(iters < SpeciesInteractionNetworks.SWAP_MAXITER)
         intpair = StatsBase.sample(intpool, 2, replace=false)
         swappair = [(intpair[1][1],intpair[2][2],true), (intpair[2][1],intpair[1][2],true)]
-        valid = all(iszero.(N, swappair))
+        valid = all(iszero.([N[swp] for swp in swappair]))
         iters += 1
     end
-    if iter < SWAP_MAXITER
+    if iters <= SpeciesInteractionNetworks.SWAP_MAXITER
         N[intpair[1]] = false
         N[intpair[2]] = false
         N[swappair[1]] = true
         N[swappair[2]] = true
     end
     return N
+end
+
+@testitem "We can swap a network with enough interactions" begin
+    nodes = Unipartite([:A, :B, :C, :D, :E, :F])
+    edges = Binary(rand(Bool, (richness(nodes,1), richness(nodes, 2))))
+    N = SpeciesInteractionNetwork(nodes, edges)
+    it_orig = interactions(N)
+    for i in 1:10
+        swap!(N, Degree)
+    end
+    it_swap = interactions(N)
+    @test it_orig !== it_swap
 end
