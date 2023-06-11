@@ -84,13 +84,20 @@ for i in axes(nestedness_series, 1)
 end
 ```
 
+!!! warning "A note about swaps and underlying nodes/edges"
+
+    When we perform the `swap!` operation, we are modifying the network (this is
+    what we want!), but we are also modifying the `edges` object. If you want to
+    re-use the edges in another network, be mindful of the fact that this will
+    be the *randomized* edges.
+
 Finally, we can plot the result, to check that 1000 swaps are enough to bring us
 to some sort of equilibrium of the randomized nestedness:
 
 ```@example 1
 f = CairoMakie.Figure(backgroundcolor = :transparent, resolution = (800, 300))
 ax = CairoMakie.Axis(f[1,1], xlabel="Swap", ylabel = "Nestedness")
-CairoMakie.lines!(ax, nestedness_series, color=:black)
+CairoMakie.lines!(ax, nestedness_series, color=(:black, 0.5))
 CairoMakie.tightlimits!(ax)
 CairoMakie.current_figure()
 ```
