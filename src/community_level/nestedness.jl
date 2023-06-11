@@ -13,6 +13,16 @@ function η_axis(N::SpeciesInteractionNetwork)
     return num / den
 end
 
+"""
+    η(N::SpeciesInteractionNetwork{<:Bipartite, <:Union{Binary, Probabilistic}}, dims::Integer = 0)
+
+The η measure of nestedness is a variation of NODF, it can be calculated at the
+scale of the entire network (using `0` as the second argument, which is the
+default), or for either side of the network (`1` for rows, `2` for columns).
+
+The measure for the entire network is the average of the nestedness of rows and
+columns.
+"""
 function η(
     N::SpeciesInteractionNetwork{<:Bipartite, <:Union{Binary, Probabilistic}},
     dims::Integer = 0,
