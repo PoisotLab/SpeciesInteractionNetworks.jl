@@ -29,6 +29,13 @@ of all species will be maintained.
 """
 swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}) = swap!(N, Degree)
 
+"""
+    swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Degree})
+
+Permutations with a constraint by degree work by picking two interacting species
+pairs, (r1, s1) and (r2, s2), and trying to replace them by (r1, s2) and (r2,
+s1).
+"""
 function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Degree})
     if length(N) < 2 
         throw(ArgumentError("Impossible to swap a network with fewer than two interactions"))
@@ -53,6 +60,14 @@ function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Deg
     return N
 end
 
+"""
+    swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Generality})
+
+Permutations with a constraint by degree work by picking one interacting species
+pair, (r1, s1), and a new stem species s3, trying to replace them by (r1, s3).
+This function only applies if the result of this permutations does not remove
+the last incoming link from s1.
+"""
 function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Generality})
     if length(N) < 2 
         throw(ArgumentError("Impossible to swap a network with fewer than two interactions"))
@@ -74,6 +89,15 @@ function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Gen
     end
     return N
 end
+
+"""
+    swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Vulnerability})
+
+Permutations with a constraint by degree work by picking one interacting species
+pair, (r1, s1), and a new root species r3, trying to replace them by (r3, s1).
+This function only applies if the result of this permutations does not remove
+the last outgoing link from r1.
+"""
 
 function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Vulnerability})
     if length(N) < 2 
@@ -97,6 +121,13 @@ function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Vul
     return N
 end
 
+"""
+    swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Connectance})
+
+Permutations with a constraint by connectance will *randomly* (and with equal
+probability) perform a move that is constrained by degree, generality, or
+vulnerability.
+"""
 function swap!(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}, ::Type{Connectance})
     strategy = rand([Generality, Vulnerability, Degree])
     swap!(N, strategy)

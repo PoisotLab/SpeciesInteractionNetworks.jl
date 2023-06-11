@@ -22,3 +22,7 @@ PermutationConstraint
 ## Permutation of a network
 
 Note that the permutations are currently limited to networks with `Binary` interactions.
+
+```@docs
+swap!
+```
