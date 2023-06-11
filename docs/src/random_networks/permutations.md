@@ -32,7 +32,7 @@ swap!
 To showcase `swap!` in practice, we will work through through a simple example
 of (i) generating a perfectly nested network, (ii) shuffling interactions by
 maintaining the generality of top-level species, and (iii) looking at the way
-nestdeness of top and bottom level species changes with each successive swaps.
+the nestdeness of the entire network changes with each successive swap.
 
 ```@example 1
 using SpeciesInteractionNetworks
