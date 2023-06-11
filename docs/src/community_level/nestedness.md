@@ -4,7 +4,7 @@
 
     The methods presented in this page measure the nestedness of a network. Nestedness is usually restricted to biparite networks.
 
-## Eta
+## η
 
 !!! warning "Degree distribution and η"
 
