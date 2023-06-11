@@ -336,9 +336,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Specificity
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Specificity
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#measures-of-specificity" class="md-nav__link">
+    Measures of specificity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#illustration" class="md-nav__link">
+    Illustration
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -484,6 +522,28 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#measures-of-specificity" class="md-nav__link">
+    Measures of specificity
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#illustration" class="md-nav__link">
+    Illustration
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -503,6 +563,14 @@
 <p><a id='Specificity'></a></p>
 <p><a id='Specificity-1'></a></p>
 <h1 id="specificity">Specificity</h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>The specificity of species in a network is measured either as a function of the proportion of resouces they effectively use (for binary networks), or as a function of the distribution of their performance on these resources (for quantitative networks).</p>
+</div>
+<p><a id='Measures-of-specificity'></a></p>
+<p><a id='Measures-of-specificity-1'></a></p>
+<h2 id="measures-of-specificity">Measures of specificity</h2>
+<p>The packages relies on the <em>Paired Difference Index</em> to calculate specificity, as it can be applied to both binary and quantitative data.</p>
 <p><a id='SpeciesInteractionNetworks.specificity' href='#SpeciesInteractionNetworks.specificity'>#</a>
 <strong><code>SpeciesInteractionNetworks.specificity</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">specificity</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Binary</span><span class="p">,</span><span class="kt">Quantitative</span><span class="p">}})</span>
@@ -510,7 +578,29 @@
 <p>For a deterministic network, this function will return a dictionary mapping each top-level species to its specificity. The same index (Paired Differences Index) is used for binary and quantitative networks. A value of one corresponds to maximum specialism, and a value of zero to maximum generalism. The index is symmetrical, so that a species with a value of one half is neither specialist nor generalist.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Poisot2012comparative">Timothée Poisot, Elsa Canard, Nicolas Mouquet, Michael E. Hochberg (2012)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/53db09493425e12fbb0b77fe1c1bc6a9324aad8d/src/species_level/specificity.jl#L19-L32' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9e126de6b0cd8ee7b494da97a1fdd5084c7d9810/src/species_level/specificity.jl#L19-L32' class='documenter-source'>source</a><br></p>
+<p><a id='Illustration'></a></p>
+<p><a id='Illustration-1'></a></p>
+<h2 id="illustration">Illustration</h2>
+<p>We can generate an example network with three different degrees of specificity:</p>
+<p>```@example 1
+using SpeciesInteractionNetwork</p>
+<p>nodes = Bipartite([:A, :B, :C, :D], [:a, :b, :c, :d, :e, :f])
+edges = Quantitative([1 0 0 0 0; 2 0 0 0 0; 1 1 1 0 0; 4 3 2 1 0])
+N = SpeciesInteractionNetwork(nodes, edges)
+<div class="highlight"><pre><span></span><code>We can calculate the specificity of the top-level species:
+
+
+```@example 1
+spe_scores = specificity(N)
+</code></pre></div></p>
+<div class="admonition info">
+<p class="admonition-title">Making sense of the score</p>
+<p>The Paired Differences Index will <em>always</em> return values in the unit interval, and these values are independent from one species to the next. In the example above, species <code>:A</code> and <code>:B</code> have the same (maximum) specificity because they use a single resource. The purpose of the Paired Differences Index is to express specificity in a way that is <em>not</em> affected by the total interaction strenght of the species, because what is well understood can be measured without confounders.</p>
+</div>
+<p>The output of specificity is a dictionary, where the <code>species(N, 1)</code> are keys, and the score for each of these species are the values. We can, for example, look at the specificity for species <code>:D</code>:</p>
+<p><code>@example 1
+spe_scores[:D]</code></p>
 
 
 
