@@ -54,6 +54,11 @@ include("species_level/centrality.jl")
 export CentralityMethod, KatzCentrality, HarmonicCentrality, EigenvectorCentrality, DegreeCentrality, ClosenessCentrality
 export centrality
 
+include("meso_level/paths.jl")
+export ShortestPathMethod
+export BellmanFord, Dijkstra
+export shortestpath
+
 include("community_level/nestedness.jl")
 export η
 

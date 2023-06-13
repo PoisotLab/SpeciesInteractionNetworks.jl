@@ -35,6 +35,8 @@ nav:
   - Species level measures:
     - Specificity: species_level/specificity.md
     - Centrality: species_level/centrality.md
+  - Intermediate level measures:
+    - Paths: meso_level/paths.md
   - Community level measures:
     - Nestedness: community_level/nestedness.md
   - Random networks:
