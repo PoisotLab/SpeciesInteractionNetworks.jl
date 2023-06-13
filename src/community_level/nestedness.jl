@@ -51,3 +51,16 @@ end
     @test isone(η(N,1))
     @test isone(η(N,2))
 end
+
+@testitem "η works with known values" begin
+    nodes = Bipartite([:A, :B, :C], [:a, :b, :c])
+    A = SpeciesInteractionNetwork(nodes, Probabilistic([1.0 0.0 0.0; 0.0 0.1 0.0; 0.0 0.0 0.1]))
+    B = SpeciesInteractionNetwork(nodes, Probabilistic([1.0 1.0 1.0; 1.0 0.1 0.0; 1.0 0.0 0.0]))
+    C = SpeciesInteractionNetwork(nodes, Probabilistic([1.0 1.0 1.0; 1.0 0.1 0.3; 0.4 0.2 0.0]))
+    D = SpeciesInteractionNetwork(nodes, Probabilistic([1.0 1.0 1.0; 0.0 0.1 1.0; 0.0 0.0 1.0]))
+
+    @test η(A) ≈ 0.0
+    @test η(B) ≈ 1.0
+    @test η(C) ≈ 0.9153846153846155
+    @test η(D) ≈ 1.0
+end

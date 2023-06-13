@@ -112,7 +112,13 @@ function centrality(::Type{EigenvectorCentrality}, N::SpeciesInteractionNetwork{
 
     return Dict(zip(species(N), b ./ sum(b)))
 
+end
 
+@testitem "Eigenvector centralities sum to one" begin
+    nodes = Unipartite([:A, :B, :C])
+    edges = Binary(Bool[0 1 1; 1 0 1; 0 1 0])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    @test sum(values(centrality(EigenvectorCentrality, N))) == 1.0
 end
 
 #=
