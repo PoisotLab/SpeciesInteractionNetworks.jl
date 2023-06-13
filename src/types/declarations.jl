@@ -156,7 +156,7 @@ struct Probabilistic{T <: AbstractFloat} <: Interactions{T}
 end
 
 @testitem "We cannot construct probabilistic matrices with values outside the unit interval" begin
-    @test_throws ArgumentError Probabilistic(rand(Float32, (2, 2)).*2.0)
+    @test_throws ArgumentError Probabilistic(rand(Float32, (2, 2)).*200.0)
 end
 
 """

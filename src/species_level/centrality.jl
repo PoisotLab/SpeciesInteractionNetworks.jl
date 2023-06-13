@@ -1,14 +1,18 @@
+SpeciesInteractionNetworks.CENTRALITY_MAXITER = 50
+
 """
     CentralityMethod
 
-All algorithms for centrality are subtypes of `CentralityMethod`.
+All algorithms for centrality are subtypes of `CentralityMethod`. These
+algorithms do not take additional arguments, which are instead passed to the
+[`centrality`](@ref) method.
 """
 abstract type CentralityMethod end
 
 abstract type ClosenessCentrality <: CentralityMethod end
+abstract type BetweennessCentrality <: CentralityMethod end
 abstract type DegreeCentrality <: CentralityMethod end
 abstract type HarmonicCentrality <: CentralityMethod end
-abstract type EigenvectorCentrality <: CentralityMethod end
 
 """
     KatzCentrality
@@ -18,17 +22,37 @@ This type is used to perform the Katz centrality analysis.
 abstract type KatzCentrality <: CentralityMethod end
 
 """
+    EigenvectorCentrality
+
+This type is used to perform the Eigenvector centrality analysis.
+"""
+abstract type EigenvectorCentrality <: CentralityMethod end
+
+"""
+    centrality(N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, Probabilistic}})
+
+If no type is given as the first argument, the centrality function will use
+[`EigenvectorCentrality`](@ref).
+"""
+function centrality(N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, Probabilistic}})
+    return centrality(EigenvectorCentrality, N)
+end
+
+
+"""
     centrality(::Type{KatzCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, Probabilistic}}; α::AbstractFloat=0.1)
 
 This measure gives a different weight to every subsequent connection (`α`). `α`
-is a weight, specifically the weight of each subsequent move away from the node,
-and therefore must be positive.
+is a weight, specifically the attenuation of each subsequent move away from the
+node, and therefore must be positive.
 
 Note that internally, this function uses linear algebra shortcuts (rather than a
-sum over path lengths) to calculate the centrality, which is faster.
-
-The values are returned as a dictionary, and the values are futher ranged so
-that the sum of centralities is equal to one.
+sum over path lengths) to calculate the centrality, which is faster. As a
+consequence, there is, for each network, a maximal value of α that is the
+reciprocal of the absolute value of the leading eigenvalue of the adjacency
+matrix. This α has no analytical solution when the adjacency matrix has complex
+eigenvalues. It is recommended to use this centrality algorithm as part of a
+`try`/`catch` block if using large values of α.
 
 ###### References
 
@@ -37,7 +61,7 @@ that the sum of centralities is equal to one.
 [Junker2008Analysis](@cite)
 """
 function centrality(::Type{KatzCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, Probabilistic}}; α::AbstractFloat=0.1)    
-    @assert 0.0 <= α <= 1.0
+    @assert 0.0 <= α
 
     A = Matrix(N.edges.edges)
     C = (inv(I - α*A')-I)*ones(richness(N))
@@ -45,26 +69,50 @@ function centrality(::Type{KatzCentrality}, N::SpeciesInteractionNetwork{<:Unipa
 	return Dict(zip(species(N), C ./ sum(C)))
 end
 
-@testitem "We cannot use Katz centrality with a outside the unit interval" begin
+@testitem "We cannot use Katz centrality with a negative attenuation factor" begin
     nodes = Unipartite([:A, :B, :C])
     edges = Binary(Bool[0 1 1; 1 0 1; 0 1 0])
     N = SpeciesInteractionNetwork(nodes, edges)
-    @test_throws AssertionError centrality(KatzCentrality, N; α = 1.2)
     @test_throws AssertionError centrality(KatzCentrality, N; α = -0.5)
 end
 
+@testitem "Katz centralities sum to one" begin
+    nodes = Unipartite([:A, :B, :C])
+    edges = Binary(Bool[0 1 1; 1 0 1; 0 1 0])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    @test sum(values(centrality(KatzCentrality, N; α = 0.2))) == 1.0
+end
 
 """
     centrality(::Type{EigenvectorCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions})
 
 Eigencentrality, corrected so that the centralities in the network sum to one.
+The eigenvector centrality is calculated using Von Mises iteration, starting
+from a random vector. The number of iterations is determined by the variable
+`SpeciesInteractionNetworks.CENTRALITY_MAXITER`, and the algorithm usually
+converges rapidly.
+
+###### References
+
+[Landau1895Zur](@cite)
 """
 function centrality(::Type{EigenvectorCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions})
-  evals, evecs = eigen(Array(N.edges.edges))
-  emax, epos = findmax(real.(evals))
-  cvals = vec(real.(evecs[:,epos]))
-  cvals ./= sum(cvals)
-  return Dict(zip(species(N), cvals))
+    b = rand(richness(N))
+    b ./= sum(b)
+
+    for _ in 1:SpeciesInteractionNetworks.CENTRALITY_MAXITER
+        b1 = Array(N.edges.edges) * b
+        n = LinearAlgebra.norm(b1)
+        for i in eachindex(b1)
+            b[i] = b1[i]/n
+        end
+    end
+
+    b ./= sum(b)
+
+    return Dict(zip(species(N), b ./ sum(b)))
+
+
 end
 
 #=
