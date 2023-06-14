@@ -51,7 +51,9 @@ include("species_level/specificity.jl")
 export specificity
 
 include("species_level/centrality.jl")
-export CentralityMethod, KatzCentrality, HarmonicCentrality, EigenvectorCentrality, DegreeCentrality, ClosenessCentrality
+export CentralityMethod
+export KatzCentrality, EigenvectorCentrality
+export ClosenessCentrality, ResidualClosenessCentrality, GeneralizedClosenessCentrality
 export centrality
 
 include("meso_level/paths.jl")

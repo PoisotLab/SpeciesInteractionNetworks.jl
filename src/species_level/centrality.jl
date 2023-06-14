@@ -9,10 +9,14 @@ algorithms do not take additional arguments, which are instead passed to the
 """
 abstract type CentralityMethod end
 
+"""
+    ClosenessCentrality
+
+###### References
+
+[Bavelas1950Communication](@cite)
+"""
 abstract type ClosenessCentrality <: CentralityMethod end
-abstract type BetweennessCentrality <: CentralityMethod end
-abstract type DegreeCentrality <: CentralityMethod end
-abstract type HarmonicCentrality <: CentralityMethod end
 
 """
     ResidualClosenessCentrality

@@ -17,6 +17,9 @@ CentralityMethod
 ```@docs
 KatzCentrality
 EigenvectorCentrality
+ClosenessCentrality
+ResidualClosenessCentrality
+GeneralizedClosenessCentrality
 ```
 
 ## Centrality function
