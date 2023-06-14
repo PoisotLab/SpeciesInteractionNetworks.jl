@@ -15,9 +15,31 @@ abstract type DegreeCentrality <: CentralityMethod end
 abstract type HarmonicCentrality <: CentralityMethod end
 
 """
+    ResidualClosenessCentrality
+
+###### References
+
+[Dangalchev2006Residual](@cite)
+"""
+abstract type ResidualClosenessCentrality <: CentralityMethod end
+
+"""
+    GeneralizedClosenessCentrality
+
+###### References
+
+[Dangalchev2011Residual](@cite)
+"""
+abstract type GeneralizedClosenessCentrality <: CentralityMethod end
+
+"""
     KatzCentrality
 
 This type is used to perform the Katz centrality analysis.
+
+###### References
+
+[Katz1953new](@cite)
 """
 abstract type KatzCentrality <: CentralityMethod end
 
@@ -55,8 +77,6 @@ eigenvalues. It is recommended to use this centrality algorithm as part of a
 `try`/`catch` block if using large values of α.
 
 ###### References
-
-[Katz1953new](@cite)
 
 [Junker2008Analysis](@cite)
 """
