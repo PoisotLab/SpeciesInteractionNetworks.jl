@@ -654,19 +654,42 @@
 <div class="highlight"><pre><span></span><code><span class="n">CentralityMethod</span>
 </code></pre></div>
 <p>All algorithms for centrality are subtypes of <code>CentralityMethod</code>. These algorithms do not take additional arguments, which are instead passed to the <a href="./#SpeciesInteractionNetworks.centrality"><code>centrality</code></a> method.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/4b71845d1b9b1f0f61e64001d21c01185e0f454b/src/species_level/centrality.jl#L3-L9' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0ef29c097ceace99faa1747e35754bbb55d4548f/src/species_level/centrality.jl#L3-L9' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.KatzCentrality' href='#SpeciesInteractionNetworks.KatzCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.KatzCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">KatzCentrality</span>
 </code></pre></div>
 <p>This type is used to perform the Katz centrality analysis.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/4b71845d1b9b1f0f61e64001d21c01185e0f454b/src/species_level/centrality.jl#L17-L21' class='documenter-source'>source</a><br></p>
+<p><strong>References</strong></p>
+<p><a href="../../bibliography/#Katz1953new">Leo Katz (1953)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0ef29c097ceace99faa1747e35754bbb55d4548f/src/species_level/centrality.jl#L39-L47' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.EigenvectorCentrality' href='#SpeciesInteractionNetworks.EigenvectorCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.EigenvectorCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">EigenvectorCentrality</span>
 </code></pre></div>
 <p>This type is used to perform the Eigenvector centrality analysis.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/4b71845d1b9b1f0f61e64001d21c01185e0f454b/src/species_level/centrality.jl#L24-L28' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0ef29c097ceace99faa1747e35754bbb55d4548f/src/species_level/centrality.jl#L50-L54' class='documenter-source'>source</a><br></p>
+<p><a id='SpeciesInteractionNetworks.ClosenessCentrality' href='#SpeciesInteractionNetworks.ClosenessCentrality'>#</a>
+<strong><code>SpeciesInteractionNetworks.ClosenessCentrality</code></strong> &mdash; <em>Type</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ClosenessCentrality</span>
+</code></pre></div>
+<p><strong>References</strong></p>
+<p><a href="../../bibliography/#Bavelas1950Communication">Alex Bavelas (1950)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0ef29c097ceace99faa1747e35754bbb55d4548f/src/species_level/centrality.jl#L12-L18' class='documenter-source'>source</a><br></p>
+<p><a id='SpeciesInteractionNetworks.ResidualClosenessCentrality' href='#SpeciesInteractionNetworks.ResidualClosenessCentrality'>#</a>
+<strong><code>SpeciesInteractionNetworks.ResidualClosenessCentrality</code></strong> &mdash; <em>Type</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ResidualClosenessCentrality</span>
+</code></pre></div>
+<p><strong>References</strong></p>
+<p><a href="../../bibliography/#Dangalchev2006Residual">Chavdar Dangalchev (2006)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0ef29c097ceace99faa1747e35754bbb55d4548f/src/species_level/centrality.jl#L21-L27' class='documenter-source'>source</a><br></p>
+<p><a id='SpeciesInteractionNetworks.GeneralizedClosenessCentrality' href='#SpeciesInteractionNetworks.GeneralizedClosenessCentrality'>#</a>
+<strong><code>SpeciesInteractionNetworks.GeneralizedClosenessCentrality</code></strong> &mdash; <em>Type</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">GeneralizedClosenessCentrality</span>
+</code></pre></div>
+<p><strong>References</strong></p>
+<p><a href="../../bibliography/#Dangalchev2011Residual">Chavdar Dangalchev (2011)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0ef29c097ceace99faa1747e35754bbb55d4548f/src/species_level/centrality.jl#L30-L36' class='documenter-source'>source</a><br></p>
 <p><a id='Centrality-function'></a></p>
 <p><a id='Centrality-function-1'></a></p>
 <h2 id="centrality-function">Centrality function</h2>
@@ -675,15 +698,14 @@
 <div class="highlight"><pre><span></span><code><span class="n">centrality</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Unipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Binary</span><span class="p">,</span><span class="w"> </span><span class="kt">Probabilistic</span><span class="p">}})</span>
 </code></pre></div>
 <p>If no type is given as the first argument, the centrality function will use <a href="./#SpeciesInteractionNetworks.EigenvectorCentrality"><code>EigenvectorCentrality</code></a>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/4b71845d1b9b1f0f61e64001d21c01185e0f454b/src/species_level/centrality.jl#L31-L36' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0ef29c097ceace99faa1747e35754bbb55d4548f/src/species_level/centrality.jl#L57-L62' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>centrality(::Type{KatzCentrality}, N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Union{Binary, Probabilistic}}; α::AbstractFloat=0.1)
 </code></pre></div>
 <p>This measure gives a different weight to every subsequent connection (<code>α</code>). <code>α</code> is a weight, specifically the attenuation of each subsequent move away from the node, and therefore must be positive.</p>
 <p>Note that internally, this function uses linear algebra shortcuts (rather than a sum over path lengths) to calculate the centrality, which is faster. As a consequence, there is, for each network, a maximal value of α that is the reciprocal of the absolute value of the leading eigenvalue of the adjacency matrix. This α has no analytical solution when the adjacency matrix has complex eigenvalues. It is recommended to use this centrality algorithm as part of a <code>try</code>/<code>catch</code> block if using large values of α.</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Katz1953new">Leo Katz (1953)</a></p>
 <p><a href="../../bibliography/#Junker2008Analysis"> (2008)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/4b71845d1b9b1f0f61e64001d21c01185e0f454b/src/species_level/centrality.jl#L42-L62' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0ef29c097ceace99faa1747e35754bbb55d4548f/src/species_level/centrality.jl#L68-L86' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>centrality(::Type{EigenvectorCentrality}, N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Interactions})
 </code></pre></div>
 <p>Eigencentrality, corrected so that the centralities in the network sum to one.</p>
@@ -691,8 +713,8 @@
 <p>where A is the adjacency matrix of the graph, b is the vector of centralities, At each iteration, the vector is updated to be A×b/|A×b|, and |⋅| is the norm.</p>
 <p>The number of iterations is determined by the variable <code>SpeciesInteractionNetworks.CENTRALITY_MAXITER</code>, and the algorithm usually converges rapidly.</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Landau1895Zur">Edmun Landau (1895)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/4b71845d1b9b1f0f61e64001d21c01185e0f454b/src/species_level/centrality.jl#L86-L104' class='documenter-source'>source</a><br></p>
+<p><a href="../../bibliography/#Landau1895Zur">Edmund Landau (1895)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0ef29c097ceace99faa1747e35754bbb55d4548f/src/species_level/centrality.jl#L110-L128' class='documenter-source'>source</a><br></p>
 
 
 
