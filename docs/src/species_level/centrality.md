@@ -43,6 +43,7 @@ N[:Bacteria, :Insects] = true
 N[:Sarraceniopus, :Bacteria] = true
 N[:Habrotrocha, :Bacteria] = true
 N[:Protozoa, :Bacteria] = true
+N[:Protozoa, :Habrotrocha] = true
 N[:Wyeomyia, :Habrotrocha] = true
 N[:Wyeomyia, :Protozoa] = true
 N[:Wyeomyia, :Bacteria] = true
