@@ -53,7 +53,7 @@ interactions(N)
 change alpha
 
 ```@example 1
-attenuation = 10.0.^LinRange(-3, 0, 10)
+attenuation = 10.0.^LinRange(-3, 0, 20)
 c_insect = zeros(length(attenuation))
 c_bacteria = zeros(length(attenuation))
 c_protozoa = zeros(length(attenuation))
@@ -77,6 +77,6 @@ CairoMakie.lines!(ax, attenuations, c_insect, color=(:black, 0.5), label="Insect
 CairoMakie.lines!(ax, attenuations, c_bacteria, color=(:green, 0.5), label="Bacteria")
 CairoMakie.lines!(ax, attenuations, c_protozoa, color=(:orange, 0.5), label="Protozoa")
 CairoMakie.tightlimits!(ax)
-CairoMakie.axislegend()
+CairoMakie.axislegend(position=:lb)
 CairoMakie.current_figure()
 ```

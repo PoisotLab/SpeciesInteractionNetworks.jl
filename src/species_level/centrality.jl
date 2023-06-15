@@ -63,10 +63,10 @@ abstract type EigenvectorCentrality <: CentralityMethod end
     centrality(N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, Probabilistic}})
 
 If no type is given as the first argument, the centrality function will use
-[`EigenvectorCentrality`](@ref).
+[`ClosenessCentrality`](@ref).
 """
 function centrality(N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, Probabilistic}})
-    return centrality(EigenvectorCentrality, N)
+    return centrality(ClosenessCentrality, N)
 end
 
 """
@@ -104,6 +104,44 @@ function centrality(::Type{ClosenessCentrality}, N::SpeciesInteractionNetwork{<:
             ci[i] = 0.0
         else
             ci[i] = 1.0 / sum(collect(values(sp))) * (richness(N)-1)
+        end
+    end
+    return Dict(zip(species(N), ci ./ sum(ci)))
+end
+
+"""
+    centrality(::Type{ResidualClosenessCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
+
+The residual closeness centrality of a binary network is the sum of the
+residuals of two to the power of the length of shortest paths.
+"""
+function centrality(::Type{ResidualClosenessCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
+    ci = zeros(richness(N))
+    for i in 1:richness(N)
+        sp = shortestpath(BellmanFord, N, species(N)[i])
+        if isempty(sp)
+            ci[i] = 0.0
+        else
+            ci[i] = sum(1.0/(2.0.^values(sp)))
+        end
+    end
+    return Dict(zip(species(N), ci ./ sum(ci)))
+end
+
+"""
+    centrality(::Type{GeneralizedClosenessCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Binary}; α=0.1)
+
+The generalized closeness centrality of a binary network ranges from the degree
+centrality (α is 0) to the number of reachable nodes (α=1).
+"""
+function centrality(::Type{GeneralizedClosenessCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Binary}; α=0.1)
+    ci = zeros(richness(N))
+    for i in 1:richness(N)
+        sp = shortestpath(BellmanFord, N, species(N)[i])
+        if isempty(sp)
+            ci[i] = 0.0
+        else
+            ci[i] = sum(α.^values(sp))
         end
     end
     return Dict(zip(species(N), ci ./ sum(ci)))
@@ -180,9 +218,10 @@ function centrality(::Type{EigenvectorCentrality}, N::SpeciesInteractionNetwork{
         if isnan(n)
             @warn "Early return of the eigencetrality function, results may be approximate"
             break
-        end
-        for i in eachindex(b1)
-            b[i] = b1[i]/n
+        else
+            for i in eachindex(b1)
+                b[i] = b1[i]/n
+            end
         end
     end
 
@@ -196,7 +235,7 @@ end
     nodes = Unipartite([:A, :B, :C])
     edges = Binary(Bool[0 1 1; 1 0 1; 0 1 0])
     N = SpeciesInteractionNetwork(nodes, edges)
-    @test sum(values(centrality(EigenvectorCentrality, N))) == 1.0
+    @test sum(values(centrality(EigenvectorCentrality, N))) ≈ 1.0
 end
 
 #=
