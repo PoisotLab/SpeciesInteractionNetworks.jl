@@ -53,7 +53,7 @@ interactions(N)
 change alpha
 
 ```@example 1
-attenuation = 10.0.^LinRange(-3, 0, 20)
+attenuation = 10.0.^LinRange(-1, 0, 20)
 c_insect = zeros(length(attenuation))
 c_bacteria = zeros(length(attenuation))
 c_protozoa = zeros(length(attenuation))
@@ -84,7 +84,7 @@ CairoMakie.current_figure()
 same with closeness centrality
 
 ```@example 1
-attenuation = 10.0.^LinRange(-3, 0, 20)
+attenuation = 10.0.^LinRange(-1, 0, 20)
 c_insect = zeros(length(attenuation))
 c_bacteria = zeros(length(attenuation))
 c_protozoa = zeros(length(attenuation))
