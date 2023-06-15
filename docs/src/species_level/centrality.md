@@ -73,9 +73,40 @@ CairoMakie.activate!(px_per_unit=2) #hide
 
 f = CairoMakie.Figure(backgroundcolor = :transparent, resolution = (800, 300))
 ax = CairoMakie.Axis(f[1,1], xlabel="Attenuation", ylabel = "Centrality", xscale=log10)
-CairoMakie.lines!(ax, attenuations, c_insect, color=(:black, 0.5), label="Insect")
-CairoMakie.lines!(ax, attenuations, c_bacteria, color=(:green, 0.5), label="Bacteria")
-CairoMakie.lines!(ax, attenuations, c_protozoa, color=(:orange, 0.5), label="Protozoa")
+CairoMakie.lines!(ax, attenuation, c_insect, color=(:black, 0.5), label="Insect")
+CairoMakie.lines!(ax, attenuation, c_bacteria, color=(:green, 0.5), label="Bacteria")
+CairoMakie.lines!(ax, attenuation, c_protozoa, color=(:orange, 0.5), label="Protozoa")
+CairoMakie.tightlimits!(ax)
+CairoMakie.axislegend(position=:lb)
+CairoMakie.current_figure()
+```
+
+same with closeness centrality
+
+```@example 1
+attenuation = 10.0.^LinRange(-3, 0, 20)
+c_insect = zeros(length(attenuation))
+c_bacteria = zeros(length(attenuation))
+c_protozoa = zeros(length(attenuation))
+for (i,α) in enumerate(attenuation)
+    ci = centrality(GeneralizedClosenessCentrality, N; α=α)
+    c_insect[i] = ci[:Insects]
+    c_bacteria[i] = ci[:Bacteria]
+    c_protozoa[i] = ci[:Protozoa]
+end
+```
+
+plot
+
+```@example 1
+import CairoMakie
+CairoMakie.activate!(px_per_unit=2) #hide
+
+f = CairoMakie.Figure(backgroundcolor = :transparent, resolution = (800, 300))
+ax = CairoMakie.Axis(f[1,1], xlabel="Attenuation", ylabel = "Centrality", xscale=log10)
+CairoMakie.lines!(ax, attenuation, c_insect, color=(:black, 0.5), label="Insect")
+CairoMakie.lines!(ax, attenuation, c_bacteria, color=(:green, 0.5), label="Bacteria")
+CairoMakie.lines!(ax, attenuation, c_protozoa, color=(:orange, 0.5), label="Protozoa")
 CairoMakie.tightlimits!(ax)
 CairoMakie.axislegend(position=:lb)
 CairoMakie.current_figure()
