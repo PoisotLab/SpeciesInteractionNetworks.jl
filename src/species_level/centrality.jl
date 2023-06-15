@@ -70,7 +70,7 @@ function centrality(N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, P
 end
 
 """
-    centrality(::Type{ClosenessCentrality}m N::SpeciesInteractionNetwork{<:Unipartite, <:Probabilistic})
+    centrality(::Type{ClosenessCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Probabilistic})
 
 The closeness centrality of a probabilistic network is measured using the
 *random walk* closeness centrality, where the distance between two nodes i and j
@@ -86,6 +86,25 @@ function centrality(::Type{ClosenessCentrality}, N::SpeciesInteractionNetwork{<:
     for i in 1:richness(N)
         Hdoti = (I - m[1:end.!=i,1:end.!=i])^(-1) * e
         ci[i] = n/sum(Hdoti)
+    end
+    return Dict(zip(species(N), ci ./ sum(ci)))
+end
+
+"""
+    centrality(::Type{ClosenessCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
+
+The closeness centrality of a binary network is the reciprocal of the sum of
+shortest paths.
+"""
+function centrality(::Type{ClosenessCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
+    ci = zeros(richness(N))
+    for i in 1:richness(N)
+        sp = shortestpath(BellmanFord, N, species(N)[i])
+        if isempty(sp)
+            ci[i] = 0.0
+        else
+            ci[i] = 1.0 / sum(collect(values(sp))) * (richness(N)-1)
+        end
     end
     return Dict(zip(species(N), ci ./ sum(ci)))
 end
@@ -158,6 +177,10 @@ function centrality(::Type{EigenvectorCentrality}, N::SpeciesInteractionNetwork{
     for _ in 1:SpeciesInteractionNetworks.CENTRALITY_MAXITER
         b1 = Array(N.edges.edges) * b
         n = LinearAlgebra.norm(b1)
+        if isnan(n)
+            @warn "Early return of the eigencetrality function, results may be approximate"
+            break
+        end
         for i in eachindex(b1)
             b[i] = b1[i]/n
         end

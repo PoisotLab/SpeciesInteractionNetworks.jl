@@ -27,3 +27,50 @@ GeneralizedClosenessCentrality
 ```@docs
 centrality
 ```
+
+## Illustration
+
+```@example 1
+using SpeciesInteractionNetworks
+
+nodes = Unipartite([:Wyeomyia, :Metriocnemus, :Fletcherimyia, :Habrotrocha, :Protozoa, :Sarraceniopus, :Bacteria, :Insects])
+edges = Binary(zeros(Bool, (richness(nodes), richness(nodes))))
+N = SpeciesInteractionNetwork(nodes, edges)
+
+N[:Metriocnemus, :Insects] = true
+N[:Fletcherimyia, :Insects] = true
+N[:Bacteria, :Insects] = true
+N[:Sarraceniopus, :Bacteria] = true
+N[:Habrotrocha, :Bacteria] = true
+N[:Protozoa, :Bacteria] = true
+N[:Wyeomyia, :Habrotrocha] = true
+N[:Wyeomyia, :Protozoa] = true
+N[:Wyeomyia, :Bacteria] = true
+```
+
+change alpha
+
+```@example 1
+attenuation = 10.0.^LinRange(-3, 0, 10)
+c_insect = zeros(length(attenuation))
+c_bacteria = zeros(length(attenuation))
+c_protozoa = zeros(length(attenuation))
+for (i,α) in enumerate(attenuation)
+    ci = centrality(KatzCentrality, N; α=α)
+    c_insect[i] = ci[:Insects]
+    c_bacteria[i] = ci[:Bacteria]
+    c_protozoa[i] = ci[:Protozoa]
+end
+```
+
+```@example 1
+import CairoMakie
+
+f = CairoMakie.Figure(backgroundcolor = :transparent, resolution = (800, 300))
+ax = CairoMakie.Axis(f[1,1], xlabel="Attenuation", ylabel = "Centrality")
+CairoMakie.lines!(ax, c_insect, color=(:black, 0.5))
+CairoMakie.lines!(ax, bacteria, color=(:green, 0.5))
+CairoMakie.lines!(ax, c_protozoa, color=(:orange, 0.5))
+CairoMakie.tightlimits!(ax)
+CairoMakie.current_figure()
+```
