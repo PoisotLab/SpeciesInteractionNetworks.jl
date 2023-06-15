@@ -43,7 +43,7 @@ the nestdeness of the entire network changes with each successive swap.
 ```@example 1
 using SpeciesInteractionNetworks
 import CairoMakie
-CairoMakie.activate!(px_per_unit=2)
+CairoMakie.activate!(px_per_unit=2) #hide
 ```
 
 We can generate a nested network rather easily, by creating a matrix of binary

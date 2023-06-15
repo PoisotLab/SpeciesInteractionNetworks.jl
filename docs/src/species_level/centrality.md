@@ -69,6 +69,7 @@ plot
 
 ```@example 1
 import CairoMakie
+CairoMakie.activate!(px_per_unit=2) #hide
 
 f = CairoMakie.Figure(backgroundcolor = :transparent, resolution = (800, 300))
 ax = CairoMakie.Axis(f[1,1], xlabel="Attenuation", ylabel = "Centrality")
