@@ -7,14 +7,15 @@ theme:
   name: material
   palette:
     scheme: default
-    primary: white
-    accent: indigo
+    primary: teal
+    accent: teal
   features:
     - navigation.tabs
     - toc.follow
     - toc.integrate
     - navigation.top
-    - navigation.footer
+    - navigation.instant
+    - navigation.tracking
 
 
 extra_css:
@@ -35,20 +36,21 @@ markdown_extensions:
 docs_dir: 'build'
 
 nav:
-  - Home: index.md
   - Getting started:
+    - Index: index.md
     - Building a network: getting_started/demonstration.md
     - Type system: getting_started/types.md
-  - Species (micro) level measures:
+  - Micro level:
     - Specificity: species_level/specificity.md
     - Centrality: species_level/centrality.md
-  - Intermediate (meso) level measures:
+  - Meso level:
     - Paths: meso_level/paths.md
-  - Community (macro) level measures:
+  - Macro level:
     - Nestedness: community_level/nestedness.md
-  - Networks (meta) level measures:
+  - Meta level:
     - Set operations: meta_level/sets.md
   - Random networks:
     - Permutations: random_networks/permutations.md
-  - Bibliography: bibliography.md
-  - Internals: internals.md
+  - Appendix:
+    - Bibliography: bibliography.md
+    - Internals: internals.md
