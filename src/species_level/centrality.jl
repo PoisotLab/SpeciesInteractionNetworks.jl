@@ -64,6 +64,26 @@ function centrality(N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, P
     return centrality(EigenvectorCentrality, N)
 end
 
+"""
+    centrality(::Type{ClosenessCentrality}m N::SpeciesInteractionNetwork{<:Unipartite, <:Probabilistic})
+
+The closeness centrality of a probabilistic network is measured using the
+*random walk* closeness centrality, where the distance between two nodes i and j
+is measured as the first passage time on node j of a random walk starting on
+node i. This function does not look for shortest paths, and is therefore
+reasonably fast.
+"""
+function centrality(::Type{ClosenessCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Probabilistic})
+    A = Matrix(N.edges.edges)
+    m = A ./ sum(A; dims=2)
+    e = ones(size(m,1)-1)
+    ci = zeros(richness(N))
+    for i in 1:richness(N)
+        Hdoti = (I - m[1:end.!=i,1:end.!=i])^(-1) * e
+        ci[i] = n/sum(Hdoti)
+    end
+    return Dict(zip(species(N), ci ./ sum(ci)))
+end
 
 """
     centrality(::Type{KatzCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, Probabilistic}}; α::AbstractFloat=0.1)
