@@ -9,6 +9,13 @@ theme:
     scheme: default
     primary: white
     accent: indigo
+  features:
+    - navigation.tabs
+    - toc.follow
+    - toc.integrate
+    - navigation.top
+    - navigation.footer
+
 
 extra_css:
   - assets/Documenter.css
