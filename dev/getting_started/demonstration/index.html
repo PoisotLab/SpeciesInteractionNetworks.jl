@@ -19,7 +19,7 @@
         <link rel="next" href="../types/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.15">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
@@ -328,6 +328,13 @@
         <li class="md-nav__item">
   <a href="#networks-are-editable" class="md-nav__link">
     Networks are editable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networks-are-tables" class="md-nav__link">
+    Networks are tables
   </a>
   
 </li>
@@ -662,6 +669,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#networks-are-tables" class="md-nav__link">
+    Networks are tables
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -795,6 +809,15 @@
  (:hawk, :vole, 1)
  (:vole, :turnip, 1)
 </code></pre></div>
+<p><a id='Networks-are-tables'></a></p>
+<p><a id='Networks-are-tables-1'></a></p>
+<h2 id="networks-are-tables">Networks are tables</h2>
+<p>All of the networks can be converted to a tabular data, for use with <em>e.g.</em> the <code>DataFrames</code> package:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="n">DataFrames</span>
+<span class="n">DataFrames</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">network</span><span class="p">)</span>
+</code></pre></div>
+<div><div style = "float: left;"><span>3×3 DataFrame</span></div><div style = "clear: both;"></div></div>
+<div class = "data-frame" style = "overflow-x: scroll;"><table class = "data-frame" style = "margin-bottom: 6px;"><thead><tr class = "header"><th class = "rowNumber" style = "font-weight: bold; text-align: right;">Row</th><th style = "text-align: left;">1</th><th style = "text-align: left;">2</th><th style = "text-align: left;">3</th></tr><tr class = "subheader headerLastRow"><th class = "rowNumber" style = "font-weight: bold; text-align: right;"></th><th title = "Symbol" style = "text-align: left;">Symbol</th><th title = "Symbol" style = "text-align: left;">Symbol</th><th title = "Bool" style = "text-align: left;">Bool</th></tr></thead><tbody><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">1</td><td style = "text-align: left;">fox</td><td style = "text-align: left;">vole</td><td style = "text-align: right;">true</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">2</td><td style = "text-align: left;">hawk</td><td style = "text-align: left;">vole</td><td style = "text-align: right;">true</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">3</td><td style = "text-align: left;">vole</td><td style = "text-align: left;">turnip</td><td style = "text-align: right;">true</td></tr></tbody></table></div>
 
 
 
@@ -835,11 +858,15 @@
     <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.b4d07000.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>
       
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+        
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+        
       
-        <script src="../../assets/mathjaxhelper.js"></script>
+        
+          <script src="../../assets/mathjaxhelper.js"></script>
+        
       
     
   </body>
