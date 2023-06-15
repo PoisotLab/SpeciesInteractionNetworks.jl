@@ -46,6 +46,8 @@ N[:Protozoa, :Bacteria] = true
 N[:Wyeomyia, :Habrotrocha] = true
 N[:Wyeomyia, :Protozoa] = true
 N[:Wyeomyia, :Bacteria] = true
+
+interactions(N)
 ```
 
 change alpha
@@ -63,14 +65,17 @@ for (i,α) in enumerate(attenuation)
 end
 ```
 
+plot
+
 ```@example 1
 import CairoMakie
 
 f = CairoMakie.Figure(backgroundcolor = :transparent, resolution = (800, 300))
 ax = CairoMakie.Axis(f[1,1], xlabel="Attenuation", ylabel = "Centrality")
-CairoMakie.lines!(ax, c_insect, color=(:black, 0.5))
-CairoMakie.lines!(ax, bacteria, color=(:green, 0.5))
-CairoMakie.lines!(ax, c_protozoa, color=(:orange, 0.5))
+CairoMakie.lines!(ax, c_insect, color=(:black, 0.5), label="Insect")
+CairoMakie.lines!(ax, c_bacteria, color=(:green, 0.5), label="Bacteria")
+CairoMakie.lines!(ax, c_protozoa, color=(:orange, 0.5), label="Protozoa")
 CairoMakie.tightlimits!(ax)
+CairoMakie.axislegend()
 CairoMakie.current_figure()
 ```
