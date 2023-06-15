@@ -388,6 +388,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#illustration" class="md-nav__link">
+    Illustration
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -620,6 +627,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#illustration" class="md-nav__link">
+    Illustration
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -654,7 +668,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">CentralityMethod</span>
 </code></pre></div>
 <p>All algorithms for centrality are subtypes of <code>CentralityMethod</code>. These algorithms do not take additional arguments, which are instead passed to the <a href="./#SpeciesInteractionNetworks.centrality"><code>centrality</code></a> method.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5b6cbbd6f34a316b29749c0ab3ee14da05cda6a7/src/species_level/centrality.jl#L3-L9' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/b7c4b7c6959d86c7b54f1987601a9ba1b6e63e3b/src/species_level/centrality.jl#L3-L9' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.KatzCentrality' href='#SpeciesInteractionNetworks.KatzCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.KatzCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">KatzCentrality</span>
@@ -662,13 +676,13 @@
 <p>This type is used to perform the Katz centrality analysis.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Katz1953new">Leo Katz (1953)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5b6cbbd6f34a316b29749c0ab3ee14da05cda6a7/src/species_level/centrality.jl#L44-L52' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/b7c4b7c6959d86c7b54f1987601a9ba1b6e63e3b/src/species_level/centrality.jl#L44-L52' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.EigenvectorCentrality' href='#SpeciesInteractionNetworks.EigenvectorCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.EigenvectorCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">EigenvectorCentrality</span>
 </code></pre></div>
 <p>This type is used to perform the Eigenvector centrality analysis.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5b6cbbd6f34a316b29749c0ab3ee14da05cda6a7/src/species_level/centrality.jl#L55-L59' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/b7c4b7c6959d86c7b54f1987601a9ba1b6e63e3b/src/species_level/centrality.jl#L55-L59' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.ClosenessCentrality' href='#SpeciesInteractionNetworks.ClosenessCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.ClosenessCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">ClosenessCentrality</span>
@@ -676,21 +690,21 @@
 <p>Closeness centrality is defined as the reciprocal of farness, <em>i.e.</em> 1 over the sum of shortest paths from the source node to all other nodes. In the case of probabilistic networks, we use the random walk approximation of closeness centrality, where the distance is defined as first passage time.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Bavelas1950Communication">Alex Bavelas (1950)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5b6cbbd6f34a316b29749c0ab3ee14da05cda6a7/src/species_level/centrality.jl#L12-L23' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/b7c4b7c6959d86c7b54f1987601a9ba1b6e63e3b/src/species_level/centrality.jl#L12-L23' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.ResidualClosenessCentrality' href='#SpeciesInteractionNetworks.ResidualClosenessCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.ResidualClosenessCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">ResidualClosenessCentrality</span>
 </code></pre></div>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Dangalchev2006Residual">Chavdar Dangalchev (2006)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5b6cbbd6f34a316b29749c0ab3ee14da05cda6a7/src/species_level/centrality.jl#L26-L32' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/b7c4b7c6959d86c7b54f1987601a9ba1b6e63e3b/src/species_level/centrality.jl#L26-L32' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.GeneralizedClosenessCentrality' href='#SpeciesInteractionNetworks.GeneralizedClosenessCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.GeneralizedClosenessCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">GeneralizedClosenessCentrality</span>
 </code></pre></div>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Dangalchev2011Residual">Chavdar Dangalchev (2011)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5b6cbbd6f34a316b29749c0ab3ee14da05cda6a7/src/species_level/centrality.jl#L35-L41' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/b7c4b7c6959d86c7b54f1987601a9ba1b6e63e3b/src/species_level/centrality.jl#L35-L41' class='documenter-source'>source</a><br></p>
 <p><a id='Centrality-function'></a></p>
 <p><a id='Centrality-function-1'></a></p>
 <h2 id="centrality-function">Centrality function</h2>
@@ -699,18 +713,22 @@
 <div class="highlight"><pre><span></span><code><span class="n">centrality</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Unipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Binary</span><span class="p">,</span><span class="w"> </span><span class="kt">Probabilistic</span><span class="p">}})</span>
 </code></pre></div>
 <p>If no type is given as the first argument, the centrality function will use <a href="./#SpeciesInteractionNetworks.EigenvectorCentrality"><code>EigenvectorCentrality</code></a>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5b6cbbd6f34a316b29749c0ab3ee14da05cda6a7/src/species_level/centrality.jl#L62-L67' class='documenter-source'>source</a><br></p>
-<div class="highlight"><pre><span></span><code>centrality(::Type{ClosenessCentrality}m N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Probabilistic})
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/b7c4b7c6959d86c7b54f1987601a9ba1b6e63e3b/src/species_level/centrality.jl#L62-L67' class='documenter-source'>source</a><br></p>
+<div class="highlight"><pre><span></span><code>centrality(::Type{ClosenessCentrality}, N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Probabilistic})
 </code></pre></div>
 <p>The closeness centrality of a probabilistic network is measured using the <em>random walk</em> closeness centrality, where the distance between two nodes i and j is measured as the first passage time on node j of a random walk starting on node i. This function does not look for shortest paths, and is therefore reasonably fast.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5b6cbbd6f34a316b29749c0ab3ee14da05cda6a7/src/species_level/centrality.jl#L72-L80' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/b7c4b7c6959d86c7b54f1987601a9ba1b6e63e3b/src/species_level/centrality.jl#L72-L80' class='documenter-source'>source</a><br></p>
+<div class="highlight"><pre><span></span><code>centrality(::Type{ClosenessCentrality}, N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Binary})
+</code></pre></div>
+<p>The closeness centrality of a binary network is the reciprocal of the sum of shortest paths.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/b7c4b7c6959d86c7b54f1987601a9ba1b6e63e3b/src/species_level/centrality.jl#L93-L98' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>centrality(::Type{KatzCentrality}, N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Union{Binary, Probabilistic}}; α::AbstractFloat=0.1)
 </code></pre></div>
 <p>This measure gives a different weight to every subsequent connection (<code>α</code>). <code>α</code> is a weight, specifically the attenuation of each subsequent move away from the node, and therefore must be positive.</p>
 <p>Note that internally, this function uses linear algebra shortcuts (rather than a sum over path lengths) to calculate the centrality, which is faster. As a consequence, there is, for each network, a maximal value of α that is the reciprocal of the absolute value of the leading eigenvalue of the adjacency matrix. This α has no analytical solution when the adjacency matrix has complex eigenvalues. It is recommended to use this centrality algorithm as part of a <code>try</code>/<code>catch</code> block if using large values of α.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Junker2008Analysis"> (2008)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5b6cbbd6f34a316b29749c0ab3ee14da05cda6a7/src/species_level/centrality.jl#L93-L111' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/b7c4b7c6959d86c7b54f1987601a9ba1b6e63e3b/src/species_level/centrality.jl#L112-L130' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>centrality(::Type{EigenvectorCentrality}, N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Interactions})
 </code></pre></div>
 <p>Eigencentrality, corrected so that the centralities in the network sum to one.</p>
@@ -719,7 +737,50 @@
 <p>The number of iterations is determined by the variable <code>SpeciesInteractionNetworks.CENTRALITY_MAXITER</code>, and the algorithm usually converges rapidly.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Landau1895Zur">Edmund Landau (1895)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5b6cbbd6f34a316b29749c0ab3ee14da05cda6a7/src/species_level/centrality.jl#L135-L153' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/b7c4b7c6959d86c7b54f1987601a9ba1b6e63e3b/src/species_level/centrality.jl#L154-L172' class='documenter-source'>source</a><br></p>
+<p><a id='Illustration'></a></p>
+<p><a id='Illustration-1'></a></p>
+<h2 id="illustration">Illustration</h2>
+<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">SpeciesInteractionNetworks</span>
+
+<span class="n">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Unipartite</span><span class="p">([</span><span class="ss">:Wyeomyia</span><span class="p">,</span><span class="w"> </span><span class="ss">:Metriocnemus</span><span class="p">,</span><span class="w"> </span><span class="ss">:Fletcherimyia</span><span class="p">,</span><span class="w"> </span><span class="ss">:Habrotrocha</span><span class="p">,</span><span class="w"> </span><span class="ss">:Protozoa</span><span class="p">,</span><span class="w"> </span><span class="ss">:Sarraceniopus</span><span class="p">,</span><span class="w"> </span><span class="ss">:Bacteria</span><span class="p">,</span><span class="w"> </span><span class="ss">:Insects</span><span class="p">])</span>
+<span class="n">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Binary</span><span class="p">(</span><span class="n">zeros</span><span class="p">(</span><span class="kt">Bool</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">richness</span><span class="p">(</span><span class="n">nodes</span><span class="p">),</span><span class="w"> </span><span class="n">richness</span><span class="p">(</span><span class="n">nodes</span><span class="p">))))</span>
+<span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SpeciesInteractionNetwork</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="w"> </span><span class="n">edges</span><span class="p">)</span>
+
+<span class="n">N</span><span class="p">[</span><span class="ss">:Metriocnemus</span><span class="p">,</span><span class="w"> </span><span class="ss">:Insects</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="n">N</span><span class="p">[</span><span class="ss">:Fletcherimyia</span><span class="p">,</span><span class="w"> </span><span class="ss">:Insects</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="n">N</span><span class="p">[</span><span class="ss">:Bacteria</span><span class="p">,</span><span class="w"> </span><span class="ss">:Insects</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="n">N</span><span class="p">[</span><span class="ss">:Sarraceniopus</span><span class="p">,</span><span class="w"> </span><span class="ss">:Bacteria</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="n">N</span><span class="p">[</span><span class="ss">:Habrotrocha</span><span class="p">,</span><span class="w"> </span><span class="ss">:Bacteria</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="n">N</span><span class="p">[</span><span class="ss">:Protozoa</span><span class="p">,</span><span class="w"> </span><span class="ss">:Bacteria</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="n">N</span><span class="p">[</span><span class="ss">:Wyeomyia</span><span class="p">,</span><span class="w"> </span><span class="ss">:Habrotrocha</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="n">N</span><span class="p">[</span><span class="ss">:Wyeomyia</span><span class="p">,</span><span class="w"> </span><span class="ss">:Protozoa</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+<span class="n">N</span><span class="p">[</span><span class="ss">:Wyeomyia</span><span class="p">,</span><span class="w"> </span><span class="ss">:Bacteria</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>true
+</code></pre></div>
+<p>change alpha</p>
+<div class="highlight"><pre><span></span><code><span class="n">attenuation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10.0</span><span class="o">.^</span><span class="kt">LinRange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">)</span>
+<span class="n">c_insect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zeros</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">attenuation</span><span class="p">))</span>
+<span class="n">c_bacteria</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zeros</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">attenuation</span><span class="p">))</span>
+<span class="n">c_protozoa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zeros</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">attenuation</span><span class="p">))</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">α</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">enumerate</span><span class="p">(</span><span class="n">attenuation</span><span class="p">)</span>
+<span class="w">    </span><span class="n">ci</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">centrality</span><span class="p">(</span><span class="n">KatzCentrality</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">;</span><span class="w"> </span><span class="n">α</span><span class="o">=</span><span class="n">α</span><span class="p">)</span>
+<span class="w">    </span><span class="n">c_insect</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ci</span><span class="p">[</span><span class="ss">:Insects</span><span class="p">]</span>
+<span class="w">    </span><span class="n">c_bacteria</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ci</span><span class="p">[</span><span class="ss">:Bacteria</span><span class="p">]</span>
+<span class="w">    </span><span class="n">c_protozoa</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ci</span><span class="p">[</span><span class="ss">:Protozoa</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>```@example 1
+import CairoMakie</p>
+<p>f = CairoMakie.Figure(backgroundcolor = :transparent, resolution = (800, 300))
+ax = CairoMakie.Axis(f[1,1], xlabel="Attenuation", ylabel = "Centrality")
+CairoMakie.lines!(ax, c_insect, color=(:black, 0.5))
+CairoMakie.lines!(ax, bacteria, color=(:green, 0.5))
+CairoMakie.lines!(ax, c_protozoa, color=(:orange, 0.5))
+CairoMakie.tightlimits!(ax)
+CairoMakie.current_figure()
+```</p>
 
 
 
