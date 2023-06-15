@@ -112,3 +112,12 @@ end
 interactions(network2)
 ```
 
+## Networks are tables
+
+All of the networks can be converted to a tabular data, for use with *e.g.* the
+`DataFrames` package:
+
+```@example 1
+import DataFrames
+DataFrames.DataFrame(network)
+```

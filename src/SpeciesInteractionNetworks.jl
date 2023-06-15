@@ -12,6 +12,7 @@ using SparseArrays
 using Statistics
 using StatsBase
 using TestItems
+import Tables
 
 # Various utilities for probabilities
 # include(joinpath(".", "misc", "probabilities.jl"))
@@ -33,6 +34,7 @@ include("types/copy.jl")
 
 include("interfaces/abstractarray.jl")
 include("interfaces/iteration.jl")
+include("interfaces/table.jl")
 
 include("basics/interactions.jl")
 export interactions
