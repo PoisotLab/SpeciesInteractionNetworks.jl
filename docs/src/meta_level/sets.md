@@ -7,7 +7,7 @@
 ## Operations
 
 ```@docs
-Base.union(::SpeciesInteractionNetwork,::SpeciesInteractionNetwork)
+Base.union(U::T, V::T) where T<:(SpeciesInteractionNetwork{<:SpeciesInteractionNetworks.Partiteness, <:Binary})
 Base.intersect(::SpeciesInteractionNetwork,::SpeciesInteractionNetwork)
 Base.setdiff(::SpeciesInteractionNetwork,::SpeciesInteractionNetwork)
 ```
