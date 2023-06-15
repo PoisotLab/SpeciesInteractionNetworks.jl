@@ -7,8 +7,8 @@ theme:
   name: material
   palette:
     scheme: default
-    primary: teal
-    accent: teal
+    primary: green
+    accent: green
   features:
     - navigation.tabs
     - toc.follow
@@ -40,14 +40,14 @@ nav:
     - Index: index.md
     - Building a network: getting_started/demonstration.md
     - Type system: getting_started/types.md
-  - Micro level:
+  - Micro:
     - Specificity: species_level/specificity.md
     - Centrality: species_level/centrality.md
-  - Meso level:
+  - Meso:
     - Paths: meso_level/paths.md
-  - Macro level:
+  - Macro:
     - Nestedness: community_level/nestedness.md
-  - Meta level:
+  - Meta:
     - Set operations: meta_level/sets.md
   - Random networks:
     - Permutations: random_networks/permutations.md
