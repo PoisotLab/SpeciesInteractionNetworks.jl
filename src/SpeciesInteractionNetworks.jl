@@ -66,6 +66,8 @@ export shortestpath
 include("community_level/nestedness.jl")
 export η
 
+include("meta_level/set.jl")
+
 # include(joinpath(".", "types", "conversions.jl"))
 
 # Datasets

@@ -20,3 +20,7 @@ analysis. We experimented with this idea during development, and rapidly
 realized that even for the most simple research project, we needed to make small
 tweaks that made the wrappers a nuisance. We decided to give you the parts, and
 it's your job to build the kick-ass spaceship.
+
+The measures in the documentation are organized by level of organisation,
+following the convention of micro (species-level), meso (involving more than one
+species), macro (network level) and meta (involving mutliple networks).
