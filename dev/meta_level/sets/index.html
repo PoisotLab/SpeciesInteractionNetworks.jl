@@ -13,22 +13,24 @@
       
       
       
-        <link rel="prev" href="../bibliography/">
+        <link rel="prev" href="../../community_level/nestedness/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+        <link rel="next" href="../../random_networks/permutations/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
-        <title>Internals - SpeciesInteractionNetworks.jl</title>
+        <title>Set operations - SpeciesInteractionNetworks.jl</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
       
       
 
@@ -44,9 +46,9 @@
       
     
     
-      <link rel="stylesheet" href="../assets/Documenter.css">
+      <link rel="stylesheet" href="../../assets/Documenter.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -71,7 +73,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#internals" class="md-skip">
+        <a href="#networks-as-sets" class="md-skip">
           Skip to content
         </a>
       
@@ -87,7 +89,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="SpeciesInteractionNetworks.jl" class="md-header__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
+    <a href="../.." title="SpeciesInteractionNetworks.jl" class="md-header__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -106,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Internals
+              Set operations
             
           </span>
         </div>
@@ -187,7 +189,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="SpeciesInteractionNetworks.jl" class="md-nav__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
+    <a href="../.." title="SpeciesInteractionNetworks.jl" class="md-nav__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -218,7 +220,7 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
     </li>
@@ -260,7 +262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting_started/demonstration/" class="md-nav__link">
+      <a href="../../getting_started/demonstration/" class="md-nav__link">
         Building a network
       </a>
     </li>
@@ -274,7 +276,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting_started/types/" class="md-nav__link">
+      <a href="../../getting_started/types/" class="md-nav__link">
         Type system
       </a>
     </li>
@@ -323,7 +325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../species_level/specificity/" class="md-nav__link">
+      <a href="../../species_level/specificity/" class="md-nav__link">
         Specificity
       </a>
     </li>
@@ -337,7 +339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../species_level/centrality/" class="md-nav__link">
+      <a href="../../species_level/centrality/" class="md-nav__link">
         Centrality
       </a>
     </li>
@@ -386,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meso_level/paths/" class="md-nav__link">
+      <a href="../../meso_level/paths/" class="md-nav__link">
         Paths
       </a>
     </li>
@@ -435,7 +437,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../community_level/nestedness/" class="md-nav__link">
+      <a href="../../community_level/nestedness/" class="md-nav__link">
         Nestedness
       </a>
     </li>
@@ -455,14 +457,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
       
       
       
@@ -471,7 +475,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_6">
           <span class="md-nav__icon md-icon"></span>
           Networks (meta) level measures
@@ -482,11 +486,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../meta_level/sets/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Set operations
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Set operations
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#operations" class="md-nav__link">
+    Operations
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -533,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../random_networks/permutations/" class="md-nav__link">
+      <a href="../../random_networks/permutations/" class="md-nav__link">
         Permutations
       </a>
     </li>
@@ -555,7 +600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../bibliography/" class="md-nav__link">
+      <a href="../../bibliography/" class="md-nav__link">
         Bibliography
       </a>
     </li>
@@ -568,59 +613,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Internals
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../internals/" class="md-nav__link">
         Internals
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#network-dimensions" class="md-nav__link">
-    Network dimensions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#copy-of-network-data" class="md-nav__link">
-    Copy of network data
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -652,15 +649,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#network-dimensions" class="md-nav__link">
-    Network dimensions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#copy-of-network-data" class="md-nav__link">
-    Copy of network data
+  <a href="#operations" class="md-nav__link">
+    Operations
   </a>
   
 </li>
@@ -683,21 +673,28 @@
   
 
 
-<p><a id='Internals'></a></p>
-<p><a id='Internals-1'></a></p>
-<h1 id="internals">Internals</h1>
-<p><a id='Network-dimensions'></a></p>
-<p><a id='Network-dimensions-1'></a></p>
-<h2 id="network-dimensions">Network dimensions</h2>
-<p><a id='Copy-of-network-data'></a></p>
-<p><a id='Copy-of-network-data-1'></a></p>
-<h2 id="copy-of-network-data">Copy of network data</h2>
-<p><a id='Base.copy-Tuple{SpeciesInteractionNetwork}' href='#Base.copy-Tuple{SpeciesInteractionNetwork}'>#</a>
-<strong><code>Base.copy</code></strong> &mdash; <em>Method</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Base</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">)</span>
-</code></pre></div>
-<p>A copy of a network is created by wrapping together a copy of the nodes and a copy of the edges.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/a1e96b29f64757cbbae56ba471fe4b2d97c03ff4/src/types/copy.jl#L13-L18' class='documenter-source'>source</a><br></p>
+<p><a id='Networks-as-sets'></a></p>
+<p><a id='Networks-as-sets-1'></a></p>
+<h1 id="networks-as-sets">Networks as sets</h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>TODO</p>
+</div>
+<p><a id='Operations'></a></p>
+<p><a id='Operations-1'></a></p>
+<h2 id="operations">Operations</h2>
+<div class="admonition warning">
+<p class="admonition-title">Missing docstring.</p>
+<p>Missing docstring for <code>Base.union(::SpeciesInteractionNetwork,::SpeciesInteractionNetwork)</code>. Check Documenter's build log for details.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Missing docstring.</p>
+<p>Missing docstring for <code>Base.intersect(::SpeciesInteractionNetwork,::SpeciesInteractionNetwork)</code>. Check Documenter's build log for details.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Missing docstring.</p>
+<p>Missing docstring for <code>Base.setdiff(::SpeciesInteractionNetwork,::SpeciesInteractionNetwork)</code>. Check Documenter's build log for details.</p>
+</div>
 
 
 
@@ -735,17 +732,17 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.a51614de.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>
       
         
           <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
         
       
         
-          <script src="../assets/mathjaxhelper.js"></script>
+          <script src="../../assets/mathjaxhelper.js"></script>
         
       
     

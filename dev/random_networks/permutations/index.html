@@ -13,7 +13,7 @@
       
       
       
-        <link rel="prev" href="../../community_level/nestedness/">
+        <link rel="prev" href="../../meta_level/sets/">
       
       
         <link rel="next" href="../../bibliography/">
@@ -308,14 +308,14 @@
       
       
         <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-          Species level measures
+          Species (micro) level measures
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
-          Species level measures
+          Species (micro) level measures
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -371,14 +371,14 @@
       
       
         <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-          Intermediate level measures
+          Intermediate (meso) level measures
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
-          Intermediate level measures
+          Intermediate (meso) level measures
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -420,14 +420,14 @@
       
       
         <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-          Community level measures
+          Community (macro) level measures
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
-          Community level measures
+          Community (macro) level measures
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -457,6 +457,55 @@
 
   
   
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Networks (meta) level measures
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Networks (meta) level measures
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta_level/sets/" class="md-nav__link">
+        Set operations
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
     
   
   
@@ -466,17 +515,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
           Random networks
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_6">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Random networks
         </label>
@@ -674,7 +723,7 @@
 </code></pre></div>
 <p>The <code>PermutationConstraint</code> specifies which structural constraint is enforced. It is defined as an abstract type, and the subtypes can be passed as the second argument to <code>swap!</code>.</p>
 <p>Currently supported constraints are <code>Degree</code> (degree distribution is maintained), <code>Generality</code> (number of out-going links is maintained), <code>Vulnerability</code> (number of in-going links is maintained), and <code>Connectance</code> (only the connectance is maintained). Note that <em>in addition</em>, species cannot become disconnected, even if the constraint is not acting on the degree / degree distribution.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/1c2062ccae13d2e7030f547a27b0b17c88e97120/src/random/permutations.jl#L3-L16' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/a1e96b29f64757cbbae56ba471fe4b2d97c03ff4/src/random/permutations.jl#L3-L16' class='documenter-source'>source</a><br></p>
 <p><a id='Permutation-of-a-network'></a></p>
 <p><a id='Permutation-of-a-network-1'></a></p>
 <h2 id="permutation-of-a-network">Permutation of a network</h2>
@@ -684,19 +733,19 @@
 <div class="highlight"><pre><span></span><code><span class="n">swap!</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">})</span>
 </code></pre></div>
 <p>Performs <em>one</em> swap of interactions in the network. If no <code>PermutationConstraint</code> is given as a second argument, the degree distribution of all species will be maintained.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/1c2062ccae13d2e7030f547a27b0b17c88e97120/src/random/permutations.jl#L23-L29' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/a1e96b29f64757cbbae56ba471fe4b2d97c03ff4/src/random/permutations.jl#L23-L29' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>swap!(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary}, ::Type{Degree})
 </code></pre></div>
 <p>Permutations with a constraint by degree work by picking two interacting species pairs, (r1, s1) and (r2, s2), and trying to replace them by (r1, s2) and (r2, s1).</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/1c2062ccae13d2e7030f547a27b0b17c88e97120/src/random/permutations.jl#L32-L38' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/a1e96b29f64757cbbae56ba471fe4b2d97c03ff4/src/random/permutations.jl#L32-L38' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>swap!(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary}, ::Type{Generality})
 </code></pre></div>
 <p>Permutations with a constraint by degree work by picking one interacting species pair, (r1, s1), and a new stem species s3, trying to replace them by (r1, s3). This function only applies if the result of this permutations does not remove the last incoming link from s1.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/1c2062ccae13d2e7030f547a27b0b17c88e97120/src/random/permutations.jl#L63-L70' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/a1e96b29f64757cbbae56ba471fe4b2d97c03ff4/src/random/permutations.jl#L63-L70' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>swap!(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary}, ::Type{Connectance})
 </code></pre></div>
 <p>Permutations with a constraint by connectance will <em>randomly</em> (and with equal probability) perform a move that is constrained by degree, generality, or vulnerability.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/1c2062ccae13d2e7030f547a27b0b17c88e97120/src/random/permutations.jl#L124-L130' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/a1e96b29f64757cbbae56ba471fe4b2d97c03ff4/src/random/permutations.jl#L124-L130' class='documenter-source'>source</a><br></p>
 <p><a id='Illustration'></a></p>
 <p><a id='Illustration-1'></a></p>
 <h2 id="illustration">Illustration</h2>
@@ -744,7 +793,7 @@
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">tightlimits!</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">current_figure</span><span class="p">()</span>
 </code></pre></div>
-<p><img alt="" src="../alkjahf.png" /></p>
+<p><img alt="" src="../wazvfni.png" /></p>
 
 
 
