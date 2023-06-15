@@ -32,13 +32,15 @@ nav:
   - Getting started:
     - Building a network: getting_started/demonstration.md
     - Type system: getting_started/types.md
-  - Species level measures:
+  - Species (micro) level measures:
     - Specificity: species_level/specificity.md
     - Centrality: species_level/centrality.md
-  - Intermediate level measures:
+  - Intermediate (meso) level measures:
     - Paths: meso_level/paths.md
-  - Community level measures:
+  - Community (macro) level measures:
     - Nestedness: community_level/nestedness.md
+  - Networks (meta) level measures:
+    - Set operations: meta_level/sets.md
   - Random networks:
     - Permutations: random_networks/permutations.md
   - Bibliography: bibliography.md

@@ -70,6 +70,11 @@ end
     end
 end
 
+"""
+    Base.union(U::T, V::T) where {T <: SpeciesInteractionNetwork{<:Partiteness, <:Binary}}
+
+TODO
+"""
 function Base.union(U::T, V::T) where {T <: SpeciesInteractionNetwork{<:Partiteness, <:Binary}}
     nodes = U.nodes ∪ V.nodes
     edges = Binary(zeros(Bool, (richness(nodes,1), richness(nodes,2))))
@@ -102,6 +107,11 @@ end
     end
 end
 
+"""
+    Base.intersect(U::T, V::T) where {T <: SpeciesInteractionNetwork{<:Partiteness, <:Binary}}
+
+TODO
+"""
 function Base.intersect(U::T, V::T) where {T <: SpeciesInteractionNetwork{<:Partiteness, <:Binary}}
     nodes = U.nodes ∩ V.nodes
     edges = Binary(zeros(Bool, (richness(nodes,1), richness(nodes,2))))
@@ -128,6 +138,11 @@ end
     end
 end
 
+"""
+    Base.setdiff(U::T, V::T) where {T <: SpeciesInteractionNetwork{<:Partiteness, <:Binary}}
+
+TODO
+"""
 function Base.setdiff(U::T, V::T) where {T <: SpeciesInteractionNetwork{<:Partiteness, <:Binary}}
     nodes = setdiff(U.nodes, V.nodes)
     edges = Binary(zeros(Bool, (richness(nodes,1), richness(nodes,2))))
