@@ -106,4 +106,27 @@ end
     @test part.shared == 1
     @test part.right == 2
     @test part.left == 2
-end 
+end
+
+function betadiversity(
+    ::Type{βOS},
+    U::T,
+    V::T
+) where {T <: SpeciesInteractionNetwork{<:Unipartite, <:Binary}}
+    core = species(U∩V)
+    Us = subgraph(U, core)
+    Vs = subgraph(V, core)
+    return betadiversity(βWN, Us, Vs)
+end
+
+function betadiversity(
+    ::Type{βOS},
+    U::T,
+    V::T
+) where {T <: SpeciesInteractionNetwork{<:Bipartite, <:Binary}}
+    core_top = species(U∩V, 1)
+    core_bottom = species(U∩V, 2)
+    Us = subgraph(U, core_top, core_bottom)
+    Vs = subgraph(V, core_top, core_bottom)
+    return betadiversity(βWN, Us, Vs)
+end
