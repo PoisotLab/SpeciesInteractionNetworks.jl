@@ -4,11 +4,13 @@
 
     Before getting started with the package itself, we will see how we can build a network, access its content, and iterate over the interactions. This page is intended to give you some intuitions about how the type system works, before reading more of the manual.
 
+To begin with, we will load the package:
+
 ```@example 1
 using SpeciesInteractionNetworks
 ```
 
-## List of species
+## Creating a list of species
 
 We will create a very small network, made of four species and their
 interactions. The first step is to define a list of species:
@@ -17,15 +19,25 @@ interactions. The first step is to define a list of species:
 species = [:fox, :vole, :hawk, :turnip]
 ```
 
-In order to make sure that we are explicit about the type of network we are working with, we will create a representation of this list of species that is unipartite:
+In order to make sure that we are explicit about the type of network we are
+working with, we will create a representation of this list of species that is
+unipartite, using the [`Unipartite`](@ref) constructor:
 
 ```@example 1
 nodes = Unipartite(species)
 ```
 
-## List of interactions
+Note that the package is not considering information about the *ecological
+nature* of the interaction, only (i) the structure of the community, as captured
+by its [`Partiteness`](@ref), and later on about its [`Interactions`](@ref).
 
-As with species, we want to represent interactions in a way that captures ecological information. In this case, we will use binary interactions (true/0), and work from a matrix, where the rows are the source of the interaction, and the column is its destination. It means that interactions go *from* predator *to* preys.
+## Creating interactions
+
+As with species, we want to represent interactions in a way that captures
+ecological information. In this case, we will use binary interactions (true/0),
+and work from a matrix, where the rows are the source of the interaction, and
+the column is its destination. It means that interactions go *from* predator
+*to* preys.
 
 ```@example 1
 int_matrix = Bool[
@@ -40,7 +52,8 @@ int_matrix = Bool[
     
     By specifying interactions as a matrix, it is fundamental that columns and orders are in the correct order. There are alternative ways to specify networks that do not rely on matrices (using tuples or pairs), but because most species interaction network data are represented as matrices, this is supported by the package.
 
-As this network is binary, we will wrap this matrix into a `Binary` collection of interactions:
+As this network is binary, we will wrap this matrix into a [`Binary`](@ref)
+collection of interactions:
 
 ```@example 1
 edges = Binary(int_matrix)
@@ -50,7 +63,9 @@ edges = Binary(int_matrix)
 
 The network itself is a collection of nodes and edges. There are a number of
 specific checks performed when creating the network, to ensure that we cannot
-create an object that makes no sense.
+create an object that makes no sense. These checks are done when calling
+[`SpeciesInteractionNetwork`](@ref), which is the main type around which the
+package is built.
 
 ```@example 1
 network = SpeciesInteractionNetwork(nodes, edges)
@@ -66,7 +81,12 @@ end
 ```
 
 Internally, this is done by only returning the pairs of species that do not have
-a value of zero.
+a value of zero. There is a way to capture all of the interactions at a time,
+using [`interactions`](@ref):
+
+``` @example 1
+interactions(network)
+```
 
 ## Basics of network exploration
 
@@ -84,7 +104,8 @@ case, preys):
 successors(network, :fox)
 ```
 
-Further
+Furthermore, we can return a subset (or more accurately a [`subgraph`](@ref)) of
+the network, by giving a list of species:
 
 ```@example 1
 interactions(subgraph(network, [:fox, :vole, :turnip]))
