@@ -28,7 +28,7 @@ nor generalist.
 
 ###### References
 
-[Poisot2012comparative](@cite)
+[Poisot2012comparative](@citet*)
 """
 function specificity(N::SpeciesInteractionNetwork{<:Partiteness, <:Union{Binary,Quantitative}})
     return Dict([s => pdi(N[s,:]) for s in species(N, 1)])
