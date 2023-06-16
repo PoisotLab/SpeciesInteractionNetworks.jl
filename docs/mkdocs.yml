@@ -5,10 +5,6 @@ site_author: Timothée Poisot
 
 theme:
   name: material
-  palette:
-    scheme: default
-    primary: blue
-    accent: blue
   features:
     - navigation.tabs
     - toc.follow
@@ -17,9 +13,10 @@ theme:
     - navigation.instant
     - navigation.tracking
 
-
 extra_css:
   - assets/Documenter.css
+  - stylesheets/colors.css
+  - stylesheets/citations.css
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML
