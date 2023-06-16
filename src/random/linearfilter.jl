@@ -5,7 +5,7 @@
 
 ###### References
 
-[Stock2017Linear](@cite)
+[Stock2017Linear](@citet)
 """
 function linearfilter(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}; α::Vector{T}=ones(4)) where {T <: AbstractFloat}
     @assert length(α) == 4
