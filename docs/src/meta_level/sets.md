@@ -2,15 +2,12 @@
 
 !!! abstract
 
-    TODO
+    A number of operations can be applied to networks. This include `union`, `intersect`, and `setdiff`. These are useful when workin on network beta-diversity.
 
 ## Operations
 
 ```@docs
-Base.union(U::T, V::T) where T<:(SpeciesInteractionNetwork{<:SpeciesInteractionNetworks.Partiteness, <:Binary})
-```
-
-```@docs
-Base.intersect(::SpeciesInteractionNetwork,::SpeciesInteractionNetwork)
-Base.setdiff(::SpeciesInteractionNetwork,::SpeciesInteractionNetwork)
+Base.union(U::T, V::T) where T<:SpeciesInteractionNetwork)
+Base.intersect(U::T, V::T) where T<:SpeciesInteractionNetwork)
+Base.setdiff(U::T, V::T) where T<:SpeciesInteractionNetwork)
 ```

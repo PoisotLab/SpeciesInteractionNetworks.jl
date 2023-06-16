@@ -73,7 +73,8 @@ end
 """
     Base.union(U::T, V::T) where {T <: SpeciesInteractionNetwork{<:Partiteness, <:Binary}}
 
-TODO
+The union of two networks (`U ∪ V`) is the union of their species *and* egdes,
+*i.e.* everything that is in *either* networks is present in the union.
 """
 function Base.union(U::T, V::T) where {T <: SpeciesInteractionNetwork{<:Partiteness, <:Binary}}
     nodes = U.nodes ∪ V.nodes
@@ -110,7 +111,10 @@ end
 """
     Base.intersect(U::T, V::T) where {T <: SpeciesInteractionNetwork{<:Partiteness, <:Binary}}
 
-TODO
+The intersect of two networks (`U ∩ V`) is the network composed of species in
+*both* networks, and the interactions present in *both* networks as well. Note
+that species that have *no interaction* in common between the two networks will
+still be in the resulting network, but with no interactions.
 """
 function Base.intersect(U::T, V::T) where {T <: SpeciesInteractionNetwork{<:Partiteness, <:Binary}}
     nodes = U.nodes ∩ V.nodes
@@ -141,7 +145,9 @@ end
 """
     Base.setdiff(U::T, V::T) where {T <: SpeciesInteractionNetwork{<:Partiteness, <:Binary}}
 
-TODO
+The `setdiff` between two networks is the species *and* interactions that are
+unique to the first argument. Note that the operation is *not* commutative,
+*i.e.* `setdiff(U,V)≠setdiff(V,U)`. 
 """
 function Base.setdiff(U::T, V::T) where {T <: SpeciesInteractionNetwork{<:Partiteness, <:Binary}}
     nodes = setdiff(U.nodes, V.nodes)
