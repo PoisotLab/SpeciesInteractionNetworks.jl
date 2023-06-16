@@ -8,7 +8,7 @@ connectance will be correct.
 
 See [`NicheModel`](@ref) for more information about the niche model.
 """
-function structuralmodel(::Type{NicheModel}, species::Integer=10, connectance::AbstractFloat=0.2)
+function structuralmodel(::Type{NicheModel}, species::Integer=10, connectance::T=0.2) where {T <: AbstractFloat}
     @assert 0.0 < connectance < 0.5
     
     β = 1.0/(2connectance) - 1.0
@@ -23,7 +23,7 @@ function structuralmodel(::Type{NicheModel}, species::Integer=10, connectance::A
         centroids[species] = rand(Uniform(ranges[species]/2, niche[species]))
     end
 
-    for smallest_species in findall(x -> x == minimum(niche), niche)
+    for smallest_species in findall(isequal(minimum(niche)), niche)
         ranges[smallest_species] = 0.0
     end
 
@@ -49,24 +49,18 @@ end
     @test typeof(N.edges) <: Binary
 end
 
-"""
-    structuralmodel(::Type{NicheModel}, species::Integer=10, edges::Integer=20)
-
-Generate a food web under the niche model with the given number of species, and
-an *expected* numnber of edges. The expected connectance is calculated from the
-number of links.
-
-See [`NicheModel`](@ref) for more information about the niche model.
-"""
-function structuralmodel(::Type{NicheModel}, species::Integer=10, edges::Integer=20)
-    @assert species > 0
-    @assert (species - 1) < edges < 0.5(species^2)
-    return structuralmodel(NicheModel, species, edges/(species^2))
+function structural(::Type{NicheModel}, N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
+    co = length(N)/(richness(N)^2)
+    return structural(NicheModel, richness(N), co)
 end
 
-@testitem "We can generate a niche model using structural model with a number of links" begin
-    N = structuralmodel(NicheModel, 10, 20)
-    @test richness(N) == 10
+@testitem "We can generate a niche model using a network as a template" begin
+    N = structuralmodel(NicheModel, 12, 0.1)
+    @test richness(N) == 12
     @test typeof(N.nodes) <: Unipartite
     @test typeof(N.edges) <: Binary
+    P = structuralmodel(NicheModel, N)
+    @test richness(N) == richness(P)
+    @test typeof(P.nodes) <: Unipartite
+    @test typeof(P.edges) <: Binary
 end
