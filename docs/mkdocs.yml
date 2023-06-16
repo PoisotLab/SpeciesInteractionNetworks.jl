@@ -7,8 +7,8 @@ theme:
   name: material
   palette:
     scheme: default
-    primary: green
-    accent: green
+    primary: indigo
+    accent: indigo
   features:
     - navigation.tabs
     - toc.follow
