@@ -114,6 +114,12 @@ function betadiversity(
     V::T
 ) where {T <: SpeciesInteractionNetwork{<:Unipartite, <:Binary}}
     core = species(U∩V)
+    if isempty(core)
+        left = length(U)
+        right = length(V)
+        shared = 0
+        return (; left, shared, right)
+    end
     Us = subgraph(U, core)
     Vs = subgraph(V, core)
     return betadiversity(βWN, Us, Vs)
@@ -126,7 +132,45 @@ function betadiversity(
 ) where {T <: SpeciesInteractionNetwork{<:Bipartite, <:Binary}}
     core_top = species(U∩V, 1)
     core_bottom = species(U∩V, 2)
+    if isempty(core_top)|isempty(core_bottom)
+        left = length(U)
+        right = length(V)
+        shared = 0
+        return (; left, shared, right)
+    end
     Us = subgraph(U, core_top, core_bottom)
     Vs = subgraph(V, core_top, core_bottom)
     return betadiversity(βWN, Us, Vs)
+end
+
+@testitem "We can get the βOS for a unipartite network" begin
+    Nu = Unipartite([:A, :B, :C])
+    Eu = Binary(zeros(Bool, (richness(Nu,1), richness(Nu,2))))
+    Nv = Unipartite([:A, :C, :D])
+    Ev = Binary(zeros(Bool, (richness(Nv,1), richness(Nv,2))))
+    U = SpeciesInteractionNetwork(Nu, Eu)
+    V = SpeciesInteractionNetwork(Nv, Ev)
+    U[:A, :C] = true
+    U[:A, :B] = true
+    U[:B, :C] = true
+    V[:A, :C] = true
+    V[:C, :D] = true
+    V[:A, :D] = true
+    part = betadiversity(βOS, U, V)
+    @test part.shared = 1
+    @test part.left = 0
+    @test part.right = 0
+end
+
+@testitem "We get the correct βOS when no species are shared" begin
+    Nu = Unipartite([:A, :B, :C])
+    Eu = Binary(zeros(Bool, (richness(Nu,1), richness(Nu,2))))
+    Nv = Unipartite([:D, :E, :F])
+    Ev = Binary(zeros(Bool, (richness(Nv,1), richness(Nv,2))))
+    U = SpeciesInteractionNetwork(Nu, Eu)
+    V = SpeciesInteractionNetwork(Nv, Ev)
+    part = betadiversity(βOS, U, V)
+    @test part.shared = 0
+    @test part.left = length(U)
+    @test part.right = length(V)
 end
