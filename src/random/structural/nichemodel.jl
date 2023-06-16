@@ -1,11 +1,11 @@
 """
-    structuralmodel(::Type{NicheModel}; species::Integer=10, connectance::AbstractFloat=0.2)
+    structuralmodel(::Type{NicheModel}, species::Integer=10, connectance::AbstractFloat=0.2)
 
 Generate a food web under the niche model with the given number of species, and an *expected* connectance.
 
 See [`NicheModel`](@ref) for more information about the niche model.
 """
-function structuralmodel(::Type{NicheModel}; species::Integer=10, connectance::AbstractFloat=0.2)
+function structuralmodel(::Type{NicheModel}, species::Integer=10, connectance::AbstractFloat=0.2)
     @assert 0.0 < connectance < 0.5
     
     β = 1.0/(2connectance) - 1.0
@@ -40,14 +40,21 @@ function structuralmodel(::Type{NicheModel}; species::Integer=10, connectance::A
 end
 
 @testitem "We can generate a niche model using structural model" begin
-    N = structuralmodel(NicheModel; species=12, connectance=0.1)
+    N = structuralmodel(NicheModel, 12, 0.1)
     @test richness(N) == 12
     @test typeof(N.nodes) <: Unipartite
     @test typeof(N.edges) <: Binary
 end
 
-function structuralmodel(::Type{NicheModel}; species::Integer=10, edges::Integer=20)
+function structuralmodel(::Type{NicheModel}, species::Integer=10, edges::Integer=20)
     @assert species > 0
     @assert (species - 1) < edges < 0.5(species^2)
-    return structuralmodel(NicheModel; species=species, connectance=links/(species^2))
+    return structuralmodel(NicheModel, species, edges/(species^2))
+end
+
+@testitem "We can generate a niche model using structural model with a number of links" begin
+    N = structuralmodel(NicheModel, 10, 20)
+    @test richness(N) == 10
+    @test typeof(N.nodes) <: Unipartite
+    @test typeof(N.edges) <: Binary
 end

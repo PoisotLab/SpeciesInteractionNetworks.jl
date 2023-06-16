@@ -1,3 +1,8 @@
+"""
+    StructuralModel
+
+...
+"""
 abstract type StructuralModel end
 
 """

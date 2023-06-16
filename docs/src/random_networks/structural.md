@@ -12,3 +12,7 @@ NicheModel
 ```
 
 ## The generative function
+
+```@docs
+structuralmodel
+```
