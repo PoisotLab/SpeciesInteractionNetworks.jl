@@ -50,7 +50,7 @@ nav:
   - Meta:
     - Beta-diversity: meta_level/betadiversity.md
     - Set operations: meta_level/sets.md
-  - Random networks:
+  - Random:
     - Permutations: random_networks/permutations.md
     - Structural models: random_networks/structural.md
   - Appendix:
