@@ -157,9 +157,9 @@ end
     V[:C, :D] = true
     V[:A, :D] = true
     part = betadiversity(βOS, U, V)
-    @test part.shared = 1
-    @test part.left = 0
-    @test part.right = 0
+    @test part.shared == 1
+    @test part.left == 0
+    @test part.right == 0
 end
 
 @testitem "We get the correct βOS when no species are shared" begin
@@ -170,7 +170,7 @@ end
     U = SpeciesInteractionNetwork(Nu, Eu)
     V = SpeciesInteractionNetwork(Nv, Ev)
     part = betadiversity(βOS, U, V)
-    @test part.shared = 0
-    @test part.left = length(U)
-    @test part.right = length(V)
+    @test part.shared == 0
+    @test part.left == length(U)
+    @test part.right == length(V)
 end
