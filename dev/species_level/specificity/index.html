@@ -29,9 +29,6 @@
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ecc896b0.min.css">
-      
       
 
     
@@ -48,6 +45,10 @@
     
       <link rel="stylesheet" href="../../assets/Documenter.css">
     
+      <link rel="stylesheet" href="../../stylesheets/colors.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/citations.css">
+    
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -58,14 +59,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -112,8 +110,6 @@
         </div>
       </div>
     </div>
-    
-      
     
     
     
@@ -850,7 +846,7 @@
 <p>For a deterministic network, this function will return a dictionary mapping each top-level species to its specificity. The same index (Paired Differences Index) is used for binary and quantitative networks. A value of one corresponds to maximum specialism, and a value of zero to maximum generalism. The index is symmetrical, so that a species with a value of one half is neither specialist nor generalist.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Poisot2012comparative">Poisot, Canard, Mouquet and Hochberg (2012)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3323534c8f97ef768ee8f56f3567fff270b42842/src/species_level/specificity.jl#L19-L32' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/4ecdd2c65454883699f82fa16a4048dd7416e5f6/src/species_level/specificity.jl#L19-L32' class='documenter-source'>source</a><br></p>
 <p><a id='Illustration'></a></p>
 <p><a id='Illustration-1'></a></p>
 <h2 id="illustration">Illustration</h2>
