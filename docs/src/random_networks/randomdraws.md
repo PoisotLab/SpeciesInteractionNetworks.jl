@@ -7,3 +7,11 @@
 ```@docs
 randomdraws
 ```
+
+```@docs
+null
+```
+
+```@docs
+linearfilter
+```

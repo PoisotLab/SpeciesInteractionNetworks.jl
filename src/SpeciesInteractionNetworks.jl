@@ -60,6 +60,9 @@ export structuralmodel
 include("random/draws.jl")
 export randomdraws
 
+include("random/linearfilter.jl")
+export linearfilter, nullmodel
+
 include("species_level/specificity.jl")
 export specificity
 
