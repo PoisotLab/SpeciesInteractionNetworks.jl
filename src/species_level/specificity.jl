@@ -33,3 +33,13 @@ nor generalist.
 function specificity(N::SpeciesInteractionNetwork{<:Partiteness, <:Union{Binary,Quantitative}})
     return Dict([s => pdi(N[s,:]) for s in species(N, 1)])
 end
+
+@testitem "We can measure the specificity of a network" begin
+    nodes = Unipartite([:a, :b, :c, :d, :e])
+    edges = Binary(Bool[1 1 1 1 1; 1 1 1 1 0; 1 1 1 0 0; 1 1 0 0 0; 1 0 0 0 0])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    spe = specificity(N)
+    @test spe[:a] ≈ 0
+    @test spe[:b] > 0
+    @test spe[:e] ≈ 1
+end
