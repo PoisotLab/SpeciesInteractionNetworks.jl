@@ -57,6 +57,9 @@ export NicheModel
 
 export structuralmodel
 
+include("random/draws.jl")
+export randomdraws
+
 include("species_level/specificity.jl")
 export specificity
 
