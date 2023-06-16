@@ -13,17 +13,17 @@
       
       
       
-        <link rel="prev" href="../randomdraws/">
+        <link rel="prev" href="../permutations/">
       
       
-        <link rel="next" href="../../bibliography/">
+        <link rel="next" href="../structural/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
-        <title>Structural models - SpeciesInteractionNetworks.jl</title>
+        <title>Random draws - SpeciesInteractionNetworks.jl</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#structural-models" class="md-skip">
+        <a href="#random-draws" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Structural models
+              Random draws
             
           </span>
         </div>
@@ -683,20 +683,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../randomdraws/" class="md-nav__link">
-        Random draws
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -708,48 +694,24 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Structural models
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Structural models
+        Random draws
       </a>
       
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+            
+          
+            
+              
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#models" class="md-nav__link">
-    Models
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-generative-function" class="md-nav__link">
-    The generative function
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+    <li class="md-nav__item">
+      <a href="../structural/" class="md-nav__link">
+        Structural models
+      </a>
     </li>
   
 
@@ -842,40 +804,21 @@
   
 
 
-<p><a id='Structural-models'></a></p>
-<p><a id='Structural-models-1'></a></p>
-<h1 id="structural-models">Structural models</h1>
+<p><a id='Random-draws'></a></p>
+<p><a id='Random-draws-1'></a></p>
+<h1 id="random-draws">Random draws</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
-<p>These functions generate random networks based on structural models. The models are given as types (specifically subtypes of <a href="./#SpeciesInteractionNetworks.StructuralModel"><code>StructuralModel</code></a>), and return a network the type of which depends on the generative algorithm, when passed to the <a href="./#SpeciesInteractionNetworks.structuralmodel"><code>structuralmodel</code></a> function.</p>
+<p>The methods in this page draw random binary networks from probabilistic networks</p>
 </div>
-<p><a id='Models'></a></p>
-<p><a id='Models-1'></a></p>
-<h2 id="models">Models</h2>
-<p><a id='SpeciesInteractionNetworks.StructuralModel' href='#SpeciesInteractionNetworks.StructuralModel'>#</a>
-<strong><code>SpeciesInteractionNetworks.StructuralModel</code></strong> &mdash; <em>Type</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">StructuralModel</span>
+<p><a id='SpeciesInteractionNetworks.randomdraws' href='#SpeciesInteractionNetworks.randomdraws'>#</a>
+<strong><code>SpeciesInteractionNetworks.randomdraws</code></strong> &mdash; <em>Function</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">randomdraws</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Probabilistic</span><span class="p">})</span>
 </code></pre></div>
-<p>...</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/458e7d69217e0ffa71ea85f5355f2bf7ae8ee019/src/random/structural.jl#L1-L5' class='documenter-source'>source</a><br></p>
-<p><a id='SpeciesInteractionNetworks.NicheModel' href='#SpeciesInteractionNetworks.NicheModel'>#</a>
-<strong><code>SpeciesInteractionNetworks.NicheModel</code></strong> &mdash; <em>Type</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">NicheModel</span>
-</code></pre></div>
-<p>The niche model of food webs is one of the most emblematic food web models. Based on a given species richness and <em>expected</em> connectance, it generates food webs with properties that closely reproduce empirical networks. One particular property of the food webs generated with this model is that they are <em>interval</em>, which is to say that there are not gaps in the diet of species.</p>
+<p>Returns a <em>binary</em> network by making random draws from a <em>probabilistic</em> network. Each interaction is considered as an independent Bernoulli trial.</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Williams2000Simple">Williams and Martinez (2000)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/458e7d69217e0ffa71ea85f5355f2bf7ae8ee019/src/random/structural.jl#L8-L20' class='documenter-source'>source</a><br></p>
-<p><a id='The-generative-function'></a></p>
-<p><a id='The-generative-function-1'></a></p>
-<h2 id="the-generative-function">The generative function</h2>
-<p><a id='SpeciesInteractionNetworks.structuralmodel' href='#SpeciesInteractionNetworks.structuralmodel'>#</a>
-<strong><code>SpeciesInteractionNetworks.structuralmodel</code></strong> &mdash; <em>Function</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">structuralmodel</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">NicheModel</span><span class="p">},</span><span class="w"> </span><span class="n">species</span><span class="o">::</span><span class="kt">Integer</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">connectance</span><span class="o">::</span><span class="kt">AbstractFloat</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
-</code></pre></div>
-<p>Generate a food web under the niche model with the given number of species, and an <em>expected</em> connectance. Note that by the nature of the niche model algorithm, only the species richness is guaranteed; there is no guarantee that the connectance will be correct.</p>
-<p>See <a href="./#SpeciesInteractionNetworks.NicheModel"><code>NicheModel</code></a> for more information about the niche model.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/458e7d69217e0ffa71ea85f5355f2bf7ae8ee019/src/random/structural/nichemodel.jl#L1-L10' class='documenter-source'>source</a><br></p>
+<p><a href="../../bibliography/#Poisot2015structure">(Poisot <em>et al.</em>, 2015)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/458e7d69217e0ffa71ea85f5355f2bf7ae8ee019/src/random/draws.jl#L1-L10' class='documenter-source'>source</a><br></p>
 
 
 
