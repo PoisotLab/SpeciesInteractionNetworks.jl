@@ -49,9 +49,9 @@ end
     @test typeof(N.edges) <: Binary
 end
 
-function structural(::Type{NicheModel}, N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
+function structuralmodel(::Type{NicheModel}, N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
     co = length(N)/(richness(N)^2)
-    return structural(NicheModel, richness(N), co)
+    return structuralmodel(NicheModel, richness(N), co)
 end
 
 @testitem "We can generate a niche model using a network as a template" begin
