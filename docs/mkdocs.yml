@@ -52,6 +52,7 @@ nav:
     - Set operations: meta_level/sets.md
   - Random networks:
     - Permutations: random_networks/permutations.md
+    - Structural models: random_networks/structural.md
   - Appendix:
     - Bibliography: bibliography.md
     - Internals: internals.md

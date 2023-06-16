@@ -49,6 +49,14 @@ include("random/permutations.jl")
 export PermutationConstraint, Degree, Generality, Vulnerability, Connectance
 export swap!
 
+include("random/structural.jl")
+export StructuralModel
+
+include("random/structural/nichemodel.jl")
+export NicheModel
+
+export structuralmodel
+
 include("species_level/specificity.jl")
 export specificity
 
