@@ -67,6 +67,10 @@ include("community_level/nestedness.jl")
 export η
 
 include("meta_level/set.jl")
+include("meta_level/partitions.jl")
+export BetaDivComponent
+export βS, βOS, βWN
+export betadiversity
 
 # include(joinpath(".", "types", "conversions.jl"))
 

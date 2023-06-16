@@ -48,6 +48,7 @@ nav:
   - Macro:
     - Nestedness: community_level/nestedness.md
   - Meta:
+    - Beta-diversity: meta_level/betadiversity.md
     - Set operations: meta_level/sets.md
   - Random networks:
     - Permutations: random_networks/permutations.md
