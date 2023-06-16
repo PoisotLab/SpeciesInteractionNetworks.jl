@@ -12,18 +12,51 @@ abstract type BetaDivComponent end
 """
     βS
 
-Specie
+The species dissimilarity between two networks is, straightforwardly, the usual
+β diversity applied to the list of nodes. In the case of networks that are not
+uniparite, we can further calculate this dissimilarity for the different
+dimensions of the network.
+
+###### References
+
+[Koleff2003Measuring](@cite)
 """
 abstract type βS <: BetaDivComponent end
 
 """
     βOS
+
+The overlapping-species interaction dissimilarity measures the dissimilarity in
+the interactions between species that are *shared* between two networks. In
+other words, interactions are only compared if they involve two interactions
+that are established between species present in both networks.
+
+
+###### References
+
+[Poisot2012dissimilarity](@cite)
+
+[Canard2014Empirical](@cite)
+
+[Poisot2022Dissimilarity](@cite)
 """
 abstract type βOS <: BetaDivComponent end
 
 """
     βWN
 
+The whole-network interaction dissimilarity measures the dissimilarity between
+interactions in all species of either network. It is trivially maximized when
+the networks have no species in common.
+
+
+###### References
+
+[Poisot2012dissimilarity](@cite)
+
+[Canard2014Empirical](@cite)
+
+[Poisot2022Dissimilarity](@cite)
 """
 abstract type βWN <: BetaDivComponent end
 
@@ -33,10 +66,6 @@ abstract type βWN <: BetaDivComponent end
 Species-level β diversity between networks. By default, this return the species
 dissimilarity for the entire network. An optional last argument `dims` can be
 used, to specify top (`1`) and bottom (`2`) levels.
-
-###### References
-
-[Koleff2003Measuring](@cite)
 """
 function betadiversity(
     ::Type{βS},
@@ -69,14 +98,6 @@ end
 Network-level β diversity between networks. By default, this return the species
 dissimilarity for the entire network. An optional last argument `dims` can be
 used, to specify top (`1`) and bottom (`2`) levels.
-
-###### References
-
-[Poisot2012dissimilarity](@cite)
-
-[Canard2014Empirical](@cite)
-
-[Poisot2022Dissimilarity](@cite)
 """
 function betadiversity(
     ::Type{βWN},
