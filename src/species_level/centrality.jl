@@ -19,7 +19,7 @@ centrality, where the distance is defined as first passage time.
 
 ###### References
 
-[Bavelas1950Communication](@cite)
+[Bavelas1950Communication](@citet*)
 """
 abstract type ClosenessCentrality <: CentralityMethod end
 
@@ -28,7 +28,7 @@ abstract type ClosenessCentrality <: CentralityMethod end
 
 ###### References
 
-[Dangalchev2006Residual](@cite)
+[Dangalchev2006Residual](@citet*)
 """
 abstract type ResidualClosenessCentrality <: CentralityMethod end
 
@@ -37,7 +37,7 @@ abstract type ResidualClosenessCentrality <: CentralityMethod end
 
 ###### References
 
-[Dangalchev2011Residual](@cite)
+[Dangalchev2011Residual](@citet*)
 """
 abstract type GeneralizedClosenessCentrality <: CentralityMethod end
 
@@ -48,7 +48,7 @@ This type is used to perform the Katz centrality analysis.
 
 ###### References
 
-[Katz1953new](@cite)
+[Katz1953new](@citet*)
 """
 abstract type KatzCentrality <: CentralityMethod end
 
@@ -164,7 +164,7 @@ eigenvalues. It is recommended to use this centrality algorithm as part of a
 
 ###### References
 
-[Junker2008Analysis](@cite)
+[Junker2008Analysis](@citet*)
 """
 function centrality(::Type{KatzCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary, Probabilistic}}; α::AbstractFloat=0.1)    
     @assert 0.0 <= α
@@ -206,7 +206,7 @@ converges rapidly.
 
 ###### References
 
-[Landau1895Zur](@cite)
+[Landau1895Zur](@citet*)
 """
 function centrality(::Type{EigenvectorCentrality}, N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions})
     b = rand(richness(N))

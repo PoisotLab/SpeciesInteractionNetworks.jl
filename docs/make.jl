@@ -2,10 +2,10 @@ push!(LOAD_PATH, "../src/")
 
 using Documenter
 using DocumenterMarkdown
-using DocumenterCitations
+using QuantumCitations
 using SpeciesInteractionNetworks
 
-bibliography = CitationBibliography(joinpath(@__DIR__, "SpeciesInteractionNetworks.bib"), sorting = :nyt)
+bibliography = CitationBibliography(joinpath(@__DIR__, "SpeciesInteractionNetworks.bib"), style = :numeric)
 
 makedocs(
     bibliography;

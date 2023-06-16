@@ -25,7 +25,7 @@ columns.
 
 ###### References
 
-[Bastolla2009architecture](@cite)
+[Bastolla2009architecture](@citet*)
 """
 function η(
     N::SpeciesInteractionNetwork{<:Bipartite, <:Union{Binary, Probabilistic}},

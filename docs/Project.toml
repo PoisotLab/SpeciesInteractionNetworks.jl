@@ -2,5 +2,5 @@
 CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-DocumenterCitations = "daee34ce-89f3-4625-b898-19384cb65244"
 DocumenterMarkdown = "997ab1e6-3595-5248-9280-8efb232c3433"
+QuantumCitations = "259add83-af3e-4603-9706-50e341d5574e"

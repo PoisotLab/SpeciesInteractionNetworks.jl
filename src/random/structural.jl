@@ -16,6 +16,6 @@ which is to say that there are not gaps in the diet of species.
 
 ###### References
 
-[Williams2000Simple](@cite)
+[Williams2000Simple](@citet*)
 """
 abstract type NicheModel <: StructuralModel end

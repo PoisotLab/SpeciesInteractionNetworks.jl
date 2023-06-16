@@ -4,7 +4,7 @@
 The [`betadiversity`](@ref) methods all use a subtype of `BetaDivComponent` as
 their first argument, to determine which component should be measured.
 
-All of the partitions follow the [Koleff2003Measuring](@cite) approach, where
+All of the partitions follow the [Koleff2003Measuring](@citet) approach, where
 the beta diversity is measured on the cardinality of sets. Specifically, all
 [`betadiversity`](@ref) functions will return a named tuple with three fields,
 called `shared`, `left`, and `right`. These represent, respectively, the number
@@ -13,7 +13,7 @@ argument, and the number of items unique to the second argument.
 
 ###### References
 
-[Koleff2003Measuring](@cite)
+[Koleff2003Measuring](@citet*)
 """
 abstract type BetaDivComponent end
 
@@ -27,7 +27,7 @@ dimensions of the network.
 
 ###### References
 
-[Koleff2003Measuring](@cite)
+[Koleff2003Measuring](@citet*)
 """
 abstract type βS <: BetaDivComponent end
 
@@ -42,11 +42,11 @@ that are established between species present in both networks.
 
 ###### References
 
-[Poisot2012dissimilarity](@cite)
+[Poisot2012dissimilarity](@citet*)
 
-[Canard2014Empirical](@cite)
+[Canard2014Empirical](@citet*)
 
-[Poisot2022Dissimilarity](@cite)
+[Poisot2022Dissimilarity](@citet*)
 """
 abstract type βOS <: BetaDivComponent end
 
@@ -60,11 +60,11 @@ the networks have no species in common.
 
 ###### References
 
-[Poisot2012dissimilarity](@cite)
+[Poisot2012dissimilarity](@citet*)
 
-[Canard2014Empirical](@cite)
+[Canard2014Empirical](@citet*)
 
-[Poisot2022Dissimilarity](@cite)
+[Poisot2022Dissimilarity](@citet*)
 """
 abstract type βWN <: BetaDivComponent end
 
