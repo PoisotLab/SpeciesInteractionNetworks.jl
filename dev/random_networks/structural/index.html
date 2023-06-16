@@ -837,15 +837,17 @@
 <h1 id="structural-models">Structural models</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
-<p>These functions generate random networks based on structural models. The models are given as types (specifically subtypes of <a href="@ref"><code>StructuralModel</code></a>), and return a network the type of which depends on the generative algorithm, when passed to the <a href="@ref"><code>structuralmodel</code></a> function.</p>
+<p>These functions generate random networks based on structural models. The models are given as types (specifically subtypes of <a href="./#SpeciesInteractionNetworks.StructuralModel"><code>StructuralModel</code></a>), and return a network the type of which depends on the generative algorithm, when passed to the <a href="./#SpeciesInteractionNetworks.structuralmodel"><code>structuralmodel</code></a> function.</p>
 </div>
 <p><a id='Models'></a></p>
 <p><a id='Models-1'></a></p>
 <h2 id="models">Models</h2>
-<div class="admonition warning">
-<p class="admonition-title">Missing docstring.</p>
-<p>Missing docstring for <code>StructuralModel</code>. Check Documenter's build log for details.</p>
-</div>
+<p><a id='SpeciesInteractionNetworks.StructuralModel' href='#SpeciesInteractionNetworks.StructuralModel'>#</a>
+<strong><code>SpeciesInteractionNetworks.StructuralModel</code></strong> &mdash; <em>Type</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">StructuralModel</span>
+</code></pre></div>
+<p>...</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/1e91c0eb0b0bdca577d9ad8bf33fcd99fef522fa/src/random/structural.jl#L1-L5' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.NicheModel' href='#SpeciesInteractionNetworks.NicheModel'>#</a>
 <strong><code>SpeciesInteractionNetworks.NicheModel</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">NicheModel</span>
@@ -853,10 +855,17 @@
 <p>The niche model of food webs...</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Williams2000Simple">Richard J. Williams, Neo D. Martinez (2000)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/bfac58ef7976dbae1c72c634b69228096b0c9afa/src/random/structural.jl#L3-L11' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/1e91c0eb0b0bdca577d9ad8bf33fcd99fef522fa/src/random/structural.jl#L8-L16' class='documenter-source'>source</a><br></p>
 <p><a id='The-generative-function'></a></p>
 <p><a id='The-generative-function-1'></a></p>
 <h2 id="the-generative-function">The generative function</h2>
+<p><a id='SpeciesInteractionNetworks.structuralmodel' href='#SpeciesInteractionNetworks.structuralmodel'>#</a>
+<strong><code>SpeciesInteractionNetworks.structuralmodel</code></strong> &mdash; <em>Function</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">structuralmodel</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">NicheModel</span><span class="p">},</span><span class="w"> </span><span class="n">species</span><span class="o">::</span><span class="kt">Integer</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="n">connectance</span><span class="o">::</span><span class="kt">AbstractFloat</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+</code></pre></div>
+<p>Generate a food web under the niche model with the given number of species, and an <em>expected</em> connectance.</p>
+<p>See <a href="./#SpeciesInteractionNetworks.NicheModel"><code>NicheModel</code></a> for more information about the niche model.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/1e91c0eb0b0bdca577d9ad8bf33fcd99fef522fa/src/random/structural/nichemodel.jl#L1-L7' class='documenter-source'>source</a><br></p>
 
 
 
