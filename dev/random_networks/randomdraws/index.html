@@ -694,9 +694,47 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Random draws
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Random draws
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#null-models-for-hypothesis-testing" class="md-nav__link">
+    Null models for hypothesis testing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-filtering" class="md-nav__link">
+    Linear filtering
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -818,18 +856,30 @@
 <p>Returns a <em>binary</em> network by making random draws from a <em>probabilistic</em> network. Each interaction is considered as an independent Bernoulli trial.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Poisot2015structure">Poisot <em>et al.</em> (2015)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6d54f2d7ce9fedd34defcf0ea19d215000699e2d/src/random/draws.jl#L1-L10' class='documenter-source'>source</a><br></p>
-<div class="admonition warning">
-<p class="admonition-title">Missing docstring.</p>
-<p>Missing docstring for <code>null</code>. Check Documenter's build log for details.</p>
-</div>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6334244b5c9d700fcce881bd5b1845e735f21032/src/random/draws.jl#L1-L10' class='documenter-source'>source</a><br></p>
+<p><a id='Null-models-for-hypothesis-testing'></a></p>
+<p><a id='Null-models-for-hypothesis-testing-1'></a></p>
+<h2 id="null-models-for-hypothesis-testing">Null models for hypothesis testing</h2>
+<p>The usual null models of network structure can be generated using a <a href="../permutations/#SpeciesInteractionNetworks.PermutationConstraint"><code>PermutationConstraint</code></a> as the first argument. Although technically speaking, these are not permutations, it is nevertheless useful to map the constraints from one method of network generation to another.</p>
+<p><a id='SpeciesInteractionNetworks.nullmodel' href='#SpeciesInteractionNetworks.nullmodel'>#</a>
+<strong><code>SpeciesInteractionNetworks.nullmodel</code></strong> &mdash; <em>Function</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">nullmodel</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">Degree</span><span class="p">},</span><span class="w"> </span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">})</span>
+</code></pre></div>
+<p>TODO</p>
+<p><strong>References</strong></p>
+<p><a href="../../bibliography/#Bascompte2003nested">(Bascompte <em>et al.</em>, 2003)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6334244b5c9d700fcce881bd5b1845e735f21032/src/random/linearfilter.jl#L26-L35' class='documenter-source'>source</a><br></p>
+<p><a id='Linear-filtering'></a></p>
+<p><a id='Linear-filtering-1'></a></p>
+<h2 id="linear-filtering">Linear filtering</h2>
+<p>The linear filter from <a href="../../bibliography/#Stock2017Linear">Stock <em>et al.</em> (2017)</a> is a general formulation of the null models presented above.</p>
 <p><a id='SpeciesInteractionNetworks.linearfilter' href='#SpeciesInteractionNetworks.linearfilter'>#</a>
 <strong><code>SpeciesInteractionNetworks.linearfilter</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">linearfilter</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">};</span><span class="w"> </span><span class="n">α</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="o">=</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">AbstractFloat</span><span class="p">}</span>
 </code></pre></div>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Stock2017Linear">Stock <em>et al.</em> (2017)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6d54f2d7ce9fedd34defcf0ea19d215000699e2d/src/random/linearfilter.jl#L1-L9' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6334244b5c9d700fcce881bd5b1845e735f21032/src/random/linearfilter.jl#L1-L9' class='documenter-source'>source</a><br></p>
 
 
 
