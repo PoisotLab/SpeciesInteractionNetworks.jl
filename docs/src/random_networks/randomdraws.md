@@ -42,6 +42,7 @@ using SpeciesInteractionNetworks
 import Downloads
 import DelimitedFiles
 import CairoMakie
+CairoMakie.activate!(px_per_unit=2) #hide
 import Statistics
 
 int_mat_path = Downloads.download("http://www.ecologia.ib.usp.br/iwdb/data/plant_pollinator/text/dupont_matr.txt")
@@ -81,10 +82,23 @@ nd = η.(Rd)
 This is all we need to plot the results:
 
 ```@example 1
-f = CairoMakie.Figure()
-ax = CairoMakie.Axis(f[1,1], xlabel="Nestedness", ylabel="Samples")
-CairoMakie.hist!(ax, nd; normalization=:probability, fillto=0.0, color=(:blue, 0.4))
-CairoMakie.vlines!(ax, [n0], color=:black)
+f = CairoMakie.Figure(backgroundcolor = :transparent, resolution = (800, 300))
+ax = CairoMakie.Axis(f[1,1], xlabel="Nestedness", ylabel="Probability")
+CairoMakie.hist!(ax, nd; normalization=:probability, fillto=0.0, color=(:slategray, 0.4), bins=20)
+CairoMakie.vlines!(ax, [n0], color=:black, linestyle=:dash)
 CairoMakie.tightlimits!(ax)
+CairoMakie.ylims!(ax, (0.0, 0.2))
 CairoMakie.current_figure()
+```
+
+In practice, we are often interested in deriving a *p*-value from the comparison
+of the empirical and null values of the structure measure. Note that,
+functionally, the generation of null models can be seen as permutation testing,
+and therefore we can approximate the *p*-value corresponding to the hypothesis
+that the network is *more* nested than expected under its degree distribution by
+looking at the proportion of randomized values that are larger than the
+empirical observation:
+
+```@example 1
+@info "𝑝 ≈ $(round(Statistics.mean(n0 .<= nd); digits=3))"
 ```
