@@ -5,6 +5,7 @@ site_author: Timothée Poisot
 
 theme:
   name: material
+  logo: assets/logo.png
   features:
     - navigation.tabs
     - toc.follow
