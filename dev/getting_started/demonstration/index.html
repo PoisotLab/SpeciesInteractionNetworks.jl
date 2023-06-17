@@ -457,6 +457,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#networks-are-broadcastable" class="md-nav__link">
+    Networks are broadcastable
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1015,6 +1022,37 @@
 </code></pre></div>
 <div><div style = "float: left;"><span>3×3 DataFrame</span></div><div style = "clear: both;"></div></div>
 <div class = "data-frame" style = "overflow-x: scroll;"><table class = "data-frame" style = "margin-bottom: 6px;"><thead><tr class = "header"><th class = "rowNumber" style = "font-weight: bold; text-align: right;">Row</th><th style = "text-align: left;">1</th><th style = "text-align: left;">2</th><th style = "text-align: left;">3</th></tr><tr class = "subheader headerLastRow"><th class = "rowNumber" style = "font-weight: bold; text-align: right;"></th><th title = "Symbol" style = "text-align: left;">Symbol</th><th title = "Symbol" style = "text-align: left;">Symbol</th><th title = "Bool" style = "text-align: left;">Bool</th></tr></thead><tbody><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">1</td><td style = "text-align: left;">fox</td><td style = "text-align: left;">vole</td><td style = "text-align: right;">true</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">2</td><td style = "text-align: left;">hawk</td><td style = "text-align: left;">vole</td><td style = "text-align: right;">true</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">3</td><td style = "text-align: left;">vole</td><td style = "text-align: left;">turnip</td><td style = "text-align: right;">true</td></tr></tbody></table></div>
+
+<p><a id='Networks-are-broadcastable'></a></p>
+<p><a id='Networks-are-broadcastable-1'></a></p>
+<h2 id="networks-are-broadcastable">Networks are broadcastable</h2>
+<p>We can use the broadcast syntax to rapidly apply operations to <em>all positions</em> in a network. Note that this is not <em>only</em> applying operations to the positions that are non-zero. For example, we can flip the sign of all interactions in the network:</p>
+<div class="highlight"><pre><span></span><code><span class="n">interactions</span><span class="p">(</span><span class="o">.!</span><span class="n">network</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>13-element Vector{Tuple{Symbol, Symbol, Bool}}:
+ (:fox, :fox, 1)
+ (:vole, :fox, 1)
+ (:hawk, :fox, 1)
+ (:turnip, :fox, 1)
+ (:vole, :vole, 1)
+ (:turnip, :vole, 1)
+ (:fox, :hawk, 1)
+ (:vole, :hawk, 1)
+ (:hawk, :hawk, 1)
+ (:turnip, :hawk, 1)
+ (:fox, :turnip, 1)
+ (:hawk, :turnip, 1)
+ (:turnip, :turnip, 1)
+</code></pre></div>
+<p>In the same way, we can broadcast operations on pairs of networks. In this case, the constraint that will be enforced is that the species <em>must</em> be the same (they do not need to be in the same order, however):</p>
+<div class="highlight"><pre><span></span><code><span class="n">interactions</span><span class="p">(</span><span class="n">network</span><span class="w"> </span><span class="o">.+</span><span class="w"> </span><span class="n">network</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>3-element Vector{Tuple{Symbol, Symbol, Int64}}:
+ (:fox, :vole, 2)
+ (:hawk, :vole, 2)
+ (:vole, :turnip, 2)
+</code></pre></div>
+<p>In practice, the application of broadcasting to network is of limited value, but the package offers the ability to do it.</p>
 
 
 
