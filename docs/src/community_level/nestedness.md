@@ -2,7 +2,7 @@
 
 !!! abstract
 
-    The methods presented in this page measure the nestedness of a network. Nestedness is usually restricted to biparite networks.
+    The methods presented in this page measure the nestedness of a network. Nestedness is usually restricted to biparite networks, although following the arguments laid out by [Staniczenko2013ghost](@citet), we consider [`spectralradius`](@ref) to be a measure of nestedness.
 
 ## η
 
@@ -15,3 +15,9 @@
 ```
 
 ## NODF
+
+## Spectral radius
+
+```@docs
+spectralradius
+```

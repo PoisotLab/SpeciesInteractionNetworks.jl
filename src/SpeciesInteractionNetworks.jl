@@ -78,8 +78,11 @@ export ShortestPathMethod
 export BellmanFord, Dijkstra
 export shortestpath
 
-include("community_level/nestedness.jl")
+include("community_level/eta.jl")
 export η
+
+include("community_level/spectralradius.jl")
+export spectralradius
 
 include("meta_level/set.jl")
 include("meta_level/partitions.jl")
