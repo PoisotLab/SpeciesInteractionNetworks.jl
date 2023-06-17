@@ -36,6 +36,7 @@ include("types/copy.jl")
 include("interfaces/abstractarray.jl")
 include("interfaces/iteration.jl")
 include("interfaces/table.jl")
+include("interfaces/broadcast.jl")
 
 include("basics/interactions.jl")
 export interactions

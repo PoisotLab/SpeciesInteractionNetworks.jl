@@ -142,3 +142,26 @@ All of the networks can be converted to a tabular data, for use with *e.g.* the
 import DataFrames
 DataFrames.DataFrame(network)
 ```
+
+## Networks are broadcastable
+
+We can use the broadcast syntax to rapidly apply operations to *all positions*
+in a network. Note that this is not *only* applying operations to the positions
+that are non-zero. For example, we can flip the sign of all interactions in the
+network:
+
+```@example 1
+interactions(.!network)
+```
+
+In the same way, we can broadcast operations on pairs of networks. In this case,
+the constraint that will be enforced is that the species *must* be the same
+(they do not need to be in the same order, however):
+
+```@example 1
+interactions(network .+ network)
+```
+
+In practice, the application of broadcasting to network is of limited value, but
+the package offers the ability to do it.
+
