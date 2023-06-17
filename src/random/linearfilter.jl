@@ -123,3 +123,55 @@ incomin links:
 [Weitz2013Phagebacteria](@citet)
 """
 nullmodel(::Type{Vulnerability}, N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}) = linearfilter(N; α=[0.0, 0.0, 1.0, 0.0])
+
+@testitem "The degree null model is working" begin
+    nodes = Bipartite([:A, :B, :C], [:a, :b, :c])
+    edges = Binary(Bool[1 1 1; 0 1 0; 1 1 0])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    R = nullmodel(Degree, N)
+    @test typeof(R.nodes) <: Bipartite
+    @test typeof(R.edges) <: Probabilistic
+    @test R[:A, :a] == 0.5 * (3/3 + 2/3)
+    @test R[:B, :b] == 0.5 * (1/3 + 3/3)
+    @test R[:C, :c] == 0.5 * (2/3 + 1/3)
+end
+
+@testitem "The connectance null model is working" begin
+    nodes = Bipartite([:A, :B, :C], [:a, :b, :c])
+    edges = Binary(Bool[1 1 1; 0 1 0; 1 1 0])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    R = nullmodel(Connectance, N)
+    @test typeof(R.nodes) <: Bipartite
+    @test typeof(R.edges) <: Probabilistic
+    @test R[:A, :a] == 6 / 9
+    @test R[:B, :b] == 6 / 9
+    @test R[:C, :c] == 6 / 9
+end
+
+@testitem "The generality null model is working" begin
+    nodes = Bipartite([:A, :B, :C], [:a, :b, :c])
+    edges = Binary(Bool[1 1 1; 0 1 0; 1 1 0])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    R = nullmodel(Generality, N)
+    @test typeof(R.nodes) <: Bipartite
+    @test typeof(R.edges) <: Probabilistic
+    @test R[:A, :a] == 3 / 3
+    @test R[:B, :a] == 1 / 3
+    @test R[:B, :b] == 1 / 3
+    @test R[:B, :c] == 1 / 3
+    @test R[:C, :c] == 2 / 3
+end
+
+@testitem "The vulnerability null model is working" begin
+    nodes = Bipartite([:A, :B, :C], [:a, :b, :c])
+    edges = Binary(Bool[1 1 1; 0 1 0; 1 1 0])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    R = nullmodel(Vulnerability, N)
+    @test typeof(R.nodes) <: Bipartite
+    @test typeof(R.edges) <: Probabilistic
+    @test R[:A, :a] == 2 / 3
+    @test R[:B, :a] == 2 / 3
+    @test R[:B, :b] == 3 / 3
+    @test R[:B, :c] == 1 / 3
+    @test R[:C, :c] == 1 / 3
+end
