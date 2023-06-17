@@ -2,7 +2,9 @@
 
 !!! abstract
 
-    The methods in this page draw random binary networks from probabilistic networks
+    This page presents an overview of methods to draw from a probabilistic network, and ways to generate structural null models from a binary network under various constraints.
+
+## Drawing from a probabilistic network
 
 ```@docs
 randomdraws
