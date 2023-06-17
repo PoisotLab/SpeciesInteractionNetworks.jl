@@ -92,7 +92,7 @@ end
     end
 end
 
-@testitem "We can broadcast unary interactions" begin
+@testitem "We can broadcast unary operations" begin
     M = [1 1 1; 1 1 0; 0 0 1]
     edges = Quantitative(M)
     nodes = Unipartite([:A, :B, :C])
