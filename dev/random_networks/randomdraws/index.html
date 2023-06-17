@@ -887,7 +887,7 @@
 <p>Returns a <em>binary</em> network by making random draws from a <em>probabilistic</em> network. Each interaction is considered as an independent Bernoulli trial.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Poisot2015structure">Poisot <em>et al.</em> (2015)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/cb058b6e0260fa96c7b8215dc6e097c80c9211f0/src/random/draws.jl#L1-L10' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5d10de9d8d7363895cf75b371e9c9d0ea1b3d1ef/src/random/draws.jl#L1-L10' class='documenter-source'>source</a><br></p>
 <p><a id='Null-models-for-hypothesis-testing'></a></p>
 <p><a id='Null-models-for-hypothesis-testing-1'></a></p>
 <h2 id="null-models-for-hypothesis-testing">Null models for hypothesis testing</h2>
@@ -900,7 +900,7 @@
 <p>$P(i \rightarrow j) = \frac{1}{2}\left(\frac{\sum A_{i \rightarrow \cdot}}{|B|} + \frac{\sum A_{\cdot \rightarrow j}}{|T|} \right)$</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Bascompte2003nested">Bascompte <em>et al.</em> (2003)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/cb058b6e0260fa96c7b8215dc6e097c80c9211f0/src/random/linearfilter.jl#L80-L93' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5d10de9d8d7363895cf75b371e9c9d0ea1b3d1ef/src/random/linearfilter.jl#L80-L93' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>nullmodel(::Type{Connectance}, N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})
 </code></pre></div>
 <p>Returns a probabilistic network under the null model that all interactions occurr with a probability equal to the network connectance, <em>i.e.</em> in a network with $L$ links, and $|T|$ species on the top and $|B|$ species on the bottom,</p>
@@ -908,7 +908,7 @@
 <p>Note that for <a href="../../getting_started/types/#SpeciesInteractionNetworks.Unipartite"><code>Unipartite</code></a> networks, $|T| = |B| = |S|$ (the two sides have the same number of species).</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Fortuna2006Habitat">Fortuna and Bascompte (2006)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/cb058b6e0260fa96c7b8215dc6e097c80c9211f0/src/random/linearfilter.jl#L96-L112' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5d10de9d8d7363895cf75b371e9c9d0ea1b3d1ef/src/random/linearfilter.jl#L96-L112' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>nullmodel(::Type{Generality}, N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})
 </code></pre></div>
 <p>Returns a probabilistic network under the null model that interactions happen proportionally to the generality of the species, <em>i.e.</em> their expected number of outgoing links:</p>
@@ -916,7 +916,7 @@
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Poisot2013Facultative">Poisot <em>et al.</em> (2013)</a></p>
 <p><a href="../../bibliography/#Weitz2013Phagebacteria">Weitz <em>et al.</em> (2013)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/cb058b6e0260fa96c7b8215dc6e097c80c9211f0/src/random/linearfilter.jl#L115-L129' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5d10de9d8d7363895cf75b371e9c9d0ea1b3d1ef/src/random/linearfilter.jl#L115-L129' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>nullmodel(::Type{Generality}, N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})
 </code></pre></div>
 <p>Returns a probabilistic network under the null model that interactions happen proportionally to the vulnerability of the species, <em>i.e.</em> their expected number of incomin links:</p>
@@ -924,7 +924,7 @@
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Poisot2013Facultative">Poisot <em>et al.</em> (2013)</a></p>
 <p><a href="../../bibliography/#Weitz2013Phagebacteria">Weitz <em>et al.</em> (2013)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/cb058b6e0260fa96c7b8215dc6e097c80c9211f0/src/random/linearfilter.jl#L132-L146' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5d10de9d8d7363895cf75b371e9c9d0ea1b3d1ef/src/random/linearfilter.jl#L132-L146' class='documenter-source'>source</a><br></p>
 <p><a id='Linear-filtering'></a></p>
 <p><a id='Linear-filtering-1'></a></p>
 <h2 id="linear-filtering">Linear filtering</h2>
@@ -942,7 +942,7 @@
 <p>$\alpha_4$ is the weight of connectance.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Stock2017Linear">Stock <em>et al.</em> (2017)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/cb058b6e0260fa96c7b8215dc6e097c80c9211f0/src/random/linearfilter.jl#L1-L31' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/5d10de9d8d7363895cf75b371e9c9d0ea1b3d1ef/src/random/linearfilter.jl#L1-L31' class='documenter-source'>source</a><br></p>
 <p><a id='Illustration'></a></p>
 <p><a id='Illustration-1'></a></p>
 <h2 id="illustration">Illustration</h2>
