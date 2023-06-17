@@ -1,3 +1,18 @@
+"""
+    KGL01(S::T) where {T<:NamedTuple}
+
+
+
+``\beta_w = \\frac{L+S+R}{(2S + L + R)/2}``
+
+###### References
+
+[Magurran1988Ecological](@citet)
+
+[Southwood2009Ecological](@citet)
+
+[Whittaker1960Vegetation](@citet)
+"""
 function KGL01(S::T) where {T<:NamedTuple}
   return (S.shared+S.right+S.left)/((S.shared + (S.shared+S.right+S.left))/2.0)
 end
@@ -29,6 +44,18 @@ function KGL07(S::T) where {T<:NamedTuple}
   return exp(KGL06(S))-1.0
 end
 
+"""
+    KGL08(S::T) where {T<:NamedTuple}
+
+``\beta_t = \\frac{L+R}{(2S + L + R)}``
+
+This method is used in [Poisot2022Dissimilarity](@citet), and has a lot of
+desirable properties. We suggest its use as a default.
+
+###### References
+
+[Wilson1984Measuring](@citet)
+"""
 function KGL08(S::T) where {T<:NamedTuple}
   return (S.right + S.left) / (2*S.shared + S.right + S.left)
 end

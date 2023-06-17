@@ -46,6 +46,7 @@ nav:
     - Nestedness: community_level/nestedness.md
   - Meta:
     - Beta-diversity: meta_level/betadiversity.md
+    - Beta-diversity measures: meta_level/dissimilarities.md
     - Set operations: meta_level/sets.md
   - Random:
     - Permutations: random_networks/permutations.md
