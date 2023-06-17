@@ -27,6 +27,11 @@ end
     nullmodel(::Type{Degree}, N::SpeciesInteractionNetwork{<:Partiteness, <:Binary})
 
 TODO
+
+###### References
+
+[Bascompte2003nested](@citep)
+
 """
 nullmodel(::Type{Degree}, N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}) = linearfilter(N; α=[0.0, 1.0, 1.0, 0.0])
 nullmodel(::Type{Connectance}, N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}) = linearfilter(N; α=[0.0, 0.0, 0.0, 1.0])
