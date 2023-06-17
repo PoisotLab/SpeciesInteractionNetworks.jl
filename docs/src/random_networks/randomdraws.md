@@ -2,7 +2,7 @@
 
 !!! abstract
 
-    This page presents an overview of methods to draw from a probabilistic network, and ways to generate structural null models from a binary network under various constraints.
+    This page presents an overview of methods to draw from a probabilistic network, and ways to generate structural null models from a binary network under various constraints. We present an illustration using plant-pollinator data [Dupont2003Structure](@cite) to show how these functions can be applied to test the significance of network structure.
 
 ## Drawing from a probabilistic network
 
