@@ -21,6 +21,7 @@ import Tables
 # include(joinpath(".", "misc", "init_tests.jl"))
 
 include("types/declarations.jl")
+export Partiteness, Interactions
 export Bipartite, Unipartite
 export Binary, Quantitative, Probabilistic
 export SpeciesInteractionNetwork

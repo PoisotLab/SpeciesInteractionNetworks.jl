@@ -1,3 +1,8 @@
+"""
+    subgraph(N::SpeciesInteractionNetwork{<:Unipartite{T}, <:Interactions}, nodes::Vector{T}) where {T}
+
+
+"""
 function subgraph(N::SpeciesInteractionNetwork{<:Unipartite{T}, <:Interactions}, nodes::Vector{T}) where {T}
     indexes = indexin(nodes, species(N))
     if any(isnothing.(indexes))

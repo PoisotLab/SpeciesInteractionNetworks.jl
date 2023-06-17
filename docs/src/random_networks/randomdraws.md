@@ -39,15 +39,39 @@ empirical network.
 
 ```@example 1
 using SpeciesInteractionNetworks
-import Downloads
 import DelimitedFiles
 import CairoMakie
 CairoMakie.activate!(px_per_unit=2) #hide
 import Statistics
+```
 
-int_mat_path = Downloads.download("http://www.ecologia.ib.usp.br/iwdb/data/plant_pollinator/text/dupont_matr.txt")
-int_mat = Bool.(DelimitedFiles.readdlm(int_mat_path))
+The data are available from the
+[IWDB](http://www.ecologia.ib.usp.br/iwdb/html/dupont_et_al.html), but in order
+to avoid making unecessary calls to their webserver, we have reproduced a
+version here:
 
+```@example 1
+int_mat = Bool[
+    1 1 1 0 1 1 0 0 1 0 0; 1 0 0 1 1 1 0 1 0 1 0; 1 0 1 0 1 1 1 0 0 0 0;
+    0 1 0 1 0 1 1 1 0 1 0; 1 0 1 0 1 1 1 0 0 1 0; 0 1 1 0 1 0 1 0 1 0 1;
+    1 1 1 1 0 0 1 0 0 0 0; 1 0 0 0 1 1 0 0 0 1 0; 1 1 1 0 0 0 0 1 0 0 0;
+    1 1 0 0 0 1 1 0 0 0 0; 1 1 0 1 0 0 0 0 1 0 0; 1 1 1 0 0 0 0 1 0 0 0;
+    0 1 0 1 0 0 0 1 0 0 0; 1 0 1 0 1 0 0 0 0 0 0; 0 0 1 0 1 0 0 0 0 0 1;
+    1 0 1 1 0 0 0 0 0 0 0; 0 0 1 1 1 0 0 0 0 0 0; 0 1 0 0 0 0 1 0 1 0 0;
+    0 0 0 0 0 1 1 0 0 0 0; 0 0 0 1 0 1 0 0 0 0 0; 1 0 0 0 1 0 0 0 0 0 0;
+    0 0 1 0 0 0 0 1 0 0 0; 1 0 0 0 0 0 0 0 1 0 0; 0 0 1 0 0 0 0 0 1 0 0;
+    0 0 0 1 0 0 0 0 0 0 0; 0 1 1 0 0 0 0 0 0 0 0; 1 0 0 1 0 0 0 0 0 0 0;
+    1 0 0 0 0 0 0 0 0 0 0; 0 0 0 0 0 0 0 0 0 1 0; 0 0 0 0 0 0 0 1 0 0 0;
+    0 1 0 0 0 0 0 0 0 0 0; 0 1 0 0 0 0 0 0 0 0 0; 1 0 0 0 0 0 0 0 0 0 0;
+    1 0 0 0 0 0 0 0 0 0 0; 0 0 0 1 0 0 0 0 0 0 0; 0 0 0 1 0 0 0 0 0 0 0;
+    0 1 0 0 0 0 0 0 0 0 0; 0 0 0 0 0 0 0 0 1 0 0
+]
+nothing # hide
+```
+
+We can turn this into a network (without species names!):
+
+```@example 1
 edges = Binary(int_mat)
 nodes = Bipartite(edges)
 
@@ -56,6 +80,7 @@ N = SpeciesInteractionNetwork(nodes, edges)
 @info "$(richness(N,2)) plants"
 @info "$(length(N)) interactions"
 ```
+
 
 We first measure the nestedness of the network:
 
