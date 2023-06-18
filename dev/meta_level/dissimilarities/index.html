@@ -885,9 +885,9 @@
 <h1 id="list-of-dissimilarity-functions">List of dissimilarity functions</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
-<p>The methods in this page are from <a href="../../bibliography/#Koleff2003Measuring">Koleff <em>et al.</em> (2003)</a>; when called on the output of <a href="../betadiversity/#SpeciesInteractionNetworks.betadiversity"><code>betadiversity</code></a>, they will return a (dis)similarity score.</p>
+<p>The methods in this page are from <a href="../../bibliography/#Koleff2003Measuring">Koleff <em>et al.</em> [7]</a>; when called on the output of <a href="../betadiversity/#SpeciesInteractionNetworks.betadiversity"><code>betadiversity</code></a>, they will return a (dis)similarity score.</p>
 </div>
-<p>In the original paper <a href="../../bibliography/#Koleff2003Measuring">(Koleff <em>et al.</em>, 2003)</a>, the measures are expressed as a function of $a$ (the number of shared elements), $b$ (the number of elements unique to the right/neighbouring set), and $c$ (the number of elements unique to the left/focal set). In this documentation, we use a slightly different convention, where $c = L$ (left), $a = S$ (shared), and $b = R$ (right).</p>
+<p>In the original paper <a href="../../bibliography/#Koleff2003Measuring">[7]</a>, the measures are expressed as a function of $a$ (the number of shared elements), $b$ (the number of elements unique to the right/neighbouring set), and $c$ (the number of elements unique to the left/focal set). In this documentation, we use a slightly different convention, where $c = L$ (left), $a = S$ (shared), and $b = R$ (right).</p>
 <p><a id='List-of-measures'></a></p>
 <p><a id='List-of-measures-1'></a></p>
 <h2 id="list-of-measures">List of measures</h2>
@@ -897,19 +897,19 @@
 </code></pre></div>
 <p>$\beta_w = \frac{L+S+R}{(2S + L + R)/2}$</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Magurran1988Ecological">Magurran (1988)</a></p>
-<p><a href="../../bibliography/#Southwood2009Ecological">Southwood and Henderson (2009)</a></p>
-<p><a href="../../bibliography/#Whittaker1960Vegetation">Whittaker (1960)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/d6bc7df8aa3d79a11bd2474d57a434e275410144/src/meta_level/measures.jl#L1-L15' class='documenter-source'>source</a><br></p>
+<p><a href="../../bibliography/#Magurran1988Ecological">Magurran [11]</a></p>
+<p><a href="../../bibliography/#Southwood2009Ecological">Southwood and Henderson [12]</a></p>
+<p><a href="../../bibliography/#Whittaker1960Vegetation">Whittaker [13]</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/80ffafc6ab53f86ae4a8fea0ba3b834104807f2c/src/meta_level/measures.jl#L1-L15' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.KGL08' href='#SpeciesInteractionNetworks.KGL08'>#</a>
 <strong><code>SpeciesInteractionNetworks.KGL08</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">KGL08</span><span class="p">(</span><span class="n">S</span><span class="o">::</span><span class="kt">T</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="o">&lt;:</span><span class="kt">NamedTuple</span><span class="p">}</span>
 </code></pre></div>
 <p>$\beta_t = \frac{L+R}{(2S + L + R)}$</p>
-<p>This method is used in <a href="../../bibliography/#Poisot2022Dissimilarity">Poisot (2022)</a>, and has a lot of desirable properties. We suggest its use as a default.</p>
+<p>This method is used in <a href="../../bibliography/#Poisot2022Dissimilarity">Poisot [10]</a>, and has a lot of desirable properties. We suggest its use as a default.</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Wilson1984Measuring">Wilson and Shmida (1984)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/d6bc7df8aa3d79a11bd2474d57a434e275410144/src/meta_level/measures.jl#L47-L58' class='documenter-source'>source</a><br></p>
+<p><a href="../../bibliography/#Wilson1984Measuring">Wilson and Shmida [14]</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/80ffafc6ab53f86ae4a8fea0ba3b834104807f2c/src/meta_level/measures.jl#L47-L58' class='documenter-source'>source</a><br></p>
 
 
 
