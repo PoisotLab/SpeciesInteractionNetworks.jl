@@ -7,5 +7,6 @@
 ## Detection of disconnected species
 
 ```@docs
+isdisconnected
 isdegenerate
 ```
