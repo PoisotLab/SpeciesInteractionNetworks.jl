@@ -17,6 +17,8 @@ specificity
 
 ```@docs
 degree
+generality
+vulnerability
 ```
 
 ## Illustration
