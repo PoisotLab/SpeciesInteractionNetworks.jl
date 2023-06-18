@@ -13,17 +13,17 @@
       
       
       
-        <link rel="prev" href="../../meso_level/paths/">
+        <link rel="prev" href="../nestedness/">
       
       
-        <link rel="next" href="../nestedness/">
+        <link rel="next" href="../../meta_level/betadiversity/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
-        <title>Links counting - SpeciesInteractionNetworks.jl</title>
+        <title>Disconnected species - SpeciesInteractionNetworks.jl</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#links-counting" class="md-skip">
+        <a href="#disconnected-species" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Links counting
+              Disconnected species
             
           </span>
         </div>
@@ -231,7 +231,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../links/" class="md-tabs__link md-tabs__link--active">
         Macro
       </a>
     </li>
@@ -555,59 +555,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Links counting
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../links/" class="md-nav__link">
         Links counting
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#number-of-links" class="md-nav__link">
-    Number of links
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#variances-for-probabilistic-networks" class="md-nav__link">
-    Variances for probabilistic networks
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -631,11 +583,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../degeneracy/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Disconnected species
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Disconnected species
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#detection-of-disconnected-species" class="md-nav__link">
+    Detection of disconnected species
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -882,57 +875,36 @@
   
 
 
-<p><a id='Links-counting'></a></p>
-<p><a id='Links-counting-1'></a></p>
-<h1 id="links-counting">Links counting</h1>
+<p><a id='Disconnected-species'></a></p>
+<p><a id='Disconnected-species-1'></a></p>
+<h1 id="disconnected-species">Disconnected species</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
 <p>TODO</p>
 </div>
-<p><a id='Number-of-links'></a></p>
-<p><a id='Number-of-links-1'></a></p>
-<h2 id="number-of-links">Number of links</h2>
-<p><a id='SpeciesInteractionNetworks.links' href='#SpeciesInteractionNetworks.links'>#</a>
-<strong><code>SpeciesInteractionNetworks.links</code></strong> &mdash; <em>Function</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">links</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">})</span>
+<p><a id='Detection-of-disconnected-species'></a></p>
+<p><a id='Detection-of-disconnected-species-1'></a></p>
+<h2 id="detection-of-disconnected-species">Detection of disconnected species</h2>
+<p><a id='SpeciesInteractionNetworks.isdisconnected' href='#SpeciesInteractionNetworks.isdisconnected'>#</a>
+<strong><code>SpeciesInteractionNetworks.isdisconnected</code></strong> &mdash; <em>Function</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">isdisconnected</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="kt">Bipartite</span><span class="p">{</span><span class="kt">T</span><span class="p">},</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">},</span><span class="w"> </span><span class="n">sp</span><span class="o">::</span><span class="kt">T</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 </code></pre></div>
-<p>The number of links in a network is defined as the number of non-zero elements in the network. For quantitative networks, this is <em>not</em> weighted by the intensity of each interaction.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/76148821cbb247b1024edc361b2b3b6f42f7bc7c/src/macro_level/connectance.jl#L1-L7' class='documenter-source'>source</a><br></p>
-<div class="highlight"><pre><span></span><code>links(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Probabilistic})
+<p>Returns <code>true</code> if the species has no interaction.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/76148821cbb247b1024edc361b2b3b6f42f7bc7c/src/macro_level/degeneracy.jl#L1-L5' class='documenter-source'>source</a><br></p>
+<div class="highlight"><pre><span></span><code>isdisconnected(N::SpeciesInteractionNetwork{Unipartite{T}, &lt;:Interactions}, sp::T, allow_self_interactions::Bool=true) where {T}
 </code></pre></div>
-<p>The number of links in a probabilistic network is defined as the expected number of interactions in the network. See also <a href="@ref"><code>links_variance</code></a>.</p>
-<p><strong>References</strong></p>
-<p><a href="../../bibliography/#Poisot2015structure">Poisot <em>et al.</em> (2015)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/76148821cbb247b1024edc361b2b3b6f42f7bc7c/src/macro_level/connectance.jl#L12-L21' class='documenter-source'>source</a><br></p>
-<p><a id='SpeciesInteractionNetworks.connectance' href='#SpeciesInteractionNetworks.connectance'>#</a>
-<strong><code>SpeciesInteractionNetworks.connectance</code></strong> &mdash; <em>Function</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">connectance</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">)</span>
+<p>Returns <code>true</code> if the species has no interaction; the last argument (<code>allow_self_interactions</code>, defaults to <code>true</code>) indicates whether self-interactions are allowed. If <code>false</code>, species that only interact with themselves are considered to be disconnected.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/76148821cbb247b1024edc361b2b3b6f42f7bc7c/src/macro_level/degeneracy.jl#L14-L21' class='documenter-source'>source</a><br></p>
+<p><a id='SpeciesInteractionNetworks.isdegenerate' href='#SpeciesInteractionNetworks.isdegenerate'>#</a>
+<strong><code>SpeciesInteractionNetworks.isdegenerate</code></strong> &mdash; <em>Function</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">isdegenerate</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Bipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">})</span>
 </code></pre></div>
-<p>The connectance, also known as the density, of a network is defined as the ratio between the number of existing links and the number of possible links. This value is in the unit interval. For a probabilistic network, this returns the <em>expected</em> connectance.</p>
-<p><strong>References</strong></p>
-<p><a href="../../bibliography/#Martinez1992Constant">Martinez (1992)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/76148821cbb247b1024edc361b2b3b6f42f7bc7c/src/macro_level/connectance.jl#L26-L37' class='documenter-source'>source</a><br></p>
-<p><a id='SpeciesInteractionNetworks.linkagedensity' href='#SpeciesInteractionNetworks.linkagedensity'>#</a>
-<strong><code>SpeciesInteractionNetworks.linkagedensity</code></strong> &mdash; <em>Function</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">connectance</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">)</span>
+<p>A bipartite network is degenerate if it has species with no interactions.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/76148821cbb247b1024edc361b2b3b6f42f7bc7c/src/macro_level/degeneracy.jl#L30-L34' class='documenter-source'>source</a><br></p>
+<div class="highlight"><pre><span></span><code>isdegenerate(N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Interactions}, allow_self_interactions::Bool=true)
 </code></pre></div>
-<p>The linkage density of a network is the average number of interaction per species (or its expected value in the case of probabilistic networks).</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/76148821cbb247b1024edc361b2b3b6f42f7bc7c/src/macro_level/connectance.jl#L42-L47' class='documenter-source'>source</a><br></p>
-<p><a id='Variances-for-probabilistic-networks'></a></p>
-<p><a id='Variances-for-probabilistic-networks-1'></a></p>
-<h2 id="variances-for-probabilistic-networks">Variances for probabilistic networks</h2>
-<div class="admonition warning">
-<p class="admonition-title">Missing docstring.</p>
-<p>Missing docstring for <code>links_variance</code>. Check Documenter's build log for details.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Missing docstring.</p>
-<p>Missing docstring for <code>connectance_variance</code>. Check Documenter's build log for details.</p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Missing docstring.</p>
-<p>Missing docstring for <code>linkagedensity_variance</code>. Check Documenter's build log for details.</p>
-</div>
+<p>A unipartite network is degenerate if it has species with no interactions. In some cases, it is useful to consider that a species with only self-interactions is disconnected from the network – this can be done by using <code>false</code> as the second argument (the default is to <em>allow</em> species with only self interactions to remain).</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/76148821cbb247b1024edc361b2b3b6f42f7bc7c/src/macro_level/degeneracy.jl#L39-L47' class='documenter-source'>source</a><br></p>
 
 
 
