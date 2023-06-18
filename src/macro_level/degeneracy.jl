@@ -82,3 +82,41 @@ end
     @test isdisconnected(N, :B, false)
     @test isdisconnected(N, :B, true)
 end
+
+"""
+    simplify(N::SpeciesInteractionNetwork{<:Bipartite, <:Interactions})
+
+Returns a *copy* of a network containing only the species with interactions.
+Internally, this calls [`isdisconnected`](@ref).
+"""
+function simplify(N::SpeciesInteractionNetwork{<:Bipartite, <:Interactions})
+    top_nodes = filter(sp -> !isdisconnected(N, sp), species(N, 1))
+    bot_nodes = filter(sp -> !isdisconnected(N, sp), species(N, 2))
+    return subgraph(N, top_nodes, bot_nodes)
+end
+
+"""
+    simplify(N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions}, allow_self_interactions::Bool=true)
+
+Returns a *copy* of a network containing only the species with interactions.
+Internally, this calls [`isdisconnected`](@ref) -- see this documentation for
+the consequences of `allow_self_interactions`.
+"""
+function simplify(N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions}, allow_self_interactions::Bool=true)
+    nodes = filter(sp -> !isdisconnected(N, sp, allow_self_interactions), species(N))
+    return subgraph(N, nodes)
+end
+
+@testitem "We can simplify a bipartite network" begin
+    nodes = Bipartite([:A, :B, :C], [:a, :b])
+    edges = Binary(zeros(Bool, size(nodes)))
+    N = SpeciesInteractionNetwork(nodes, edges)
+    N[:A, :a] = true
+    N[:A, :b] = true
+    N[:C, :a] = true
+    S = simplify(N)
+    @test richness(S) == 4
+    S[:A, :a] = false
+    @test N[:A, :a] == true
+    @test S[:A, :a] == false
+end

@@ -10,3 +10,9 @@
 isdisconnected
 isdegenerate
 ```
+
+## Simplification of networks with disconnected species
+
+```@docs
+simplify
+```

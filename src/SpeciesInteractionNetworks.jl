@@ -90,6 +90,7 @@ export spectralradius
 
 include("macro_level/degeneracy.jl")
 export isdegenerate, isdisconnected
+export simplify
 
 include("meta_level/set.jl")
 include("meta_level/partitions.jl")

@@ -15,6 +15,9 @@ Base.axes(N::SpeciesInteractionNetwork, i::Integer) = axes(N.edges, i)
 Base.size(E::Interactions) = size(E.edges)
 Base.size(E::Interactions, i::Integer) = size(E.edges, i)
 
+Base.size(E::Bipartite) = (length(E.top), length(E.bottom))
+Base.size(E::Unipartite) = (length(E.margin), length(E.margin))
+
 Base.size(N::SpeciesInteractionNetwork) = size(N.edges)
 Base.size(N::SpeciesInteractionNetwork, i::Integer) = size(N.edges, i)
 
