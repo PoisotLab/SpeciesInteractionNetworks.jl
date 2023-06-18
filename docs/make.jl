@@ -16,7 +16,7 @@ makedocs(
 )
 
 deploydocs(;
-    deps = Deps.pip("mkdocs", "pygments", "python-markdown-math", "mkdocs-material"),
+    deps = Deps.pip("mkdocs", "pygments", "python-markdown-math", "mkdocs-material", "mkdocs-git-revision-date-localized-plugin"),
     repo = "github.com/PoisotLab/SpeciesInteractionNetworks.jl.git",
     devbranch = "main",
     make = () -> run(`mkdocs build`),

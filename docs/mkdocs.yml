@@ -6,13 +6,22 @@ site_author: Timothée Poisot
 theme:
   name: material
   logo: assets/logo.png
+  icon:
+    edit: material/pencil
+    view: material/eye
   features:
+    - content.action.edit
     - navigation.tabs
     - toc.follow
     - toc.integrate
     - navigation.top
     - navigation.instant
     - navigation.tracking
+
+plugins:
+  - git-revision-date-localized:
+      enable_creation_date: true
+      enable_revision_date: true
 
 extra_css:
   - assets/Documenter.css
