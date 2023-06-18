@@ -1,152 +1,107 @@
-import Base.convert
+_nodetype(N::SpeciesInteractionNetwork) = typeof(N.nodes).name.wrapper
+_edgetype(N::SpeciesInteractionNetwork) = typeof(N.edges).name.wrapper
 
 """
-    convert(::Type{UnipartiteNetwork}, N::T) where {T <: BipartiteNetwork}
+    render(::Type{Unipartite}, N::SpeciesInteractionNetwork{<:Bipartite, <:Interactions})
 
-Projects a deterministic bipartite network in its unipartite representation.
+Returns the unipartite projection of a bipartite network. By constructions,
+species cannot be shared between levels of bipartite network, so this operation
+will always succeed.
 """
-function convert(::Type{UnipartiteNetwork}, N::T) where {T <: BipartiteNetwork}
-    itype = _interaction_type(N)
-    S = copy(species(N))
-    B = zeros(itype, (richness(N), richness(N)))
-    B[1:size(N)[1],size(N)[1]+1:richness(N)] = N.edges
-    return UnipartiteNetwork(sparse(B), S)
-end
-
-"""
-    convert(::Type{UnipartiteProbabilisticNetwork}, N::T) where {T <: BipartiteProbabilisticNetwork}
-
-Projects a probabilistic bipartite network in its unipartite representation.
-"""
-function convert(::Type{UnipartiteProbabilisticNetwork}, N::T) where {T <: BipartiteProbabilisticNetwork}
-    itype = _interaction_type(N)
-    S = copy(species(N))
-    B = zeros(itype, (richness(N), richness(N)))
-    B[1:size(N)[1],size(N)[1]+1:richness(N)] = N.edges
-    return UnipartiteProbabilisticNetwork(sparse(B), S)
-end
-
-"""
-    convert(::Type{UnipartiteQuantitativeNetwork}, N::T) where {T <: BipartiteQuantitativeNetwork}
-
-Projects a quantitative bipartite network in its unipartite representation.
-"""
-function convert(::Type{UnipartiteQuantitativeNetwork}, N::T) where {T <: BipartiteQuantitativeNetwork}
-    itype = _interaction_type(N)
-    S = copy(species(N))
-    B = zeros(itype, (richness(N), richness(N)))
-    B[1:size(N)[1],size(N)[1]+1:richness(N)] = N.edges
-    return UnipartiteQuantitativeNetwork(sparse(B), S)
-end
-
-"""
-    convert(::Type{UnipartiteNetwork}, N::T) where {T <: UnipartiteQuantitativeNetwork}
-
-Convert a unipartite quantitative network to a unipartite binary network. This
-amounts to *removing* the quantitative information.
-"""
-function convert(::Type{UnipartiteNetwork}, N::T) where {T <: UnipartiteQuantitativeNetwork}
-    S = copy(species(N))
-    B = dropzeros(N.edges)
-    return UnipartiteNetwork(B .!= zero(eltype(B)), S)
-end
-
-"""
-    convert(::Type{BipartiteNetwork}, N::T) where {T <: BipartiteQuantitativeNetwork}
-
-Convert a bipartite quantitative network to a bipartite binary network. This
-amounts to *removing* the quantitative information.
-"""
-function convert(::Type{BipartiteNetwork}, N::NT) where {NT <: BipartiteQuantitativeNetwork}
-    T = copy(species(N; dims=1))
-    B = copy(species(N; dims=2))
-    M = dropzeros(N.edges)
-    return BipartiteNetwork(M .!= zero(eltype(M)), T, B)
-end
-
-"""
-    convert(::Type{AbstractUnipartiteNetwork}, N::AbstractBipartiteNetwork)
-
-Projects any bipartite network in its unipartite representation. This function
-will call the correct type-to-type `convert` function depending on the type of
-the input network.
-
-The type to be converted to *must* be `AbstractUnipartiteNetwork` -- for
-example, converting a bipartite probabilistic network to a probabilistic
-unipartite network is not a meaningful operation.
-"""
-function convert(::Type{AbstractUnipartiteNetwork}, N::AbstractBipartiteNetwork)
-    if typeof(N) <: QuantitativeNetwork
-        return convert(UnipartiteQuantitativeNetwork, N)
+function render(::Type{Unipartite}, N::SpeciesInteractionNetwork{<:Bipartite, <:Interactions})
+    nodes = Unipartite(species(N,1) ∪ species(N,2))
+    edges = _edgetype(N)(zeros(eltype(N.edges), size(nodes)))
+    U = SpeciesInteractionNetwork(nodes, edges)
+    for interaction in N
+        U[interaction[1], interaction[2]] = interaction[3]
     end
-    if typeof(N) <: BinaryNetwork
-        return convert(UnipartiteNetwork, N)
+    return U
+end
+
+@testitem "We can convert a binary bipartite network to a unipartite network" begin
+    nodes = Bipartite([:A, :B, :C], [:a, :b, :c])
+    edges = Binary(Bool[1 1 1; 0 0 1; 1 0 0])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    M = render(Unipartite, N)
+    for interaction in N
+        @test N[interaction[1], interaction[2]] == M[interaction[1], interaction[2]]
     end
-    if typeof(N) <: ProbabilisticNetwork
-        return convert(UnipartiteProbabilisticNetwork, N)
-    end
+    @test typeof(M.nodes) <: Unipartite
+    @test typeof(M.edges) == typeof(N.edges)
 end
 
 """
-    convert(::Type{BinaryNetwork}, N::QuantitativeNetwork)
+    render(::Type{Quantitative{T}}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions}) where {T <: Number}
 
-Projects any bipartite network in its unipartite representation. This function
-will call the correct type-to-type `convert` function depending on the type of
-the input network.
-
-This function does *not* work for probabilistic networks. The operation of
-generating a deterministic network from a probabilistic one is different from a
-simple conversion: it can be done either through random draws, or by selecting
-only interactions with a probability greater than 0 (`N>0.0` will do this).
+Returns a quantitative version of the network, where interaction strengths have
+the type `T`. This can be used to convert a quantitative network into a
+different number representation.
 """
-function convert(::Type{BinaryNetwork}, N::QuantitativeNetwork)
-    if typeof(N) <: BipartiteQuantitativeNetwork
-        return convert(BipartiteNetwork, N)
+function render(::Type{Quantitative{T}}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions}) where {T <: Number}
+    nodes = copy(N.nodes)
+    edges = Quantitative(zeros(T, size(nodes)))
+    U = SpeciesInteractionNetwork(nodes, edges)
+    for interaction in N
+        U[interaction[1], interaction[2]] = convert(T, interaction[3])
     end
-    if typeof(N) <: UnipartiteQuantitativeNetwork
-        return convert(UnipartiteNetwork, N)
-    end
+    return U
 end
 
-# Conversion to bipartite
+@testitem "We can convert a binary network to a quantitative network" begin
+    nodes = Bipartite([:A, :B, :C], [:a, :b, :c])
+    edges = Binary(Bool[1 1 1; 0 0 1; 1 0 0])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    M = render(Quantitative{Float16}, N)
+    for interaction in N
+        @test N[interaction[1], interaction[2]] == M[interaction[1], interaction[2]]
+    end
+    @test typeof(M.nodes) <: Bipartite
+    @test typeof(M.edges) == Quantitative{Float16}
+end
 
-type_pairs = [
-    (:BipartiteNetwork, :UnipartiteNetwork),
-    (:BipartiteProbabilisticNetwork, :UnipartiteProbabilisticNetwork),
-    (:BipartiteQuantitativeNetwork, :UnipartiteQuantitativeNetwork)
-    ]
+@testitem "We can convert a quantitative network to a quantitative network" begin
+    nodes = Bipartite([:A, :B, :C], [:a, :b, :c])
+    edges = Quantitative(Float64[1 2 1; 0 0 1; 1 0 0])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    M = render(Quantitative{Float32}, N)
+    for interaction in N
+        @test N[interaction[1], interaction[2]] == M[interaction[1], interaction[2]]
+    end
+    @test typeof(M.nodes) <: Bipartite
+    @test typeof(M.edges) == Quantitative{Float32}
+end
 
-for comb in type_pairs
-    t1, t2 = comb
-    eval(
-    quote
-        """
-            convert(::Type{$($t1)}, N::T) where {T <: $($t2)}
+"""
+    render(::Type{Probabilistic{T}}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions}) where {T <: AbstractFloat}
 
-        Projects a unipartite network (specifically, a `$($t1)`) to its bipartite
-        representation. The following checks are performed.
+Returns a probabilistic version of the network, where interaction probabilities
+have the type `T`. This can be used to convert a probabilistic network into a
+different number representation.
+"""
+function render(::Type{Probabilistic{T}}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions}) where {T <: AbstractFloat}
+    nodes = copy(N.nodes)
+    edges = Probabilistic(zeros(T, size(nodes)))
+    U = SpeciesInteractionNetwork(nodes, edges)
+    for interaction in N
+        U[interaction[1], interaction[2]] = convert(T, interaction[3])
+    end
+    return U
+end
 
-        First, the network *cannot* be degenerate, since species with no interactions
-        cannot be assigned to a specific level. Second, the species cannot have both in
-        and out degree. If these conditions are met, the bipartite network will be
-        returned.
-        """
-        function convert(::Type{$t1}, N::T) where {T <: $t2}
-            isdegenerate(N) && throw(ArgumentError("Impossible to convert a degenerate unipartite network into a bipartite one"))
-            d1 = degree(N; dims=1)
-            d2 = degree(N; dims=2)
-            for s in species(N)
-                (d1[s]*d2[s] == 0) || throw(ArgumentError("Species $s has both in and out degree"))
-            end
-            top_species = collect(keys(filter(p -> p.second == zero(eltype(N.edges)), d2)))
-            bot_species = collect(keys(filter(p -> p.second == zero(eltype(N.edges)), d1)))
-            A = zeros(_interaction_type(N), (length(top_species), length(bot_species)))
-            B = $t1(sparse(A), top_species, bot_species)
-            for s1 in species(B; dims=1), s2 in species(B; dims=2)
-                B[s1,s2] = N[s1, s2]
-            end
-            return B
+"""
+    render(::Type{Binary}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions})
+
+Returns a binary version of the network, where the non-zero interactions are
+`true`.
+"""
+function render(::Type{Probabilistic{T}}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions}) where {T <: AbstractFloat}
+    nodes = copy(N.nodes)
+    edges = Binary(zeros(Bool, size(nodes)))
+    U = SpeciesInteractionNetwork(nodes, edges)
+    for interaction in N
+        if !iszero(interaction[3])
+            U[interaction[1], interaction[2]] = true
         end
     end
-    )
+    return U
 end

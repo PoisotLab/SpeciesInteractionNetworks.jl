@@ -33,6 +33,9 @@ export species, richness
 
 include("types/copy.jl")
 
+include("types/conversions.jl")
+export render
+
 include("interfaces/abstractarray.jl")
 include("interfaces/iteration.jl")
 include("interfaces/table.jl")

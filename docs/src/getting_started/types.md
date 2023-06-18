@@ -29,3 +29,9 @@ Binary
 Quantitative
 Probabilistic
 ```
+
+## Type conversion
+
+```@docs
+render
+```
