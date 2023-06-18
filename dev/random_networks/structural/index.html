@@ -112,39 +112,6 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    
     
       <div class="md-header__source">
         <a href="https://github.com/PoisotLab/SpeciesInteractionNetworks.jl" title="Go to repository" class="md-source" data-md-component="source">
@@ -886,6 +853,11 @@
                   
 
   
+    <a href="https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/edit/master/docs/random_networks/structural.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
   
 
 
@@ -904,7 +876,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">StructuralModel</span>
 </code></pre></div>
 <p>...</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3f98df33910389b37aa09e8054ceba81fb73b5bb/src/random/structural.jl#L1-L5' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3678d5bbbe573d83ac4058b0fc68526e5e3c71c1/src/random/structural.jl#L1-L5' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.NicheModel' href='#SpeciesInteractionNetworks.NicheModel'>#</a>
 <strong><code>SpeciesInteractionNetworks.NicheModel</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">NicheModel</span>
@@ -912,7 +884,7 @@
 <p>The niche model of food webs is one of the most emblematic food web models. Based on a given species richness and <em>expected</em> connectance, it generates food webs with properties that closely reproduce empirical networks. One particular property of the food webs generated with this model is that they are <em>interval</em>, which is to say that there are not gaps in the diet of species.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Williams2000Simple">Williams and Martinez (2000)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3f98df33910389b37aa09e8054ceba81fb73b5bb/src/random/structural.jl#L8-L20' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3678d5bbbe573d83ac4058b0fc68526e5e3c71c1/src/random/structural.jl#L8-L20' class='documenter-source'>source</a><br></p>
 <p><a id='The-generative-function'></a></p>
 <p><a id='The-generative-function-1'></a></p>
 <h2 id="the-generative-function">The generative function</h2>
@@ -922,7 +894,7 @@
 </code></pre></div>
 <p>Generate a food web under the niche model with the given number of species, and an <em>expected</em> connectance. Note that by the nature of the niche model algorithm, only the species richness is guaranteed; there is no guarantee that the connectance will be correct.</p>
 <p>See <a href="./#SpeciesInteractionNetworks.NicheModel"><code>NicheModel</code></a> for more information about the niche model.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3f98df33910389b37aa09e8054ceba81fb73b5bb/src/random/structural/nichemodel.jl#L1-L10' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3678d5bbbe573d83ac4058b0fc68526e5e3c71c1/src/random/structural/nichemodel.jl#L1-L10' class='documenter-source'>source</a><br></p>
 <p><a id='Illustration'></a></p>
 <p><a id='Illustration-1'></a></p>
 <h2 id="illustration">Illustration</h2>
@@ -944,7 +916,22 @@
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">xlims!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">))</span>
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">current_figure</span><span class="p">()</span>
 </code></pre></div>
-<p><img alt="" src="../qkfagih.png" /></p>
+<p><img alt="" src="../lqixqci.png" /></p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 18, 2023</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 18, 2023</span>
+      
+    
+  </small>
+</div>
 
 
 
@@ -987,7 +974,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "toc.follow", "toc.integrate", "navigation.top", "navigation.instant", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "navigation.tabs", "toc.follow", "toc.integrate", "navigation.top", "navigation.instant", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>

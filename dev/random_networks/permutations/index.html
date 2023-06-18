@@ -112,39 +112,6 @@
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    
     
       <div class="md-header__source">
         <a href="https://github.com/PoisotLab/SpeciesInteractionNetworks.jl" title="Go to repository" class="md-source" data-md-component="source">
@@ -886,6 +853,11 @@
                   
 
   
+    <a href="https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/edit/master/docs/random_networks/permutations.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
   
 
 
@@ -911,7 +883,7 @@
 </code></pre></div>
 <p>The <code>PermutationConstraint</code> specifies which structural constraint is enforced. It is defined as an abstract type, and the subtypes can be passed as the second argument to <code>swap!</code>.</p>
 <p>Currently supported constraints are <code>Degree</code> (degree distribution is maintained), <code>Generality</code> (number of out-going links is maintained), <code>Vulnerability</code> (number of in-going links is maintained), and <code>Connectance</code> (only the connectance is maintained). Note that <em>in addition</em>, species cannot become disconnected, even if the constraint is not acting on the degree / degree distribution.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3f98df33910389b37aa09e8054ceba81fb73b5bb/src/random/permutations.jl#L3-L16' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3678d5bbbe573d83ac4058b0fc68526e5e3c71c1/src/random/permutations.jl#L3-L16' class='documenter-source'>source</a><br></p>
 <p><a id='Permutation-of-a-network'></a></p>
 <p><a id='Permutation-of-a-network-1'></a></p>
 <h2 id="permutation-of-a-network">Permutation of a network</h2>
@@ -921,19 +893,19 @@
 <div class="highlight"><pre><span></span><code><span class="n">swap!</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">})</span>
 </code></pre></div>
 <p>Performs <em>one</em> swap of interactions in the network. If no <code>PermutationConstraint</code> is given as a second argument, the degree distribution of all species will be maintained.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3f98df33910389b37aa09e8054ceba81fb73b5bb/src/random/permutations.jl#L23-L29' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3678d5bbbe573d83ac4058b0fc68526e5e3c71c1/src/random/permutations.jl#L23-L29' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>swap!(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary}, ::Type{Degree})
 </code></pre></div>
 <p>Permutations with a constraint by degree work by picking two interacting species pairs, (r1, s1) and (r2, s2), and trying to replace them by (r1, s2) and (r2, s1).</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3f98df33910389b37aa09e8054ceba81fb73b5bb/src/random/permutations.jl#L32-L38' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3678d5bbbe573d83ac4058b0fc68526e5e3c71c1/src/random/permutations.jl#L32-L38' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>swap!(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary}, ::Type{Generality})
 </code></pre></div>
 <p>Permutations with a constraint by degree work by picking one interacting species pair, (r1, s1), and a new stem species s3, trying to replace them by (r1, s3). This function only applies if the result of this permutations does not remove the last incoming link from s1.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3f98df33910389b37aa09e8054ceba81fb73b5bb/src/random/permutations.jl#L63-L70' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3678d5bbbe573d83ac4058b0fc68526e5e3c71c1/src/random/permutations.jl#L63-L70' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>swap!(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary}, ::Type{Connectance})
 </code></pre></div>
 <p>Permutations with a constraint by connectance will <em>randomly</em> (and with equal probability) perform a move that is constrained by degree, generality, or vulnerability.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3f98df33910389b37aa09e8054ceba81fb73b5bb/src/random/permutations.jl#L124-L130' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3678d5bbbe573d83ac4058b0fc68526e5e3c71c1/src/random/permutations.jl#L124-L130' class='documenter-source'>source</a><br></p>
 <p><a id='Illustration'></a></p>
 <p><a id='Illustration-1'></a></p>
 <h2 id="illustration">Illustration</h2>
@@ -981,7 +953,22 @@
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">tightlimits!</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">current_figure</span><span class="p">()</span>
 </code></pre></div>
-<p><img alt="" src="../egzerhq.png" /></p>
+<p><img alt="" src="../ahxdiyb.png" /></p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 18, 2023</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 18, 2023</span>
+      
+    
+  </small>
+</div>
 
 
 
@@ -1024,7 +1011,7 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "toc.follow", "toc.integrate", "navigation.top", "navigation.instant", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "navigation.tabs", "toc.follow", "toc.integrate", "navigation.top", "navigation.instant", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>
