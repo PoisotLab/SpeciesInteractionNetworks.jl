@@ -68,6 +68,9 @@ export randomdraws
 include("random/linearfilter.jl")
 export linearfilter, nullmodel
 
+include("micro_level/degree.jl")
+export degree
+
 include("micro_level/specificity.jl")
 export specificity
 
@@ -84,6 +87,7 @@ export shortestpath
 
 include("macro_level/connectance.jl")
 export connectance, links, linkagedensity
+export connectance_variance, links_variance, linkagedensity_variance
 
 include("macro_level/eta.jl")
 export η
