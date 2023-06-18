@@ -911,8 +911,8 @@
 </code></pre></div>
 <p>For a deterministic network, this function will return a dictionary mapping each top-level species to its specificity. The same index (Paired Differences Index) is used for binary and quantitative networks. A value of one corresponds to maximum specialism, and a value of zero to maximum generalism. The index is symmetrical, so that a species with a value of one half is neither specialist nor generalist.</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Poisot2012comparative">Poisot, Canard, Mouquet and Hochberg [21]</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/ab6881ca039babb93af1b109fa257e0f567f27f0/src/micro_level/specificity.jl#L19-L32' class='documenter-source'>source</a><br></p>
+<p><a href="../../bibliography/#Poisot2012comparative">Poisot, Canard, Mouquet and Hochberg (2012)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/116468722f052eebcb93f83212b39f73789ef55c/src/micro_level/specificity.jl#L19-L32' class='documenter-source'>source</a><br></p>
 <p><a id='Degree'></a></p>
 <p><a id='Degree-1'></a></p>
 <h2 id="degree">Degree</h2>
@@ -920,8 +920,16 @@
 <strong><code>SpeciesInteractionNetworks.degree</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">degree</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Unipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">})</span>
 </code></pre></div>
-<p>The degree of a species in a unipartite network is the sum of its generality and vulnerability. This function <em>will</em> count self-links as part of the degree.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/ab6881ca039babb93af1b109fa257e0f567f27f0/src/micro_level/degree.jl#L1-L6' class='documenter-source'>source</a><br></p>
+<p>The degree of a species in a unipartite network is the sum of its generality and vulnerability. This function <em>will</em> count self-links as part of the degree. See also <a href="@ref"><code>generality</code></a>, <a href="@ref"><code>vulnerability</code></a>.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/116468722f052eebcb93f83212b39f73789ef55c/src/micro_level/degree.jl#L1-L7' class='documenter-source'>source</a><br></p>
+<div class="admonition warning">
+<p class="admonition-title">Missing docstring.</p>
+<p>Missing docstring for <code>generality</code>. Check Documenter's build log for details.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Missing docstring.</p>
+<p>Missing docstring for <code>vulnerability</code>. Check Documenter's build log for details.</p>
+</div>
 <p><a id='Illustration'></a></p>
 <p><a id='Illustration-1'></a></p>
 <h2 id="illustration">Illustration</h2>
