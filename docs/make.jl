@@ -5,7 +5,7 @@ using DocumenterMarkdown
 using QuantumCitations
 using SpeciesInteractionNetworks
 
-bibliography = CitationBibliography(joinpath(@__DIR__, "SpeciesInteractionNetworks.bib"), style = :authoryear)
+bibliography = CitationBibliography(joinpath(@__DIR__, "SpeciesInteractionNetworks.bib"), style = :numeric)
 
 makedocs(
     bibliography;

@@ -90,19 +90,25 @@ n0 = η(N)
 
 The next step is to generate a template probabilistic network under a specific
 null model. Here, we will focus on the null model based on the joint degree
-distribution, as used by *e.g.* [Bascompte2003nested](@citet):
+distribution, as used by *e.g.* [Bascompte2003nested](@citet).
 
 ```@example 1
 Nd = nullmodel(Degree, N)
 ```
 
-We can draw samples from this network, and measure their nestedness:
+We can draw samples from this network, and measure their nestedness. But because
+the random networks *might* have species that are disconnected, we will remove
+them using [`isdegenerate`](@ref).
 
 ```@example 1
-Rd = [randomdraws(Nd) for _ in 1:999]
+Rd = filter(!isdegenerate, [randomdraws(Nd) for _ in 1:999])
 nd = η.(Rd)
 @info round.((minimum(nd), Statistics.median(nd), maximum(nd)); digits=4)
 ```
+
+!!! info "Alternative solution"
+
+    An alternative to using `filter` and [`isdegenerate`](@ref) is to call the [`simplify`](@ref) function, which will return a network in which non-interacting species are removed. That being said, simplifying the network changes its richness. This might result in comparing apples and oranges, and seems like a more risky solution.
 
 This is all we need to plot the results:
 
