@@ -40,7 +40,7 @@ We can get the connectance of the random networks -- recall that the niche model
 is not going to strictly respect the target connectance:
 
 ```@example 1
-co = length.(R)./(richness.(R).*richness.(R))
+co = connectance.(R)
 nothing # hide
 ```
 
