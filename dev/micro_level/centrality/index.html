@@ -634,20 +634,6 @@
 
             
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../macro_level/degeneracy/" class="md-nav__link">
-        Disconnected species
-      </a>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -905,7 +891,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">CentralityMethod</span>
 </code></pre></div>
 <p>All algorithms for centrality are subtypes of <code>CentralityMethod</code>. These algorithms do not take additional arguments, which are instead passed to the <a href="./#SpeciesInteractionNetworks.centrality"><code>centrality</code></a> method.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/micro_level/centrality.jl#L3-L9' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2aa47c942f3b295adb3bb9671f5319a20e2879d9/src/micro_level/centrality.jl#L3-L9' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.KatzCentrality' href='#SpeciesInteractionNetworks.KatzCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.KatzCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">KatzCentrality</span>
@@ -913,13 +899,13 @@
 <p>This type is used to perform the Katz centrality analysis.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Katz1953new">Katz (1953)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/micro_level/centrality.jl#L44-L52' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2aa47c942f3b295adb3bb9671f5319a20e2879d9/src/micro_level/centrality.jl#L44-L52' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.EigenvectorCentrality' href='#SpeciesInteractionNetworks.EigenvectorCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.EigenvectorCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">EigenvectorCentrality</span>
 </code></pre></div>
 <p>This type is used to perform the Eigenvector centrality analysis.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/micro_level/centrality.jl#L55-L59' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2aa47c942f3b295adb3bb9671f5319a20e2879d9/src/micro_level/centrality.jl#L55-L59' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.ClosenessCentrality' href='#SpeciesInteractionNetworks.ClosenessCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.ClosenessCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">ClosenessCentrality</span>
@@ -927,21 +913,21 @@
 <p>Closeness centrality is defined as the reciprocal of farness, <em>i.e.</em> 1 over the sum of shortest paths from the source node to all other nodes. In the case of probabilistic networks, we use the random walk approximation of closeness centrality, where the distance is defined as first passage time.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Bavelas1950Communication">Bavelas (1950)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/micro_level/centrality.jl#L12-L23' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2aa47c942f3b295adb3bb9671f5319a20e2879d9/src/micro_level/centrality.jl#L12-L23' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.ResidualClosenessCentrality' href='#SpeciesInteractionNetworks.ResidualClosenessCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.ResidualClosenessCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">ResidualClosenessCentrality</span>
 </code></pre></div>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Dangalchev2006Residual">Dangalchev (2006)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/micro_level/centrality.jl#L26-L32' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2aa47c942f3b295adb3bb9671f5319a20e2879d9/src/micro_level/centrality.jl#L26-L32' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.GeneralizedClosenessCentrality' href='#SpeciesInteractionNetworks.GeneralizedClosenessCentrality'>#</a>
 <strong><code>SpeciesInteractionNetworks.GeneralizedClosenessCentrality</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">GeneralizedClosenessCentrality</span>
 </code></pre></div>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Dangalchev2011Residual">Dangalchev (2011)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/micro_level/centrality.jl#L35-L41' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2aa47c942f3b295adb3bb9671f5319a20e2879d9/src/micro_level/centrality.jl#L35-L41' class='documenter-source'>source</a><br></p>
 <p><a id='Centrality-function'></a></p>
 <p><a id='Centrality-function-1'></a></p>
 <h2 id="centrality-function">Centrality function</h2>
@@ -950,30 +936,30 @@
 <div class="highlight"><pre><span></span><code><span class="n">centrality</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Unipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Binary</span><span class="p">,</span><span class="w"> </span><span class="kt">Probabilistic</span><span class="p">}})</span>
 </code></pre></div>
 <p>If no type is given as the first argument, the centrality function will use <a href="./#SpeciesInteractionNetworks.ClosenessCentrality"><code>ClosenessCentrality</code></a>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/micro_level/centrality.jl#L62-L67' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2aa47c942f3b295adb3bb9671f5319a20e2879d9/src/micro_level/centrality.jl#L62-L67' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>centrality(::Type{ClosenessCentrality}, N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Probabilistic})
 </code></pre></div>
 <p>The closeness centrality of a probabilistic network is measured using the <em>random walk</em> closeness centrality, where the distance between two nodes i and j is measured as the first passage time on node j of a random walk starting on node i. This function does not look for shortest paths, and is therefore reasonably fast.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/micro_level/centrality.jl#L72-L80' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2aa47c942f3b295adb3bb9671f5319a20e2879d9/src/micro_level/centrality.jl#L72-L80' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>centrality(::Type{ClosenessCentrality}, N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Binary})
 </code></pre></div>
 <p>The closeness centrality of a binary network is the reciprocal of the sum of shortest paths.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/micro_level/centrality.jl#L93-L98' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2aa47c942f3b295adb3bb9671f5319a20e2879d9/src/micro_level/centrality.jl#L93-L98' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>centrality(::Type{ResidualClosenessCentrality}, N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Binary})
 </code></pre></div>
 <p>The residual closeness centrality of a binary network is the sum of the residuals of two to the power of the length of shortest paths.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/micro_level/centrality.jl#L112-L117' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2aa47c942f3b295adb3bb9671f5319a20e2879d9/src/micro_level/centrality.jl#L112-L117' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>centrality(::Type{GeneralizedClosenessCentrality}, N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Binary}; α=0.1)
 </code></pre></div>
 <p>The generalized closeness centrality of a binary network ranges from the degree centrality (α is 0) to the number of reachable nodes (α=1).</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/micro_level/centrality.jl#L131-L136' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2aa47c942f3b295adb3bb9671f5319a20e2879d9/src/micro_level/centrality.jl#L131-L136' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>centrality(::Type{KatzCentrality}, N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Union{Binary, Probabilistic}}; α::AbstractFloat=0.1)
 </code></pre></div>
 <p>This measure gives a different weight to every subsequent connection (<code>α</code>). <code>α</code> is a weight, specifically the attenuation of each subsequent move away from the node, and therefore must be positive.</p>
 <p>Note that internally, this function uses linear algebra shortcuts (rather than a sum over path lengths) to calculate the centrality, which is faster. As a consequence, there is, for each network, a maximal value of α that is the reciprocal of the absolute value of the leading eigenvalue of the adjacency matrix. This α has no analytical solution when the adjacency matrix has complex eigenvalues. It is recommended to use this centrality algorithm as part of a <code>try</code>/<code>catch</code> block if using large values of α.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Junker2008Analysis">Junker and Schreiber (2008)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/micro_level/centrality.jl#L150-L168' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2aa47c942f3b295adb3bb9671f5319a20e2879d9/src/micro_level/centrality.jl#L150-L168' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>centrality(::Type{EigenvectorCentrality}, N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Interactions})
 </code></pre></div>
 <p>Eigencentrality, corrected so that the centralities in the network sum to one.</p>
@@ -982,7 +968,7 @@
 <p>The number of iterations is determined by the variable <code>SpeciesInteractionNetworks.CENTRALITY_MAXITER</code>, and the algorithm usually converges rapidly.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Landau1895Zur">Landau (1895)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/micro_level/centrality.jl#L192-L210' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2aa47c942f3b295adb3bb9671f5319a20e2879d9/src/micro_level/centrality.jl#L192-L210' class='documenter-source'>source</a><br></p>
 <p><a id='Illustration'></a></p>
 <p><a id='Illustration-1'></a></p>
 <h2 id="illustration">Illustration</h2>
@@ -1041,7 +1027,7 @@
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">axislegend</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="ss">:lb</span><span class="p">)</span>
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">current_figure</span><span class="p">()</span>
 </code></pre></div>
-<p><img alt="" src="../sqoeqqn.png" /></p>
+<p><img alt="" src="../eozaaga.png" /></p>
 <p>same with closeness centrality</p>
 <div class="highlight"><pre><span></span><code><span class="n">attenuation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">10.0</span><span class="o">.^</span><span class="kt">LinRange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span>
 <span class="n">c_insect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zeros</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">attenuation</span><span class="p">))</span>
@@ -1066,7 +1052,7 @@
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">axislegend</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="ss">:lb</span><span class="p">)</span>
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">current_figure</span><span class="p">()</span>
 </code></pre></div>
-<p><img alt="" src="../xfbwdax.png" /></p>
+<p><img alt="" src="../yywjwnt.png" /></p>
 
 
 
