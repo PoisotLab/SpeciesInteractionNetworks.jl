@@ -12,6 +12,8 @@ using SparseArrays
 using Statistics
 using StatsBase
 using TestItems
+
+# External interfaces that are useful to have
 import Tables
 
 # Various utilities for probabilities
