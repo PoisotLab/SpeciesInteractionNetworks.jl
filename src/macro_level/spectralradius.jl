@@ -49,11 +49,60 @@ function spectralradius(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary}; co
     @assert correction ∈ [:connectance, :links, :none]
     M = mirror(N)
     absolute_real_part = abs.(real.(eigvals(Array(M.edges.edges))))
+    L = length(M)
+    S = richness(N)
     if correction == :connectance
-        return maximum(absolute_real_part)/((length(N)*(richness(N)-1))/richness(N))^0.5
+        return maximum(absolute_real_part)/((L*(S-1))/S)^0.5
     end
     if correction == :links
-        return maximum(absolute_real_part)/sqrt((length(N)-sum(diag(Array(N.edges.edges))))/2.0)
+        return maximum(absolute_real_part)/sqrt((L-sum(diag(Array(N.edges.edges))))/2.0)
     end
     return maximum(absolute_real_part)
+end
+
+"""
+    spectralradius(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary}; kwargs...)
+
+The bipartite version of [`spectralradius`](@ref) is measured by first
+projecting the bipartite network as a unipartite one using [`render`](@ref). The
+same options as for the unipartite version are then applied.
+"""
+function spectralradius(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary}; kwargs...)
+    return spectralradius(render(Unipartite, N); kwargs...)
+end
+
+@testitem "The values of spectral radius are correct with no correction (test 1)" begin
+    edges = Binary(Bool[1 1 1 1; 1 1 1 1; 1 1 1 0; 1 1 0 0; 1 1 0 0; 1 1 0 0])
+    nodes = Bipartite(edges)
+    N = SpeciesInteractionNetwork(nodes, edges)
+    @test spectralradius(N; correction=:none) ≈ 3.82 atol = 0.01
+end
+
+@testitem "The values of spectral radius are correct with no correction (test 2)" begin
+    edges = Binary(Bool[0 1 1 1; 1 0 1 1; 1 1 0 1; 1 1 1 0; 1 1 1 0; 1 0 0 1])
+    nodes = Bipartite(edges)
+    N = SpeciesInteractionNetwork(nodes, edges)
+    @test spectralradius(N; correction=:none) ≈ 3.515 atol = 0.01
+end
+
+@testitem "The values of spectral radius are correct with no correction (test 3)" begin
+    edges = Binary(Bool[1 1 1 1; 1 1 1 0; 1 1 1 0; 1 1 1 0; 1 1 1 0; 1 0 0 0])
+    nodes = Bipartite(edges)
+    N = SpeciesInteractionNetwork(nodes, edges)
+    @test spectralradius(N; correction=:none) ≈ 3.944 atol = 0.01
+end
+
+@testitem "The values of spectral radius are correct with no correction (test 4)" begin
+    edges = Binary(Bool[1 0 1 1; 1 1 0 1; 1 1 1 0; 1 1 1 0; 1 1 1 0; 0 1 0 1])
+    nodes = Bipartite(edges)
+    N = SpeciesInteractionNetwork(nodes, edges)
+    @test spectralradius(N; correction=:none) ≈ 3.595 atol = 0.01
+end
+
+@testitem "The values of spectral radius are correct with the links corection" begin
+    edges = Binary(Bool[1 1 1 1; 1 1 1 0; 1 1 1 0; 1 1 1 0; 1 1 1 0; 1 0 0 0])
+    nodes = Bipartite(edges)
+    N = SpeciesInteractionNetwork(nodes, edges)
+    @test spectralradius(N; correction=:none) ≈ 3.943904 atol = 0.01
+    @test spectralradius(N; correction=:links) ≈ 0.956537 atol = 0.01
 end
