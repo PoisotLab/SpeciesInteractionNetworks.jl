@@ -13,17 +13,17 @@
       
       
       
-        <link rel="prev" href="../dissimilarities/">
+        <link rel="prev" href="../nestedness/">
       
       
-        <link rel="next" href="../../random_networks/permutations/">
+        <link rel="next" href="../../meta_level/betadiversity/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
-        <title>Set operations - SpeciesInteractionNetworks.jl</title>
+        <title>Disconnected species - SpeciesInteractionNetworks.jl</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#networks-as-sets" class="md-skip">
+        <a href="#disconnected-species" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Set operations
+              Disconnected species
             
           </span>
         </div>
@@ -223,13 +223,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../macro_level/links/" class="md-tabs__link">
+      <a href="../links/" class="md-tabs__link md-tabs__link--active">
         Macro
       </a>
     </li>
@@ -239,15 +241,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../betadiversity/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../meta_level/betadiversity/" class="md-tabs__link">
         Meta
       </a>
     </li>
@@ -526,14 +526,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
       
@@ -542,7 +544,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Macro
@@ -555,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../macro_level/links/" class="md-nav__link">
+      <a href="../links/" class="md-nav__link">
         Links counting
       </a>
     </li>
@@ -569,87 +571,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../macro_level/nestedness/" class="md-nav__link">
+      <a href="../nestedness/" class="md-nav__link">
         Nestedness
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../macro_level/degeneracy/" class="md-nav__link">
-        Disconnected species
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
-          Meta
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          Meta
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../betadiversity/" class="md-nav__link">
-        Beta-diversity
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../dissimilarities/" class="md-nav__link">
-        Beta-diversity measures
       </a>
     </li>
   
@@ -672,12 +595,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Set operations
+          Disconnected species
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Set operations
+        Disconnected species
       </a>
       
         
@@ -696,8 +619,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#operations" class="md-nav__link">
-    Operations
+  <a href="#detection-of-disconnected-species" class="md-nav__link">
+    Detection of disconnected species
   </a>
   
 </li>
@@ -706,6 +629,83 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Meta
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Meta
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta_level/betadiversity/" class="md-nav__link">
+        Beta-diversity
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta_level/dissimilarities/" class="md-nav__link">
+        Beta-diversity measures
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta_level/sets/" class="md-nav__link">
+        Set operations
+      </a>
     </li>
   
 
@@ -875,34 +875,26 @@
   
 
 
-<p><a id='Networks-as-sets'></a></p>
-<p><a id='Networks-as-sets-1'></a></p>
-<h1 id="networks-as-sets">Networks as sets</h1>
+<p><a id='Disconnected-species'></a></p>
+<p><a id='Disconnected-species-1'></a></p>
+<h1 id="disconnected-species">Disconnected species</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
-<p>A number of operations can be applied to networks. This include <code>union</code>, <code>intersect</code>, and <code>setdiff</code>. These are useful when workin on network beta-diversity.</p>
+<p>TODO</p>
 </div>
-<p><a id='Operations'></a></p>
-<p><a id='Operations-1'></a></p>
-<h2 id="operations">Operations</h2>
-<p>&lt;a id='Base.union-Union{Tuple{T}, Tuple{T, T}} where T&lt;:(SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})' href='#Base.union-Union{Tuple{T}, Tuple{T, T}} where T&lt;:(SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})'&gt;#</a>
-<strong><code>Base.union</code></strong> &mdash; <em>Method</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Base</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">U</span><span class="o">::</span><span class="kt">T</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="o">::</span><span class="kt">T</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">}}</span>
+<p><a id='Detection-of-disconnected-species'></a></p>
+<p><a id='Detection-of-disconnected-species-1'></a></p>
+<h2 id="detection-of-disconnected-species">Detection of disconnected species</h2>
+<p><a id='SpeciesInteractionNetworks.isdegenerate' href='#SpeciesInteractionNetworks.isdegenerate'>#</a>
+<strong><code>SpeciesInteractionNetworks.isdegenerate</code></strong> &mdash; <em>Function</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">isdegenerate</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Bipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">})</span>
 </code></pre></div>
-<p>The union of two networks (<code>U ∪ V</code>) is the union of their species <em>and</em> egdes, <em>i.e.</em> everything that is in <em>either</em> networks is present in the union.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2317f246b1b473cb170b5c61db592600662b3a77/src/meta_level/set.jl#L73-L78' class='documenter-source'>source</a><br></p>
-<p>&lt;a id='Base.intersect-Union{Tuple{T}, Tuple{T, T}} where T&lt;:(SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})' href='#Base.intersect-Union{Tuple{T}, Tuple{T, T}} where T&lt;:(SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})'&gt;#</a>
-<strong><code>Base.intersect</code></strong> &mdash; <em>Method</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Base</span><span class="o">.</span><span class="n">intersect</span><span class="p">(</span><span class="n">U</span><span class="o">::</span><span class="kt">T</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="o">::</span><span class="kt">T</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">}}</span>
+<p>A bipartite network is degenerate if it has species with no interactions.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2317f246b1b473cb170b5c61db592600662b3a77/src/macro_level/degeneracy.jl#L1-L5' class='documenter-source'>source</a><br></p>
+<div class="highlight"><pre><span></span><code>isdegenerate(N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Interactions}, allow_self_interactions::Bool=true)
 </code></pre></div>
-<p>The intersect of two networks (<code>U ∩ V</code>) is the network composed of species in <em>both</em> networks, and the interactions present in <em>both</em> networks as well. Note that species that have <em>no interaction</em> in common between the two networks will still be in the resulting network, but with no interactions.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2317f246b1b473cb170b5c61db592600662b3a77/src/meta_level/set.jl#L111-L118' class='documenter-source'>source</a><br></p>
-<p>&lt;a id='Base.setdiff-Union{Tuple{T}, Tuple{T, T}} where T&lt;:(SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})' href='#Base.setdiff-Union{Tuple{T}, Tuple{T, T}} where T&lt;:(SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})'&gt;#</a>
-<strong><code>Base.setdiff</code></strong> &mdash; <em>Method</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Base</span><span class="o">.</span><span class="n">setdiff</span><span class="p">(</span><span class="n">U</span><span class="o">::</span><span class="kt">T</span><span class="p">,</span><span class="w"> </span><span class="n">V</span><span class="o">::</span><span class="kt">T</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">}}</span>
-</code></pre></div>
-<p>The <code>setdiff</code> between two networks is the species <em>and</em> interactions that are unique to the first argument. Note that the operation is <em>not</em> commutative, <em>i.e.</em> <code>setdiff(U,V)≠setdiff(V,U)</code>. </p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2317f246b1b473cb170b5c61db592600662b3a77/src/meta_level/set.jl#L145-L151' class='documenter-source'>source</a><br></p>
+<p>A unipartite network is degenerate if it has species with no interactions. In some cases, it is useful to consider that a species with only self-interactions is disconnected from the network – this can be done by using <code>false</code> as the second argument (the default is to <em>allow</em> species with only self interactions to remain).</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2317f246b1b473cb170b5c61db592600662b3a77/src/macro_level/degeneracy.jl#L12-L20' class='documenter-source'>source</a><br></p>
 
 
 
