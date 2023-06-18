@@ -94,7 +94,7 @@ end
 Returns a binary version of the network, where the non-zero interactions are
 `true`.
 """
-function render(::Type{Probabilistic{T}}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions}) where {T <: AbstractFloat}
+function render(::Type{Binary}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions}) where {T <: AbstractFloat}
     nodes = copy(N.nodes)
     edges = Binary(zeros(Bool, size(nodes)))
     U = SpeciesInteractionNetwork(nodes, edges)
