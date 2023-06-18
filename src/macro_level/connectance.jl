@@ -24,21 +24,6 @@ function links(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
 end
 
 """
-    links(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
-
-The variance in the expected number of links in a probabilistic network is
-defined as the sum of ``p \\times (1 - p)``, where ``p`` is the probability of
-all interactions (including ``p = 0``). See also [`links`](@ref).
-
-###### References
-
-[Poisot2015structure](@citet)
-"""
-function links_variance(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
-    return links(N .* (1 .- N))
-end
-
-"""
     connectance(N::SpeciesInteractionNetwork)
 
 The connectance, also known as the density, of a network is defined as the ratio
@@ -62,4 +47,46 @@ species (or its expected value in the case of probabilistic networks).
 """
 function linkagedensity(N::SpeciesInteractionNetwork)
     return links(N) / richness(N)
+end
+
+"""
+    links_variance(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
+
+The variance in the expected number of links in a probabilistic network is
+defined as the sum of ``p \\times (1 - p)``, where ``p`` is the probability of
+all interactions (including ``p = 0``).
+
+###### References
+
+[Poisot2015structure](@citet)
+"""
+function links_variance(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
+    return links(N .* (1 .- N))
+end
+
+
+"""
+    connectance_variance(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
+
+See also [`connectance`](@ref).
+
+###### References
+
+[Poisot2015structure](@citet)
+"""
+function connectance_variance(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
+    return links_variance(N) / (richness(N,1)*richness(N,2))
+end
+
+"""
+    linkagedensity_variance(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
+
+See also [`linkagedensity_variance`](@ref).
+
+###### References
+
+[Poisot2015structure](@citet)
+"""
+function linkagedensity_variance(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
+    return links_variance(N) / (richness(N))
 end
