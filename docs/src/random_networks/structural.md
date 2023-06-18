@@ -50,7 +50,7 @@ spectral radius:
 ```@example 1
 f = CairoMakie.Figure(backgroundcolor = :transparent, resolution = (800, 300))
 ax = CairoMakie.Axis(f[1,1], xlabel="Connectance", ylabel="Spectral radius")
-CairoMakie.scatter!(ax, co, spectralradius.(R; correction=:connectance), color=(:slategray,0.4))
+CairoMakie.scatter!(ax, co, spectralradius.(R), color=(:slategray,0.4))
 CairoMakie.tightlimits!(ax)
 CairoMakie.xlims!(ax, (0.0, 0.5))
 CairoMakie.current_figure()
