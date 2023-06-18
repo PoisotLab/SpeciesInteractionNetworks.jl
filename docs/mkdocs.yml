@@ -46,6 +46,7 @@ nav:
   - Macro:
     - Links counting: macro_level/links.md
     - Nestedness: macro_level/nestedness.md
+    - Disconnected species: macro_level/degeneracy.md
   - Meta:
     - Beta-diversity: meta_level/betadiversity.md
     - Beta-diversity measures: meta_level/dissimilarities.md

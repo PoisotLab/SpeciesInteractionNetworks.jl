@@ -1,9 +1,23 @@
+"""
+    isdegenerate(N::SpeciesInteractionNetwork{<:Bipartite, <:Interactions})
+
+A bipartite network is degenerate if it has species with no interactions.
+"""
 function isdegenerate(N::SpeciesInteractionNetwork{<:Bipartite, <:Interactions})
     top = any([isempty(successors(N, sp)) for sp in species(N,1)])
     bot = any([isempty(predecessors(N, sp)) for sp in species(N,2)])
     return (top | bot)
 end
 
+"""
+    isdegenerate(N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions}, allow_self_interactions::Bool=true)
+
+A unipartite network is degenerate if it has species with no interactions. In
+some cases, it is useful to consider that a species with only self-interactions
+is disconnected from the network -- this can be done by using `false` as the
+second argument (the default is to *allow* species with only self interactions
+to remain).
+"""
 function isdegenerate(N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions}, allow_self_interactions::Bool=true)
     isdisconnected = fill(false, richness(N))
     for (i,sp) in enumerate(species(N))
