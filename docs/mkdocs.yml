@@ -39,12 +39,13 @@ nav:
     - Building a network: getting_started/demonstration.md
     - Type system: getting_started/types.md
   - Micro:
-    - Specificity: species_level/specificity.md
-    - Centrality: species_level/centrality.md
+    - Specificity: micro_level/specificity.md
+    - Centrality: micro_level/centrality.md
   - Meso:
     - Paths: meso_level/paths.md
   - Macro:
-    - Nestedness: community_level/nestedness.md
+    - Links counting: macro_level/links.md
+    - Nestedness: macro_level/nestedness.md
   - Meta:
     - Beta-diversity: meta_level/betadiversity.md
     - Beta-diversity measures: meta_level/dissimilarities.md

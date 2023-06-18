@@ -1,7 +1,9 @@
 # Species Interaction Networks
 
 The `SpeciesInteractionNetworks` package enables analyses of species interaction
-networks in *Julia*.
+networks in *Julia*. The list of implemented measures (and more broadly, the
+design of the package) closely follows the recommendations in
+[Delmas2019Analysing](@citet).
 
 The measures in the documentation are organized by level of organisation,
 following a simple convention. *Micro*-level measures return information at the

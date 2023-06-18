@@ -1,3 +1,11 @@
+"""
+    interactions(N::SpeciesInteractionNetwork)
+
+Returns a vector of all interactions in the network. The interactions are
+represented as a a tuple with three elements: the species establishing the
+interaction, the species receiving the interaction, and the value of the
+interaction.
+"""
 interactions(N::SpeciesInteractionNetwork) = [int for int in N]
 
 @testitem "We can get the interactions in a network" begin

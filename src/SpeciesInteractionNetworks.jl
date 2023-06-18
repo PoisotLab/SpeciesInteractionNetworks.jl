@@ -65,10 +65,10 @@ export randomdraws
 include("random/linearfilter.jl")
 export linearfilter, nullmodel
 
-include("species_level/specificity.jl")
+include("micro_level/specificity.jl")
 export specificity
 
-include("species_level/centrality.jl")
+include("micro_level/centrality.jl")
 export CentralityMethod
 export KatzCentrality, EigenvectorCentrality
 export ClosenessCentrality, ResidualClosenessCentrality, GeneralizedClosenessCentrality
@@ -79,10 +79,13 @@ export ShortestPathMethod
 export BellmanFord, Dijkstra
 export shortestpath
 
-include("community_level/eta.jl")
+include("macro_level/connectance.jl")
+export connectance, links, linkagedensity
+
+include("macro_level/eta.jl")
 export η
 
-include("community_level/spectralradius.jl")
+include("macro_level/spectralradius.jl")
 export spectralradius
 
 include("meta_level/set.jl")
