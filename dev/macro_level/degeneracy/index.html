@@ -890,11 +890,11 @@
 <div class="highlight"><pre><span></span><code><span class="n">isdegenerate</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Bipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">})</span>
 </code></pre></div>
 <p>A bipartite network is degenerate if it has species with no interactions.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2317f246b1b473cb170b5c61db592600662b3a77/src/macro_level/degeneracy.jl#L1-L5' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/macro_level/degeneracy.jl#L1-L5' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>isdegenerate(N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Interactions}, allow_self_interactions::Bool=true)
 </code></pre></div>
 <p>A unipartite network is degenerate if it has species with no interactions. In some cases, it is useful to consider that a species with only self-interactions is disconnected from the network – this can be done by using <code>false</code> as the second argument (the default is to <em>allow</em> species with only self interactions to remain).</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2317f246b1b473cb170b5c61db592600662b3a77/src/macro_level/degeneracy.jl#L12-L20' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8ab448920777353da9dfb8c2fc5aa27e3cf8ead0/src/macro_level/degeneracy.jl#L12-L20' class='documenter-source'>source</a><br></p>
 
 
 
