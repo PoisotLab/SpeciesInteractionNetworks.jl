@@ -88,6 +88,9 @@ export η
 include("macro_level/spectralradius.jl")
 export spectralradius
 
+include("macro_level/degeneracy.jl")
+export isdegenerate
+
 include("meta_level/set.jl")
 include("meta_level/partitions.jl")
 export BetaDivComponent
