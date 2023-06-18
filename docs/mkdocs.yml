@@ -18,11 +18,6 @@ theme:
     - navigation.instant
     - navigation.tracking
 
-plugins:
-  - git-revision-date-localized:
-      enable_creation_date: true
-      enable_revision_date: true
-
 extra_css:
   - assets/Documenter.css
   - stylesheets/colors.css
