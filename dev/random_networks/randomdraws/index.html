@@ -279,6 +279,22 @@
   
   
     <li class="md-tabs__item">
+      <a href="../../use_cases/nullmodels/" class="md-tabs__link">
+        Use cases
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../../bibliography/" class="md-tabs__link">
         Appendix
       </a>
@@ -786,13 +802,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#illustration" class="md-nav__link">
-    Illustration
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -840,12 +849,117 @@
       
       
         <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-          Appendix
+          Use cases
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Use cases
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/nullmodels/" class="md-nav__link">
+        Significance testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/permutations/" class="md-nav__link">
+        Network permutations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/specificity/" class="md-nav__link">
+        Species specificity
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/centrality/" class="md-nav__link">
+        Species centrality
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/nichemodel/" class="md-nav__link">
+        Niche model of food webs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          Appendix
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           Appendix
         </label>
@@ -913,7 +1027,7 @@
 <h1 id="random-draws">Random draws</h1>
 <div class="admonition abstract">
 <p class="admonition-title">Abstract</p>
-<p>This page presents an overview of methods to draw from a probabilistic network, and ways to generate structural null models from a binary network under various constraints. We present an illustration using plant-pollinator data <a href="../../bibliography/#Dupont2003Structure">(Dupont <em>et al.</em>, 2003)</a> to show how these functions can be applied to test the significance of network structure.</p>
+<p>This page presents an overview of methods to draw from a probabilistic network, and ways to generate structural null models from a binary network under various constraints.</p>
 </div>
 <p><a id='Drawing-from-a-probabilistic-network'></a></p>
 <p><a id='Drawing-from-a-probabilistic-network-1'></a></p>
@@ -925,7 +1039,7 @@
 <p>Returns a <em>binary</em> network by making random draws from a <em>probabilistic</em> network. Each interaction is considered as an independent Bernoulli trial.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Poisot2015structure">Poisot <em>et al.</em> (2015)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/74bf83debeede59c73ba4befff28f5328f670029/src/random/draws.jl#L1-L10' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9660453b65e348ae6e5c434f647517dc55014ff2/src/random/draws.jl#L1-L10' class='documenter-source'>source</a><br></p>
 <p><a id='Null-models-for-hypothesis-testing'></a></p>
 <p><a id='Null-models-for-hypothesis-testing-1'></a></p>
 <h2 id="null-models-for-hypothesis-testing">Null models for hypothesis testing</h2>
@@ -938,7 +1052,7 @@
 <p>$P(i \rightarrow j) = \frac{1}{2}\left(\frac{\sum A_{i \rightarrow \cdot}}{|B|} + \frac{\sum A_{\cdot \rightarrow j}}{|T|} \right)$</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Bascompte2003nested">Bascompte <em>et al.</em> (2003)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/74bf83debeede59c73ba4befff28f5328f670029/src/random/linearfilter.jl#L80-L93' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9660453b65e348ae6e5c434f647517dc55014ff2/src/random/linearfilter.jl#L80-L93' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>nullmodel(::Type{Connectance}, N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})
 </code></pre></div>
 <p>Returns a probabilistic network under the null model that all interactions occurr with a probability equal to the network connectance, <em>i.e.</em> in a network with $L$ links, and $|T|$ species on the top and $|B|$ species on the bottom,</p>
@@ -946,7 +1060,7 @@
 <p>Note that for <a href="../../getting_started/types/#SpeciesInteractionNetworks.Unipartite"><code>Unipartite</code></a> networks, $|T| = |B| = |S|$ (the two sides have the same number of species).</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Fortuna2006Habitat">Fortuna and Bascompte (2006)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/74bf83debeede59c73ba4befff28f5328f670029/src/random/linearfilter.jl#L96-L112' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9660453b65e348ae6e5c434f647517dc55014ff2/src/random/linearfilter.jl#L96-L112' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>nullmodel(::Type{Generality}, N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})
 </code></pre></div>
 <p>Returns a probabilistic network under the null model that interactions happen proportionally to the generality of the species, <em>i.e.</em> their expected number of outgoing links:</p>
@@ -954,7 +1068,7 @@
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Poisot2013Facultative">Poisot <em>et al.</em> (2013)</a></p>
 <p><a href="../../bibliography/#Weitz2013Phagebacteria">Weitz <em>et al.</em> (2013)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/74bf83debeede59c73ba4befff28f5328f670029/src/random/linearfilter.jl#L115-L129' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9660453b65e348ae6e5c434f647517dc55014ff2/src/random/linearfilter.jl#L115-L129' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>nullmodel(::Type{Generality}, N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})
 </code></pre></div>
 <p>Returns a probabilistic network under the null model that interactions happen proportionally to the vulnerability of the species, <em>i.e.</em> their expected number of incomin links:</p>
@@ -962,7 +1076,7 @@
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Poisot2013Facultative">Poisot <em>et al.</em> (2013)</a></p>
 <p><a href="../../bibliography/#Weitz2013Phagebacteria">Weitz <em>et al.</em> (2013)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/74bf83debeede59c73ba4befff28f5328f670029/src/random/linearfilter.jl#L132-L146' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9660453b65e348ae6e5c434f647517dc55014ff2/src/random/linearfilter.jl#L132-L146' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>nullmodel(::Type{C}, N::SpeciesInteractionNetwork{&lt;:Partiteness{T}, &lt;:Binary}, sp::T) where {C &lt;: PermutationConstraint, T}
 </code></pre></div>
 <p>Returns a probabilistic network where the interaction probabilites for species <code>sp</code> have been replaced by the probabilities given under the null model specified by the permutation constraint given as its first argument; see <a href="./#SpeciesInteractionNetworks.nullmodel"><code>nullmodel</code></a>. All interactions that do <em>not</em> involve species <code>sp</code> have their probability set to 1.</p>
@@ -970,7 +1084,7 @@
 <p>This network can be passed to <a href="./#SpeciesInteractionNetworks.speciescontribution"><code>speciescontribution</code></a>.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Saavedra2011Strong">Saavedra <em>et al.</em> (2011)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/74bf83debeede59c73ba4befff28f5328f670029/src/random/contributions.jl#L1-L20' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9660453b65e348ae6e5c434f647517dc55014ff2/src/random/contributions.jl#L1-L20' class='documenter-source'>source</a><br></p>
 <p><a id='Species-level-contributions-based-on-null-models'></a></p>
 <p><a id='Species-level-contributions-based-on-null-models-1'></a></p>
 <h2 id="species-level-contributions-based-on-null-models">Species-level contributions based on null models</h2>
@@ -978,7 +1092,7 @@
 <p><a id='SpeciesInteractionNetworks.speciescontribution' href='#SpeciesInteractionNetworks.speciescontribution'>#</a>
 <strong><code>SpeciesInteractionNetworks.speciescontribution</code></strong> &mdash; <em>Function</em>.</p>
 <p>TODO</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/74bf83debeede59c73ba4befff28f5328f670029/src/random/contributions.jl#L32-L34' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9660453b65e348ae6e5c434f647517dc55014ff2/src/random/contributions.jl#L32-L34' class='documenter-source'>source</a><br></p>
 <p><a id='Linear-filtering'></a></p>
 <p><a id='Linear-filtering-1'></a></p>
 <h2 id="linear-filtering">Linear filtering</h2>
@@ -996,81 +1110,7 @@
 <p>$\alpha_4$ is the weight of connectance.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Stock2017Linear">Stock <em>et al.</em> (2017)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/74bf83debeede59c73ba4befff28f5328f670029/src/random/linearfilter.jl#L1-L31' class='documenter-source'>source</a><br></p>
-<p><a id='Illustration'></a></p>
-<p><a id='Illustration-1'></a></p>
-<h2 id="illustration">Illustration</h2>
-<p>In order to illustrate the use of null models, we will look at the data from <a href="../../bibliography/#Dupont2003Structure">Dupont <em>et al.</em> (2003)</a>, and specifically generate multiple networks under different null models, then compare the nestedness (using <a href="../../macro_level/nestedness/#SpeciesInteractionNetworks.η"><code>η</code></a>) to the empirical network.</p>
-<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">SpeciesInteractionNetworks</span>
-<span class="k">import</span><span class="w"> </span><span class="n">CairoMakie</span>
-<span class="k">import</span><span class="w"> </span><span class="n">Statistics</span>
-</code></pre></div>
-<p>The data are available from the <a href="http://www.ecologia.ib.usp.br/iwdb/html/dupont_et_al.html">IWDB</a>, but in order to avoid making unecessary calls to their webserver, we have reproduced a version here:</p>
-<div class="highlight"><pre><span></span><code><span class="n">int_mat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">Bool</span><span class="p">[</span>
-<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span>
-<span class="p">]</span>
-</code></pre></div>
-<p>We can turn this into a network (without species names!):</p>
-<div class="highlight"><pre><span></span><code><span class="n">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Binary</span><span class="p">(</span><span class="n">int_mat</span><span class="p">)</span>
-<span class="n">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bipartite</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
-
-<span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SpeciesInteractionNetwork</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="w"> </span><span class="n">edges</span><span class="p">)</span>
-<span class="nd">@info</span><span class="w"> </span><span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="s"> pollinators&quot;</span>
-<span class="nd">@info</span><span class="w"> </span><span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span><span class="s"> plants&quot;</span>
-<span class="nd">@info</span><span class="w"> </span><span class="s">&quot;</span><span class="si">$</span><span class="p">(</span><span class="n">length</span><span class="p">(</span><span class="n">N</span><span class="p">))</span><span class="s"> interactions&quot;</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>[ Info: 38 pollinators
-[ Info: 11 plants
-[ Info: 106 interactions
-</code></pre></div>
-<p>We first measure the nestedness of the network:</p>
-<div class="highlight"><pre><span></span><code><span class="n">n0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">η</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>0.41842877034736853
-</code></pre></div>
-<p>The next step is to generate a template probabilistic network under a specific null model. Here, we will focus on the null model based on the joint degree distribution, as used by <em>e.g.</em> <a href="../../bibliography/#Bascompte2003nested">Bascompte <em>et al.</em> (2003)</a>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Nd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nullmodel</span><span class="p">(</span><span class="n">Degree</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>SpeciesInteractionNetwork{Bipartite{Symbol}, Probabilistic{Float64}}(Bipartite{Symbol}([:top_1, :top_2, :top_3, :top_4, :top_5, :top_6, :top_7, :top_8, :top_9, :top_10  …  :top_29, :top_30, :top_31, :top_32, :top_33, :top_34, :top_35, :top_36, :top_37, :top_38], [:bottom_1, :bottom_2, :bottom_3, :bottom_4, :bottom_5, :bottom_6, :bottom_7, :bottom_8, :bottom_9, :bottom_10, :bottom_11]), Probabilistic{Float64}(sparse([1, 2, 3, 4, 5, 6, 7, 8, 9, 10  …  29, 30, 31, 32, 33, 34, 35, 36, 37, 38], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11], [0.5095693779904306, 0.5095693779904306, 0.46411483253588515, 0.5095693779904306, 0.5095693779904306, 0.5095693779904306, 0.46411483253588515, 0.41866028708133973, 0.41866028708133973, 0.41866028708133973  …  0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966], 38, 11)))
-</code></pre></div>
-<p>We can draw samples from this network, and measure their nestedness. But because the random networks <em>might</em> have species that are disconnected, we will remove them using <a href="../../macro_level/degeneracy/#SpeciesInteractionNetworks.isdegenerate"><code>isdegenerate</code></a>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Rd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filter</span><span class="p">(</span><span class="o">!</span><span class="n">isdegenerate</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">randomdraws</span><span class="p">(</span><span class="n">Nd</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">999</span><span class="p">])</span>
-<span class="n">nd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">η</span><span class="o">.</span><span class="p">(</span><span class="n">Rd</span><span class="p">)</span>
-<span class="nd">@info</span><span class="w"> </span><span class="n">round</span><span class="o">.</span><span class="p">((</span><span class="n">minimum</span><span class="p">(</span><span class="n">nd</span><span class="p">),</span><span class="w"> </span><span class="n">Statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">nd</span><span class="p">),</span><span class="w"> </span><span class="n">maximum</span><span class="p">(</span><span class="n">nd</span><span class="p">));</span><span class="w"> </span><span class="n">digits</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>[ Info: (0.2831, 0.3712, 0.4551)
-</code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Alternative solution</p>
-<p>An alternative to using <code>filter</code> and <a href="../../macro_level/degeneracy/#SpeciesInteractionNetworks.isdegenerate"><code>isdegenerate</code></a> is to call the <a href="../../macro_level/degeneracy/#SpeciesInteractionNetworks.simplify"><code>simplify</code></a> function, which will return a network in which non-interacting species are removed. That being said, simplifying the network changes its richness. This might result in comparing apples and oranges, and seems like a more risky solution.</p>
-</div>
-<p>This is all we need to plot the results:</p>
-<div class="highlight"><pre><span></span><code><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CairoMakie</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">backgroundcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">:transparent</span><span class="p">,</span><span class="w"> </span><span class="n">resolution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">))</span>
-<span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CairoMakie</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;Nestedness&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;Probability&quot;</span><span class="p">)</span>
-<span class="n">CairoMakie</span><span class="o">.</span><span class="n">hist!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">nd</span><span class="p">;</span><span class="w"> </span><span class="n">normalization</span><span class="o">=</span><span class="ss">:probability</span><span class="p">,</span><span class="w"> </span><span class="n">fillto</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="ss">:slategray</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">),</span><span class="w"> </span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">CairoMakie</span><span class="o">.</span><span class="n">vlines!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">n0</span><span class="p">],</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="ss">:black</span><span class="p">,</span><span class="w"> </span><span class="n">linestyle</span><span class="o">=</span><span class="ss">:dash</span><span class="p">)</span>
-<span class="n">CairoMakie</span><span class="o">.</span><span class="n">tightlimits!</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">CairoMakie</span><span class="o">.</span><span class="n">ylims!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">))</span>
-<span class="n">CairoMakie</span><span class="o">.</span><span class="n">current_figure</span><span class="p">()</span>
-</code></pre></div>
-<p><img alt="" src="../pclmoky.png" /></p>
-<p>In practice, we are often interested in deriving a <em>p</em>-value from the comparison of the empirical and null values of the structure measure. Note that, functionally, the generation of null models can be seen as permutation testing, and therefore we can approximate the <em>p</em>-value corresponding to the hypothesis that the network is <em>more</em> nested than expected under its degree distribution by looking at the proportion of randomized values that are larger than the empirical observation:</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@info</span><span class="w"> </span><span class="s">&quot;𝑝 ≈ </span><span class="si">$</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">Statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">n0</span><span class="w"> </span><span class="o">.&lt;=</span><span class="w"> </span><span class="n">nd</span><span class="p">);</span><span class="w"> </span><span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span><span class="s">&quot;</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>[ Info: 𝑝 ≈ 0.047
-</code></pre></div>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9660453b65e348ae6e5c434f647517dc55014ff2/src/random/linearfilter.jl#L1-L31' class='documenter-source'>source</a><br></p>
 
 
 

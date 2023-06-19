@@ -279,6 +279,22 @@
   
   
     <li class="md-tabs__item">
+      <a href="../../use_cases/nullmodels/" class="md-tabs__link">
+        Use cases
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
       <a href="../../bibliography/" class="md-tabs__link">
         Appendix
       </a>
@@ -758,13 +774,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#illustration" class="md-nav__link">
-    Illustration
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -826,12 +835,117 @@
       
       
         <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
-          Appendix
+          Use cases
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Use cases
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/nullmodels/" class="md-nav__link">
+        Significance testing
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/permutations/" class="md-nav__link">
+        Network permutations
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/specificity/" class="md-nav__link">
+        Species specificity
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/centrality/" class="md-nav__link">
+        Species centrality
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/nichemodel/" class="md-nav__link">
+        Niche model of food webs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          Appendix
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
           <span class="md-nav__icon md-icon"></span>
           Appendix
         </label>
@@ -916,7 +1030,7 @@
 </code></pre></div>
 <p>The <code>PermutationConstraint</code> specifies which structural constraint is enforced. It is defined as an abstract type, and the subtypes can be passed as the second argument to <code>swap!</code>.</p>
 <p>Currently supported constraints are <code>Degree</code> (degree distribution is maintained), <code>Generality</code> (number of out-going links is maintained), <code>Vulnerability</code> (number of in-going links is maintained), and <code>Connectance</code> (only the connectance is maintained). Note that <em>in addition</em>, species cannot become disconnected, even if the constraint is not acting on the degree / degree distribution.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/74bf83debeede59c73ba4befff28f5328f670029/src/random/permutations.jl#L3-L16' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9660453b65e348ae6e5c434f647517dc55014ff2/src/random/permutations.jl#L3-L16' class='documenter-source'>source</a><br></p>
 <p><a id='Permutation-of-a-network'></a></p>
 <p><a id='Permutation-of-a-network-1'></a></p>
 <h2 id="permutation-of-a-network">Permutation of a network</h2>
@@ -926,67 +1040,19 @@
 <div class="highlight"><pre><span></span><code><span class="n">swap!</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">})</span>
 </code></pre></div>
 <p>Performs <em>one</em> swap of interactions in the network. If no <code>PermutationConstraint</code> is given as a second argument, the degree distribution of all species will be maintained.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/74bf83debeede59c73ba4befff28f5328f670029/src/random/permutations.jl#L23-L29' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9660453b65e348ae6e5c434f647517dc55014ff2/src/random/permutations.jl#L23-L29' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>swap!(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary}, ::Type{Degree})
 </code></pre></div>
 <p>Permutations with a constraint by degree work by picking two interacting species pairs, (r1, s1) and (r2, s2), and trying to replace them by (r1, s2) and (r2, s1).</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/74bf83debeede59c73ba4befff28f5328f670029/src/random/permutations.jl#L32-L38' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9660453b65e348ae6e5c434f647517dc55014ff2/src/random/permutations.jl#L32-L38' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>swap!(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary}, ::Type{Generality})
 </code></pre></div>
 <p>Permutations with a constraint by degree work by picking one interacting species pair, (r1, s1), and a new stem species s3, trying to replace them by (r1, s3). This function only applies if the result of this permutations does not remove the last incoming link from s1.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/74bf83debeede59c73ba4befff28f5328f670029/src/random/permutations.jl#L63-L70' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9660453b65e348ae6e5c434f647517dc55014ff2/src/random/permutations.jl#L63-L70' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>swap!(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary}, ::Type{Connectance})
 </code></pre></div>
 <p>Permutations with a constraint by connectance will <em>randomly</em> (and with equal probability) perform a move that is constrained by degree, generality, or vulnerability.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/74bf83debeede59c73ba4befff28f5328f670029/src/random/permutations.jl#L124-L130' class='documenter-source'>source</a><br></p>
-<p><a id='Illustration'></a></p>
-<p><a id='Illustration-1'></a></p>
-<h2 id="illustration">Illustration</h2>
-<p>To showcase <code>swap!</code> in practice, we will work through through a simple example of (i) generating a perfectly nested network, (ii) shuffling interactions by maintaining the generality of top-level species, and (iii) looking at the way the nestdeness of the entire network changes with each successive swap.</p>
-<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">SpeciesInteractionNetworks</span>
-<span class="k">import</span><span class="w"> </span><span class="n">CairoMakie</span>
-</code></pre></div>
-<p>We can generate a nested network rather easily, by creating a matrix of binary interactions, where the species interact with species from a lower rank:</p>
-<div class="highlight"><pre><span></span><code><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zeros</span><span class="p">(</span><span class="kt">Bool</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">))</span>
-<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">axes</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">axes</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">j</span>
-<span class="w">            </span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span>
-<span class="w">        </span><span class="k">end</span>
-<span class="w">    </span><span class="k">end</span>
-<span class="k">end</span>
-</code></pre></div>
-<p>We can declare a network <em>without</em> having to define all of the species, by first wrapping our matrix inside a <code>Binary</code> type, and then generating a <code>Bipartite</code> species set with the right number of species:</p>
-<div class="highlight"><pre><span></span><code><span class="n">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Binary</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
-<span class="n">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bipartite</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
-<span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SpeciesInteractionNetwork</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="w"> </span><span class="n">edges</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>SpeciesInteractionNetwork{Bipartite{Symbol}, Binary{Bool}}(Bipartite{Symbol}([:top_1, :top_2, :top_3, :top_4, :top_5, :top_6, :top_7, :top_8, :top_9, :top_10], [:bottom_1, :bottom_2, :bottom_3, :bottom_4, :bottom_5, :bottom_6, :bottom_7, :bottom_8, :bottom_9, :bottom_10, :bottom_11, :bottom_12, :bottom_13, :bottom_14]), Binary{Bool}(sparse([1, 1, 2, 1, 2, 3, 1, 2, 3, 4  …  1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14], Bool[1, 1, 1, 1, 1, 1, 1, 1, 1, 1  …  1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 10, 14)))
-</code></pre></div>
-<p>The initial nestedness of this network, measured using <a href="../../macro_level/nestedness/#η">η</a> is (network, top-level contribution, bottom-level contribution):</p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">η</span><span class="p">(</span><span class="n">N</span><span class="p">),</span><span class="w"> </span><span class="n">η</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">η</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>(1.0, 1.0, 1.0)
-</code></pre></div>
-<p>In order to generate the series of successive permutations, we will define an empty array of values, and then for each successive step, calculate the nestedness of the network, and then swap interactions under the given constraint.</p>
-<div class="highlight"><pre><span></span><code><span class="n">nestedness_series</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">zeros</span><span class="p">(</span><span class="kt">Float64</span><span class="p">,</span><span class="w"> </span><span class="mi">1000</span><span class="p">)</span>
-<span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">axes</span><span class="p">(</span><span class="n">nestedness_series</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="n">nestedness_series</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">η</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-<span class="w">    </span><span class="n">swap!</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">Generality</span><span class="p">)</span>
-<span class="k">end</span>
-</code></pre></div>
-<div class="admonition warning">
-<p class="admonition-title">A note about swaps and underlying nodes/edges</p>
-<p>When we perform the <code>swap!</code> operation, we are modifying the network (this is what we want!), but we are also modifying the <code>edges</code> object. If you want to re-use the edges in another network, be mindful of the fact that this will be the <em>randomized</em> edges. See <a href="../../internals/#Base.copy-Tuple{SpeciesInteractionNetwork}"><code>copy</code></a> for a way to create new copies of a network.</p>
-</div>
-<p>Finally, we can plot the result, to check that 1000 swaps are enough to bring us to some sort of equilibrium of the randomized nestedness:</p>
-<div class="highlight"><pre><span></span><code><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CairoMakie</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">backgroundcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">:transparent</span><span class="p">,</span><span class="w"> </span><span class="n">resolution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">))</span>
-<span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CairoMakie</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;Swap&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Nestedness&quot;</span><span class="p">)</span>
-<span class="n">CairoMakie</span><span class="o">.</span><span class="n">lines!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">nestedness_series</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="ss">:black</span><span class="p">,</span><span class="w"> </span><span class="mf">0.5</span><span class="p">))</span>
-<span class="n">CairoMakie</span><span class="o">.</span><span class="n">tightlimits!</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">CairoMakie</span><span class="o">.</span><span class="n">current_figure</span><span class="p">()</span>
-</code></pre></div>
-<p><img alt="" src="../mviihkg.png" /></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9660453b65e348ae6e5c434f647517dc55014ff2/src/random/permutations.jl#L124-L130' class='documenter-source'>source</a><br></p>
 
 
 
