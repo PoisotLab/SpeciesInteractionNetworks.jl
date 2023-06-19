@@ -68,6 +68,9 @@ export randomdraws
 include("random/linearfilter.jl")
 export linearfilter, nullmodel
 
+include("random/contributions.jl")
+export speciescontribution
+
 include("micro_level/degree.jl")
 export degree
 

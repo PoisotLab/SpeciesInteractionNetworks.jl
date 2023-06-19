@@ -21,6 +21,17 @@ constraints from one method of network generation to another.
 nullmodel
 ```
 
+## Species-level null model
+
+The null model approach can be extended to the contribution of each species. We
+offer a generic interface to generating pseudo-random networks where the target
+species has its interactions randomized, while all other interactions remain
+fixed.
+
+```@docs
+speciescontribution
+```
+
 ## Linear filtering
 
 The linear filter from [Stock2017Linear](@citet) is a general formulation of the
