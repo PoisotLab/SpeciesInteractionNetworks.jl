@@ -21,7 +21,7 @@ constraints from one method of network generation to another.
 nullmodel
 ```
 
-## Species-level null model
+## Species-level contributions based on null models
 
 The null model approach can be extended to the contribution of each species. We
 offer a generic interface to generating pseudo-random networks where the target
@@ -50,7 +50,6 @@ empirical network.
 
 ```@example 1
 using SpeciesInteractionNetworks
-import DelimitedFiles
 import CairoMakie
 CairoMakie.activate!(px_per_unit=2) #hide
 import Statistics
