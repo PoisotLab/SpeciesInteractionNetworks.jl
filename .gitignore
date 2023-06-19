@@ -5,3 +5,4 @@ network.png
 Manifest.toml
 .vscode/*
 docs/*.bib.sav
+docs/src/user_cases/*.md
