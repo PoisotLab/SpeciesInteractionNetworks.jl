@@ -4,8 +4,16 @@ using Documenter
 using DocumenterMarkdown
 using QuantumCitations
 using SpeciesInteractionNetworks
+using Literate
 
 bibliography = CitationBibliography(joinpath(@__DIR__, "SpeciesInteractionNetworks.bib"), style = :authoryear)
+
+usecases = readdir("src/use_cases/"; join=true)
+literate_config = Dict(credit => false)
+filter!(endswith(".jl"), usecases)
+for usecase in usecases
+    Literate.markdown(usecase, outputdir=first(splitdir(usecase)); config=literate_config)
+end
 
 makedocs(
     bibliography;
