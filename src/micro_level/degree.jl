@@ -30,7 +30,7 @@ Note that by contrast to the original definition of vulnerability
 [Schoener1989Food](@citet)
 """
 function vulnerability(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
-    deg = Dict([sp => length(successors(N, sp)) for sp in species(N)])
+    deg = Dict([sp => length(predecessors(N, sp)) for sp in species(N)])
     return deg
 end
 
@@ -49,7 +49,7 @@ Note that by contrast to the original definition of vulnerability
 [Schoener1989Food](@citet)
 """
 function generality(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
-    deg = Dict([sp => length(predecessors(N, sp)) for sp in species(N)])
+    deg = Dict([sp => length(successors(N, sp)) for sp in species(N)])
     return deg
 end
 
@@ -62,4 +62,36 @@ end
     @test D[:B] == 2
     @test D[:C] == 3
     @test D[:D] == 5
+end
+
+"""
+    vulnerability(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
+
+In a bipartite network, the vulnerability is only defined for bottom-level
+species, and is the number of their predecessors (as given by the
+[`predecessors`](@ref) function).
+"""
+function vulnerability(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
+    return Dict([sp => length(predecessors(N, sp)) for sp in species(N,2)])
+end
+
+"""
+    generality(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
+
+In a bipartite network, the generality is only defined for top-level species,
+and is the number of their successors (as given by the [`successors`](@ref)
+function).
+"""
+function generality(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
+    return Dict([sp => length(successors(N, sp)) for sp in species(N,1)])
+end
+
+"""
+    degree(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
+
+In a bipartite network, the degree is the combination of the
+[`generality`](@ref) and [`vulnerability`](@ref) of all species.
+"""
+function degree(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
+    return merge(generality(N), vulnerability(N))
 end
