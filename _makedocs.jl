@@ -6,7 +6,7 @@ Pkg.activate("docs/")
 # Add the main package (dev)
 Pkg.develop(Pkg.PackageSpec(;path="."))
 
-# Instantiate everythign
+# Instantiate everything
 Pkg.instantiate()
 
 # Build the docs

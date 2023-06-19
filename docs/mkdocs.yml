@@ -59,6 +59,12 @@ nav:
     - Permutations: random_networks/permutations.md
     - Random draws: random_networks/randomdraws.md
     - Structural models: random_networks/structural.md
+  - Use cases:
+    - Significance testing: use_cases/nullmodels.md
+    - Network permutations: use_cases/permutations.md
+    - Species specificity: use_cases/specificity.md
+    - Species centrality: use_cases/centrality.md
+    - Niche model of food webs: use_cases/nichemodel.md
   - Appendix:
     - Bibliography: bibliography.md
     - Internals: internals.md

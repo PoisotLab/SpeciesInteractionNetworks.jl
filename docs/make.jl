@@ -8,11 +8,13 @@ using Literate
 
 bibliography = CitationBibliography(joinpath(@__DIR__, "SpeciesInteractionNetworks.bib"), style = :authoryear)
 
-usecases = readdir("src/use_cases/"; join=true)
-literate_config = Dict(credit => false)
+doc_src = first(splitdir(@__FILE__))
+
+usecases = readdir(joinpath(doc_src, "src/use_cases/"); join=true)
+literate_config = Dict("credit" => false)
 filter!(endswith(".jl"), usecases)
 for usecase in usecases
-    Literate.markdown(usecase, outputdir=first(splitdir(usecase)); config=literate_config)
+    Literate.markdown(usecase, first(splitdir(usecase)); config=literate_config)
 end
 
 makedocs(
