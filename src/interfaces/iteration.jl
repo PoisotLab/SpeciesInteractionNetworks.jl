@@ -17,10 +17,15 @@ function Base.isempty(N::T) where {T <: SpeciesInteractionNetwork}
     return iszero(length(N))
 end
 
-function _network_state(N::T, i::Integer) where {T <: SpeciesInteractionNetwork}
+function _network_state(N::T, i::Integer) where {T <: SpeciesInteractionNetwork{<:Bipartite, <:Interactions}}
     f,t = findall(!iszero, N.edges.edges)[i].I
-    return (species(N,1)[f],species(N,2)[t], N[f,t])
+    return (N.nodes.top[f],N.nodes.bottom[t], N[f,t])
 end
+
+function _network_state(N::T, i::Integer) where {T <: SpeciesInteractionNetwork{<:Unipartite, <:Interactions}}
+    f,t = findall(!iszero, N.edges.edges)[i].I
+    return (N.nodes.margin[f],N.nodes.margin[t], N[f,t])
+endbottom
 
 function Base.iterate(N::T) where {T <: SpeciesInteractionNetwork}
     isempty(N) && return nothing

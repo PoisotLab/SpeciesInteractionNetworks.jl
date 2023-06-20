@@ -1,3 +1,7 @@
+# TODO: make sure there is a CartesianIndex method
+# TODO: index partiteness as well as interactions
+# TODO: simplify the dispatch by passing everything that is not species types to the array
+
 Base.length(N::SpeciesInteractionNetwork) = count(!iszero, N.edges.edges)
 
 @testitem "The length of a network is the number of interactions" begin
