@@ -21,9 +21,14 @@ This network can be passed to [`speciescontribution`](@ref).
 function nullmodel(::Type{C}, N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Binary}, sp::T) where {C <: PermutationConstraint, T}
     R = nullmodel(C, N)
     M = render(Probabilistic{eltype(R.edges)}, N)
-    for interaction in N
-        if (sp in interaction)
-            M[interaction[1], interaction[2]] = R[interaction[1], interaction[2]]
+    if sp in species(N, 1)
+        for suc in species(N, 2)
+            M[sp, suc] = R[sp, suc]
+        end
+    end
+    if sp in species(N, 2)
+        for pre in species(N, 1)
+            M[pre, sp] = R[pre, sp]
         end
     end
     return M
