@@ -35,6 +35,9 @@ TODO
 function speciescontribution(::Type{C}, N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Binary}, sp::T, f, args...; replicates=999, kwargs...) where {C <: PermutationConstraint, T}
     R = nullmodel(C, N, sp)
     v0 = f(N, args...; kwargs...)
-    vx = [f(randomdraws(R), args... ;kwargs...) for _ in 1:replicates]
+    vx = zeros(typeof(v0), replicates)
+    for replicate in 1:replicates
+        vx[replicate] = f(randomdraws(R), args...; kwargs...)
+    end
     return (v0 - mean(vx))/std(vx)
 end
