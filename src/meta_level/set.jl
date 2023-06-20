@@ -80,8 +80,19 @@ function Base.union(U::T, V::T) where {T <: SpeciesInteractionNetwork{<:Partiten
     nodes = U.nodes ∪ V.nodes
     edges = Binary(zeros(Bool, (richness(nodes,1), richness(nodes,2))))
     UV = SpeciesInteractionNetwork(nodes, edges)
-    for u in interactions(U) ∪ interactions(V)
-        UV[u[1],u[2]] = u[3]
+    for s1 in species(U, 1)
+        for s2 in species(U, 2)
+            if U[s1,s2]
+                UV[s1,s2] = true
+            end
+        end
+    end
+    for s1 in species(V, 1)
+        for s2 in species(V, 2)
+            if V[s1,s2]
+                UV[s1,s2] = true
+            end
+        end
     end
     return UV
 end
@@ -106,6 +117,18 @@ end
     for i in V
         @test i in interactions(UV)
     end
+end
+
+@testitem "The union of two networks has the correct cardinality" begin
+    nodes = Bipartite([:A, :B, :C], [:a, :b, :c])
+    udges = Binary(Bool[1 1 1; 1 1 0; 1 0 1]) 
+    vdges = Binary(Bool[1 1 1; 0 1 1; 1 0 1])
+    U = SpeciesInteractionNetwork(copy(nodes), udges)
+    V = SpeciesInteractionNetwork(copy(nodes), vdges)
+    UV = union(U, V)
+    @test UV[:B, :a] == true
+    @test UV[:B, :b] == true
+    @test UV[:B, :c] == true
 end
 
 """

@@ -2,7 +2,7 @@ function Base.IteratorSize(::Type{T}) where {T<:SpeciesInteractionNetwork}
     return Base.HasLength()
 end
 
-Base.eltype(S::SpeciesInteractionNetwork) = (Type{eltype(S.nodes)}, Type{eltype(S.nodes)}, eltype(S.edges))
+Base.eltype(S::SpeciesInteractionNetwork) = Tuple{eltype(S.nodes), eltype(S.nodes), eltype(S.edges)}
 
 function Base.IteratorEltype(::Type{T}) where {T <: SpeciesInteractionNetwork}
     return Base.HasEltype()
@@ -17,15 +17,10 @@ function Base.isempty(N::T) where {T <: SpeciesInteractionNetwork}
     return iszero(length(N))
 end
 
-function _network_state(N::T, i::Integer) where {T <: SpeciesInteractionNetwork{<:Bipartite, <:Interactions}}
-    f,t = findall(!iszero, N.edges.edges)[i].I
-    return (N.nodes.top[f],N.nodes.bottom[t], N[f,t])
+function _network_state(N::T, state::Integer) where {T <: SpeciesInteractionNetwork}
+    C = findall(!iszero, N.edges.edges)[state]
+    return (N.nodes[C]..., N[C])
 end
-
-function _network_state(N::T, i::Integer) where {T <: SpeciesInteractionNetwork{<:Unipartite, <:Interactions}}
-    f,t = findall(!iszero, N.edges.edges)[i].I
-    return (N.nodes.margin[f],N.nodes.margin[t], N[f,t])
-endbottom
 
 function Base.iterate(N::T) where {T <: SpeciesInteractionNetwork}
     isempty(N) && return nothing

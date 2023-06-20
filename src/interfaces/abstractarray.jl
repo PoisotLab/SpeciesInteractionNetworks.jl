@@ -2,6 +2,7 @@
 # TODO: index partiteness as well as interactions
 # TODO: simplify the dispatch by passing everything that is not species types to the array
 
+#Base.length(N::SpeciesInteractionNetwork) = count(!iszero, N.edges.edges)
 Base.length(N::SpeciesInteractionNetwork) = count(!iszero, N.edges.edges)
 
 @testitem "The length of a network is the number of interactions" begin
@@ -33,13 +34,10 @@ Base.size(N::SpeciesInteractionNetwork, i::Integer) = size(N.edges, i)
     @test size(M, 2) == size(N.edges.edges, 2)
 end
 
-Base.getindex(E::Interactions, i::Integer, j::Integer) = E.edges[i, j]
-Base.getindex(E::Interactions, i::Integer, ::Colon) = E.edges[i, :]
-Base.getindex(E::Interactions, ::Colon, j::Integer) = E.edges[:, j]
-
-Base.getindex(N::SpeciesInteractionNetwork, i::Integer, j::Integer) = N.edges[i, j]
-Base.getindex(N::SpeciesInteractionNetwork, i::Integer, ::Colon) = N.edges[i, :]
-Base.getindex(N::SpeciesInteractionNetwork, ::Colon, j::Integer) = N.edges[:, j]
+Base.getindex(N::SpeciesInteractionNetwork, args...) = getindex(N.edges, args...)
+Base.getindex(E::T, args...) where {T <: Interactions} = getindex(E.edges, args...)
+Base.getindex(P::Bipartite{T}, C::CartesianIndex) where {T} = (P.top[C.I[1]], P.bottom[C.I[2]])
+Base.getindex(P::Unipartite{T}, C::CartesianIndex) where {T} = (P.margin[C.I[1]], P.margin[C.I[2]])
 
 @testitem "We can get an interaction in the edges of a network by position" begin
     M = rand(Bool, (12, 14))
