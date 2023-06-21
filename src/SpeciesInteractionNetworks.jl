@@ -95,6 +95,9 @@ export connectance_variance, links_variance, linkagedensity_variance
 include("macro_level/eta.jl")
 export η
 
+include("macro_level/nodf.jl")
+export nodf
+
 include("macro_level/spectralradius.jl")
 export spectralradius
 

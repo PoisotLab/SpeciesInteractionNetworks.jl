@@ -5,11 +5,11 @@
 
 ###### References
 
-[Magurran1988Ecological](@citet)
+[Magurran1988Ecological](@citet*)
 
-[Southwood2009Ecological](@citet)
+[Southwood2009Ecological](@citet*)
 
-[Whittaker1960Vegetation](@citet)
+[Whittaker1960Vegetation](@citet*)
 """
 function KGL01(S::T) where {T<:NamedTuple}
   return (S.shared+S.right+S.left)/((S.shared + (S.shared+S.right+S.left))/2.0)
@@ -52,7 +52,7 @@ desirable properties. We suggest its use as a default.
 
 ###### References
 
-[Wilson1984Measuring](@citet)
+[Wilson1984Measuring](@citet*)
 """
 function KGL08(S::T) where {T<:NamedTuple}
   return (S.right + S.left) / (2*S.shared + S.right + S.left)

@@ -16,7 +16,7 @@ This network can be passed to [`speciescontribution`](@ref).
 
 ###### References
 
-[Saavedra2011Strong](@citet)
+[Saavedra2011Strong](@citet*)
 """
 function nullmodel(::Type{C}, N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Binary}, sp::T) where {C <: PermutationConstraint, T}
     R = nullmodel(C, N)

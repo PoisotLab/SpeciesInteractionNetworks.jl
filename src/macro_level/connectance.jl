@@ -17,7 +17,7 @@ of interactions in the network. See also [`links_variance`](@ref).
 
 ###### References
 
-[Poisot2015structure](@citet)
+[Poisot2015structure](@citet*)
 """
 function links(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
     return sum(N.edges.edges)
@@ -33,7 +33,7 @@ value is in the unit interval. For a probabilistic network, this returns the
 
 ###### References
 
-[Martinez1992Constant](@citet)
+[Martinez1992Constant](@citet*)
 """
 function connectance(N::SpeciesInteractionNetwork)
     return links(N) / (richness(N,1)*richness(N,2))
@@ -58,7 +58,7 @@ all interactions (including ``p = 0``).
 
 ###### References
 
-[Poisot2015structure](@citet)
+[Poisot2015structure](@citet*)
 """
 function links_variance(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
     return links(N .* (1 .- N))
@@ -72,7 +72,7 @@ See also [`connectance`](@ref).
 
 ###### References
 
-[Poisot2015structure](@citet)
+[Poisot2015structure](@citet*)
 """
 function connectance_variance(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
     return links_variance(N) / (richness(N,1)*richness(N,2))
@@ -85,7 +85,7 @@ See also [`linkagedensity_variance`](@ref).
 
 ###### References
 
-[Poisot2015structure](@citet)
+[Poisot2015structure](@citet*)
 """
 function linkagedensity_variance(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
     return links_variance(N) / (richness(N))

@@ -38,9 +38,9 @@ case it is appropriate and slightly faster than other corrections.
 
 ###### References
 
-[Phillips2011structure](@citet)
+[Phillips2011structure](@citet*)
 
-[Staniczenko2013ghost](@citet)
+[Staniczenko2013ghost](@citet*)
 """
 function spectralradius(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary}; correction=:links)
     if iszero(sum(N.edges.edges))

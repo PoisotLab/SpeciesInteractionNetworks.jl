@@ -6,7 +6,7 @@ network. Each interaction is considered as an independent Bernoulli trial.
 
 ###### References
 
-[Poisot2015structure](@citet)
+[Poisot2015structure](@citet*)
 """
 function randomdraws(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
     edges = Binary(zeros(Bool, size(N.edges.edges)))

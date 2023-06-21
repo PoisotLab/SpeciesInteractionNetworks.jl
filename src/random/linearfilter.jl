@@ -27,7 +27,7 @@ probability of the species *receing* an interaction is in the resulting network.
 
 ###### References
 
-[Stock2017Linear](@citet)
+[Stock2017Linear](@citet*)
 """
 function linearfilter(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}; α::Vector{T}=ones(4)) where {T <: AbstractFloat}
     @assert length(α) == 4
@@ -89,7 +89,7 @@ establishing:
 
 ###### References
 
-[Bascompte2003nested](@citet)
+[Bascompte2003nested](@citet*)
 """
 nullmodel(::Type{Degree}, N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}) = linearfilter(N; α=[0.0, 1.0, 1.0, 0.0])
 
@@ -108,7 +108,7 @@ have the same number of species).
 
 ###### References
 
-[Fortuna2006Habitat](@citet)
+[Fortuna2006Habitat](@citet*)
 """
 nullmodel(::Type{Connectance}, N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}) = linearfilter(N; α=[0.0, 0.0, 0.0, 1.0])
 
@@ -123,9 +123,9 @@ outgoing links:
 
 ###### References
 
-[Poisot2013Facultative](@citet)
+[Poisot2013Facultative](@citet*)
 
-[Weitz2013Phagebacteria](@citet)
+[Weitz2013Phagebacteria](@citet*)
 """
 nullmodel(::Type{Generality}, N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}) = linearfilter(N; α=[0.0, 1.0, 0.0, 0.0])
 
@@ -140,9 +140,9 @@ incomin links:
 
 ###### References
 
-[Poisot2013Facultative](@citet)
+[Poisot2013Facultative](@citet*)
 
-[Weitz2013Phagebacteria](@citet)
+[Weitz2013Phagebacteria](@citet*)
 """
 nullmodel(::Type{Vulnerability}, N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}) = linearfilter(N; α=[0.0, 0.0, 1.0, 0.0])
 

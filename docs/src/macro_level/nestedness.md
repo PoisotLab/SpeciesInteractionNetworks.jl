@@ -16,6 +16,10 @@
 
 ## NODF
 
+```@docs
+nodf
+```
+
 ## Spectral radius
 
 ```@docs

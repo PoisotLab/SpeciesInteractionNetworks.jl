@@ -27,7 +27,7 @@ Note that by contrast to the original definition of vulnerability
 
 ###### References
 
-[Schoener1989Food](@citet)
+[Schoener1989Food](@citet*)
 """
 function vulnerability(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
     deg = Dict([sp => length(predecessors(N, sp)) for sp in species(N)])
@@ -46,7 +46,7 @@ Note that by contrast to the original definition of vulnerability
 
 ###### References
 
-[Schoener1989Food](@citet)
+[Schoener1989Food](@citet*)
 """
 function generality(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
     deg = Dict([sp => length(successors(N, sp)) for sp in species(N)])

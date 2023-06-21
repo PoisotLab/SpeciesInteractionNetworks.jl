@@ -14,28 +14,33 @@ function η_axis(N::SpeciesInteractionNetwork)
 end
 
 """
-    η(N::SpeciesInteractionNetwork{<:Bipartite, <:Union{Binary, Probabilistic}}, dims::Integer = 0)
+    η(N::SpeciesInteractionNetwork{<:Bipartite, <:Union{Binary, Probabilistic}})
 
-The η measure of nestedness is a variation of NODF, it can be calculated at the
-scale of the entire network (using `0` as the second argument, which is the
-default), or for either side of the network (`1` for rows, `2` for columns).
-
-The measure for the entire network is the average of the nestedness of rows and
-columns.
+The η measure of nestedness is a variation of NODF, at the scale of the entire
+network. The measure for the entire network is the average of the nestedness of
+rows and columns.
 
 ###### References
 
 [Bastolla2009architecture](@citet*)
 """
-function η(
-    N::SpeciesInteractionNetwork{<:Bipartite, <:Union{Binary, Probabilistic}},
-    dims::Integer = 0,
-)
+function η(N::SpeciesInteractionNetwork{<:Bipartite, <:Union{Binary, Probabilistic}})
+    return (η(N, 1) + η(N, 2)) / 2.0
+end
+
+"""
+    η(N::SpeciesInteractionNetwork{<:Bipartite, <:Union{Binary, Probabilistic}}, dims::Integer)
+
+The η measure of nestedness is a variation of NODF, it can be calculated for
+either side of the network (`1` for rows, `2` for columns).
+
+###### References
+
+[Bastolla2009architecture](@citet*)
+"""
+function η(N::SpeciesInteractionNetwork{<:Bipartite, <:Union{Binary, Probabilistic}}, dims::Integer)
     dims == 1 && return η_axis(N)
     dims == 2 && return η_axis(permutedims(N))
-    if iszero(dims)
-        return (η(N, 1) + η(N, 2)) / 2.0
-    end
     throw(
         ArgumentError(
             "dims can only be 1 (nestedness of rows) or 2 (nestedness of columns), you used $(dims)",
