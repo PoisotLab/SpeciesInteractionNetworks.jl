@@ -1041,153 +1041,59 @@
 <div class="highlight"><pre><span></span><code>SpeciesInteractionNetwork{Bipartite{Symbol}, Probabilistic{Float64}}(Bipartite{Symbol}([:top_1, :top_2, :top_3, :top_4, :top_5, :top_6, :top_7, :top_8, :top_9, :top_10  …  :top_29, :top_30, :top_31, :top_32, :top_33, :top_34, :top_35, :top_36, :top_37, :top_38], [:bottom_1, :bottom_2, :bottom_3, :bottom_4, :bottom_5, :bottom_6, :bottom_7, :bottom_8, :bottom_9, :bottom_10, :bottom_11]), Probabilistic{Float64}(sparse([1, 2, 3, 4, 5, 6, 7, 8, 9, 10  …  29, 30, 31, 32, 33, 34, 35, 36, 37, 38], [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11], [0.5095693779904306, 0.5095693779904306, 0.46411483253588515, 0.5095693779904306, 0.5095693779904306, 0.5095693779904306, 0.46411483253588515, 0.41866028708133973, 0.41866028708133973, 0.41866028708133973  …  0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966, 0.07177033492822966], 38, 11)))
 </code></pre></div>
 <p>We can draw samples from this network, and measure their nestedness. But because the random networks <em>might</em> have species that are disconnected. In order to get a sense of the importance of these networks, we will use the <a href="../../macro_level/degeneracy/#SpeciesInteractionNetworks.isdegenerate"><code>isdegenerate</code></a> function to identify them:</p>
-<p>```@example nullmodels
-Rd = [randomdraws(Nd) for _ in 1:5000]
-connected_networks = findall(!isdegenerate, Rd)
-nd = η.(Rd)
-@info round.((minimum(nd), Statistics.median(nd), maximum(nd)); digits=4)
-<div class="highlight"><pre><span></span><code>!!! info &quot;Alternative solution&quot;
-    An alternative to using `filter` and [`isdegenerate`](../macro_level/degeneracy.md#SpeciesInteractionNetworks.isdegenerate) is to call the [`simplify`](../macro_level/degeneracy.md#SpeciesInteractionNetworks.simplify) function, which will return a network in which non-interacting species are removed. That being said, simplifying the network changes its richness. This might result in comparing apples and oranges, and seems like a more risky solution.
-
-
-
-This is all we need to plot the results:
-
-
-```@example nullmodels
-f = CairoMakie.Figure(backgroundcolor = :transparent, resolution = (800, 300))
-ax = CairoMakie.Axis(f[1,1], xlabel=&quot;Nestedness&quot;, ylabel=&quot;Probability&quot;)
-CairoMakie.hist!(ax, nd; normalization=:probability, fillto=0.0, color=(:slategray, 0.4), bins=20)
-CairoMakie.hist!(ax, nd[connected_networks]; normalization=:probability, fillto=0.0, color=(:orange, 0.4), bins=20)
-CairoMakie.vlines!(ax, [n0], color=:black, linestyle=:dash)
-CairoMakie.tightlimits!(ax)
-CairoMakie.ylims!(ax, (0.0, 0.2))
-CairoMakie.current_figure()
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="n">Rd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">randomdraws</span><span class="p">(</span><span class="n">Nd</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span><span class="mi">5000</span><span class="p">]</span>
+<span class="n">connected_networks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">findall</span><span class="p">(</span><span class="o">!</span><span class="n">isdegenerate</span><span class="p">,</span><span class="w"> </span><span class="n">Rd</span><span class="p">)</span>
+<span class="n">nd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">η</span><span class="o">.</span><span class="p">(</span><span class="n">Rd</span><span class="p">)</span>
+<span class="nd">@info</span><span class="w"> </span><span class="n">round</span><span class="o">.</span><span class="p">((</span><span class="n">minimum</span><span class="p">(</span><span class="n">nd</span><span class="p">),</span><span class="w"> </span><span class="n">Statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">nd</span><span class="p">),</span><span class="w"> </span><span class="n">maximum</span><span class="p">(</span><span class="n">nd</span><span class="p">));</span><span class="w"> </span><span class="n">digits</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[ Info: (0.2429, 0.3689, 0.5151)
+</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Alternative solution</p>
+<p>An alternative to using <code>filter</code> and <a href="../../macro_level/degeneracy/#SpeciesInteractionNetworks.isdegenerate"><code>isdegenerate</code></a> is to call the <a href="../../macro_level/degeneracy/#SpeciesInteractionNetworks.simplify"><code>simplify</code></a> function, which will return a network in which non-interacting species are removed. That being said, simplifying the network changes its richness. This might result in comparing apples and oranges, and seems like a more risky solution.</p>
+</div>
+<p>This is all we need to plot the results:</p>
+<div class="highlight"><pre><span></span><code><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CairoMakie</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">backgroundcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">:transparent</span><span class="p">,</span><span class="w"> </span><span class="n">resolution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">))</span>
+<span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CairoMakie</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;Nestedness&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;Probability&quot;</span><span class="p">)</span>
+<span class="n">CairoMakie</span><span class="o">.</span><span class="n">hist!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">nd</span><span class="p">;</span><span class="w"> </span><span class="n">normalization</span><span class="o">=</span><span class="ss">:probability</span><span class="p">,</span><span class="w"> </span><span class="n">fillto</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="ss">:slategray</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">),</span><span class="w"> </span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">CairoMakie</span><span class="o">.</span><span class="n">hist!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">nd</span><span class="p">[</span><span class="n">connected_networks</span><span class="p">];</span><span class="w"> </span><span class="n">normalization</span><span class="o">=</span><span class="ss">:probability</span><span class="p">,</span><span class="w"> </span><span class="n">fillto</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="ss">:orange</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">),</span><span class="w"> </span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">CairoMakie</span><span class="o">.</span><span class="n">vlines!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">n0</span><span class="p">],</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="ss">:black</span><span class="p">,</span><span class="w"> </span><span class="n">linestyle</span><span class="o">=</span><span class="ss">:dash</span><span class="p">)</span>
+<span class="n">CairoMakie</span><span class="o">.</span><span class="n">tightlimits!</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">CairoMakie</span><span class="o">.</span><span class="n">ylims!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">))</span>
+<span class="n">CairoMakie</span><span class="o">.</span><span class="n">current_figure</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="" src="../zpuukzr.png" /></p>
 <p>In practice, we are often interested in deriving a <em>p</em>-value from the comparison of the empirical and null values of the structure measure. Note that, functionally, the generation of null models can be seen as permutation testing, and therefore we can approximate the <em>p</em>-value corresponding to the hypothesis that the network is <em>more</em> nested than expected under its degree distribution by looking at the proportion of randomized values that are larger than the empirical observation:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@info</span><span class="w"> </span><span class="s">&quot;𝑝 ≈ </span><span class="si">$</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">Statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">n0</span><span class="w"> </span><span class="o">.&lt;=</span><span class="w"> </span><span class="n">nd</span><span class="p">);</span><span class="w"> </span><span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span><span class="s">&quot;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>┌ Error: Exception while generating log record in module Main at nullmodels.md:108
-│   exception =
-│    UndefVarError: `nd` not defined
-│    Stacktrace:
-│      [1] top-level scope
-│        @ logging.jl:360
-│      [2] eval
-│        @ ./boot.jl:370 [inlined]
-│      [3] #17
-│        @ ~/.julia/packages/Documenter/H5y27/src/Expanders.jl:629 [inlined]
-│      [4] cd(f::Documenter.Expanders.var&quot;#17#19&quot;{Module, Expr}, dir::String)
-│        @ Base.Filesystem ./file.jl:112
-│      [5] (::Documenter.Expanders.var&quot;#16#18&quot;{Documenter.Documents.Page, Module, Expr})()
-│        @ Documenter.Expanders ~/.julia/packages/Documenter/H5y27/src/Expanders.jl:628
-│      [6] (::IOCapture.var&quot;#3#5&quot;{DataType, Documenter.Expanders.var&quot;#16#18&quot;{Documenter.Documents.Page, Module, Expr}, Task, IOContext{Base.PipeEndpoint}, IOContext{Base.PipeEndpoint}, Base.PipeEndpoint, Base.PipeEndpoint})()
-│        @ IOCapture ~/.julia/packages/IOCapture/8Uj7o/src/IOCapture.jl:119
-│      [7] with_logstate(f::Function, logstate::Any)
-│        @ Base.CoreLogging ./logging.jl:514
-│      [8] with_logger
-│        @ ./logging.jl:626 [inlined]
-│      [9] capture(f::Documenter.Expanders.var&quot;#16#18&quot;{Documenter.Documents.Page, Module, Expr}; rethrow::Type, color::Bool)
-│        @ IOCapture ~/.julia/packages/IOCapture/8Uj7o/src/IOCapture.jl:116
-│     [10] runner(#unused#::Type{Documenter.Expanders.ExampleBlocks}, x::Markdown.Code, page::Documenter.Documents.Page, doc::Documenter.Documents.Document)
-│        @ Documenter.Expanders ~/.julia/packages/Documenter/H5y27/src/Expanders.jl:627
-│     [11] dispatch(::Type{Documenter.Expanders.ExpanderPipeline}, ::Markdown.Code, ::Vararg{Any})
-│        @ Documenter.Utilities.Selectors ~/.julia/packages/Documenter/H5y27/src/Utilities/Selectors.jl:170
-│     [12] expand(doc::Documenter.Documents.Document)
-│        @ Documenter.Expanders ~/.julia/packages/Documenter/H5y27/src/Expanders.jl:42
-│     [13] runner(#unused#::Type{Documenter.Builder.ExpandTemplates}, doc::Documenter.Documents.Document)
-│        @ Documenter.Builder ~/.julia/packages/Documenter/H5y27/src/Builder.jl:226
-│     [14] dispatch(#unused#::Type{Documenter.Builder.DocumentPipeline}, x::Documenter.Documents.Document)
-│        @ Documenter.Utilities.Selectors ~/.julia/packages/Documenter/H5y27/src/Utilities/Selectors.jl:170
-│     [15] #2
-│        @ ~/.julia/packages/Documenter/H5y27/src/Documenter.jl:273 [inlined]
-│     [16] cd(f::Documenter.var&quot;#2#3&quot;{Documenter.Documents.Document}, dir::String)
-│        @ Base.Filesystem ./file.jl:112
-│     [17] #makedocs#1
-│        @ ~/.julia/packages/Documenter/H5y27/src/Documenter.jl:272 [inlined]
-│     [18] top-level scope
-│        @ ~/work/SpeciesInteractionNetworks.jl/SpeciesInteractionNetworks.jl/docs/make.jl:20
-│     [19] include(mod::Module, _path::String)
-│        @ Base ./Base.jl:457
-│     [20] exec_options(opts::Base.JLOptions)
-│        @ Base ./client.jl:307
-│     [21] _start()
-│        @ Base ./client.jl:522
-└ @ Main nullmodels.md:108
+<div class="highlight"><pre><span></span><code>[ Info: 𝑝 ≈ 0.094
 </code></pre></div>
 <p>We can then compare the result when only looking at networks without disconnected species:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@info</span><span class="w"> </span><span class="s">&quot;𝑝 ≈ </span><span class="si">$</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">Statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">n0</span><span class="w"> </span><span class="o">.&lt;=</span><span class="w"> </span><span class="n">nd</span><span class="p">[</span><span class="n">connected_networks</span><span class="p">]);</span><span class="w"> </span><span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span><span class="s">&quot;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>┌ Error: Exception while generating log record in module Main at nullmodels.md:115
-│   exception =
-│    UndefVarError: `nd` not defined
-│    Stacktrace:
-│      [1] top-level scope
-│        @ logging.jl:360
-│      [2] eval
-│        @ ./boot.jl:370 [inlined]
-│      [3] #17
-│        @ ~/.julia/packages/Documenter/H5y27/src/Expanders.jl:629 [inlined]
-│      [4] cd(f::Documenter.Expanders.var&quot;#17#19&quot;{Module, Expr}, dir::String)
-│        @ Base.Filesystem ./file.jl:112
-│      [5] (::Documenter.Expanders.var&quot;#16#18&quot;{Documenter.Documents.Page, Module, Expr})()
-│        @ Documenter.Expanders ~/.julia/packages/Documenter/H5y27/src/Expanders.jl:628
-│      [6] (::IOCapture.var&quot;#3#5&quot;{DataType, Documenter.Expanders.var&quot;#16#18&quot;{Documenter.Documents.Page, Module, Expr}, Task, IOContext{Base.PipeEndpoint}, IOContext{Base.PipeEndpoint}, Base.PipeEndpoint, Base.PipeEndpoint})()
-│        @ IOCapture ~/.julia/packages/IOCapture/8Uj7o/src/IOCapture.jl:119
-│      [7] with_logstate(f::Function, logstate::Any)
-│        @ Base.CoreLogging ./logging.jl:514
-│      [8] with_logger
-│        @ ./logging.jl:626 [inlined]
-│      [9] capture(f::Documenter.Expanders.var&quot;#16#18&quot;{Documenter.Documents.Page, Module, Expr}; rethrow::Type, color::Bool)
-│        @ IOCapture ~/.julia/packages/IOCapture/8Uj7o/src/IOCapture.jl:116
-│     [10] runner(#unused#::Type{Documenter.Expanders.ExampleBlocks}, x::Markdown.Code, page::Documenter.Documents.Page, doc::Documenter.Documents.Document)
-│        @ Documenter.Expanders ~/.julia/packages/Documenter/H5y27/src/Expanders.jl:627
-│     [11] dispatch(::Type{Documenter.Expanders.ExpanderPipeline}, ::Markdown.Code, ::Vararg{Any})
-│        @ Documenter.Utilities.Selectors ~/.julia/packages/Documenter/H5y27/src/Utilities/Selectors.jl:170
-│     [12] expand(doc::Documenter.Documents.Document)
-│        @ Documenter.Expanders ~/.julia/packages/Documenter/H5y27/src/Expanders.jl:42
-│     [13] runner(#unused#::Type{Documenter.Builder.ExpandTemplates}, doc::Documenter.Documents.Document)
-│        @ Documenter.Builder ~/.julia/packages/Documenter/H5y27/src/Builder.jl:226
-│     [14] dispatch(#unused#::Type{Documenter.Builder.DocumentPipeline}, x::Documenter.Documents.Document)
-│        @ Documenter.Utilities.Selectors ~/.julia/packages/Documenter/H5y27/src/Utilities/Selectors.jl:170
-│     [15] #2
-│        @ ~/.julia/packages/Documenter/H5y27/src/Documenter.jl:273 [inlined]
-│     [16] cd(f::Documenter.var&quot;#2#3&quot;{Documenter.Documents.Document}, dir::String)
-│        @ Base.Filesystem ./file.jl:112
-│     [17] #makedocs#1
-│        @ ~/.julia/packages/Documenter/H5y27/src/Documenter.jl:272 [inlined]
-│     [18] top-level scope
-│        @ ~/work/SpeciesInteractionNetworks.jl/SpeciesInteractionNetworks.jl/docs/make.jl:20
-│     [19] include(mod::Module, _path::String)
-│        @ Base ./Base.jl:457
-│     [20] exec_options(opts::Base.JLOptions)
-│        @ Base ./client.jl:307
-│     [21] _start()
-│        @ Base ./client.jl:522
-└ @ Main nullmodels.md:115
+<div class="highlight"><pre><span></span><code>[ Info: 𝑝 ≈ 0.086
 </code></pre></div>
 <p>At this time, we can think about the contribution of each species to the global nestedness score. To do this, we will use the approach of <a href="../../bibliography/#Saavedra2011Strong">Saavedra <em>et al.</em> (2011)</a>, in which the contribution of each species is assessed by randomizing <em>only</em> the interactions of this species.</p>
 <p>The result will be returned as a <em>z</em>-score, where positive values indicate that the species contributes positively to nestedness, a value of zero indicates no effect, and negative values means that the species decreases nestedness.</p>
-<p>```@example nullmodels
-speciescontribution(Degree, N, first(species(N)), η; replicates=99)
-<div class="highlight"><pre><span></span><code>We can also iterate over the two levels in the network:
-
-
-```@example nullmodels
-contrib_top = [speciescontribution(Degree, N, sp, η; replicates=99) for sp in species(N, 1)];
-contrib_bot = [speciescontribution(Degree, N, sp, η; replicates=99) for sp in species(N, 2)];
-nothing #hide
-</code></pre></div></p>
+<div class="highlight"><pre><span></span><code><span class="n">speciescontribution</span><span class="p">(</span><span class="n">Degree</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="p">(</span><span class="n">species</span><span class="p">(</span><span class="n">N</span><span class="p">)),</span><span class="w"> </span><span class="n">η</span><span class="p">;</span><span class="w"> </span><span class="n">replicates</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>1.543048534207678
+</code></pre></div>
+<p>We can also iterate over the two levels in the network:</p>
+<div class="highlight"><pre><span></span><code><span class="n">contrib_top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">speciescontribution</span><span class="p">(</span><span class="n">Degree</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">sp</span><span class="p">,</span><span class="w"> </span><span class="n">η</span><span class="p">;</span><span class="w"> </span><span class="n">replicates</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">species</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)];</span>
+<span class="n">contrib_bot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">speciescontribution</span><span class="p">(</span><span class="n">Degree</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">sp</span><span class="p">,</span><span class="w"> </span><span class="n">η</span><span class="p">;</span><span class="w"> </span><span class="n">replicates</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">species</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)];</span>
+</code></pre></div>
 <p>And we can plot the results</p>
-<p><code>@example nullmodels
-f = CairoMakie.Figure(backgroundcolor = :transparent, resolution = (800, 300))
-ax = CairoMakie.Axis(f[1,1], xlabel="Contribution to nestedness", ylabel="Probability")
-CairoMakie.hist!(ax, contrib_bot; normalization=:probability, fillto=0.0, color=(:purple, 0.4))
-CairoMakie.hist!(ax, contrib_top; normalization=:probability, fillto=0.0, color=(:green, 0.4))
-CairoMakie.vlines!(ax, [0.0], color=:black, linestyle=:dash)
-CairoMakie.tightlimits!(ax)
-CairoMakie.ylims!(ax, (0.0, 0.4))
-CairoMakie.current_figure()</code></p>
+<div class="highlight"><pre><span></span><code><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CairoMakie</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">backgroundcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">:transparent</span><span class="p">,</span><span class="w"> </span><span class="n">resolution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">))</span>
+<span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CairoMakie</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;Contribution to nestedness&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylabel</span><span class="o">=</span><span class="s">&quot;Probability&quot;</span><span class="p">)</span>
+<span class="n">CairoMakie</span><span class="o">.</span><span class="n">hist!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">contrib_bot</span><span class="p">;</span><span class="w"> </span><span class="n">normalization</span><span class="o">=</span><span class="ss">:probability</span><span class="p">,</span><span class="w"> </span><span class="n">fillto</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="ss">:purple</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">))</span>
+<span class="n">CairoMakie</span><span class="o">.</span><span class="n">hist!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="n">contrib_top</span><span class="p">;</span><span class="w"> </span><span class="n">normalization</span><span class="o">=</span><span class="ss">:probability</span><span class="p">,</span><span class="w"> </span><span class="n">fillto</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="ss">:green</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">))</span>
+<span class="n">CairoMakie</span><span class="o">.</span><span class="n">vlines!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">],</span><span class="w"> </span><span class="n">color</span><span class="o">=</span><span class="ss">:black</span><span class="p">,</span><span class="w"> </span><span class="n">linestyle</span><span class="o">=</span><span class="ss">:dash</span><span class="p">)</span>
+<span class="n">CairoMakie</span><span class="o">.</span><span class="n">tightlimits!</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">CairoMakie</span><span class="o">.</span><span class="n">ylims!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">))</span>
+<span class="n">CairoMakie</span><span class="o">.</span><span class="n">current_figure</span><span class="p">()</span>
+</code></pre></div>
+<p><img alt="" src="../drpzqzo.png" /></p>
 
 
 
