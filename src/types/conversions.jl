@@ -12,8 +12,12 @@ function render(::Type{Unipartite}, N::SpeciesInteractionNetwork{<:Bipartite, <:
     nodes = Unipartite(species(N,1) ∪ species(N,2))
     edges = _edgetype(N)(zeros(eltype(N.edges), size(nodes)))
     U = SpeciesInteractionNetwork(nodes, edges)
-    for interaction in N
-        U[interaction[1], interaction[2]] = interaction[3]
+    for sp1 in species(N,1)
+        for sp2 in species(N,2)
+            if !iszero(N[sp1,sp2])
+                U[sp1,sp2] = N[sp1,sp2]
+            end
+        end
     end
     return U
 end
@@ -41,8 +45,12 @@ function render(::Type{Quantitative{T}}, N::SpeciesInteractionNetwork{<:Partiten
     nodes = copy(N.nodes)
     edges = Quantitative(zeros(T, size(nodes)))
     U = SpeciesInteractionNetwork(nodes, edges)
-    for interaction in N
-        U[interaction[1], interaction[2]] = convert(T, interaction[3])
+    for i in axes(N,1)
+        for j in axes(N,2)
+            if !iszero(N[i,j])
+                U[i,j] = convert(T, N[i,j])
+            end
+        end
     end
     return U
 end
@@ -82,8 +90,12 @@ function render(::Type{Probabilistic{T}}, N::SpeciesInteractionNetwork{<:Partite
     nodes = copy(N.nodes)
     edges = Probabilistic(zeros(T, size(nodes)))
     U = SpeciesInteractionNetwork(nodes, edges)
-    for interaction in N
-        U[interaction[1], interaction[2]] = convert(T, interaction[3])
+    for i in axes(N,1)
+        for j in axes(N,2)
+            if !iszero(N[i,j])
+                U[i,j] = convert(T, N[i,j])
+            end
+        end
     end
     return U
 end
