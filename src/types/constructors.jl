@@ -107,3 +107,39 @@ end
     @test eltype(N.edges) == eltype(M)
     @test eltype(N.nodes) == Symbol
 end
+
+function Base.show(io::IO, ::MIME"text/plain", N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
+    print(io, "A binary unipartite network\n")
+    print(io, " → $(richness(N)) species\n")
+    print(io, " → $(links(N)) interactions")
+end
+
+function Base.show(io::IO, ::MIME"text/plain", N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
+    print(io, "A binary bipartite network\n")
+    print(io, " → $(richness(N,1)) + $(richness(N,2)) species\n")
+    print(io, " → $(links(N)) interactions")
+end
+
+function Base.show(io::IO, ::MIME"text/plain", N::SpeciesInteractionNetwork{<:Unipartite, <:Probabilistic})
+    print(io, "A probabilistic unipartite network\n")
+    print(io, " → $(richness(N)) species\n")
+    print(io, " → $(links(N)) interactions")
+end
+
+function Base.show(io::IO, ::MIME"text/plain", N::SpeciesInteractionNetwork{<:Bipartite, <:Probabilistic})
+    print(io, "A probabilistic bipartite network\n")
+    print(io, " → $(richness(N,1)) + $(richness(N,2)) species\n")
+    print(io, " → $(links(N)) interactions")
+end
+
+function Base.show(io::IO, ::MIME"text/plain", N::SpeciesInteractionNetwork{<:Unipartite, <:Quantitative})
+    print(io, "A quantitative unipartite network\n")
+    print(io, " → $(richness(N)) species\n")
+    print(io, " → $(links(N)) interactions")
+end
+
+function Base.show(io::IO, ::MIME"text/plain", N::SpeciesInteractionNetwork{<:Bipartite, <:Quantitative})
+    print(io, "A quantitative bipartite network\n")
+    print(io, " → $(richness(N,1)) + $(richness(N,2)) species\n")
+    print(io, " → $(links(N)) interactions")
+end
