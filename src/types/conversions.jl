@@ -43,16 +43,8 @@ different number representation.
 """
 function render(::Type{Quantitative{T}}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions}) where {T <: Number}
     nodes = copy(N.nodes)
-    edges = Quantitative(zeros(T, size(nodes)))
-    U = SpeciesInteractionNetwork(nodes, edges)
-    for i in axes(N,1)
-        for j in axes(N,2)
-            if !iszero(N[i,j])
-                U[i,j] = convert(T, N[i,j])
-            end
-        end
-    end
-    return U
+    edges = Quantitative(convert.(T, N.edges.edges))
+    return SpeciesInteractionNetwork(nodes, edges)
 end
 
 @testitem "We can convert a binary network to a quantitative network" begin
@@ -88,16 +80,18 @@ different number representation.
 """
 function render(::Type{Probabilistic{T}}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions}) where {T <: AbstractFloat}
     nodes = copy(N.nodes)
-    edges = Probabilistic(zeros(T, size(nodes)))
-    U = SpeciesInteractionNetwork(nodes, edges)
-    for i in axes(N,1)
-        for j in axes(N,2)
-            if !iszero(N[i,j])
-                U[i,j] = convert(T, N[i,j])
-            end
-        end
+    edges = Probabilistic(convert.(T, Array(N.edges.edges)))
+    return SpeciesInteractionNetwork(nodes, edges)
+end
+
+@testitem "We can turn a binary network into a probabilistic network" begin
+    nodes = Bipartite([:A, :B, :C], [:a, :b, :c])
+    edges = Binary(Bool[1 1 1; 0 0 1; 1 0 0])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    M = render(Probabilistic{Float16}, N)
+    for interaction in N
+        @test isone(M[interaction[1],interaction[2]])
     end
-    return U
 end
 
 """
@@ -108,12 +102,6 @@ Returns a binary version of the network, where the non-zero interactions are
 """
 function render(::Type{Binary}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions})
     nodes = copy(N.nodes)
-    edges = Binary(zeros(Bool, size(nodes)))
-    U = SpeciesInteractionNetwork(nodes, edges)
-    for interaction in N
-        if !iszero(interaction[3])
-            U[interaction[1], interaction[2]] = true
-        end
-    end
-    return U
+    edges = Binary(((!) ∘ iszero).(Array(N.edges.edges)))
+    return SpeciesInteractionNetwork(nodes, edges)
 end
