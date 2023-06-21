@@ -1119,8 +1119,8 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>3-element Vector{Tuple{Symbol, Symbol, Bool}}:
  (:fox, :vole, 1)
- (:hawk, :vole, 1)
  (:vole, :turnip, 1)
+ (:hawk, :vole, 1)
 </code></pre></div>
 <p><a id='Basics-of-network-exploration'></a></p>
 <p><a id='Basics-of-network-exploration-1'></a></p>
@@ -1164,8 +1164,8 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>3-element Vector{Tuple{Symbol, Symbol, Bool}}:
  (:fox, :vole, 1)
- (:hawk, :vole, 1)
  (:vole, :turnip, 1)
+ (:hawk, :vole, 1)
 </code></pre></div>
 <p><a id='Networks-are-tables'></a></p>
 <p><a id='Networks-are-tables-1'></a></p>
@@ -1175,7 +1175,7 @@
 <span class="n">DataFrames</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">network</span><span class="p">)</span>
 </code></pre></div>
 <div><div style = "float: left;"><span>3×3 DataFrame</span></div><div style = "clear: both;"></div></div>
-<div class = "data-frame" style = "overflow-x: scroll;"><table class = "data-frame" style = "margin-bottom: 6px;"><thead><tr class = "header"><th class = "rowNumber" style = "font-weight: bold; text-align: right;">Row</th><th style = "text-align: left;">1</th><th style = "text-align: left;">2</th><th style = "text-align: left;">3</th></tr><tr class = "subheader headerLastRow"><th class = "rowNumber" style = "font-weight: bold; text-align: right;"></th><th title = "Symbol" style = "text-align: left;">Symbol</th><th title = "Symbol" style = "text-align: left;">Symbol</th><th title = "Bool" style = "text-align: left;">Bool</th></tr></thead><tbody><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">1</td><td style = "text-align: left;">fox</td><td style = "text-align: left;">vole</td><td style = "text-align: right;">true</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">2</td><td style = "text-align: left;">hawk</td><td style = "text-align: left;">vole</td><td style = "text-align: right;">true</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">3</td><td style = "text-align: left;">vole</td><td style = "text-align: left;">turnip</td><td style = "text-align: right;">true</td></tr></tbody></table></div>
+<div class = "data-frame" style = "overflow-x: scroll;"><table class = "data-frame" style = "margin-bottom: 6px;"><thead><tr class = "header"><th class = "rowNumber" style = "font-weight: bold; text-align: right;">Row</th><th style = "text-align: left;">1</th><th style = "text-align: left;">2</th><th style = "text-align: left;">3</th></tr><tr class = "subheader headerLastRow"><th class = "rowNumber" style = "font-weight: bold; text-align: right;"></th><th title = "Symbol" style = "text-align: left;">Symbol</th><th title = "Symbol" style = "text-align: left;">Symbol</th><th title = "Bool" style = "text-align: left;">Bool</th></tr></thead><tbody><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">1</td><td style = "text-align: left;">fox</td><td style = "text-align: left;">vole</td><td style = "text-align: right;">true</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">2</td><td style = "text-align: left;">vole</td><td style = "text-align: left;">turnip</td><td style = "text-align: right;">true</td></tr><tr><td class = "rowNumber" style = "font-weight: bold; text-align: right;">3</td><td style = "text-align: left;">hawk</td><td style = "text-align: left;">vole</td><td style = "text-align: right;">true</td></tr></tbody></table></div>
 
 <p><a id='Networks-are-broadcastable'></a></p>
 <p><a id='Networks-are-broadcastable-1'></a></p>
@@ -1185,17 +1185,17 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>13-element Vector{Tuple{Symbol, Symbol, Bool}}:
  (:fox, :fox, 1)
- (:vole, :fox, 1)
- (:hawk, :fox, 1)
- (:turnip, :fox, 1)
- (:vole, :vole, 1)
- (:turnip, :vole, 1)
  (:fox, :hawk, 1)
- (:vole, :hawk, 1)
- (:hawk, :hawk, 1)
- (:turnip, :hawk, 1)
  (:fox, :turnip, 1)
+ (:vole, :fox, 1)
+ (:vole, :vole, 1)
+ (:vole, :hawk, 1)
+ (:hawk, :fox, 1)
+ (:hawk, :hawk, 1)
  (:hawk, :turnip, 1)
+ (:turnip, :fox, 1)
+ (:turnip, :vole, 1)
+ (:turnip, :hawk, 1)
  (:turnip, :turnip, 1)
 </code></pre></div>
 <p>In the same way, we can broadcast operations on pairs of networks. In this case, the constraint that will be enforced is that the species <em>must</em> be the same (they do not need to be in the same order, however):</p>
@@ -1203,8 +1203,8 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>3-element Vector{Tuple{Symbol, Symbol, Int64}}:
  (:fox, :vole, 2)
- (:hawk, :vole, 2)
  (:vole, :turnip, 2)
+ (:hawk, :vole, 2)
 </code></pre></div>
 <p>In practice, the application of broadcasting to network is of limited value, but the package offers the ability to do it.</p>
 
