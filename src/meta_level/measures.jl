@@ -15,10 +15,28 @@ function KGL01(S::T) where {T<:NamedTuple}
   return (S.shared+S.right+S.left)/((S.shared + (S.shared+S.right+S.left))/2.0)
 end
 
+"""
+    KGL02(S::T) where {T<:NamedTuple}
+
+``\\beta_{-1} = \\frac{L+S+R}{(2S + L + R)/2}-1``
+
+###### References
+
+[Harrison1992Beta](@citet*)
+"""
 function KGL02(S::T) where {T<:NamedTuple}
   return KGL01(S).-1.0
 end
 
+"""
+    KGL03(S::T) where {T<:NamedTuple}
+
+``\\beta_{c} = \\frac{L+R}{2}``
+
+###### References
+
+[Cody1975Ecology](@citet*) 
+"""
 function KGL03(S::T) where {T<:NamedTuple}
   return (S.right + S.left)/2.0
 end
