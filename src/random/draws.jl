@@ -14,9 +14,7 @@ function randomdraws(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic
     for i in axes(N,1)
         for j in axes(N, 2)
             if rand() <= N[i, j]
-                if rand() <= last(interaction)
-                    R[i,j] = true
-                end
+                R[i,j] = true
             end
         end
     end
@@ -28,7 +26,7 @@ end
     edges = Probabilistic([1.0 1.0 1.0; 0.0 1.0 0.0; 1.0 0.0 1.0])
     N = SpeciesInteractionNetwork(nodes, edges)
     R = randomdraws(N)
-    for interaction in N
+    for interaction in interactions(N)
         @test R[interaction[1],interaction[2]]
     end
 end
