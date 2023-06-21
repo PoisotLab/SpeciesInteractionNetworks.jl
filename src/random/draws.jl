@@ -11,9 +11,13 @@ network. Each interaction is considered as an independent Bernoulli trial.
 function randomdraws(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
     edges = Binary(zeros(Bool, size(N.edges.edges)))
     R = SpeciesInteractionNetwork(copy(N.nodes), edges)
-    for interaction in N
-        if rand() <= last(interaction)
-            R[interaction[1],interaction[2]] = true
+    for i in axes(N,1)
+        for j in axes(N, 2)
+            if rand() <= N[sp1, sp2]
+                if rand() <= last(interaction)
+                    R[i,j] = true
+                end
+            end
         end
     end
     return R
