@@ -82,7 +82,8 @@ end
 
 Internally, this is done by only returning the pairs of species that do not have
 a value of zero. There is a way to capture all of the interactions at a time,
-using [`interactions`](@ref):
+using [`interactions`](@ref) -- this solution is *faster* than direct
+iteraction, potentially by a few orders of magnitude.
 
 ``` @example 1
 interactions(network)

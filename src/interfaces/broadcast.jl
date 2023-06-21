@@ -40,11 +40,11 @@ end
     nodes = Unipartite([:A, :B, :C])
     N = SpeciesInteractionNetwork(nodes, edges)
     Nplus1 = N .+ 1
-    for interaction in N
+    for interaction in interactions(N)
         @test Nplus1[interaction[1], interaction[2]] == interaction[3] + 1.0
     end
     Nplus2 = 2 .+ N
-    for interaction in N
+    for interaction in interactions(N)
         @test Nplus2[interaction[1], interaction[2]] == interaction[3] + 2.0
     end
     NplusM = N .* [2 2 2; 3 3 3; 4 4 4]

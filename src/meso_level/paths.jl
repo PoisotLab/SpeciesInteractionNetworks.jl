@@ -27,7 +27,7 @@ function shortestpath(::Type{BellmanFord}, N::SpeciesInteractionNetwork{<:Unipar
     
     for _ in 1:(richness(N)-1)
         changes_made = false
-        for interaction in N
+        for interaction in interactions(N)
             from = findfirst(isequal(interaction[1]), species(N))
             to = findfirst(isequal(interaction[2]), species(N))
             if (distance[from] + interaction[3]) < distance[to]

@@ -61,7 +61,7 @@ end
     edges = Binary(rand(Bool, (richness(nodes,1), richness(nodes, 2))))
     N = SpeciesInteractionNetwork(nodes, edges)
     R = linearfilter(N; α=[0.0, 0.0, 0.0, 1.0])
-    for interaction in N
+    for interaction in interactions(N)
         @test R[interaction[1], interaction[2]] == Statistics.mean(N.edges.edges)
     end
 end
@@ -72,7 +72,7 @@ end
     edges = Binary(rand(Bool, (richness(nodes,1), richness(nodes, 2))))
     N = SpeciesInteractionNetwork(nodes, edges)
     R = linearfilter(N; α=[1.0, 0.0, 0.0, 0.0])
-    for interaction in N
+    for interaction in interactions(N)
         @test R[interaction[1], interaction[2]] == 1.0
     end
 end

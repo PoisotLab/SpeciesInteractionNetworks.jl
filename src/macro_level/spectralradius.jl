@@ -7,7 +7,7 @@ is *not recommended* for daily use, and is intended to use within the
 """
 function mirror(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
     M = copy(N)
-    for interaction in N
+    for interaction in interactions(N)
         M[interaction[2], interaction[1]] = true
     end
     return M

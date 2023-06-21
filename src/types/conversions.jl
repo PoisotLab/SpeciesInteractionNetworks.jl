@@ -27,7 +27,7 @@ end
     edges = Binary(Bool[1 1 1; 0 0 1; 1 0 0])
     N = SpeciesInteractionNetwork(nodes, edges)
     M = render(Unipartite, N)
-    for interaction in N
+    for interaction in interactions(N)
         @test N[interaction[1], interaction[2]] == M[interaction[1], interaction[2]]
     end
     @test typeof(M.nodes) <: Unipartite
@@ -52,7 +52,7 @@ end
     edges = Binary(Bool[1 1 1; 0 0 1; 1 0 0])
     N = SpeciesInteractionNetwork(nodes, edges)
     M = render(Quantitative{Float16}, N)
-    for interaction in N
+    for interaction in interactions(N)
         @test N[interaction[1], interaction[2]] == M[interaction[1], interaction[2]]
     end
     @test typeof(M.nodes) <: Bipartite
@@ -64,7 +64,7 @@ end
     edges = Quantitative(Float64[1 2 1; 0 0 1; 1 0 0])
     N = SpeciesInteractionNetwork(nodes, edges)
     M = render(Quantitative{Float32}, N)
-    for interaction in N
+    for interaction in interactions(N)
         @test N[interaction[1], interaction[2]] == M[interaction[1], interaction[2]]
     end
     @test typeof(M.nodes) <: Bipartite
@@ -89,7 +89,7 @@ end
     edges = Binary(Bool[1 1 1; 0 0 1; 1 0 0])
     N = SpeciesInteractionNetwork(nodes, edges)
     M = render(Probabilistic{Float16}, N)
-    for interaction in N
+    for interaction in interactions(N)
         @test isone(M[interaction[1],interaction[2]])
     end
 end
