@@ -1,13 +1,13 @@
 function η_axis(N::SpeciesInteractionNetwork)
-    S = richness(N, 1)
-    n = vec(sum(N.edges.edges, dims=2))
+    A = Array(N.edges.edges)
     num = 0.0
     den = 0.0
-    for j in 2:S
-        Nj = N[j, :]
+    for j in 2:richness(N, 1)
+        Nj = A[j, :]
         for i in 1:(j - 1)
-            num += sum(N[i, :] .* Nj)
-            den += min(n[i], n[j])
+            Ni = A[i, :]
+            num += sum(Ni .* Nj)
+            den += min(sum(Ni), sum(Nj))
         end
     end
     return num / den
