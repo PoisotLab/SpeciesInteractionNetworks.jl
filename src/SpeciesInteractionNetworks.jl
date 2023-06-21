@@ -73,6 +73,7 @@ export speciescontribution
 
 include("micro_level/degree.jl")
 export degree
+export generality, vulnerability
 
 include("micro_level/specificity.jl")
 export specificity

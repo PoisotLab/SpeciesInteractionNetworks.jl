@@ -9,8 +9,6 @@ their probability set to 1.
 
 The original publication [Saavedra2011Strong](@cite) uses [`Degree`] as the
 permutation constraint, but this function has been written to be more general.
-It also works on unipartite networks, but this has not been actually *applied*
-yet.
 
 This network can be passed to [`speciescontribution`](@ref).
 
@@ -39,10 +37,27 @@ TODO
 """
 function speciescontribution(::Type{C}, N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Binary}, sp::T, f, args...; replicates=999, kwargs...) where {C <: PermutationConstraint, T}
     R = nullmodel(C, N, sp)
+    M = copy(N) # We will update this one in place
     v0 = f(N, args...; kwargs...)
     vx = zeros(typeof(v0), replicates)
     for replicate in 1:replicates
-        vx[replicate] = f(randomdraws(R), args...; kwargs...)
+        if sp in species(N, 1)
+            i = findfirst(isequal(sp), species(N, 1))
+            wv = StatsBase.weights(R[sp,:])
+            new_int = StatsBase.sample(axes(N, 2), wv, generality(N)[sp]; replace=false)
+            for j in axes(N, 2)
+                M[i,j] = j in new_int
+            end
+        end
+        if sp in species(N, 2)
+            i = findfirst(isequal(sp), species(N, 2))
+            wv = StatsBase.weights(R[:,sp])
+            new_int = StatsBase.sample(axes(N, 1), wv, vulnerability(N)[sp]; replace=false)
+            for j in axes(N, 1)
+                M[j,i] = j in new_int
+            end
+        end
+        vx[replicate] = f(M, args...; kwargs...)
     end
     return (v0 - mean(vx))/std(vx)
 end
