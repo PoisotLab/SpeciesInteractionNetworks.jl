@@ -1031,16 +1031,30 @@
 </div>
 <p><a id='SpeciesInteractionNetworks.η' href='#SpeciesInteractionNetworks.η'>#</a>
 <strong><code>SpeciesInteractionNetworks.η</code></strong> &mdash; <em>Function</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">η</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Bipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Binary</span><span class="p">,</span><span class="w"> </span><span class="kt">Probabilistic</span><span class="p">}},</span><span class="w"> </span><span class="n">dims</span><span class="o">::</span><span class="kt">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">η</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Bipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Binary</span><span class="p">,</span><span class="w"> </span><span class="kt">Probabilistic</span><span class="p">}})</span>
 </code></pre></div>
-<p>The η measure of nestedness is a variation of NODF, it can be calculated at the scale of the entire network (using <code>0</code> as the second argument, which is the default), or for either side of the network (<code>1</code> for rows, <code>2</code> for columns).</p>
-<p>The measure for the entire network is the average of the nestedness of rows and columns.</p>
+<p>The η measure of nestedness is a variation of NODF, at the scale of the entire network. The measure for the entire network is the average of the nestedness of rows and columns.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Bastolla2009architecture">Bastolla, Fortuna, Pascual-García, Ferrera, Luque and Bascompte (2009)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3277de9cf20511d888d38fdc6001dc04d02bbdcd/src/macro_level/eta.jl#L16-L29' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6d5a35890a7274b18918bf3c0d98f56aa2cb498a/src/macro_level/eta.jl#L16-L26' class='documenter-source'>source</a><br></p>
+<div class="highlight"><pre><span></span><code>η(N::SpeciesInteractionNetwork{&lt;:Bipartite, &lt;:Union{Binary, Probabilistic}}, dims::Integer)
+</code></pre></div>
+<p>The η measure of nestedness is a variation of NODF, it can be calculated for either side of the network (<code>1</code> for rows, <code>2</code> for columns).</p>
+<p><strong>References</strong></p>
+<p><a href="../../bibliography/#Bastolla2009architecture">Bastolla, Fortuna, Pascual-García, Ferrera, Luque and Bascompte (2009)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6d5a35890a7274b18918bf3c0d98f56aa2cb498a/src/macro_level/eta.jl#L31-L40' class='documenter-source'>source</a><br></p>
 <p><a id='NODF'></a></p>
 <p><a id='NODF-1'></a></p>
 <h2 id="nodf">NODF</h2>
+<p><a id='SpeciesInteractionNetworks.nodf' href='#SpeciesInteractionNetworks.nodf'>#</a>
+<strong><code>SpeciesInteractionNetworks.nodf</code></strong> &mdash; <em>Function</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">nodf</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">T</span><span class="p">;</span><span class="w"> </span><span class="n">dims</span><span class="o">::</span><span class="kt">Union</span><span class="p">{</span><span class="kt">Nothing</span><span class="p">,</span><span class="kt">Integer</span><span class="p">}</span><span class="o">=</span><span class="nb">nothing</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Union</span><span class="p">{</span><span class="kt">BipartiteNetwork</span><span class="p">,</span><span class="kt">BipartiteQuantitativeNetwork</span><span class="p">}}</span>
+</code></pre></div>
+<p>Returns <code>nodf</code> for a margin of the network. The <code>i</code> argument can be 1 for top-level, 2 for bottom level, and the function will throw an <code>ArgumentError</code> if an invalid value is used. For quantitative networks, <em>WNODF</em> is used.</p>
+<p><strong>References</strong></p>
+<p><a href="../../bibliography/#AlmeidaNeto2008consistent">Almeida-Neto, Guimar{ã}es, Guimar{ã}es, Loyola and Ulrich (2008)</a></p>
+<p><a href="../../bibliography/#AlmeidaNeto2011straightforward">Almeida-Neto and Ulrich (2011)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6d5a35890a7274b18918bf3c0d98f56aa2cb498a/src/macro_level/nodf.jl#L54-L66' class='documenter-source'>source</a><br></p>
 <p><a id='Spectral-radius'></a></p>
 <p><a id='Spectral-radius-1'></a></p>
 <h2 id="spectral-radius">Spectral radius</h2>
@@ -1055,12 +1069,12 @@
 <p>Using <code>:none</code> returns the raw values, and for the sake of comparisons across networks, it is advised not to use it. It is included for cases where the networks to compare have the same number of species and interactions, as in this case it is appropriate and slightly faster than other corrections.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Phillips2011structure">Phillips (2011)</a></p>
-<p><a href="../../bibliography/#Staniczenko2013ghost">Staniczenko <em>et al.</em> (2013)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3277de9cf20511d888d38fdc6001dc04d02bbdcd/src/macro_level/spectralradius.jl#L16-L44' class='documenter-source'>source</a><br></p>
+<p><a href="../../bibliography/#Staniczenko2013ghost">Staniczenko, Kopp and Allesina (2013)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6d5a35890a7274b18918bf3c0d98f56aa2cb498a/src/macro_level/spectralradius.jl#L16-L44' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>spectralradius(N::SpeciesInteractionNetwork{&lt;:Bipartite, &lt;:Binary}; kwargs...)
 </code></pre></div>
 <p>The bipartite version of <a href="./#SpeciesInteractionNetworks.spectralradius"><code>spectralradius</code></a> is measured by first projecting the bipartite network as a unipartite one using <a href="../../getting_started/types/#SpeciesInteractionNetworks.render"><code>render</code></a>. The same options as for the unipartite version are then applied.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3277de9cf20511d888d38fdc6001dc04d02bbdcd/src/macro_level/spectralradius.jl#L63-L69' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6d5a35890a7274b18918bf3c0d98f56aa2cb498a/src/macro_level/spectralradius.jl#L63-L69' class='documenter-source'>source</a><br></p>
 
 
 
