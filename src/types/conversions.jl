@@ -80,7 +80,7 @@ different number representation.
 """
 function render(::Type{Probabilistic{T}}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions}) where {T <: AbstractFloat}
     nodes = copy(N.nodes)
-    edges = Probabilistic(convert.(T, Array(N.edges.edges)))
+    edges = Probabilistic(convert.(T, Array(N)))
     return SpeciesInteractionNetwork(nodes, edges)
 end
 
@@ -102,6 +102,6 @@ Returns a binary version of the network, where the non-zero interactions are
 """
 function render(::Type{Binary}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions})
     nodes = copy(N.nodes)
-    edges = Binary(((!) ∘ iszero).(Array(N.edges.edges)))
+    edges = Binary(((!) ∘ iszero).(Array(N)))
     return SpeciesInteractionNetwork(nodes, edges)
 end

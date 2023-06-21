@@ -1,5 +1,5 @@
 function η_axis(N::SpeciesInteractionNetwork)
-    A = Array(N.edges.edges)
+    A = Array(N)
     num = 0.0
     den = 0.0
     for j in 2:richness(N, 1)

@@ -18,19 +18,19 @@ end
 
 function Base.broadcasted(::Broadcast.Style{T}, f, N::T) where {T <: SpeciesInteractionNetwork}
     nodes = copy(N.nodes)
-    edges = typeof(N.edges).name.wrapper(f.(Array(N.edges.edges)))
+    edges = typeof(N.edges).name.wrapper(f.(Array(N)))
     return SpeciesInteractionNetwork(nodes, edges)
 end
 
 function Base.broadcasted(::Broadcast.Style{T}, f, N::T, x) where {T <: SpeciesInteractionNetwork}
     nodes = copy(N.nodes)
-    edges = typeof(N.edges).name.wrapper(f.(Array(N.edges.edges), x))
+    edges = typeof(N.edges).name.wrapper(f.(Array(N), x))
     return SpeciesInteractionNetwork(nodes, edges)
 end
 
 function Base.broadcasted(::Broadcast.Style{T}, f, x, N::T) where {T <: SpeciesInteractionNetwork}
     nodes = copy(N.nodes)
-    edges = typeof(N.edges).name.wrapper(f.(x, Array(N.edges.edges)))
+    edges = typeof(N.edges).name.wrapper(f.(x, Array(N)))
     return SpeciesInteractionNetwork(nodes, edges)
 end
 

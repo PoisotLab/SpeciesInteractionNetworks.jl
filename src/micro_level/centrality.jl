@@ -213,7 +213,7 @@ function centrality(::Type{EigenvectorCentrality}, N::SpeciesInteractionNetwork{
     b ./= sum(b)
 
     for _ in 1:SpeciesInteractionNetworks.CENTRALITY_MAXITER
-        b1 = Array(N.edges.edges) * b
+        b1 = Array(N) * b
         n = LinearAlgebra.norm(b1)
         if isnan(n)
             @warn "Early return of the eigencetrality function, results may be approximate"

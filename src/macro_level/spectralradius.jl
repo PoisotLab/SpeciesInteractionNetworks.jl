@@ -48,14 +48,14 @@ function spectralradius(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary}; co
     end
     @assert correction ∈ [:connectance, :links, :none]
     M = mirror(N)
-    absolute_real_part = abs.(real.(eigvals(Array(M.edges.edges))))
+    absolute_real_part = abs.(real.(eigvals(Array(M))))
     L = length(M)
     S = richness(N)
     if correction == :connectance
         return maximum(absolute_real_part)/((L*(S-1))/S)^0.5
     end
     if correction == :links
-        return maximum(absolute_real_part)/sqrt((L-sum(diag(Array(N.edges.edges))))/2.0)
+        return maximum(absolute_real_part)/sqrt((L-sum(diag(Array(N))))/2.0)
     end
     return maximum(absolute_real_part)
 end
