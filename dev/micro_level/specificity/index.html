@@ -13,7 +13,7 @@
       
       
       
-        <link rel="prev" href="../../getting_started/types/">
+        <link rel="prev" href="../../getting_started/basics/">
       
       
         <link rel="next" href="../centrality/">
@@ -181,7 +181,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../getting_started/demonstration/" class="md-tabs__link">
         Getting started
       </a>
     </li>
@@ -382,20 +382,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
-        Index
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../getting_started/demonstration/" class="md-nav__link">
         Building a network
       </a>
@@ -412,6 +398,20 @@
     <li class="md-nav__item">
       <a href="../../getting_started/types/" class="md-nav__link">
         Type system
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/basics/" class="md-nav__link">
+        Basic descriptors
       </a>
     </li>
   
@@ -1026,7 +1026,7 @@
 <p>For a deterministic network, this function will return a dictionary mapping each top-level species to its specificity. The same index (Paired Differences Index) is used for binary and quantitative networks. A value of one corresponds to maximum specialism, and a value of zero to maximum generalism. The index is symmetrical, so that a species with a value of one half is neither specialist nor generalist.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Poisot2012comparative">Poisot, Canard, Mouquet and Hochberg (2012)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/54b30f42e897bfbad6c8f3df19eec2d33d0d8d5d/src/micro_level/specificity.jl#L19-L32' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fef441c7afaafdd742b7474fd86e546c2777190e/src/micro_level/specificity.jl#L19-L32' class='documenter-source'>source</a><br></p>
 <p><a id='Degree'></a></p>
 <p><a id='Degree-1'></a></p>
 <h2 id="degree">Degree</h2>
@@ -1035,11 +1035,11 @@
 <div class="highlight"><pre><span></span><code><span class="n">degree</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Unipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">})</span>
 </code></pre></div>
 <p>The degree of a species in a unipartite network is the sum of its generality and vulnerability. This function <em>will</em> count self-links as part of the degree. See also <a href="./#SpeciesInteractionNetworks.generality"><code>generality</code></a>, <a href="./#SpeciesInteractionNetworks.vulnerability"><code>vulnerability</code></a>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/54b30f42e897bfbad6c8f3df19eec2d33d0d8d5d/src/micro_level/degree.jl#L1-L7' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fef441c7afaafdd742b7474fd86e546c2777190e/src/micro_level/degree.jl#L1-L7' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>degree(N::SpeciesInteractionNetwork{&lt;:Bipartite, &lt;:Binary})
 </code></pre></div>
 <p>In a bipartite network, the degree is the combination of the <a href="./#SpeciesInteractionNetworks.generality"><code>generality</code></a> and <a href="./#SpeciesInteractionNetworks.vulnerability"><code>vulnerability</code></a> of all species.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/54b30f42e897bfbad6c8f3df19eec2d33d0d8d5d/src/micro_level/degree.jl#L89-L94' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fef441c7afaafdd742b7474fd86e546c2777190e/src/micro_level/degree.jl#L89-L94' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.generality' href='#SpeciesInteractionNetworks.generality'>#</a>
 <strong><code>SpeciesInteractionNetworks.generality</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">generality</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Unipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">})</span>
@@ -1048,11 +1048,11 @@
 <p>Note that by contrast to the original definition of vulnerability <a href="../../bibliography/#Schoener1989Food">(Schoener, 1989)</a>, this version is <em>not</em> corrected for network richness.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Schoener1989Food">Schoener (1989)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/54b30f42e897bfbad6c8f3df19eec2d33d0d8d5d/src/micro_level/degree.jl#L37-L50' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fef441c7afaafdd742b7474fd86e546c2777190e/src/micro_level/degree.jl#L37-L50' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>generality(N::SpeciesInteractionNetwork{&lt;:Bipartite, &lt;:Binary})
 </code></pre></div>
 <p>In a bipartite network, the generality is only defined for top-level species, and is the number of their successors (as given by the <a href="@ref"><code>successors</code></a> function).</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/54b30f42e897bfbad6c8f3df19eec2d33d0d8d5d/src/micro_level/degree.jl#L78-L84' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fef441c7afaafdd742b7474fd86e546c2777190e/src/micro_level/degree.jl#L78-L84' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.vulnerability' href='#SpeciesInteractionNetworks.vulnerability'>#</a>
 <strong><code>SpeciesInteractionNetworks.vulnerability</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">vulnerability</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Unipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">})</span>
@@ -1061,11 +1061,11 @@
 <p>Note that by contrast to the original definition of vulnerability <a href="../../bibliography/#Schoener1989Food">(Schoener, 1989)</a>, this version is <em>not</em> corrected for network richness.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Schoener1989Food">Schoener (1989)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/54b30f42e897bfbad6c8f3df19eec2d33d0d8d5d/src/micro_level/degree.jl#L18-L31' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fef441c7afaafdd742b7474fd86e546c2777190e/src/micro_level/degree.jl#L18-L31' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>vulnerability(N::SpeciesInteractionNetwork{&lt;:Bipartite, &lt;:Binary})
 </code></pre></div>
 <p>In a bipartite network, the vulnerability is only defined for bottom-level species, and is the number of their predecessors (as given by the <a href="@ref"><code>predecessors</code></a> function).</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/54b30f42e897bfbad6c8f3df19eec2d33d0d8d5d/src/micro_level/degree.jl#L67-L73' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fef441c7afaafdd742b7474fd86e546c2777190e/src/micro_level/degree.jl#L67-L73' class='documenter-source'>source</a><br></p>
 
 
 
