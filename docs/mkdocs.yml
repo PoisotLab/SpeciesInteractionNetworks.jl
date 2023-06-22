@@ -39,9 +39,9 @@ docs_dir: 'build'
 
 nav:
   - Getting started:
-    - Index: index.md
     - Building a network: getting_started/demonstration.md
     - Type system: getting_started/types.md
+    - Basic descriptors: getting_started/basics.md
   - Micro:
     - Specificity: micro_level/specificity.md
     - Centrality: micro_level/centrality.md

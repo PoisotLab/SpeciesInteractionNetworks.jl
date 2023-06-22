@@ -1,6 +1,6 @@
 # The type system
 
-The package relies on a compreensive system of types to represent networks. The
+The package relies on a comprehensive system of types to represent networks. The
 purpose of the type system is to ensure that data are represented without
 ambiguities, but also to specialize the algorithm applied to each type of
 network.
