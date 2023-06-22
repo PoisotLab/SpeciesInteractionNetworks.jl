@@ -123,3 +123,10 @@ degree(N::SpeciesInteractionNetwork) = Dict([sp => degree(N, sp) for sp in speci
     @test D[:C] == 3
     @test D[:D] == 5
 end
+
+@testitem "We can get the degree using the species-specific call" begin
+    nodes = Unipartite([:A, :B, :C, :D])
+    edges = Binary(Bool[1 1 1 1; 0 0 0 1; 0 0 1 1; 1 0 0 1])
+    N = SpeciesInteractionNetwork(nodes, edges)
+    @test degree(N, :A) == 5
+end
