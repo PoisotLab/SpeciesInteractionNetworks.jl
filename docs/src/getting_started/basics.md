@@ -1,9 +1,13 @@
 # Basic information on networks
 
 ```@docs
-interactions
 species
 richness
+```
+
+```@docs
+interactions
 predecessors
 successors
+neighbors
 ```
