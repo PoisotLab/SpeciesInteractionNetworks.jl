@@ -1,9 +1,20 @@
+"""
+    successors(N::SpeciesInteractionNetwork{Bipartite{T}, <:Interactions}, sp::T) where {T}
+
+The successors of a species in a bipartite network is the list of all species it
+establishes a non-zero interaction with. For probabilistic networks, this
+includes all species with a non-zero probability of interaction.
+
+If the species is at the bottom of the network, or if the specis has no
+successors, this method will retun an empty list of species, specifically
+`Set{T}()`.
+"""
 function successors(N::SpeciesInteractionNetwork{Bipartite{T}, <:Interactions}, sp::T) where {T}
+    if !(sp in species(N))
+        throw(ArgumentError("The species $(sp) is not in the network"))
+    end
     if sp in N.nodes.bottom
         return Set{T}()
-    end
-    if !(sp in species(N,1))
-        throw(ArgumentError("The species $(sp) is not in the network"))
     end
     succ_idx = findall(!iszero, N[sp,:])
     if isempty(succ_idx)
@@ -12,6 +23,16 @@ function successors(N::SpeciesInteractionNetwork{Bipartite{T}, <:Interactions}, 
     return Set{T}(N.nodes.bottom[succ_idx])
 end
 
+"""
+    successors(N::SpeciesInteractionNetwork{Unipartite{T}, <:Interactions}, sp::T) where {T}
+
+The successors of a species in a unipartite network is the list of all species
+it establishes a non-zero interaction with. For probabilistic networks, this
+includes all species with a non-zero probability of interaction.
+
+If the specis has no successors, this method will retun an empty list of
+species, specifically `Set{T}()`.
+"""
 function successors(N::SpeciesInteractionNetwork{Unipartite{T}, <:Interactions}, sp::T) where {T}
     if !(sp in species(N))
         throw(ArgumentError("The species $(sp) is not in the network"))
@@ -57,12 +78,23 @@ end
     @test successors(N, :C) == Set([:C])
 end
 
+"""
+    predecessors(N::SpeciesInteractionNetwork{Bipartite{T}, <:Interactions}, sp::T) where {T}
+
+The predecessors of a species in a bipartite network is the list of all species
+it receives a non-zero interaction from. For probabilistic networks, this
+includes all species with a non-zero probability of interaction.
+
+If the species is at the top of the network, or if the specis has no
+predecessors, this method will retun an empty list of species, specifically
+`Set{T}()`.
+"""
 function predecessors(N::SpeciesInteractionNetwork{Bipartite{T}, <:Interactions}, sp::T) where {T}
+    if !(sp in species(N))
+        throw(ArgumentError("The species $(sp) is not in the network"))
+    end
     if sp in N.nodes.top
         return Set{T}()
-    end
-    if !(sp in species(N,2))
-        throw(ArgumentError("The species $(sp) is not in the network"))
     end
     succ_idx = findall(!iszero, N[:,sp])
     if isempty(succ_idx)
@@ -71,6 +103,17 @@ function predecessors(N::SpeciesInteractionNetwork{Bipartite{T}, <:Interactions}
     return Set{T}(N.nodes.top[succ_idx])
 end
 
+
+"""
+    predecessors(N::SpeciesInteractionNetwork{Unipartite{T}, <:Interactions}, sp::T) where {T}
+
+The predecessors of a species in a unipartite network is the list of all species
+it receives a non-zero interaction from. For probabilistic networks, this
+includes all species with a non-zero probability of interaction.
+
+If the specis has no predecessors, this method will retun an empty list of
+species, specifically `Set{T}()`.
+"""
 function predecessors(N::SpeciesInteractionNetwork{Unipartite{T}, <:Interactions}, sp::T) where {T}
     if !(sp in species(N))
         throw(ArgumentError("The species $(sp) is not in the network"))
@@ -114,4 +157,13 @@ end
     @test predecessors(N, :A) == Set([:A, :B])
     @test predecessors(N, :B) == Set([:A, :B])
     @test predecessors(N, :C) == Set([:A, :C])
+end
+
+"""
+    neighbors(N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Interactions}) where {T}
+
+The neighbors of a species is the list of both its successors and prde
+"""
+function neighbors(N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Interactions}, sp::T) where {T}
+    return union(predecessors(N,sp), successors(N,sp))
 end
