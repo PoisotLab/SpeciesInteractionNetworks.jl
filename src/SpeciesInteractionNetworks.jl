@@ -45,7 +45,7 @@ include("basics/interactions.jl")
 export interactions
 
 include("basics/neighbors.jl")
-export successors, predecessors
+export successors, predecessors, neighbors
 
 include("basics/subgraphs.jl")
 export subgraph
