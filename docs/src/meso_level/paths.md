@@ -4,6 +4,12 @@
 
     These functions help with path manipulation, and in particular the identification of shortest paths between any two nodes.
 
+## Shortest path algorithms
+
+```@docs
+BellmanFord
+```
+
 ## Shortest path calculation
 
 ```@docs
