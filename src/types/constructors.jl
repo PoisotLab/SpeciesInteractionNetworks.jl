@@ -108,38 +108,17 @@ end
     @test eltype(N.nodes) == Symbol
 end
 
-function Base.show(io::IO, ::MIME"text/plain", N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
-    print(io, "A binary unipartite network\n")
-    print(io, " → $(richness(N)) species\n")
-    print(io, " → $(links(N)) interactions")
-end
+_str_int_num(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}) = " → $(links(N)) interactions"
+_str_int_num(N::SpeciesInteractionNetwork{<:Partiteness, <:Quantitative}) = " → $(links(N)) interactions"
+_str_int_num(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic}) = " → $(links(N)) interactions"
 
-function Base.show(io::IO, ::MIME"text/plain", N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
-    print(io, "A binary bipartite network\n")
-    print(io, " → $(richness(N,1)) + $(richness(N,2)) species\n")
-    print(io, " → $(links(N)) interactions")
-end
+_str_ric_num(N::SpeciesInteractionNetwork{<:Bipartite, <:Interactions}) = " → $(richness(N,1)) & $(richness(N,2)) species"
+_str_ric_num(N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions}) = " → $(richness(N)) species"
 
-function Base.show(io::IO, ::MIME"text/plain", N::SpeciesInteractionNetwork{<:Unipartite, <:Probabilistic})
-    print(io, "A probabilistic unipartite network\n")
-    print(io, " → $(richness(N)) species\n")
-    print(io, " → $(links(N)) interactions")
-end
+_str_net_type(N::SpeciesInteractionNetwork) = "A $(lowercase(string(_edgetype(N)))) $(lowercase(string(_nodetype(N)))) network"
 
-function Base.show(io::IO, ::MIME"text/plain", N::SpeciesInteractionNetwork{<:Bipartite, <:Probabilistic})
-    print(io, "A probabilistic bipartite network\n")
-    print(io, " → $(richness(N,1)) + $(richness(N,2)) species\n")
-    print(io, " → $(links(N)) interactions")
-end
-
-function Base.show(io::IO, ::MIME"text/plain", N::SpeciesInteractionNetwork{<:Unipartite, <:Quantitative})
-    print(io, "A quantitative unipartite network\n")
-    print(io, " → $(richness(N)) species\n")
-    print(io, " → $(links(N)) interactions")
-end
-
-function Base.show(io::IO, ::MIME"text/plain", N::SpeciesInteractionNetwork{<:Bipartite, <:Quantitative})
-    print(io, "A quantitative bipartite network\n")
-    print(io, " → $(richness(N,1)) + $(richness(N,2)) species\n")
-    print(io, " → $(links(N)) interactions")
+function Base.show(io::IO, ::MIME"text/plain", N::SpeciesInteractionNetwork)
+     print(io, "$(_str_net_type(N))\n")
+     print(io, "$(_str_int_num(N))\n")
+     print(io, "$(_str_ric_num(N))")
 end
