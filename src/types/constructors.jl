@@ -110,7 +110,7 @@ end
 
 _str_int_num(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}) = " → $(links(N)) interactions"
 _str_int_num(N::SpeciesInteractionNetwork{<:Partiteness, <:Quantitative}) = " → $(links(N)) interactions"
-_str_int_num(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic}) = " → $(links(N)) interactions"
+_str_int_num(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic}) = " → $(links(N)) ± $(links_variance(N)) interactions"
 
 _str_ric_num(N::SpeciesInteractionNetwork{<:Bipartite, <:Interactions}) = " → $(richness(N,1)) & $(richness(N,2)) species"
 _str_ric_num(N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions}) = " → $(richness(N)) species"

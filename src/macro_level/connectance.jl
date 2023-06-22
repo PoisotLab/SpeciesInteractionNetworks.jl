@@ -61,7 +61,8 @@ all interactions (including ``p = 0``).
 [Poisot2015structure](@citet*)
 """
 function links_variance(N::SpeciesInteractionNetwork{<:Partiteness, <:Probabilistic})
-    return links(N .* (1 .- N))
+    int = interactions(N)
+    return sum([p[3]*(1.0-p[3]) for p in int])
 end
 
 
