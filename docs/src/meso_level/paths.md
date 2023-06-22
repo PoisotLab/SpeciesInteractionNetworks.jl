@@ -9,3 +9,9 @@
 ```@docs
 shortestpath
 ```
+
+## Utility functions
+
+```@docs
+normalize
+```

@@ -1,81 +1,43 @@
 abstract type ShortestPathMethod end
+
+"""
+    BellmanFord
+
+The Bellman-Ford algorithmm [Shimbel1955Structure](@cite) measures the distance
+from a source node to all other reachable nodes in the network.
+
+Bellman-Ford is a weighted measure, in which the interactions are represented as
+costs of moving from a node to another. In ecological networks, the weight of
+interactions typically measure how *easy* it is to move frome one node to the
+next. For this reason, we apply transformations to various interaction types.
+
+In binary networks, the weights and the distance are the same, because all
+interactions have a value of 1.
+
+For quantitative networks, we follow the approach of
+[Newman2001Scientific](@citet), where the distance of an interaction is the
+inverse of interaction strength. Nevertheless, it may be a good idea to correct
+the interaction strength before applying the shortest path search, for example
+by using [`normalize`](@ref). This normalization is *not* done by default, and
+has to be explicit. Note that this normalisation is not changing the relative
+ordering of paths, but is making the distances a little more comparable to the
+binary case.
+
+For probabilistic networks, the distance of an interaction is defined as ``1 +
+(1 - p)``, so that an interaction happening with probability 1 has a distance of
+1.
+
+###### References
+
+[Newman2001Scientific](@citet*)
+
+[Shimbel1955Structure](@citet*)
+"""
 abstract type BellmanFord <: ShortestPathMethod end
+
 abstract type Djikstra <: ShortestPathMethod end
 
 shortestpath(N::SpeciesInteractionNetwork) = path(BellmanFord, N)
-
-_bf_distance(d::T, ::Binary{T}) where {T} = d
-_bf_distance(d::T, ::Probabilistic{T}) where {T} = 2.0 - d
-_bf_distance(d::T, ::Quantitative{T}) where {T} = d ^(-2.0)
-
-"""
-    shortestpath(::Type{BellmanFord}, N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary,Quantitative}}, source)
-
-Uses the Bellman-Ford algorithm ...
-
-For binary networks, all interactions incur a distance of one. For quantitative
-networks, an interaction with edge weight w incurs a distance of w⁻², so that
-strong interactions pull nodes together.
-"""
-function shortestpath(::Type{BellmanFord}, N::SpeciesInteractionNetwork{<:Unipartite, <:Union{Binary,Quantitative}}, source)
-    
-    distance = fill(Inf, richness(N))
-    pred = Vector{eltype(N.nodes)}(undef, richness(N))
-    
-    source_id = findfirst(isequal(source), species(N))
-    distance[source_id] = 0.0
-    
-    for _ in 1:(richness(N)-1)
-        changes_made = false
-        for interaction in interactions(N)
-            from = findfirst(isequal(interaction[1]), species(N))
-            to = findfirst(isequal(interaction[2]), species(N))
-            if (distance[from] + interaction[3]) < distance[to]
-                distance[to] = distance[from] + _bf_distance(interaction[3], N.edges)
-                pred[to] = interaction[1]
-                changes_made = true
-            end
-        end
-        if !(changes_made)
-            break
-        end
-    end
-    
-    found_paths = unique([(species(N)[p],distance[p]) for p in findall(d -> !(iszero(d)|isinf(d)), distance)])
-    return Dict(zip(first.(found_paths), last.(found_paths)))
-
-end
-
-@testitem "Bellman-Ford works on binary networks" begin
-    nodes = Unipartite([:a, :b, :c, :d, :e])
-    edges = Binary(zeros(Bool, (richness(nodes), richness(nodes))))
-    N = SpeciesInteractionNetwork(nodes, edges)
-    for edge in [(:a,:b), (:b,:c), (:c,:d), (:c,:e)]
-        N[edge...] = true
-    end
-    bf = shortestpath(BellmanFord, N, :a)
-    @test bf[:b] == 1.0
-    @test bf[:c] == 2.0
-    @test bf[:d] == bf[:e] == 3.0
-    @test !(:a in keys(bf))
-end
-
-@testitem "Bellman-Ford works on quantitative networks" begin
-    nodes = Unipartite([:a, :b, :c, :d, :e, :f])
-    edges = Quantitative(fill(0, (richness(nodes), richness(nodes))))
-    N = SpeciesInteractionNetwork(nodes, edges)
-    for edge in [(:a,:b,1), (:b,:c,1), (:c,:d,1), (:c,:e,2), (:e,:f,1), (:d,:f,1)]
-        N[edge[1:2]...] = edge[3]
-    end
-    bf = shortestpath(BellmanFord, N, :a)
-    @test bf[:b] == 1.0
-    @test bf[:c] == 2.0
-    @test bf[:d] == 3.0
-    @test bf[:e] < 3.0
-    @test bf[:e] == 2 + 2^-2
-    @test bf[:f] == 3 + 2^-2
-    @test !(:a in keys(bf))
-end
 
 #=
 function bellman_ford(N::T, source::K) where {T <: DeterministicNetwork, K}

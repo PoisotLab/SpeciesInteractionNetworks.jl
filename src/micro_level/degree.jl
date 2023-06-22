@@ -24,7 +24,7 @@ function generality(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Probabilistic
     return sum(N[sp,:])
 end
 
-function generality(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Binary}, sp::T) where {T}
+function generality(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Quantitative}, sp::T) where {T}
     if sp in species(N,2)
         return 0
     end
@@ -45,7 +45,7 @@ function vulnerability(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Probabilis
     return sum(N[:,sp])
 end
 
-function vulnerability(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Binary}, sp::T) where {T}
+function vulnerability(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Quantitative}, sp::T) where {T}
     if sp in species(N,1)
         return 0
     end

@@ -89,6 +89,9 @@ export ShortestPathMethod
 export BellmanFord, Dijkstra
 export shortestpath
 
+include("meso_level/paths/BellmanFord.jl")
+export normalize
+
 include("macro_level/connectance.jl")
 export connectance, links, linkagedensity
 export connectance_variance, links_variance, linkagedensity_variance
