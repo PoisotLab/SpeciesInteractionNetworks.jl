@@ -2,6 +2,7 @@
 
 ```@docs
 interactions
+species
 richness
 predecessors
 successors

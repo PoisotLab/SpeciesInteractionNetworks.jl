@@ -12,12 +12,38 @@ Base.eltype(::Probabilistic{T}) where {T} = T
     @test eltype(part) == String
 end
 
+"""
+    species(N::Bipartite)
+
+Returns the list of species in a bipartite list of nodes, as a single vector.
+"""
 species(N::Bipartite) = vcat(N.top, N.bottom)
+
+"""
+    species(N::Unipartite)
+
+Returns the list of species in a unipartite list of nodes, as a single vector.
+"""
 species(N::Unipartite) = N.margin
+
+"""
+    species(N::SpeciesInteractionNetwork)
+
+Returns the list of species in a network, by calling the `species` method
+corresponding to the appropriate species list.
+"""
 species(N::SpeciesInteractionNetwork) = species(N.nodes)
 
 species(N::Bipartite, dims::Integer) = dims==1 ? N.top : N.bottom
 species(N::Unipartite, ::Integer) = N.margin
+
+"""
+    species(N::SpeciesInteractionNetwork, dims::Integer)
+
+Returns the list of species on the top (`1` as last argument) or bottom (`2` as
+second argument) for the network. For unipartite networks, this will return the
+same list of species.
+"""
 species(N::SpeciesInteractionNetwork, dims::Integer) = species(N.nodes, dims)
 
 @testitem "We can access the species on all sides of the network" begin
