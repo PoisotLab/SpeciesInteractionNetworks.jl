@@ -1,57 +1,117 @@
-"""
-    degree(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
+function generality(N::SpeciesInteractionNetwork{<:Unipartite{T}, <:Binary}, sp::T) where {T}
+    return sum(N[sp,:])
+end
 
-The degree of a species in a unipartite network is the sum of its generality and
-vulnerability. This function *will* count self-links as part of the degree.
-See also [`generality`](@ref), [`vulnerability`](@ref).
-"""
-function degree(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
-    deg = Dict([sp => length(predecessors(N, sp))+length(successors(N, sp)) for sp in species(N)])
-    for sp in species(N)
-        if N[sp,sp]
-            deg[sp] -= 1
-        end
+function generality(N::SpeciesInteractionNetwork{<:Unipartite{T}, <:Probabilistic}, sp::T) where {T}
+    return sum(N[sp,:])
+end
+
+function generality(N::SpeciesInteractionNetwork{<:Unipartite{T}, <:Quantitative}, sp::T) where {T}
+    return count(!iszero, N[sp,:])
+end
+
+function generality(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Binary}, sp::T) where {T}
+    if sp in species(N,2)
+        return 0
     end
-    return deg
+    return sum(N[sp,:])
+end
+
+function generality(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Probabilistic}, sp::T) where {T}
+    if sp in species(N,2)
+        return 0.0
+    end
+    return sum(N[sp,:])
+end
+
+function generality(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Binary}, sp::T) where {T}
+    if sp in species(N,2)
+        return 0
+    end
+    return count(!iszero, N[sp,:])
+end
+
+function vulnerability(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Binary}, sp::T) where {T}
+    if sp in species(N,1)
+        return 0
+    end
+    return sum(N[:,sp])
+end
+
+function vulnerability(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Probabilistic}, sp::T) where {T}
+    if sp in species(N,1)
+        return 0.0
+    end
+    return sum(N[:,sp])
+end
+
+function vulnerability(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Binary}, sp::T) where {T}
+    if sp in species(N,1)
+        return 0
+    end
+    return count(!iszero, N[:,sp])
+end
+
+function vulnerability(N::SpeciesInteractionNetwork{<:Unipartite{T}, <:Binary}, sp::T) where {T}
+    return sum(N[:,sp])
+end
+
+function vulnerability(N::SpeciesInteractionNetwork{<:Unipartite{T}, <:Probabilistic}, sp::T) where {T}
+    return sum(N[:,sp])
+end
+
+function vulnerability(N::SpeciesInteractionNetwork{<:Unipartite{T}, <:Quantitative}, sp::T) where {T}
+    return count(!iszero, N[:,sp])
+end
+
+function degree(N::SpeciesInteractionNetwork{<:Unipartite{T}, <:Interactions}, sp::T) where {T}
+    d = generality(N, sp) + vulnerability(N, sp)
+    correction = iszero(N[sp,sp]) ? zero(eltype(d)) : one(eltype(d))
+    return d - correction
+end
+
+function degree(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Interactions}, sp::T) where {T}
+    return generality(N, sp) + vulnerability(N, sp)
 end
 
 """
-    vulnerability(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
+    generality(N::SpeciesInteractionNetwork)
 
-The in-degree of a species in a unipartite network is the number of its
-successors. This function *will* count self-links as part of the vulnerability.
-See also [`degree`](@ref), [`generality`](@ref).
-
-Note that by contrast to the original definition of vulnerability
-[Schoener1989Food](@cite), this version is *not* corrected for network richness.
+Returns the generality, *i.e.* (expected) number of interactions established by
+each species. Note that you can specificy a second argument which is a species
+from the network, giving the generality of this species alone.
 
 ###### References
 
 [Schoener1989Food](@citet*)
 """
-function vulnerability(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
-    deg = Dict([sp => length(predecessors(N, sp)) for sp in species(N)])
-    return deg
-end
+generality(N::SpeciesInteractionNetwork) = Dict([sp => generality(N, sp) for sp in species(N)])
 
 """
-    generality(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
+    vulnerability(N::SpeciesInteractionNetwork)
 
-The in-degree of a species in a unipartite network is the number of its
-successors. This function *will* count self-links as part of the generality. See
-also [`degree`](@ref), [`vulnerability`](@ref).
-
-Note that by contrast to the original definition of vulnerability
-[Schoener1989Food](@cite), this version is *not* corrected for network richness.
+Returns the vulnerability, *i.e.* (expected) number of interactions received by
+each species. Note that you can specificy a second argument which is a species
+from the network, giving the vulnerability of this species alone.
 
 ###### References
 
 [Schoener1989Food](@citet*)
 """
-function generality(N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
-    deg = Dict([sp => length(successors(N, sp)) for sp in species(N)])
-    return deg
-end
+vulnerability(N::SpeciesInteractionNetwork) = Dict([sp => vulnerability(N, sp) for sp in species(N)])
+
+"""
+    degree(N::SpeciesInteractionNetwork)
+
+Returns the degree, *i.e.* (expected) number of interactions involving each
+species. Note that you can specificy a second argument which is a species from
+the network, giving the degree of this species alone.
+
+###### References
+
+[Schoener1989Food](@citet*)
+"""
+degree(N::SpeciesInteractionNetwork) = Dict([sp => degree(N, sp) for sp in species(N)])
 
 @testitem "We can get the degree of a unipartite network with self-loops" begin
     nodes = Unipartite([:A, :B, :C, :D])
@@ -62,36 +122,4 @@ end
     @test D[:B] == 2
     @test D[:C] == 3
     @test D[:D] == 5
-end
-
-"""
-    vulnerability(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
-
-In a bipartite network, the vulnerability is only defined for bottom-level
-species, and is the number of their predecessors (as given by the
-[`predecessors`](@ref) function).
-"""
-function vulnerability(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
-    return Dict([sp => length(predecessors(N, sp)) for sp in species(N,2)])
-end
-
-"""
-    generality(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
-
-In a bipartite network, the generality is only defined for top-level species,
-and is the number of their successors (as given by the [`successors`](@ref)
-function).
-"""
-function generality(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
-    return Dict([sp => length(successors(N, sp)) for sp in species(N,1)])
-end
-
-"""
-    degree(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
-
-In a bipartite network, the degree is the combination of the
-[`generality`](@ref) and [`vulnerability`](@ref) of all species.
-"""
-function degree(N::SpeciesInteractionNetwork{<:Bipartite, <:Binary})
-    return merge(generality(N), vulnerability(N))
 end
