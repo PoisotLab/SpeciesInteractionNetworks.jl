@@ -1,6 +1,6 @@
 function pdi(impacts::AbstractArray{T,1}) where {T <: Number}
-    norm_impact = impacts/maximum(impacts)
-    paired_differences = (1.0 .- sort(norm_impact/maximum(norm_impact), rev=true))[2:end]
+    Pi = sort(impacts/maximum(impacts); rev=true)
+    paired_differences = (Pi[1] .- Pi)[2:end]
     return sum(paired_differences)/length(paired_differences)
 end
 
@@ -31,7 +31,22 @@ nor generalist.
 [Poisot2012comparative](@citet*)
 """
 function specificity(N::SpeciesInteractionNetwork{<:Partiteness, <:Union{Binary,Quantitative}})
-    return Dict([s => pdi(N[s,:]) for s in species(N, 1)])
+    return Dict([s => specificity(N, s) for s in species(N, 1)])
+end
+
+"""
+    specificity(N::SpeciesInteractionNetwork{<:Partiteness, <:Union{Binary,Quantitative}}, sp)
+
+For a deterministic network, this function will return the specificity of
+species `sp`.
+
+###### References
+
+[Poisot2012comparative](@citet*)
+"""
+function specificity(N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Union{Binary, Quantitative}}, sp::T) where {T}
+    @assert sp in species(N,1)
+    return pdi(N[sp,:])
 end
 
 @testitem "We can measure the specificity of a network" begin
