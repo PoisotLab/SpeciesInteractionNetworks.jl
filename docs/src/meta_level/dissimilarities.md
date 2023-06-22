@@ -15,5 +15,7 @@ different convention, where ``c = L`` (left), ``a = S`` (shared), and ``b = R``
 
 ```@docs
 KGL01
+KGL02
+KGL03
 KGL08
 ```
