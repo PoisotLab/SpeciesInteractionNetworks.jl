@@ -37,7 +37,12 @@ abstract type BellmanFord <: ShortestPathMethod end
 
 abstract type Djikstra <: ShortestPathMethod end
 
-shortestpath(N::SpeciesInteractionNetwork) = path(BellmanFord, N)
+"""
+    shortestpath(N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Interactions}, sp::T)
+
+Defaults to [`BellmanFord`](@ref) for the shortest path algorithm.
+"""
+shortestpath(N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Interactions}, sp::T) where {T} = shortestpath(BellmanFord, N, sp)
 
 #=
 function bellman_ford(N::T, source::K) where {T <: DeterministicNetwork, K}
