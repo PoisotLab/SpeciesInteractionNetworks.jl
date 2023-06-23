@@ -13,17 +13,17 @@
       
       
       
-        <link rel="prev" href="../permutations/">
+        <link rel="prev" href="../degeneracy/">
       
       
-        <link rel="next" href="../centrality/">
+        <link rel="next" href="../../meta_level/betadiversity/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
     
     
       
-        <title>Species specificity - SpeciesInteractionNetworks.jl</title>
+        <title>SVD and complexity - SpeciesInteractionNetworks.jl</title>
       
     
     
@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#measuring-spcificity" class="md-skip">
+        <a href="#svd-and-complexity" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Species specificity
+              SVD and complexity
             
           </span>
         </div>
@@ -223,13 +223,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../../macro_level/links/" class="md-tabs__link">
+      <a href="../links/" class="md-tabs__link md-tabs__link--active">
         Macro
       </a>
     </li>
@@ -271,15 +273,13 @@
         
   
   
-    
-  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../nullmodels/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../use_cases/nullmodels/" class="md-tabs__link">
         Use cases
       </a>
     </li>
@@ -542,14 +542,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
       
       
       
@@ -558,7 +560,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Macro
@@ -571,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../macro_level/links/" class="md-nav__link">
+      <a href="../links/" class="md-nav__link">
         Links counting
       </a>
     </li>
@@ -585,7 +587,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../macro_level/nestedness/" class="md-nav__link">
+      <a href="../nestedness/" class="md-nav__link">
         Nestedness
       </a>
     </li>
@@ -599,7 +601,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../macro_level/degeneracy/" class="md-nav__link">
+      <a href="../degeneracy/" class="md-nav__link">
         Disconnected species
       </a>
     </li>
@@ -611,11 +613,52 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../macro_level/svd/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          SVD and complexity
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         SVD and complexity
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#detection-of-disconnected-species" class="md-nav__link">
+    Detection of disconnected species
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -787,16 +830,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
       
       
       
@@ -805,7 +846,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_7">
           <span class="md-nav__icon md-icon"></span>
           Use cases
@@ -818,7 +859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../nullmodels/" class="md-nav__link">
+      <a href="../../use_cases/nullmodels/" class="md-nav__link">
         Significance testing
       </a>
     </li>
@@ -832,7 +873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../permutations/" class="md-nav__link">
+      <a href="../../use_cases/permutations/" class="md-nav__link">
         Network permutations
       </a>
     </li>
@@ -844,21 +885,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../use_cases/specificity/" class="md-nav__link">
         Species specificity
       </a>
-      
     </li>
   
 
@@ -870,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../centrality/" class="md-nav__link">
+      <a href="../../use_cases/centrality/" class="md-nav__link">
         Species centrality
       </a>
     </li>
@@ -884,7 +915,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../paths/" class="md-nav__link">
+      <a href="../../use_cases/paths/" class="md-nav__link">
         Shortest paths
       </a>
     </li>
@@ -898,7 +929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../nichemodel/" class="md-nav__link">
+      <a href="../../use_cases/nichemodel/" class="md-nav__link">
         Niche model of food webs
       </a>
     </li>
@@ -990,7 +1021,7 @@
                   
 
   
-    <a href="https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/edit/master/docs/use_cases/specificity.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/edit/master/docs/macro_level/svd.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
     </a>
@@ -998,44 +1029,35 @@
   
 
 
-<p><a id='Measuring-spcificity'></a></p>
-<p><a id='Measuring-spcificity-1'></a></p>
-<h1 id="measuring-spcificity">Measuring spcificity</h1>
-<div class="admonition example">
-<p class="admonition-title">Measuring specificity</p>
-<p>In this example, we will...</p>
+<p><a id='SVD-and-complexity'></a></p>
+<p><a id='SVD-and-complexity-1'></a></p>
+<h1 id="svd-and-complexity">SVD and complexity</h1>
+<div class="admonition abstract">
+<p class="admonition-title">Abstract</p>
+<p>When generating networks, in particular when using <a href="../../random_networks/randomdraws/#SpeciesInteractionNetworks.randomdraws"><code>randomdraws</code></a> following <a href="../../random_networks/randomdraws/#SpeciesInteractionNetworks.nullmodel"><code>nullmodel</code></a>, there is a chance that some species will have no interactions. In some cases, it may be relevant to identify and remove these species. The methods presented in this page offer a way to do this.</p>
 </div>
-<p>We can generate an example network with three different degrees of specificity:</p>
-<div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">SpeciesInteractionNetworks</span>
-
-<span class="n">nodes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Bipartite</span><span class="p">([</span><span class="ss">:A</span><span class="p">,</span><span class="w"> </span><span class="ss">:B</span><span class="p">,</span><span class="w"> </span><span class="ss">:C</span><span class="p">,</span><span class="w"> </span><span class="ss">:D</span><span class="p">,</span><span class="w"> </span><span class="ss">:E</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="ss">:a</span><span class="p">,</span><span class="w"> </span><span class="ss">:b</span><span class="p">,</span><span class="w"> </span><span class="ss">:c</span><span class="p">,</span><span class="w"> </span><span class="ss">:d</span><span class="p">,</span><span class="w"> </span><span class="ss">:e</span><span class="p">,</span><span class="w"> </span><span class="ss">:f</span><span class="p">])</span>
-<span class="n">edges</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Quantitative</span><span class="p">([</span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">0</span><span class="p">])</span>
-<span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SpeciesInteractionNetwork</span><span class="p">(</span><span class="n">nodes</span><span class="p">,</span><span class="w"> </span><span class="n">edges</span><span class="p">)</span>
+<p><a id='Detection-of-disconnected-species'></a></p>
+<p><a id='Detection-of-disconnected-species-1'></a></p>
+<h2 id="detection-of-disconnected-species">Detection of disconnected species</h2>
+<p><a id='SpeciesInteractionNetworks.rdpg' href='#SpeciesInteractionNetworks.rdpg'>#</a>
+<strong><code>SpeciesInteractionNetworks.rdpg</code></strong> &mdash; <em>Function</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">rdpg</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="o">::</span><span class="kt">Integer</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>A quantitative bipartite network
- → 13 interactions
- → 5 &amp; 6 species
+<p>Returns the random dot-product graph left and right subspaces for a given ecological network, applying a truncation at rank <code>r</code>. Note that if <code>r</code> is higher than the rank of the network, it will be scaled appropriately.</p>
+<p>RDPG has been shown to be predictive of food web structure even in the context of transfer learning <a href="../../bibliography/#Strydom2022Food">(Strydom <em>et al.</em>, 2022)</a> or extreme data sparsity <a href="../../bibliography/#Poisot2023Network">(Poisot <em>et al.</em>, 2023)</a>.</p>
+<p><strong>References</strong></p>
+<p><a href="../../bibliography/#DallaRiva2016Exploring">Dalla Riva and Stouffer (2016)</a></p>
+<p><a href="../../bibliography/#Poisot2023Network">Poisot, Ouellet, Mollentze, Farrell, Becker, Brierley, Albery, Gibb, Seifert and Carlson (2023)</a></p>
+<p><a href="../../bibliography/#Strydom2022Food">Strydom, Bouskila, Banville, Barros, Caron, Farrell, Fortin, Hemming, Mercier, Pollock, Runghen, Riva and Poisot (2022)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/ae058970cc80f599c4d382a79954811e75b40161/src/interfaces/linearalgebra.jl#L4-L22' class='documenter-source'>source</a><br></p>
+<p><a id='SpeciesInteractionNetworks.complexity' href='#SpeciesInteractionNetworks.complexity'>#</a>
+<strong><code>SpeciesInteractionNetworks.complexity</code></strong> &mdash; <em>Function</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">complexity</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">)</span>
 </code></pre></div>
-<p>We can calculate the specificity of the top-level species:</p>
-<div class="highlight"><pre><span></span><code><span class="n">spe_scores</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">specificity</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>Dict{Symbol, Float64} with 5 entries:
-  :A =&gt; 1.0
-  :D =&gt; 0.625
-  :B =&gt; 1.0
-  :E =&gt; 0.3125
-  :C =&gt; 0.5
-</code></pre></div>
-<p>The output of specificity is a dictionary, where the <code>species(N, 1)</code> are keys, and the score for each of these species are the values. We can, for example, look at the specificity for species <code>:D</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">spe_scores</span><span class="p">[</span><span class="ss">:D</span><span class="p">]</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>0.625
-</code></pre></div>
-<div class="admonition info">
-<p class="admonition-title">Making sense of the score</p>
-<p>The Paired Differences Index will <em>always</em> return values in the unit interval, and these values are independent from one species to the next. In the example above, species <code>:A</code> and <code>:B</code> have the same (maximum) specificity because they use a single resource. The purpose of the Paired Differences Index is to express specificity in a way that is <em>not</em> affected by the total interaction strenght of the species, because what is well understood can be measured without confounders.</p>
-</div>
-<p>As always, keep in mind that the ordering of keys in the dictionary is not fixed. Therefore, it is probably safer to iterate over the <code>species(N, 1)</code> when looking for specific values.</p>
+<p>Returns the SVD complexity of a network, defined as the Pielou entropy of its singular values. Note that only the singular values up to the rank of the network are returned.</p>
+<p><strong>References</strong></p>
+<p><a href="@citet*">Strydom2021SVD</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/ae058970cc80f599c4d382a79954811e75b40161/src/interfaces/linearalgebra.jl#L35-L45' class='documenter-source'>source</a><br></p>
 
 
 
