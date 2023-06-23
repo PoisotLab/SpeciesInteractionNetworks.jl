@@ -2,17 +2,6 @@ _bf_distance(::Type{Binary}, w) = w
 _bf_distance(::Type{Quantitative}, w) = one(w) / w
 _bf_distance(::Type{Probabilistic}, w) = 2one(w) - w
 
-"""
-    normalize(N::SpeciesInteractionNetwork{<:Partiteness, <:Quantitative})
-
-Returns a quantitative network in which the interactions are normalized so that
-the average of interactions is one. Note that this excludes self-interactions.
-"""
-function normalize(N::SpeciesInteractionNetwork{<:Partiteness, <:Quantitative})
-    m = mean([i[3] for i in interactions(N) if i[1] != i[2]])
-    return N ./ m
-end
-
 function shortestpath(
     ::Type{BellmanFord},
     N::SpeciesInteractionNetwork{<:Unipartite{T}, <:Interactions},
