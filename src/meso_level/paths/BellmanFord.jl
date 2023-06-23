@@ -1,7 +1,3 @@
-_bf_distance(::Type{Binary}, w) = w
-_bf_distance(::Type{Quantitative}, w) = one(w) / w
-_bf_distance(::Type{Probabilistic}, w) = 2one(w) - w
-
 function shortestpath(
     ::Type{BellmanFord},
     N::SpeciesInteractionNetwork{<:Unipartite{T}, <:Interactions},
@@ -17,7 +13,7 @@ function shortestpath(
 
     changes_made = true
 
-    df = (x) -> _bf_distance(_edgetype(N), x)
+    df = (x) -> _path_distance(_edgetype(N), x)
 
     for _ in length(N) - 1
         changes_made = false

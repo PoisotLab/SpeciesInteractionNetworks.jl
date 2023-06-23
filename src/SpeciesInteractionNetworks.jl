@@ -86,11 +86,14 @@ export centrality
 
 include("meso_level/paths.jl")
 export ShortestPathMethod
-export BellmanFord, Dijkstra
+export normalize
 export shortestpath
 
 include("meso_level/paths/BellmanFord.jl")
-export normalize
+export BellmanFord
+
+include("meso_level/paths/Dijkstra.jl")
+export Dijkstra
 
 include("macro_level/connectance.jl")
 export connectance, links, linkagedensity

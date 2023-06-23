@@ -6,8 +6,11 @@
 
 ## Shortest path algorithms
 
+
 ```@docs
+ShortestPathMethod
 BellmanFord
+Dijkstra
 ```
 
 ## Shortest path calculation
