@@ -13,13 +13,13 @@
       
       
       
-        <link rel="prev" href="../../micro_level/centrality/">
+        <link rel="prev" href="../motifs/">
       
       
         <link rel="next" href="../../macro_level/links/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.16">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
@@ -215,7 +215,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="./" class="md-tabs__link md-tabs__link--active">
+      <a href="../motifs/" class="md-tabs__link md-tabs__link--active">
         Meso
       </a>
     </li>
@@ -517,6 +517,20 @@
           Meso
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../motifs/" class="md-nav__link">
+        Motifs
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -1071,7 +1085,7 @@
 <p>For probabilistic networks, the distance of an interaction is defined as $1 + (1 - p)$, so that an interaction happening with probability 1 has a distance of one.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Newman2001Scientific">Newman (2001)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2a7d3404acdf90dea0d4596bc98973461f0825d2/src/meso_level/paths.jl#L1-L30' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6f6de46473b3cad92b86f3e04d62ccb9803295c2/src/meso_level/paths.jl#L1-L30' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.BellmanFord' href='#SpeciesInteractionNetworks.BellmanFord'>#</a>
 <strong><code>SpeciesInteractionNetworks.BellmanFord</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">BellmanFord</span>
@@ -1080,14 +1094,14 @@
 <p>Bellman-Ford is a weighted measure, in which the interactions are represented as costs of moving from a node to another.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Shimbel1955Structure">Shimbel (1955)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2a7d3404acdf90dea0d4596bc98973461f0825d2/src/meso_level/paths.jl#L38-L50' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6f6de46473b3cad92b86f3e04d62ccb9803295c2/src/meso_level/paths.jl#L38-L50' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.Dijkstra' href='#SpeciesInteractionNetworks.Dijkstra'>#</a>
 <strong><code>SpeciesInteractionNetworks.Dijkstra</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">Dijkstra</span>
 </code></pre></div>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Dijkstra1959note">Dijkstra (1959)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2a7d3404acdf90dea0d4596bc98973461f0825d2/src/meso_level/paths.jl#L53-L59' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6f6de46473b3cad92b86f3e04d62ccb9803295c2/src/meso_level/paths.jl#L53-L59' class='documenter-source'>source</a><br></p>
 <p><a id='Shortest-path-calculation'></a></p>
 <p><a id='Shortest-path-calculation-1'></a></p>
 <h2 id="shortest-path-calculation">Shortest path calculation</h2>
@@ -1097,7 +1111,7 @@
 </code></pre></div>
 <p>Defaults to <a href="./#SpeciesInteractionNetworks.BellmanFord"><code>BellmanFord</code></a> for the shortest path algorithm. See also <a href="./#SpeciesInteractionNetworks.Dijkstra"><code>Dijkstra</code></a>.</p>
 <p>Note that in order to work with <a href="./#SpeciesInteractionNetworks.pathbetween"><code>pathbetween</code></a>, any overload of <a href="./#SpeciesInteractionNetworks.shortestpath"><code>shortestpath</code></a> <em>must</em> accept an <code>include_paths</code> keyword argument, that when <code>true</code> returns a <em>second</em> dictionary giving the predecessors of each reached node.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2a7d3404acdf90dea0d4596bc98973461f0825d2/src/meso_level/paths.jl#L62-L72' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6f6de46473b3cad92b86f3e04d62ccb9803295c2/src/meso_level/paths.jl#L62-L72' class='documenter-source'>source</a><br></p>
 <p><a id='Path-reconstruction'></a></p>
 <p><a id='Path-reconstruction-1'></a></p>
 <h2 id="path-reconstruction">Path reconstruction</h2>
@@ -1106,11 +1120,11 @@
 <div class="highlight"><pre><span></span><code><span class="n">pathbetween</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">ShortestPathMethod</span><span class="p">},</span><span class="w"> </span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">{</span><span class="kt">T</span><span class="p">},</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">},</span><span class="w"> </span><span class="n">source</span><span class="o">::</span><span class="kt">T</span><span class="p">,</span><span class="w"> </span><span class="n">target</span><span class="o">::</span><span class="kt">T</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 </code></pre></div>
 <p>Returns the path between <code>source</code> and <code>target</code>. The result is given as a vector of interactions, <em>i.e.</em> it gives the subset of the output of <code>interactions(N)</code> going from <code>source</code> to <code>target</code>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2a7d3404acdf90dea0d4596bc98973461f0825d2/src/meso_level/paths.jl#L86-L92' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6f6de46473b3cad92b86f3e04d62ccb9803295c2/src/meso_level/paths.jl#L86-L92' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>pathbetween(N::SpeciesInteractionNetwork{&lt;:Partiteness{T}, &lt;:Interactions}, source::T, target::T) where {T}
 </code></pre></div>
 <p>Returns the path between <code>source</code> and <code>target</code>, using <a href="./#SpeciesInteractionNetworks.BellmanFord"><code>BellmanFord</code></a> as the default algorithm.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2a7d3404acdf90dea0d4596bc98973461f0825d2/src/meso_level/paths.jl#L114-L119' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6f6de46473b3cad92b86f3e04d62ccb9803295c2/src/meso_level/paths.jl#L114-L119' class='documenter-source'>source</a><br></p>
 <p><a id='Utility-functions'></a></p>
 <p><a id='Utility-functions-1'></a></p>
 <h2 id="utility-functions">Utility functions</h2>
@@ -1119,7 +1133,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">normalize</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Quantitative</span><span class="p">})</span>
 </code></pre></div>
 <p>Returns a quantitative network in which the interactions are normalized so that the average of interactions is one. Note that this excludes self-interactions.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2a7d3404acdf90dea0d4596bc98973461f0825d2/src/meso_level/paths.jl#L75-L80' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6f6de46473b3cad92b86f3e04d62ccb9803295c2/src/meso_level/paths.jl#L75-L80' class='documenter-source'>source</a><br></p>
 
 
 
@@ -1165,7 +1179,7 @@
     <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "navigation.tabs", "toc.follow", "toc.integrate", "navigation.top", "navigation.instant", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a51614de.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
       
         
           <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
