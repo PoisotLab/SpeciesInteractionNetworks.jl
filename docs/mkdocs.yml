@@ -64,6 +64,7 @@ nav:
     - Network permutations: use_cases/permutations.md
     - Species specificity: use_cases/specificity.md
     - Species centrality: use_cases/centrality.md
+    - Shortest paths: use_cases/paths.md
     - Niche model of food webs: use_cases/nichemodel.md
   - Appendix:
     - Bibliography: bibliography.md
