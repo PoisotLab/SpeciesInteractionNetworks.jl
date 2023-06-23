@@ -6,7 +6,6 @@
 
 ## Shortest path algorithms
 
-
 ```@docs
 ShortestPathMethod
 BellmanFord
