@@ -1,7 +1,8 @@
 function shortestpath(
     ::Type{BellmanFord},
     N::SpeciesInteractionNetwork{<:Unipartite{T}, <:Interactions},
-    sp::T,
+    sp::T;
+    include_paths::Bool = false,
 ) where {T}
     @assert sp in species(N)
 
@@ -34,7 +35,7 @@ function shortestpath(
             pop!(dist, s, nothing)
         end
     end
-    return dist
+    return include_paths ? (dist, pred) : dist
 end
 
 @testitem "Bellman-Ford works on binary networks" begin
@@ -104,7 +105,7 @@ end
     M = render(Quantitative{Int8}, N)
     bfN = shortestpath(BellmanFord, N, :B)
     bfM = shortestpath(BellmanFord, N, :B)
-    for (k,v) in bfN
+    for (k, v) in bfN
         @test v == bfM[k]
     end
 end
@@ -120,7 +121,7 @@ end
     M = render(Probabilistic{Float16}, N)
     bfN = shortestpath(BellmanFord, N, :B)
     bfM = shortestpath(BellmanFord, N, :B)
-    for (k,v) in bfN
+    for (k, v) in bfN
         @test v == bfM[k]
     end
 end

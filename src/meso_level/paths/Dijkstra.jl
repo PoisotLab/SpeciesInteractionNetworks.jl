@@ -1,4 +1,9 @@
-function shortestpath(::Type{Dijkstra}, N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Interactions}, sp::T) where {T}
+function shortestpath(
+    ::Type{Dijkstra},
+    N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Interactions},
+    sp::T;
+    include_paths::Bool = false,
+) where {T}
     @assert sp in species(N)
 
     dist = Dict([s => Inf for s in species(N)])
@@ -6,7 +11,7 @@ function shortestpath(::Type{Dijkstra}, N::SpeciesInteractionNetwork{<:Partitene
     dist[sp] = 0.0
     Q = species(N)
 
-    df = (x) -> SpeciesInteractionNetworks._path_distance(SpeciesInteractionNetworks._edgetype(N), x)
+    df = (x) -> _path_distance(_edgetype(N), x)
 
     while !isempty(Q)
         _, u = findmin(filter(p -> p.first ∈ Q, dist))
@@ -16,7 +21,7 @@ function shortestpath(::Type{Dijkstra}, N::SpeciesInteractionNetwork{<:Partitene
             break
         end
         for v in whereto
-            proposal = dist[u] + df(N[u,v])
+            proposal = dist[u] + df(N[u, v])
             if proposal < dist[v]
                 dist[v] = proposal
                 pred[v] = u
@@ -27,9 +32,10 @@ function shortestpath(::Type{Dijkstra}, N::SpeciesInteractionNetwork{<:Partitene
     for s in species(N)
         if (isinf(dist[s])) | (isnothing(pred[s]))
             pop!(dist, s, nothing)
+            pop!(pred, s, nothing)
         end
     end
-    return dist
+    return include_paths ? (dist, pred) : dist
 end
 
 @testitem "Dijkstra works on binary networks" begin

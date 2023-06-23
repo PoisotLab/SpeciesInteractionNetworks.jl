@@ -62,9 +62,15 @@ abstract type Dijkstra <: ShortestPathMethod end
 """
     shortestpath(N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Interactions}, sp::T)
 
-Defaults to [`BellmanFord`](@ref) for the shortest path algorithm.
+Defaults to [`BellmanFord`](@ref) for the shortest path algorithm. See also
+[`Dijkstra`](@ref).
+
+Note that in order to work with [`pathbetween`](@ref), any overload of
+[`shortestpath`](@ref) *must* accept an `include_paths` keyword argument, that
+when `true` returns a *second* dictionary giving the predecessors of each
+reached node.
 """
-shortestpath(N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Interactions}, sp::T) where {T} = shortestpath(BellmanFord, N, sp)
+shortestpath(N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Interactions}, sp::T; kwargs...) where {T} = shortestpath(BellmanFord, N, sp; kwargs...)
 
 """
     normalize(N::SpeciesInteractionNetwork{<:Partiteness, <:Quantitative})
@@ -75,4 +81,42 @@ the average of interactions is one. Note that this excludes self-interactions.
 function normalize(N::SpeciesInteractionNetwork{<:Partiteness, <:Quantitative})
     m = mean([i[3] for i in interactions(N) if i[1] != i[2]])
     return N ./ m
+end
+
+"""
+    pathbetween(::Type{ShortestPathMethod}, N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Interactions}, source::T, target::T) where {T}
+
+Returns the path between `source` and `target`. The result is given as a vector
+of interactions, *i.e.* it gives the subset of the output of `interactions(N)`
+going from `source` to `target`.
+"""
+function pathbetween(::Type{SPM}, N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Interactions}, source::T, target::T) where {SPM <: ShortestPathMethod, T}
+    @assert source in species(N)
+    @assert target in species(N)
+    _, pred = shortestpath(SPM, N, source; include_paths=true)
+    if !(target in keys(paths))
+        return Vector{eltype(N)}()
+    end
+
+    path = eltype(N)[]
+
+    reached = target
+    while reached != source
+        through = pred[reached]
+        push!(path, (through, reached, N[through, reached]))
+        pop!(pred, reached)
+        reached = through
+    end
+    return reverse(path)
+
+end
+
+"""
+    pathbetween(N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Interactions}, source::T, target::T) where {T}
+
+Returns the path between `source` and `target`, using [`BellmanFord`](@ref) as
+the default algorithm.
+"""
+function pathbetween(N::SpeciesInteractionNetwork{<:Partiteness{T}, <:Interactions}, source::T, target::T) where {T}
+    return pathbetween(BellmanFord, N, source, target)
 end

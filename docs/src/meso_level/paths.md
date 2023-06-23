@@ -19,6 +19,12 @@ Dijkstra
 shortestpath
 ```
 
+## Path reconstruction
+
+```@docs
+pathbetween
+```
+
 ## Utility functions
 
 ```@docs
