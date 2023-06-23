@@ -1,32 +1,3 @@
-"""
-Internal function
-
-Returns all permutations of the adjacency matrix of a motif.
-"""
-function _permute_motif(m::T) where {T<:UnipartiteNetwork}
-    sp_permutations = permutations(1:richness(m))
-    perm = fill(copy(m.edges), length(sp_permutations))
-    for (i, sp_order) in enumerate(sp_permutations)
-        perm[i] = perm[i][sp_order, sp_order]
-    end
-    return unique(perm)
-end
-
-"""
-Internal function
-
-Returns all permutations of the adjacency matrix of a motif.
-"""
-function _permute_motif(m::T) where {T<:BipartiteNetwork}
-    sp_permutations_T = permutations(1:richness(m; dims=1))
-    sp_permutations_B = permutations(1:richness(m; dims=2))
-    perm = fill(copy(m.edges), length(sp_permutations_T)*length(sp_permutations_B))
-    for (i, t_order) in enumerate(sp_permutations_T), (j, b_order) in enumerate(sp_permutations_B)
-        perm[(i-1)*j+j] = perm[(i-1)*j+j][t_order, b_order]
-    end
-    return unique(perm)
-end
-
 function _inner_find_motif(N::T1, m::T2) where {T1<:UnipartiteNetwork,T2<:UnipartiteNetwork}
     motif_permutations = _permute_motif(m)
     matching_species = []

@@ -96,6 +96,8 @@ export shortestpath, pathbetween
 include("meso_level/motifs/generators.jl")
 export motifs
 
+include("meso_level/motifs/permutations.jl")
+
 include("meso_level/paths/BellmanFord.jl")
 export BellmanFord
 
