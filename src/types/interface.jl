@@ -24,7 +24,7 @@ species(N::Bipartite) = vcat(N.top, N.bottom)
 
 Returns the list of species in a unipartite list of nodes, as a single vector.
 """
-species(N::Unipartite) = N.margin
+species(N::Unipartite) = copy(N.margin)
 
 """
     species(N::SpeciesInteractionNetwork)
@@ -34,8 +34,8 @@ corresponding to the appropriate species list.
 """
 species(N::SpeciesInteractionNetwork) = species(N.nodes)
 
-species(N::Bipartite, dims::Integer) = dims==1 ? N.top : N.bottom
-species(N::Unipartite, ::Integer) = N.margin
+species(N::Bipartite, dims::Integer) = dims==1 ? copy(N.top) : copy(N.bottom)
+species(N::Unipartite, ::Integer) = copy(N.margin)
 
 """
     species(N::SpeciesInteractionNetwork, dims::Integer)
