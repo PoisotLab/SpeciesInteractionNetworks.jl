@@ -87,7 +87,7 @@ export centrality
 include("meso_level/paths.jl")
 export ShortestPathMethod
 export normalize
-export shortestpath
+export shortestpath, pathbetween
 
 include("meso_level/paths/BellmanFord.jl")
 export BellmanFord
