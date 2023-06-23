@@ -94,7 +94,7 @@ function pathbetween(::Type{SPM}, N::SpeciesInteractionNetwork{<:Partiteness{T},
     @assert source in species(N)
     @assert target in species(N)
     _, pred = shortestpath(SPM, N, source; include_paths=true)
-    if !(target in keys(paths))
+    if !(target in keys(pred))
         return Vector{eltype(N)}()
     end
 
