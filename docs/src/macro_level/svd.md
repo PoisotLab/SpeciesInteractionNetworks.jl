@@ -7,6 +7,7 @@
 ## Detection of disconnected species
 
 ```@docs
+tsvd
 rdpg
 complexity
 ```

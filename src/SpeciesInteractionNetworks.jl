@@ -43,7 +43,7 @@ include("interfaces/broadcast.jl")
 include("interfaces/linearalgebra.jl")
 
 export svd, rank
-export complexity, rdpg
+export complexity, tsvd, rdpg
 
 include("basics/interactions.jl")
 export interactions
