@@ -1025,22 +1025,34 @@
 <p><a id='Shortest-path-algorithms'></a></p>
 <p><a id='Shortest-path-algorithms-1'></a></p>
 <h2 id="shortest-path-algorithms">Shortest path algorithms</h2>
+<p><a id='SpeciesInteractionNetworks.ShortestPathMethod' href='#SpeciesInteractionNetworks.ShortestPathMethod'>#</a>
+<strong><code>SpeciesInteractionNetworks.ShortestPathMethod</code></strong> &mdash; <em>Type</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">ShortestPathMethod</span>
+</code></pre></div>
+<p>The first argument of <a href="./#SpeciesInteractionNetworks.shortestpath"><code>shortestpath</code></a> is a sub-type of <code>ShortestPathMethod</code> which specifies the algorithm to use.</p>
+<p>In ecological networks, the weight of interactions typically measure how <em>easy</em> it is to move frome one node to the next. For this reason, we apply transformations to various interaction types.</p>
+<p>In binary networks, the weights and the distance are the same, because all interactions have a value of 1.</p>
+<p>For quantitative networks, we follow the approach of <a href="../../bibliography/#Newman2001Scientific">Newman (2001)</a>, where the distance of an interaction is the inverse of interaction strength. Nevertheless, it may be a good idea to correct the interaction strength before applying the shortest path search, for example by using <a href="./#SpeciesInteractionNetworks.normalize"><code>normalize</code></a>. This normalization is <em>not</em> done by default, and has to be explicit. Note that this normalisation is not changing the relative ordering of paths, but is making the distances a little more comparable to the binary case.</p>
+<p>For probabilistic networks, the distance of an interaction is defined as $1 + (1 - p)$, so that an interaction happening with probability 1 has a distance of one.</p>
+<p><strong>References</strong></p>
+<p><a href="../../bibliography/#Newman2001Scientific">Newman (2001)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7fe460b0ca09f555f7fead943278b7bfe6d1c2c8/src/meso_level/paths.jl#L1-L30' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.BellmanFord' href='#SpeciesInteractionNetworks.BellmanFord'>#</a>
 <strong><code>SpeciesInteractionNetworks.BellmanFord</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">BellmanFord</span>
 </code></pre></div>
 <p>The Bellman-Ford algorithmm <a href="../../bibliography/#Shimbel1955Structure">(Shimbel, 1955)</a> measures the distance from a source node to all other reachable nodes in the network.</p>
-<p>Bellman-Ford is a weighted measure, in which the interactions are represented as costs of moving from a node to another. In ecological networks, the weight of interactions typically measure how <em>easy</em> it is to move frome one node to the next. For this reason, we apply transformations to various interaction types.</p>
-<p>In binary networks, the weights and the distance are the same, because all interactions have a value of 1.</p>
-<p>For quantitative networks, we follow the approach of <a href="../../bibliography/#Newman2001Scientific">Newman (2001)</a>, where the distance of an interaction is the inverse of interaction strength. Nevertheless, it may be a good idea to correct the interaction strength before applying the shortest path search, for example by using <a href="./#SpeciesInteractionNetworks.normalize"><code>normalize</code></a>. This normalization is <em>not</em> done by default, and has to be explicit. Note that this normalisation is not changing the relative ordering of paths, but is making the distances a little more comparable to the binary case.</p>
-<p>For probabilistic networks, the distance of an interaction is defined as $1 + (1 - p)$, so that an interaction happening with probability 1 has a distance of</p>
-<ol>
-<li></li>
-</ol>
+<p>Bellman-Ford is a weighted measure, in which the interactions are represented as costs of moving from a node to another.</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Newman2001Scientific">Newman (2001)</a></p>
 <p><a href="../../bibliography/#Shimbel1955Structure">Shimbel (1955)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2f6403ed4d117b7f8c25b41841392066502db6fc/src/meso_level/paths.jl#L3-L35' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7fe460b0ca09f555f7fead943278b7bfe6d1c2c8/src/meso_level/paths.jl#L38-L50' class='documenter-source'>source</a><br></p>
+<p><a id='SpeciesInteractionNetworks.Dijkstra' href='#SpeciesInteractionNetworks.Dijkstra'>#</a>
+<strong><code>SpeciesInteractionNetworks.Dijkstra</code></strong> &mdash; <em>Type</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Dijkstra</span>
+</code></pre></div>
+<p><strong>References</strong></p>
+<p><a href="../../bibliography/#Dijkstra1959note">Dijkstra (1959)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7fe460b0ca09f555f7fead943278b7bfe6d1c2c8/src/meso_level/paths.jl#L53-L59' class='documenter-source'>source</a><br></p>
 <p><a id='Shortest-path-calculation'></a></p>
 <p><a id='Shortest-path-calculation-1'></a></p>
 <h2 id="shortest-path-calculation">Shortest path calculation</h2>
@@ -1049,7 +1061,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">shortestpath</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">{</span><span class="kt">T</span><span class="p">},</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">},</span><span class="w"> </span><span class="n">sp</span><span class="o">::</span><span class="kt">T</span><span class="p">)</span>
 </code></pre></div>
 <p>Defaults to <a href="./#SpeciesInteractionNetworks.BellmanFord"><code>BellmanFord</code></a> for the shortest path algorithm.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2f6403ed4d117b7f8c25b41841392066502db6fc/src/meso_level/paths.jl#L40-L44' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7fe460b0ca09f555f7fead943278b7bfe6d1c2c8/src/meso_level/paths.jl#L62-L66' class='documenter-source'>source</a><br></p>
 <p><a id='Utility-functions'></a></p>
 <p><a id='Utility-functions-1'></a></p>
 <h2 id="utility-functions">Utility functions</h2>
@@ -1058,7 +1070,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">normalize</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Quantitative</span><span class="p">})</span>
 </code></pre></div>
 <p>Returns a quantitative network in which the interactions are normalized so that the average of interactions is one. Note that this excludes self-interactions.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/2f6403ed4d117b7f8c25b41841392066502db6fc/src/meso_level/paths.jl#L47-L52' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7fe460b0ca09f555f7fead943278b7bfe6d1c2c8/src/meso_level/paths.jl#L69-L74' class='documenter-source'>source</a><br></p>
 
 
 
