@@ -1039,17 +1039,32 @@
 <p><a id='Detection-of-disconnected-species'></a></p>
 <p><a id='Detection-of-disconnected-species-1'></a></p>
 <h2 id="detection-of-disconnected-species">Detection of disconnected species</h2>
+<p><a id='SpeciesInteractionNetworks.tsvd' href='#SpeciesInteractionNetworks.tsvd'>#</a>
+<strong><code>SpeciesInteractionNetworks.tsvd</code></strong> &mdash; <em>Function</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">tsvd</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="o">::</span><span class="kt">Integer</span><span class="p">)</span>
+</code></pre></div>
+<p>Returns the left and right subspaces for a given ecological network, applying a truncation of the SVD at rank <code>r</code>. Note that if <code>r</code> is higher than the rank of the network, it will be scaled appropriately.</p>
+<p><strong>References</strong></p>
+<p><a href="../../bibliography/#DallaRiva2016Exploring">Dalla Riva and Stouffer (2016)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/32b735d840dce6f6128b723feaa7b6f3b8db500c/src/interfaces/linearalgebra.jl#L4-L14' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.rdpg' href='#SpeciesInteractionNetworks.rdpg'>#</a>
 <strong><code>SpeciesInteractionNetworks.rdpg</code></strong> &mdash; <em>Function</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">rdpg</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="o">::</span><span class="kt">Integer</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">rdpg</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="o">::</span><span class="kt">Integer</span><span class="p">)</span>
 </code></pre></div>
-<p>Returns the random dot-product graph left and right subspaces for a given ecological network, applying a truncation at rank <code>r</code>. Note that if <code>r</code> is higher than the rank of the network, it will be scaled appropriately.</p>
-<p>RDPG has been shown to be predictive of food web structure even in the context of transfer learning <a href="../../bibliography/#Strydom2022Food">(Strydom <em>et al.</em>, 2022)</a> or extreme data sparsity <a href="../../bibliography/#Poisot2023Network">(Poisot <em>et al.</em>, 2023)</a>.</p>
+<p>Returns a quantitative network predicted using a random dot-product graph on the <a href="./#SpeciesInteractionNetworks.tsvd"><code>tsvd</code></a> of the network at rank <code>r</code>.</p>
+<p>RDPG has been shown to be predictive of food web structure even in the context of transfer learning <a href="../../bibliography/#Strydom2022Food">(Strydom <em>et al.</em>, 2022)</a>.</p>
+<p><strong>References</strong></p>
+<p><a href="../../bibliography/#DallaRiva2016Exploring">Dalla Riva and Stouffer (2016)</a></p>
+<p><a href="../../bibliography/#Strydom2022Food">Strydom, Bouskila, Banville, Barros, Caron, Farrell, Fortin, Hemming, Mercier, Pollock, Runghen, Dalla Riva and Poisot (2022)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/32b735d840dce6f6128b723feaa7b6f3b8db500c/src/interfaces/linearalgebra.jl#L27-L41' class='documenter-source'>source</a><br></p>
+<div class="highlight"><pre><span></span><code>rdpg(N::SpeciesInteractionNetwork, r::Integer, threshold::T) where {T &lt;: AbstractFloat}
+</code></pre></div>
+<p>Returns a binary network predicted using a random dot-product graph on the <a href="./#SpeciesInteractionNetworks.tsvd"><code>tsvd</code></a> of the network at rank <code>r</code>, where interactions with a score above <code>threshold</code> are true.</p>
+<p>This approach to RDPG has been shown to be highly predictive under strong data sparsity <a href="../../bibliography/#Poisot2023Network">(Poisot <em>et al.</em>, 2023)</a>.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#DallaRiva2016Exploring">Dalla Riva and Stouffer (2016)</a></p>
 <p><a href="../../bibliography/#Poisot2023Network">Poisot, Ouellet, Mollentze, Farrell, Becker, Brierley, Albery, Gibb, Seifert and Carlson (2023)</a></p>
-<p><a href="../../bibliography/#Strydom2022Food">Strydom, Bouskila, Banville, Barros, Caron, Farrell, Fortin, Hemming, Mercier, Pollock, Runghen, Dalla Riva and Poisot (2022)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6a5701dc012cd93ca35a99cff5271d7c446a4c70/src/interfaces/linearalgebra.jl#L4-L22' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/32b735d840dce6f6128b723feaa7b6f3b8db500c/src/interfaces/linearalgebra.jl#L48-L62' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.complexity' href='#SpeciesInteractionNetworks.complexity'>#</a>
 <strong><code>SpeciesInteractionNetworks.complexity</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">complexity</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">)</span>
@@ -1057,7 +1072,7 @@
 <p>Returns the SVD complexity of a network, defined as the Pielou entropy of its singular values. Note that only the singular values up to the rank of the network are returned.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Strydom2021SVD">Strydom, Dalla Riva and Poisot (2021)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/6a5701dc012cd93ca35a99cff5271d7c446a4c70/src/interfaces/linearalgebra.jl#L35-L45' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/32b735d840dce6f6128b723feaa7b6f3b8db500c/src/interfaces/linearalgebra.jl#L69-L79' class='documenter-source'>source</a><br></p>
 
 
 
