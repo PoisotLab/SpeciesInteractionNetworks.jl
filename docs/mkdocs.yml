@@ -46,6 +46,7 @@ nav:
     - Specificity: micro_level/specificity.md
     - Centrality: micro_level/centrality.md
   - Meso:
+    - Motifs: meso_level/motifs.md
     - Paths: meso_level/paths.md
   - Macro:
     - Links counting: macro_level/links.md

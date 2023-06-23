@@ -93,6 +93,9 @@ export ShortestPathMethod
 export normalize
 export shortestpath, pathbetween
 
+include("meso_level/motifs.jl")
+export motifs
+
 include("meso_level/paths/BellmanFord.jl")
 export BellmanFord
 
