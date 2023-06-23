@@ -146,9 +146,6 @@ function __init__()
 end
 =#
 
-# Interfaces for networks
-# include(joinpath(".", "interfaces", "iteration.jl"))
-
 # General useful manipulations
 # include(joinpath(".", "utilities", "comparisons.jl"))
 # include(joinpath(".", "utilities", "overloads.jl"))
@@ -159,29 +156,9 @@ end
 # include(joinpath(".", "links", "degree.jl"))
 # export degree, degree_var
 
-# include(joinpath(".", "links", "specificity.jl"))
-# export specificity
-
 # include(joinpath(".", "links", "connectance.jl"))
 # export links, L, links_var, connectance, connectance_var,
 #    linkage_density, link_number
-
-# include(joinpath(".", "links", "degenerate.jl"))
-# export isdegenerate, simplify, simplify!
-   #, species_has_no_successors, species_has_no_predecessors,
-   #species_is_free, free_species
-
-# Random networks and permutations
-# include(joinpath(".", "rand", "draws.jl"))
-# include(joinpath(".", "rand", "sample.jl"))
-# export sample
-# include(joinpath(".", "rand", "shuffle.jl"))
-# include(joinpath(".", "rand", "null.jl"))
-# include(joinpath(".", "rand", "linfilter.jl"))
-# export linearfilter, linearfilterzoo
-# export null1, null2, null3, null4
-# include(joinpath(".", "rand", "RDPG.jl"))
-# export RDPG
 
 # Random networks from structural models
 # include(joinpath(".", "structuralmodels", "cascademodel.jl"))
@@ -190,20 +167,6 @@ end
 # export mpnmodel
 # include(joinpath(".", "structuralmodels", "nestedhierarchymodel.jl"))
 # export nestedhierarchymodel
-# include(joinpath(".", "structuralmodels", "nichemodel.jl"))
-# export nichemodel
-
-# Nestedness
-# include(joinpath(".", "community", "nestedness.jl"))
-# export η, nodf
-
-# Spectral radius
-# include(joinpath(".", "community", "spectralradius.jl"))
-# export ρ
-
-# Paths
-# include(joinpath(".", "community", "paths.jl"))
-# export number_of_paths, shortest_path, bellman_ford, dijkstra
 
 # Centrality
 # include(joinpath(".", "community", "centrality.jl"))
