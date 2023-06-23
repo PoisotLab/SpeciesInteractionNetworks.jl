@@ -107,3 +107,35 @@ end
     @test bf[:B] < bf[:D]
     @test bf[:B] < bf[:C]
 end
+
+@testitem "Bellman-Ford on a quantitative network with all strength 1 is the same as binary" begin
+    nodes = Unipartite([:A, :B, :C, :D, :E, :F, :G])
+    edges = Binary(zeros(Bool, (richness(nodes), richness(nodes))))
+    N = SpeciesInteractionNetwork(nodes, edges)
+    for edge in
+        [(:A, :B), (:B, :C), (:C, :D), (:B, :E), (:C, :F), (:E, :F), (:F, :G), (:D, :D)]
+        N[edge...] = true
+    end
+    M = render(Quantitative{Int8}, N)
+    bfN = shortestpath(BellmanFord, N, :B)
+    bfM = shortestpath(BellmanFord, N, :B)
+    for (k,v) in bfN
+        @test v == bfM[k]
+    end
+end
+
+@testitem "Bellman-Ford on a probabilistic network with all probabilities 1 is the same as binary" begin
+    nodes = Unipartite([:A, :B, :C, :D, :E, :F, :G])
+    edges = Binary(zeros(Bool, (richness(nodes), richness(nodes))))
+    N = SpeciesInteractionNetwork(nodes, edges)
+    for edge in
+        [(:A, :B), (:B, :C), (:C, :D), (:B, :E), (:C, :F), (:E, :F), (:F, :G), (:D, :D)]
+        N[edge...] = true
+    end
+    M = render(Probabilistic{Float16}, N)
+    bfN = shortestpath(BellmanFord, N, :B)
+    bfM = shortestpath(BellmanFord, N, :B)
+    for (k,v) in bfN
+        @test v == bfM[k]
+    end
+end
