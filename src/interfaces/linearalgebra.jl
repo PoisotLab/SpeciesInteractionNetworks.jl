@@ -1,5 +1,6 @@
 LinearAlgebra.svd(N::SpeciesInteractionNetwork) = LinearAlgebra.svd(Array(N))
 LinearAlgebra.rank(N::SpeciesInteractionNetwork) = LinearAlgebra.rank(Array(N))
+LinearAlgebra.diag(N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions}) = LinearAlgebra.diag(Array(N))
 
 """
     tsvd(N::SpeciesInteractionNetwork, r::Integer)
