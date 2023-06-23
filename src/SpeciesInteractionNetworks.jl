@@ -40,6 +40,10 @@ include("interfaces/abstractarray.jl")
 include("interfaces/iteration.jl")
 include("interfaces/table.jl")
 include("interfaces/broadcast.jl")
+include("interfaces/linearalgebra.jl")
+
+export svd, rank
+export complexity, rdpg
 
 include("basics/interactions.jl")
 export interactions
