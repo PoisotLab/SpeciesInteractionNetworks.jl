@@ -82,6 +82,9 @@ export generality, vulnerability
 include("micro_level/specificity.jl")
 export specificity
 
+include("micro_level/foodwebs.jl")
+export distancetobase
+
 include("micro_level/centrality.jl")
 export CentralityMethod
 export KatzCentrality, EigenvectorCentrality

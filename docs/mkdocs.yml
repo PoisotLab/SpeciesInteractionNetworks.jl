@@ -45,6 +45,7 @@ nav:
   - Micro:
     - Specificity: micro_level/specificity.md
     - Centrality: micro_level/centrality.md
+    - Food web measures: micro_level/foodwebs.md
   - Meso:
     - Motifs: meso_level/motifs.md
     - Paths: meso_level/paths.md
