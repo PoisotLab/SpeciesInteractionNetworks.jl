@@ -69,7 +69,7 @@ function speciescontribution(::Type{C}, N::SpeciesInteractionNetwork{<:Partitene
         if sp in species(N, 1)
             i = findfirst(isequal(sp), species(N, 1))
             wv = StatsBase.weights(R[sp,:])
-            new_int = StatsBase.sample(axes(N, 2), wv, generality(N)[sp]; replace=false)
+            new_int = StatsBase.sample(axes(N, 2), wv, generality(N, sp); replace=false)
             for j in axes(N, 2)
                 M[i,j] = j in new_int
             end
@@ -77,7 +77,7 @@ function speciescontribution(::Type{C}, N::SpeciesInteractionNetwork{<:Partitene
         if sp in species(N, 2)
             i = findfirst(isequal(sp), species(N, 2))
             wv = StatsBase.weights(R[:,sp])
-            new_int = StatsBase.sample(axes(N, 1), wv, vulnerability(N)[sp]; replace=false)
+            new_int = StatsBase.sample(axes(N, 1), wv, vulnerability(N, sp); replace=false)
             for j in axes(N, 1)
                 M[j,i] = j in new_int
             end
