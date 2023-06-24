@@ -93,16 +93,20 @@ export ShortestPathMethod
 export normalize
 export shortestpath, pathbetween
 
-include("meso_level/motifs/generators.jl")
-export motifs
-
-include("meso_level/motifs/permutations.jl")
-
 include("meso_level/paths/BellmanFord.jl")
 export BellmanFord
 
 include("meso_level/paths/Dijkstra.jl")
 export Dijkstra
+
+
+include("meso_level/motifs/generators.jl")
+export motifs
+
+include("meso_level/motifs/permutations.jl")
+include("meso_level/motifs.jl")
+export findmotif
+
 
 include("macro_level/connectance.jl")
 export connectance, links, linkagedensity
