@@ -82,9 +82,6 @@ export generality, vulnerability
 include("micro_level/specificity.jl")
 export specificity
 
-include("micro_level/foodwebs.jl")
-export distancetobase
-
 include("micro_level/centrality.jl")
 export CentralityMethod
 export KatzCentrality, EigenvectorCentrality
@@ -95,6 +92,9 @@ include("meso_level/paths.jl")
 export ShortestPathMethod
 export normalize
 export shortestpath, pathbetween
+
+include("micro_level/foodwebs.jl")
+export distancetobase
 
 include("meso_level/paths/BellmanFord.jl")
 export BellmanFord
