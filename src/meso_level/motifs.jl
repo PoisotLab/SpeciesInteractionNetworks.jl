@@ -16,7 +16,7 @@ function findmotif(M::SpeciesInteractionNetwork{<:Unipartite, <:Binary}, N::Spec
     end
     nads = collect(sp_combinations)[hits]
     T = eltype(N.nodes)
-    sps = Vector{Tuple{T,T,T}}(undef, length(nads))
+    sps = Vector{Tuple{fill(T, richness(M))...}}(undef, length(nads))
     for (i,nad) in enumerate(nads)
         sps[i] = tuple(species(N)[nad]...)
     end
