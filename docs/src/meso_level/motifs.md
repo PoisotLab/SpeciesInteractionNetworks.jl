@@ -9,3 +9,9 @@
 ```@docs
 motifs
 ```
+
+## Search for motifs
+
+```@docs
+findmotif
+```
