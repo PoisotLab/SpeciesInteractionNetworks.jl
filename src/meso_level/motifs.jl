@@ -6,11 +6,12 @@ the motif to search is the *first* argument.
 """
 function findmotif(M::SpeciesInteractionNetwork{<:Unipartite, <:Binary}, N::SpeciesInteractionNetwork{<:Unipartite, <:Binary})
     motif_config = _permutations(M)
+    A = Array(N)
     sp_combinations = combinations(1:richness(N), richness(M))
     hits = zeros(Bool, length(sp_combinations))
     cursor = 1
     for spcomb in sp_combinations
-        hits[cursor] = N[spcomb,spcomb] in motif_config
+        hits[cursor] = A[spcomb,spcomb] in motif_config
         cursor += 1
     end
     nads = collect(sp_combinations)[hits]
