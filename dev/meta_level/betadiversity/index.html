@@ -1068,7 +1068,7 @@
 <p>All of the partitions follow the <a href="../../bibliography/#Koleff2003Measuring">Koleff <em>et al.</em> (2003)</a> approach, where the beta diversity is measured on the cardinality of sets. Specifically, all <a href="./#SpeciesInteractionNetworks.betadiversity"><code>betadiversity</code></a> functions will return a named tuple with three fields, called <code>shared</code>, <code>left</code>, and <code>right</code>. These represent, respectively, the number of items common to both networks, the number of items unique to the first argument, and the number of items unique to the second argument.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Koleff2003Measuring">Koleff, Gaston and Lennon (2003)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0a6c39f8dad35d62e51741a6e2dc4e13285fb1ae/src/meta_level/partitions.jl#L1-L17' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/881422cc1ff95a6747cacfed1350a5df9b1bdc2a/src/meta_level/partitions.jl#L1-L17' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.βS' href='#SpeciesInteractionNetworks.βS'>#</a>
 <strong><code>SpeciesInteractionNetworks.βS</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">βS</span>
@@ -1076,7 +1076,7 @@
 <p>The species dissimilarity between two networks is, straightforwardly, the usual β diversity applied to the list of nodes. In the case of networks that are not uniparite, we can further calculate this dissimilarity for the different dimensions of the network.</p>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Koleff2003Measuring">Koleff, Gaston and Lennon (2003)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0a6c39f8dad35d62e51741a6e2dc4e13285fb1ae/src/meta_level/partitions.jl#L20-L31' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/881422cc1ff95a6747cacfed1350a5df9b1bdc2a/src/meta_level/partitions.jl#L20-L31' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.βOS' href='#SpeciesInteractionNetworks.βOS'>#</a>
 <strong><code>SpeciesInteractionNetworks.βOS</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">βOS</span>
@@ -1086,7 +1086,7 @@
 <p><a href="../../bibliography/#Poisot2012dissimilarity">Poisot, Canard, Mouillot, Mouquet and Gravel (2012)</a></p>
 <p><a href="../../bibliography/#Canard2014Empirical">Canard, Mouquet, Mouillot, Stanko, Miklisova and Gravel (2014)</a></p>
 <p><a href="../../bibliography/#Poisot2022Dissimilarity">Poisot (2022)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0a6c39f8dad35d62e51741a6e2dc4e13285fb1ae/src/meta_level/partitions.jl#L34-L50' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/881422cc1ff95a6747cacfed1350a5df9b1bdc2a/src/meta_level/partitions.jl#L34-L50' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.βWN' href='#SpeciesInteractionNetworks.βWN'>#</a>
 <strong><code>SpeciesInteractionNetworks.βWN</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">βWN</span>
@@ -1096,7 +1096,7 @@
 <p><a href="../../bibliography/#Poisot2012dissimilarity">Poisot, Canard, Mouillot, Mouquet and Gravel (2012)</a></p>
 <p><a href="../../bibliography/#Canard2014Empirical">Canard, Mouquet, Mouillot, Stanko, Miklisova and Gravel (2014)</a></p>
 <p><a href="../../bibliography/#Poisot2022Dissimilarity">Poisot (2022)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0a6c39f8dad35d62e51741a6e2dc4e13285fb1ae/src/meta_level/partitions.jl#L53-L68' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/881422cc1ff95a6747cacfed1350a5df9b1bdc2a/src/meta_level/partitions.jl#L53-L68' class='documenter-source'>source</a><br></p>
 <div class="admonition tip">
 <p class="admonition-title">What about the species turnover component?</p>
 <p>In <a href="../../bibliography/#Poisot2012dissimilarity">Poisot <em>et al.</em> (2012)</a>, we introduced the idea that the impact of species turnover can often be expressed as the difference between the whole-network (<a href="./#SpeciesInteractionNetworks.βWN"><code>βWN</code></a>) and overlapping-species (<a href="./#SpeciesInteractionNetworks.βOS"><code>βOS</code></a>) dissimilarities. This is only true for <em>some</em> measures. Following the arguments laid out in <a href="../../bibliography/#Poisot2022Dissimilarity">Poisot (2022)</a>, we have <em>not</em> added this as a built-in function. If there is a need to measure the impact of turnover, it is recommended to express it as (wn-os)/wn.</p>
@@ -1110,11 +1110,11 @@
 <div class="highlight"><pre><span></span><code><span class="n">betadiversity</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">βS</span><span class="p">},</span><span class="n">U</span><span class="o">::</span><span class="kt">T</span><span class="p">,</span><span class="n">V</span><span class="o">::</span><span class="kt">T</span><span class="p">,</span><span class="n">dims</span><span class="o">::</span><span class="kt">Integer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">}}</span>
 </code></pre></div>
 <p>Species-level β diversity between networks. By default, this return the species dissimilarity for the entire network. An optional last argument <code>dims</code> can be used, to specify top (<code>1</code>) and bottom (<code>2</code>) levels.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0a6c39f8dad35d62e51741a6e2dc4e13285fb1ae/src/meta_level/partitions.jl#L71-L77' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/881422cc1ff95a6747cacfed1350a5df9b1bdc2a/src/meta_level/partitions.jl#L71-L77' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>betadiversity(::Type{βWN},U::T,V::T) where {T &lt;: SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary}}
 </code></pre></div>
 <p>Network-level β diversity between networks. By default, this return the species dissimilarity for the entire network. An optional last argument <code>dims</code> can be used, to specify top (<code>1</code>) and bottom (<code>2</code>) levels.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/0a6c39f8dad35d62e51741a6e2dc4e13285fb1ae/src/meta_level/partitions.jl#L103-L109' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/881422cc1ff95a6747cacfed1350a5df9b1bdc2a/src/meta_level/partitions.jl#L103-L109' class='documenter-source'>source</a><br></p>
 
 
 
