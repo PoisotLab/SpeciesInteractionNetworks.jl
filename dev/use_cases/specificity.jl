@@ -1,4 +1,4 @@
-# # Measuring spcificity
+# # Measuring specificity
 
 # !!! example "Measuring specificity"
 #     
