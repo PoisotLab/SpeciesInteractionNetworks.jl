@@ -1,2 +1,2 @@
-function modularity(N::SpeciesInteractionNetwork, L::)
+function modularity(N::SpeciesInteractionNetwork, L)
 end
