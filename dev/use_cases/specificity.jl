@@ -1,4 +1,4 @@
-# # Measuring spcificity
+# # Measuring specificity
 
 # !!! example "Measuring specificity"
 #     
@@ -21,6 +21,11 @@ spe_scores = specificity(N)
 # look at the specificity for species `:D`:
 
 spe_scores[:D]
+
+# Note that if we want the value for a smaller number of species, it is faster
+# to call the function with a single species name:
+
+specificity(N, :D)
 
 # !!! info "Making sense of the score"
 # 

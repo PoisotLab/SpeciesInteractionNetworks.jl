@@ -71,7 +71,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#measuring-spcificity" class="md-skip">
+        <a href="#measuring-specificity" class="md-skip">
           Skip to content
         </a>
       
@@ -1026,9 +1026,9 @@
   
 
 
-<p><a id='Measuring-spcificity'></a></p>
-<p><a id='Measuring-spcificity-1'></a></p>
-<h1 id="measuring-spcificity">Measuring spcificity</h1>
+<p><a id='Measuring-specificity'></a></p>
+<p><a id='Measuring-specificity-1'></a></p>
+<h1 id="measuring-specificity">Measuring specificity</h1>
 <div class="admonition example">
 <p class="admonition-title">Measuring specificity</p>
 <p>In this example, we will...</p>
@@ -1056,6 +1056,11 @@
 </code></pre></div>
 <p>The output of specificity is a dictionary, where the <code>species(N, 1)</code> are keys, and the score for each of these species are the values. We can, for example, look at the specificity for species <code>:D</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="n">spe_scores</span><span class="p">[</span><span class="ss">:D</span><span class="p">]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.625
+</code></pre></div>
+<p>Note that if we want the value for a smaller number of species, it is faster to call the function with a single species name:</p>
+<div class="highlight"><pre><span></span><code><span class="n">specificity</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="ss">:D</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>0.625
 </code></pre></div>
