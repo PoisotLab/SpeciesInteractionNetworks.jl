@@ -13,7 +13,7 @@ any differences between it and variations of BRIM alone on smaller graphs.
 function labelpropagation(N::SpeciesInteractionNetwork)
     L = collect(1:richness(N))
     
-    m₀ = modularity(BRIM, N, L)
+    m₀ = modularity(N, L)
     mₜ = m₀
     
     improvement = true
@@ -24,7 +24,7 @@ function labelpropagation(N::SpeciesInteractionNetwork)
         order_1 = Random.shuffle(1:richness(N,1))
         order_2 = Random.shuffle(1:richness(N,2))
 
-        mₜ = modularity(BRIM, N, L)
+        mₜ = modularity(N, L)
         m₀, improvement = mₜ > m₀ ? (mₜ, true) : (mₜ, false)
     end
 
