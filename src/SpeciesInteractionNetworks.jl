@@ -13,6 +13,7 @@ using Statistics
 using StatsBase
 using TestItems
 import Tables
+import Mangal
 
 # Various utilities for probabilities
 # include(joinpath(".", "misc", "probabilities.jl"))
@@ -139,6 +140,9 @@ export betadiversity
 
 include("meta_level/measures.jl")
 export KGL01, KGL02, KGL03, KGL04, KGL05, KGL06, KGL07, KGL08, KGL09, KGL10, KGL11, KGL12, KGL13, KGL14, KGL15, KGL16, KGL17, KGL18, KGL19, KGL20, KGL21, KGL22, KGL23, KGL24
+
+include("data/mangal.jl")
+export mangalnetwork
 
 # include(joinpath(".", "types", "conversions.jl"))
 
