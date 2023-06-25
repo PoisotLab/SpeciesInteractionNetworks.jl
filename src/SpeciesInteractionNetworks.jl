@@ -110,6 +110,9 @@ include("meso_level/motifs/permutations.jl")
 include("meso_level/motifs.jl")
 export findmotif
 
+include("meso_level/modularity.jl")
+include("meso_level/modularity/labelpropagation.jl")
+export labelpropagation
 
 include("macro_level/connectance.jl")
 export connectance, links, linkagedensity

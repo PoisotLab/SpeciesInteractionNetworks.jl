@@ -1,0 +1,1 @@
+SpeciesInteractionNetworks.MODULARITY_MAXITER = 1000
