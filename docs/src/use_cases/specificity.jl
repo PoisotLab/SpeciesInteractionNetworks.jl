@@ -22,6 +22,11 @@ spe_scores = specificity(N)
 
 spe_scores[:D]
 
+# Note that if we want the value for a smaller number of species, it is faster
+# to call the function with a single species name:
+
+specificity(N, :D)
+
 # !!! info "Making sense of the score"
 # 
 #     The Paired Differences Index will *always* return values in the unit interval, and these values are independent from one species to the next. In the example above, species `:A` and `:B` have the same (maximum) specificity because they use a single resource. The purpose of the Paired Differences Index is to express specificity in a way that is *not* affected by the total interaction strenght of the species, because what is well understood can be measured without confounders.
