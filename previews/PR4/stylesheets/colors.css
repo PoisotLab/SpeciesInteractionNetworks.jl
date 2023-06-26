@@ -1,0 +1,5 @@
+:root {
+  --md-primary-fg-color:        rgb(17, 79, 84);
+  --md-primary-fg-color--light: rgba(29, 130, 101, 1);
+  --md-accent-fg-color:         rgba(46, 83, 133, 1);
+}
