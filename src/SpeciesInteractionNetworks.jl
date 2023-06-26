@@ -106,7 +106,6 @@ export BellmanFord
 include("meso_level/paths/Dijkstra.jl")
 export Dijkstra
 
-
 include("meso_level/motifs/generators.jl")
 export motifs
 
@@ -115,6 +114,8 @@ include("meso_level/motifs.jl")
 export findmotif
 
 include("meso_level/modularity.jl")
+export modularity
+
 include("meso_level/modularity/labelpropagation.jl")
 export labelpropagation
 

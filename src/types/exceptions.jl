@@ -8,7 +8,7 @@ predecessors.
 struct BipartiteProjectionFailed <: Exception
 end
 
-function Base.showerror(io::IO, e::BipartiteProjectionFailed)
+function Base.showerror(io::IO, ::BipartiteProjectionFailed)
     message = "The network cannot be made unipartite as some of its species overlap"
     return print(io, message)
 end

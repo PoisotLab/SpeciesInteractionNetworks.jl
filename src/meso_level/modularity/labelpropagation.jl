@@ -11,9 +11,10 @@ any differences between it and variations of BRIM alone on smaller graphs.
 [Liu2010Community](@citet*)
 """
 function labelpropagation(N::SpeciesInteractionNetwork)
-    L = collect(1:richness(N))
     
-    m₀ = modularity(N, L)
+    partition = Dict([species(N)[i]=>i for i in 1:richness(N)])
+    
+    m₀ = modularity(N, partition)
     mₜ = m₀
     
     improvement = true
@@ -21,11 +22,29 @@ function labelpropagation(N::SpeciesInteractionNetwork)
 
     while (improvement)&(cursor < MODULARITY_MAXITER)
         cursor += 1
-        order_1 = Random.shuffle(1:richness(N,1))
-        order_2 = Random.shuffle(1:richness(N,2))
+        order_1 = Random.shuffle(species(N, 1))
+        order_2 = Random.shuffle(species(N, 2))
 
-        mₜ = modularity(N, L)
+        for s1 in order_1
+            succ = collect(successors(N, s1))
+            labels = [partition[s] for s in succ]
+            wts = [Float32(N[s1,s]) for s in succ]
+            new_label = last(findmax(StatsBase.countmap(labels, wts)))
+            partition[s1] = new_label
+        end
+
+        for s2 in order_2
+            pred = collect(predecessors(N, s2))
+            labels = [partition[s] for s in pred]
+            wts = [Float32(N[s,s2]) for s in pred]
+            new_label = last(findmax(StatsBase.countmap(labels, wts)))
+            partition[s2] = new_label
+        end
+
+        mₜ = modularity(N, partition)
         m₀, improvement = mₜ > m₀ ? (mₜ, true) : (mₜ, false)
     end
+
+    return partition
 
 end
