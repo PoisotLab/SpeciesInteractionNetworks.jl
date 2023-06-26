@@ -71,5 +71,6 @@ nav:
     - Shortest paths: use_cases/paths.md
     - Niche model of food webs: use_cases/nichemodel.md
   - Appendix:
-    - Bibliography: bibliography.md
-    - Internals: internals.md
+    - Bibliography: appendix/bibliography.md
+    - Internals: appendix/internals.md
+    - Exceptions: appendix/exceptions.md
