@@ -1086,9 +1086,14 @@
 <div class="highlight"><pre><span></span><code><span class="n">mangalnetwork</span><span class="p">(</span><span class="n">MN</span><span class="o">::</span><span class="kt">Mangal</span><span class="o">.</span><span class="n">MangalNetwork</span><span class="p">,</span><span class="w"> </span><span class="n">query</span><span class="o">::</span><span class="kt">Pair</span><span class="o">...</span><span class="p">;</span><span class="w"> </span><span class="n">taxonlevel</span><span class="o">::</span><span class="kt">Bool</span><span class="o">=</span><span class="nb">false</span><span class="p">)</span>
 </code></pre></div>
 <p>Retrieves a network from <a href="https://mangal.io">mangal.io</a>, using the <code>Mangal.jl</code> API wrapper. The keyword argument <code>taxonlevel</code> specifies whether the original <em>node</em> or its <em>reference taxon</em> must be used. Note that not all nodes have an unambiguously attached reference taxon.</p>
+<p>The networks are <em>always</em> returned as quantitative unipartite networks, as this is the one format that will <em>not</em> result in loss of information. If you want to bring them to a different representation, you can use the <a href="../types/#SpeciesInteractionNetworks.render"><code>render</code></a> methods.</p>
+<p>Note that you can alternatively use an ID or a network name as the first argument. If you want to do more complicated queries, you can import the <code>Mangal</code> package using</p>
+<div class="highlight"><pre><span></span><code>using SpeciesInteractionNetworks
+import SpeciesInteractionNetworks.Mangal
+</code></pre></div>
 <p><strong>References</strong></p>
 <p><a href="../../bibliography/#Poisot2016mangal">Poisot, Baiser, Dunne, Kéfi, Massol, Mouquet, Romanuk, Stouffer, Wood and Gravel (2016)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/data/mangal.jl#L15-L26' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/data/mangal.jl#L15-L40' class='documenter-source'>source</a><br></p>
 
 
 

@@ -1048,29 +1048,29 @@
 <div class="highlight"><pre><span></span><code><span class="n">species</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">Bipartite</span><span class="p">)</span>
 </code></pre></div>
 <p>Returns the list of species in a bipartite list of nodes, as a single vector.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/interface.jl#L15-L19' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/interface.jl#L15-L19' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>species(N::Unipartite)
 </code></pre></div>
 <p>Returns the list of species in a unipartite list of nodes, as a single vector.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/interface.jl#L22-L26' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/interface.jl#L22-L26' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>species(N::SpeciesInteractionNetwork)
 </code></pre></div>
 <p>Returns the list of species in a network, by calling the <code>species</code> method corresponding to the appropriate species list.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/interface.jl#L29-L34' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/interface.jl#L29-L34' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>species(N::SpeciesInteractionNetwork, dims::Integer)
 </code></pre></div>
 <p>Returns the list of species on the top (<code>1</code> as last argument) or bottom (<code>2</code> as second argument) for the network. For unipartite networks, this will return the same list of species.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/interface.jl#L40-L46' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/interface.jl#L40-L46' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.richness' href='#SpeciesInteractionNetworks.richness'>#</a>
 <strong><code>SpeciesInteractionNetworks.richness</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">richness</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">)</span>
 </code></pre></div>
 <p>Returns the number of species in a network, measured as the length of the species items.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/interface.jl#L66-L71' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/interface.jl#L66-L71' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>richness(N::SpeciesInteractionNetwork, dims::Integer)
 </code></pre></div>
 <p>Returns the number of species in a network, either on the top (<code>1</code> as last argument) or bottom (<code>2</code> as last argument), measured as the length of the species items on this side.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/interface.jl#L74-L80' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/interface.jl#L74-L80' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.interactions' href='#SpeciesInteractionNetworks.interactions'>#</a>
 <strong><code>SpeciesInteractionNetworks.interactions</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">interactions</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">)</span>
@@ -1078,37 +1078,37 @@
 <p>Returns a vector of all interactions in the network.</p>
 <p>Each interactions is returned an un-named tuple of three elements: the source, the destination, and the value. For a binary network, for example, an interaction from <code>:a</code> to <code>:b</code> will be represented as <code>(:a,:b,true)</code>. The type of the tuple that is returned is given by <code>eltype(N)</code>, and is the same as the output of using iteration on a network.</p>
 <p>Note that this method is substantially faster and more memory-efficient than using iteration (<code>int for int in N</code>), for reasons related to the indexing of non-zero interactions in the underlying data structure of the network.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/basics/interactions.jl#L1-L15' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/basics/interactions.jl#L1-L15' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.predecessors' href='#SpeciesInteractionNetworks.predecessors'>#</a>
 <strong><code>SpeciesInteractionNetworks.predecessors</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">predecessors</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="kt">Bipartite</span><span class="p">{</span><span class="kt">T</span><span class="p">},</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">},</span><span class="w"> </span><span class="n">sp</span><span class="o">::</span><span class="kt">T</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 </code></pre></div>
 <p>The predecessors of a species in a bipartite network is the list of all species it receives a non-zero interaction from. For probabilistic networks, this includes all species with a non-zero probability of interaction.</p>
 <p>If the species is at the top of the network, or if the specis has no predecessors, this method will retun an empty list of species, specifically <code>Set{T}()</code>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/basics/neighbors.jl#L81-L91' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/basics/neighbors.jl#L81-L91' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>predecessors(N::SpeciesInteractionNetwork{Unipartite{T}, &lt;:Interactions}, sp::T) where {T}
 </code></pre></div>
 <p>The predecessors of a species in a unipartite network is the list of all species it receives a non-zero interaction from. For probabilistic networks, this includes all species with a non-zero probability of interaction.</p>
 <p>If the specis has no predecessors, this method will retun an empty list of species, specifically <code>Set{T}()</code>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/basics/neighbors.jl#L107-L116' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/basics/neighbors.jl#L107-L116' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.successors' href='#SpeciesInteractionNetworks.successors'>#</a>
 <strong><code>SpeciesInteractionNetworks.successors</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">successors</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="kt">Bipartite</span><span class="p">{</span><span class="kt">T</span><span class="p">},</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">},</span><span class="w"> </span><span class="n">sp</span><span class="o">::</span><span class="kt">T</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 </code></pre></div>
 <p>The successors of a species in a bipartite network is the list of all species it establishes a non-zero interaction with. For probabilistic networks, this includes all species with a non-zero probability of interaction.</p>
 <p>If the species is at the bottom of the network, or if the specis has no successors, this method will retun an empty list of species, specifically <code>Set{T}()</code>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/basics/neighbors.jl#L1-L11' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/basics/neighbors.jl#L1-L11' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>successors(N::SpeciesInteractionNetwork{Unipartite{T}, &lt;:Interactions}, sp::T) where {T}
 </code></pre></div>
 <p>The successors of a species in a unipartite network is the list of all species it establishes a non-zero interaction with. For probabilistic networks, this includes all species with a non-zero probability of interaction.</p>
 <p>If the specis has no successors, this method will retun an empty list of species, specifically <code>Set{T}()</code>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/basics/neighbors.jl#L26-L35' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/basics/neighbors.jl#L26-L35' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.neighbors' href='#SpeciesInteractionNetworks.neighbors'>#</a>
 <strong><code>SpeciesInteractionNetworks.neighbors</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">neighbors</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">{</span><span class="kt">T</span><span class="p">},</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">})</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 </code></pre></div>
 <p>The neighbors of a species is the list of both its successors and prde</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/basics/neighbors.jl#L162-L166' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/basics/neighbors.jl#L162-L166' class='documenter-source'>source</a><br></p>
 
 
 

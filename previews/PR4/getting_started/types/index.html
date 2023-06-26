@@ -1100,7 +1100,7 @@
 <div class="highlight"><pre><span></span><code>SpeciesInteractionNetwork{Bipartite{Symbol}, Interactions{Float32}}
 </code></pre></div>
 <p>This enables very specialized dispatch and indexing thoughout the package.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/declarations.jl#L22-L40' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/declarations.jl#L22-L40' class='documenter-source'>source</a><br></p>
 <p><a id='Representing-species'></a></p>
 <p><a id='Representing-species-1'></a></p>
 <h2 id="representing-species">Representing species</h2>
@@ -1109,7 +1109,7 @@
 <div class="highlight"><pre><span></span><code><span class="kt">Partiteness</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 </code></pre></div>
 <p>The species in a network are stored in a parametric sub-type of <code>Partiteness</code>. By default, this can be <code>Unipartite</code> or <code>Bipartite</code>. The inner type <code>T</code> indicates what types can be used to represent species. Note that species <em>cannot</em> be represented as integers, and will instead have a name. We recommend using strings or symbols.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/declarations.jl#L1-L9' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/declarations.jl#L1-L9' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.Bipartite' href='#SpeciesInteractionNetworks.Bipartite'>#</a>
 <strong><code>SpeciesInteractionNetworks.Bipartite</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">Bipartite</span><span class="p">{</span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Any</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Partiteness</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
@@ -1121,7 +1121,7 @@
 <li>All species in <code>bottom</code> must be unique</li>
 <li>No species can be found in both <code>bottom</code> and <code>top</code></li>
 </ol>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/declarations.jl#L46-L57' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/declarations.jl#L46-L57' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.Unipartite' href='#SpeciesInteractionNetworks.Unipartite'>#</a>
 <strong><code>SpeciesInteractionNetworks.Unipartite</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">Unipartite</span><span class="p">{</span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Any</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Partiteness</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
@@ -1131,7 +1131,7 @@
 <li><code>T</code> cannot be a <code>Number</code> (<em>i.e.</em> nodes must have names, or be other objects)</li>
 <li>All species in <code>margin</code> must be unique</li>
 </ol>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/declarations.jl#L100-L109' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/declarations.jl#L100-L109' class='documenter-source'>source</a><br></p>
 <p><a id='Representing-interactions'></a></p>
 <p><a id='Representing-interactions-1'></a></p>
 <h2 id="representing-interactions">Representing interactions</h2>
@@ -1140,25 +1140,25 @@
 <div class="highlight"><pre><span></span><code><span class="kt">Interactions</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 </code></pre></div>
 <p>The interactions in a network are stored in a parametric sub-type of <code>Interactions</code>. By default, this can be <code>Binary</code>, <code>Quantitative</code>, and <code>Probabilistic</code>. The inner type <code>T</code> indicates what types are used to represent interactions.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/declarations.jl#L12-L19' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/declarations.jl#L12-L19' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.Binary' href='#SpeciesInteractionNetworks.Binary'>#</a>
 <strong><code>SpeciesInteractionNetworks.Binary</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">Binary</span><span class="p">{</span><span class="kt">Bool</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Interactions</span><span class="p">{</span><span class="kt">Bool</span><span class="p">}</span>
 </code></pre></div>
 <p>Binary interactions are represented (internally) as a sparse matrix of Boolean values.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/declarations.jl#L171-L176' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/declarations.jl#L171-L176' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.Quantitative' href='#SpeciesInteractionNetworks.Quantitative'>#</a>
 <strong><code>SpeciesInteractionNetworks.Quantitative</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">Quantitative</span><span class="p">{</span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Number</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Interactions</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 </code></pre></div>
 <p>Quantitative interactions are represented (internally) as a sparse matrix of numbers.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/declarations.jl#L162-L166' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/declarations.jl#L162-L166' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.Probabilistic' href='#SpeciesInteractionNetworks.Probabilistic'>#</a>
 <strong><code>SpeciesInteractionNetworks.Probabilistic</code></strong> &mdash; <em>Type</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="kt">Probabilistic</span><span class="p">{</span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">AbstractFloat</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">Interactions</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 </code></pre></div>
 <p>Probabilistic interactions are represented (internally) as a sparse matrix of floating point values. The values <em>must</em> be in the unit interval for the type to be valid.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/declarations.jl#L141-L147' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/declarations.jl#L141-L147' class='documenter-source'>source</a><br></p>
 <p><a id='Type-conversion'></a></p>
 <p><a id='Type-conversion-1'></a></p>
 <h2 id="type-conversion">Type conversion</h2>
@@ -1167,19 +1167,19 @@
 <div class="highlight"><pre><span></span><code><span class="n">render</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">Unipartite</span><span class="p">},</span><span class="w"> </span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Bipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">})</span>
 </code></pre></div>
 <p>Returns the unipartite projection of a bipartite network. By constructions, species cannot be shared between levels of bipartite network, so this operation will always succeed.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/conversions.jl#L4-L10' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/conversions.jl#L4-L10' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>render(::Type{Quantitative{T}}, N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Interactions}) where {T &lt;: Number}
 </code></pre></div>
 <p>Returns a quantitative version of the network, where interaction strengths have the type <code>T</code>. This can be used to convert a quantitative network into a different number representation.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/conversions.jl#L37-L43' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/conversions.jl#L37-L43' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>render(::Type{Probabilistic{T}}, N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Interactions}) where {T &lt;: AbstractFloat}
 </code></pre></div>
 <p>Returns a probabilistic version of the network, where interaction probabilities have the type <code>T</code>. This can be used to convert a probabilistic network into a different number representation.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/conversions.jl#L74-L80' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/conversions.jl#L74-L80' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>render(::Type{Binary}, N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Interactions})
 </code></pre></div>
 <p>Returns a binary version of the network, where the non-zero interactions are <code>true</code>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/791f52727b05920aa422b1bcd7776f89f7af6918/src/types/conversions.jl#L97-L102' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/types/conversions.jl#L97-L102' class='documenter-source'>source</a><br></p>
 
 
 
