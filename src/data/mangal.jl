@@ -20,6 +20,20 @@ API wrapper. The keyword argument `taxonlevel` specifies whether the original
 *node* or its *reference taxon* must be used. Note that not all nodes have an
 unambiguously attached reference taxon.
 
+The networks are *always* returned as quantitative unipartite networks, as this
+is the one format that will *not* result in loss of information. If you want to
+bring them to a different representation, you can use the [`render`](@ref)
+methods.
+
+Note that you can alternatively use an ID or a network name as the first
+argument. If you want to do more complicated queries, you can import the
+`Mangal` package using
+
+~~~
+using SpeciesInteractionNetworks
+import SpeciesInteractionNetworks.Mangal
+~~~
+
 ###### References
 
 [Poisot2016mangal](@citet*)
@@ -29,6 +43,7 @@ function mangalnetwork(MN::Mangal.MangalNetwork, query::Pair...; taxonlevel::Boo
     nodelist = [e.from for e in edgelist] ∪ [e.to for e in edgelist]
     if taxonlevel
         nodelist = unique(filter(!ismissing, map(n -> n.taxon, nodelist)))
+        nodelist = convert(Vector{Mangal.MangalReferenceTaxon}, nodelist)
     end
     nodes = Unipartite(nodelist)
     T = typeof(edgelist[1].strength)
@@ -44,3 +59,6 @@ function mangalnetwork(MN::Mangal.MangalNetwork, query::Pair...; taxonlevel::Boo
     end
     return N
 end
+
+mangalnetwork(id::Integer, args...; kwargs...) = mangalnetwork(Mangal.network(id), args...; kwargs...)
+mangalnetwork(name::String, args...; kwargs...) = mangalnetwork(Mangal.network(name), args...; kwargs...)
