@@ -295,7 +295,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../bibliography/" class="md-tabs__link">
+      <a href="../../appendix/bibliography/" class="md-tabs__link">
         Appendix
       </a>
     </li>
@@ -412,6 +412,20 @@
     <li class="md-nav__item">
       <a href="../../getting_started/basics/" class="md-nav__link">
         Basic descriptors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/mangal/" class="md-nav__link">
+        Getting network data
       </a>
     </li>
   
@@ -1013,7 +1027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bibliography/" class="md-nav__link">
+      <a href="../../appendix/bibliography/" class="md-nav__link">
         Bibliography
       </a>
     </li>
@@ -1027,8 +1041,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../internals/" class="md-nav__link">
+      <a href="../../appendix/internals/" class="md-nav__link">
         Internals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/exceptions/" class="md-nav__link">
+        Exceptions
       </a>
     </li>
   
@@ -1078,16 +1106,16 @@
 <strong><code>SpeciesInteractionNetworks.motifs</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">motifs</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">Bipartite</span><span class="p">},</span><span class="w"> </span><span class="n">nodes</span><span class="o">::</span><span class="kt">Integer</span><span class="p">)</span>
 </code></pre></div>
-<p>Returns a list of bipartite motifs with the specified number of nodes. The list of motifs for each richness are from <a href="../../bibliography/#Simmons2018Motifs">Simmons <em>et al.</em> (2018)</a>.</p>
+<p>Returns a list of bipartite motifs with the specified number of nodes. The list of motifs for each richness are from <a href="../../appendix/bibliography/#Simmons2018Motifs">Simmons <em>et al.</em> (2018)</a>.</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Simmons2018Motifs">Simmons, Cirtwill, Baker, Wauchope, Dicks, Stouffer and Sutherland (2018)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7e2dab3c1fc4921c8c418319beccda5cae064938/src/meso_level/motifs/generators.jl#L1-L10' class='documenter-source'>source</a><br></p>
+<p><a href="../../appendix/bibliography/#Simmons2018Motifs">Simmons, Cirtwill, Baker, Wauchope, Dicks, Stouffer and Sutherland (2018)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fdd0d2cbb41aea4258f3e205918cd93c09bc11e0/src/meso_level/motifs/generators.jl#L1-L10' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>motifs(::Type{Unipartite}, nodes::Integer)
 </code></pre></div>
-<p>Returns a list of unipartite motifs with the specified number of nodes. The list of motifs for three species are from <a href="../../bibliography/#Stouffer2007Evidence">Stouffer <em>et al.</em> (2007)</a>.</p>
+<p>Returns a list of unipartite motifs with the specified number of nodes. The list of motifs for three species are from <a href="../../appendix/bibliography/#Stouffer2007Evidence">Stouffer <em>et al.</em> (2007)</a>.</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Stouffer2007Evidence">Stouffer, Camacho, Jiang and Amaral (2007)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7e2dab3c1fc4921c8c418319beccda5cae064938/src/meso_level/motifs/generators.jl#L50-L59' class='documenter-source'>source</a><br></p>
+<p><a href="../../appendix/bibliography/#Stouffer2007Evidence">Stouffer, Camacho, Jiang and Amaral (2007)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fdd0d2cbb41aea4258f3e205918cd93c09bc11e0/src/meso_level/motifs/generators.jl#L50-L59' class='documenter-source'>source</a><br></p>
 <p><a id='Search-for-motifs'></a></p>
 <p><a id='Search-for-motifs-1'></a></p>
 <h2 id="search-for-motifs">Search for motifs</h2>
@@ -1096,7 +1124,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">findmotif</span><span class="p">(</span><span class="n">M</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Unipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">},</span><span class="w"> </span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Unipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">})</span>
 </code></pre></div>
 <p>Search for all groups of species in <code>N</code> that match the motif <code>M</code> – note that the motif to search is the <em>first</em> argument.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7e2dab3c1fc4921c8c418319beccda5cae064938/src/meso_level/motifs.jl#L1-L6' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fdd0d2cbb41aea4258f3e205918cd93c09bc11e0/src/meso_level/motifs.jl#L1-L6' class='documenter-source'>source</a><br></p>
 
 
 

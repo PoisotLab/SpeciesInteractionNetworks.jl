@@ -295,7 +295,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../bibliography/" class="md-tabs__link">
+      <a href="../../appendix/bibliography/" class="md-tabs__link">
         Appendix
       </a>
     </li>
@@ -412,6 +412,20 @@
     <li class="md-nav__item">
       <a href="../../getting_started/basics/" class="md-nav__link">
         Basic descriptors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/mangal/" class="md-nav__link">
+        Getting network data
       </a>
     </li>
   
@@ -1013,7 +1027,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bibliography/" class="md-nav__link">
+      <a href="../../appendix/bibliography/" class="md-nav__link">
         Bibliography
       </a>
     </li>
@@ -1027,8 +1041,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../internals/" class="md-nav__link">
+      <a href="../../appendix/internals/" class="md-nav__link">
         Internals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/exceptions/" class="md-nav__link">
+        Exceptions
       </a>
     </li>
   
@@ -1086,7 +1114,7 @@
 </code></pre></div>
 <p>The <code>PermutationConstraint</code> specifies which structural constraint is enforced. It is defined as an abstract type, and the subtypes can be passed as the second argument to <code>swap!</code>.</p>
 <p>Currently supported constraints are <code>Degree</code> (degree distribution is maintained), <code>Generality</code> (number of out-going links is maintained), <code>Vulnerability</code> (number of in-going links is maintained), and <code>Connectance</code> (only the connectance is maintained). Note that <em>in addition</em>, species cannot become disconnected, even if the constraint is not acting on the degree / degree distribution.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7e2dab3c1fc4921c8c418319beccda5cae064938/src/random/permutations.jl#L3-L16' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fdd0d2cbb41aea4258f3e205918cd93c09bc11e0/src/random/permutations.jl#L3-L16' class='documenter-source'>source</a><br></p>
 <p><a id='Permutation-of-a-network'></a></p>
 <p><a id='Permutation-of-a-network-1'></a></p>
 <h2 id="permutation-of-a-network">Permutation of a network</h2>
@@ -1096,19 +1124,19 @@
 <div class="highlight"><pre><span></span><code><span class="n">swap!</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">})</span>
 </code></pre></div>
 <p>Performs <em>one</em> swap of interactions in the network. If no <code>PermutationConstraint</code> is given as a second argument, the degree distribution of all species will be maintained.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7e2dab3c1fc4921c8c418319beccda5cae064938/src/random/permutations.jl#L23-L29' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fdd0d2cbb41aea4258f3e205918cd93c09bc11e0/src/random/permutations.jl#L23-L29' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>swap!(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary}, ::Type{Degree})
 </code></pre></div>
 <p>Permutations with a constraint by degree work by picking two interacting species pairs, (r1, s1) and (r2, s2), and trying to replace them by (r1, s2) and (r2, s1).</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7e2dab3c1fc4921c8c418319beccda5cae064938/src/random/permutations.jl#L32-L38' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fdd0d2cbb41aea4258f3e205918cd93c09bc11e0/src/random/permutations.jl#L32-L38' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>swap!(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary}, ::Type{Generality})
 </code></pre></div>
 <p>Permutations with a constraint by degree work by picking one interacting species pair, (r1, s1), and a new stem species s3, trying to replace them by (r1, s3). This function only applies if the result of this permutations does not remove the last incoming link from s1.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7e2dab3c1fc4921c8c418319beccda5cae064938/src/random/permutations.jl#L63-L70' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fdd0d2cbb41aea4258f3e205918cd93c09bc11e0/src/random/permutations.jl#L63-L70' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>swap!(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary}, ::Type{Connectance})
 </code></pre></div>
 <p>Permutations with a constraint by connectance will <em>randomly</em> (and with equal probability) perform a move that is constrained by degree, generality, or vulnerability.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7e2dab3c1fc4921c8c418319beccda5cae064938/src/random/permutations.jl#L124-L130' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fdd0d2cbb41aea4258f3e205918cd93c09bc11e0/src/random/permutations.jl#L124-L130' class='documenter-source'>source</a><br></p>
 
 
 

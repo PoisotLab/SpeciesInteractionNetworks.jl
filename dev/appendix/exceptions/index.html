@@ -13,19 +13,19 @@
       
       
       
-        <link rel="prev" href="../bibliography/">
+        <link rel="prev" href="../internals/">
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>Internals - SpeciesInteractionNetworks.jl</title>
+        <title>Exceptions - SpeciesInteractionNetworks.jl</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.26e3688c.min.css">
       
       
 
@@ -41,13 +41,13 @@
       
     
     
-      <link rel="stylesheet" href="../assets/Documenter.css">
+      <link rel="stylesheet" href="../../assets/Documenter.css">
     
-      <link rel="stylesheet" href="../stylesheets/colors.css">
+      <link rel="stylesheet" href="../../stylesheets/colors.css">
     
-      <link rel="stylesheet" href="../stylesheets/citations.css">
+      <link rel="stylesheet" href="../../stylesheets/citations.css">
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -69,7 +69,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#internals" class="md-skip">
+        <a href="#exceptions" class="md-skip">
           Skip to content
         </a>
       
@@ -83,9 +83,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="SpeciesInteractionNetworks.jl" class="md-header__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
+    <a href="../.." title="SpeciesInteractionNetworks.jl" class="md-header__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
       
-  <img src="../assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -101,7 +101,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Internals
+              Exceptions
             
           </span>
         </div>
@@ -179,7 +179,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../getting_started/demonstration/" class="md-tabs__link">
+      <a href="../../getting_started/demonstration/" class="md-tabs__link">
         Getting started
       </a>
     </li>
@@ -195,7 +195,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../micro_level/specificity/" class="md-tabs__link">
+      <a href="../../micro_level/specificity/" class="md-tabs__link">
         Micro
       </a>
     </li>
@@ -211,7 +211,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../meso_level/motifs/" class="md-tabs__link">
+      <a href="../../meso_level/motifs/" class="md-tabs__link">
         Meso
       </a>
     </li>
@@ -227,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../macro_level/links/" class="md-tabs__link">
+      <a href="../../macro_level/links/" class="md-tabs__link">
         Macro
       </a>
     </li>
@@ -243,7 +243,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../meta_level/betadiversity/" class="md-tabs__link">
+      <a href="../../meta_level/betadiversity/" class="md-tabs__link">
         Meta
       </a>
     </li>
@@ -259,7 +259,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../random_networks/permutations/" class="md-tabs__link">
+      <a href="../../random_networks/permutations/" class="md-tabs__link">
         Random
       </a>
     </li>
@@ -275,7 +275,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../use_cases/nullmodels/" class="md-tabs__link">
+      <a href="../../use_cases/nullmodels/" class="md-tabs__link">
         Use cases
       </a>
     </li>
@@ -323,9 +323,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="SpeciesInteractionNetworks.jl" class="md-nav__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
+    <a href="../.." title="SpeciesInteractionNetworks.jl" class="md-nav__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
       
-  <img src="../assets/logo.png" alt="logo">
+  <img src="../../assets/logo.png" alt="logo">
 
     </a>
     SpeciesInteractionNetworks.jl
@@ -380,7 +380,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting_started/demonstration/" class="md-nav__link">
+      <a href="../../getting_started/demonstration/" class="md-nav__link">
         Building a network
       </a>
     </li>
@@ -394,7 +394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting_started/types/" class="md-nav__link">
+      <a href="../../getting_started/types/" class="md-nav__link">
         Type system
       </a>
     </li>
@@ -408,8 +408,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../getting_started/basics/" class="md-nav__link">
+      <a href="../../getting_started/basics/" class="md-nav__link">
         Basic descriptors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/mangal/" class="md-nav__link">
+        Getting network data
       </a>
     </li>
   
@@ -457,7 +471,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../micro_level/specificity/" class="md-nav__link">
+      <a href="../../micro_level/specificity/" class="md-nav__link">
         Specificity
       </a>
     </li>
@@ -471,7 +485,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../micro_level/centrality/" class="md-nav__link">
+      <a href="../../micro_level/centrality/" class="md-nav__link">
         Centrality
       </a>
     </li>
@@ -485,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../micro_level/foodwebs/" class="md-nav__link">
+      <a href="../../micro_level/foodwebs/" class="md-nav__link">
         Food web measures
       </a>
     </li>
@@ -534,7 +548,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meso_level/motifs/" class="md-nav__link">
+      <a href="../../meso_level/motifs/" class="md-nav__link">
         Motifs
       </a>
     </li>
@@ -548,7 +562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meso_level/paths/" class="md-nav__link">
+      <a href="../../meso_level/paths/" class="md-nav__link">
         Paths
       </a>
     </li>
@@ -597,7 +611,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../macro_level/links/" class="md-nav__link">
+      <a href="../../macro_level/links/" class="md-nav__link">
         Links counting
       </a>
     </li>
@@ -611,7 +625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../macro_level/nestedness/" class="md-nav__link">
+      <a href="../../macro_level/nestedness/" class="md-nav__link">
         Nestedness
       </a>
     </li>
@@ -625,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../macro_level/degeneracy/" class="md-nav__link">
+      <a href="../../macro_level/degeneracy/" class="md-nav__link">
         Disconnected species
       </a>
     </li>
@@ -639,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../macro_level/svd/" class="md-nav__link">
+      <a href="../../macro_level/svd/" class="md-nav__link">
         SVD and complexity
       </a>
     </li>
@@ -688,7 +702,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meta_level/betadiversity/" class="md-nav__link">
+      <a href="../../meta_level/betadiversity/" class="md-nav__link">
         Beta-diversity
       </a>
     </li>
@@ -702,7 +716,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meta_level/dissimilarities/" class="md-nav__link">
+      <a href="../../meta_level/dissimilarities/" class="md-nav__link">
         Beta-diversity measures
       </a>
     </li>
@@ -716,7 +730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../meta_level/sets/" class="md-nav__link">
+      <a href="../../meta_level/sets/" class="md-nav__link">
         Set operations
       </a>
     </li>
@@ -765,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../random_networks/permutations/" class="md-nav__link">
+      <a href="../../random_networks/permutations/" class="md-nav__link">
         Permutations
       </a>
     </li>
@@ -779,7 +793,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../random_networks/randomdraws/" class="md-nav__link">
+      <a href="../../random_networks/randomdraws/" class="md-nav__link">
         Random draws
       </a>
     </li>
@@ -793,7 +807,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../random_networks/structural/" class="md-nav__link">
+      <a href="../../random_networks/structural/" class="md-nav__link">
         Structural models
       </a>
     </li>
@@ -842,7 +856,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../use_cases/nullmodels/" class="md-nav__link">
+      <a href="../../use_cases/nullmodels/" class="md-nav__link">
         Significance testing
       </a>
     </li>
@@ -856,7 +870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../use_cases/permutations/" class="md-nav__link">
+      <a href="../../use_cases/permutations/" class="md-nav__link">
         Network permutations
       </a>
     </li>
@@ -870,7 +884,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../use_cases/specificity/" class="md-nav__link">
+      <a href="../../use_cases/specificity/" class="md-nav__link">
         Species specificity
       </a>
     </li>
@@ -884,7 +898,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../use_cases/centrality/" class="md-nav__link">
+      <a href="../../use_cases/centrality/" class="md-nav__link">
         Species centrality
       </a>
     </li>
@@ -898,7 +912,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../use_cases/paths/" class="md-nav__link">
+      <a href="../../use_cases/paths/" class="md-nav__link">
         Shortest paths
       </a>
     </li>
@@ -912,7 +926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../use_cases/nichemodel/" class="md-nav__link">
+      <a href="../../use_cases/nichemodel/" class="md-nav__link">
         Niche model of food webs
       </a>
     </li>
@@ -975,6 +989,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../internals/" class="md-nav__link">
+        Internals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -986,47 +1014,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Internals
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        Internals
+        Exceptions
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#network-dimensions" class="md-nav__link">
-    Network dimensions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#copy-of-network-data" class="md-nav__link">
-    Copy of network data
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1054,7 +1044,7 @@
                   
 
   
-    <a href="https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/edit/master/docs/internals.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/edit/master/docs/appendix/exceptions.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
     </a>
@@ -1062,21 +1052,15 @@
   
 
 
-<p><a id='Internals'></a></p>
-<p><a id='Internals-1'></a></p>
-<h1 id="internals">Internals</h1>
-<p><a id='Network-dimensions'></a></p>
-<p><a id='Network-dimensions-1'></a></p>
-<h2 id="network-dimensions">Network dimensions</h2>
-<p><a id='Copy-of-network-data'></a></p>
-<p><a id='Copy-of-network-data-1'></a></p>
-<h2 id="copy-of-network-data">Copy of network data</h2>
-<p><a id='Base.copy-Tuple{SpeciesInteractionNetwork}' href='#Base.copy-Tuple{SpeciesInteractionNetwork}'>#</a>
-<strong><code>Base.copy</code></strong> &mdash; <em>Method</em>.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Base</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">)</span>
+<p><a id='Exceptions'></a></p>
+<p><a id='Exceptions-1'></a></p>
+<h1 id="exceptions">Exceptions</h1>
+<p><a id='SpeciesInteractionNetworks.BipartiteProjectionFailed' href='#SpeciesInteractionNetworks.BipartiteProjectionFailed'>#</a>
+<strong><code>SpeciesInteractionNetworks.BipartiteProjectionFailed</code></strong> &mdash; <em>Type</em>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">BipartiteProjectionFailed</span>
 </code></pre></div>
-<p>A copy of a network is created by wrapping together a copy of the nodes and a copy of the edges.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7e2dab3c1fc4921c8c418319beccda5cae064938/src/types/copy.jl#L13-L18' class='documenter-source'>source</a><br></p>
+<p>This exception is thrown when a unipartite network cannot be projected into a bipartite network. This happens when some species have both successors <em>and</em> predecessors.</p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fdd0d2cbb41aea4258f3e205918cd93c09bc11e0/src/types/exceptions.jl#L1-L7' class='documenter-source'>source</a><br></p>
 
 
 
@@ -1119,17 +1103,17 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.action.edit", "navigation.tabs", "toc.follow", "toc.integrate", "navigation.top", "navigation.instant", "navigation.tracking"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "navigation.tabs", "toc.follow", "toc.integrate", "navigation.top", "navigation.instant", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.b425cdc4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b425cdc4.min.js"></script>
       
         
           <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
         
       
         
-          <script src="../assets/mathjaxhelper.js"></script>
+          <script src="../../assets/mathjaxhelper.js"></script>
         
       
     

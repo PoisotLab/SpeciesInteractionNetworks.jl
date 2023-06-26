@@ -295,7 +295,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../bibliography/" class="md-tabs__link">
+      <a href="../../appendix/bibliography/" class="md-tabs__link">
         Appendix
       </a>
     </li>
@@ -412,6 +412,20 @@
     <li class="md-nav__item">
       <a href="../../getting_started/basics/" class="md-nav__link">
         Basic descriptors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/mangal/" class="md-nav__link">
+        Getting network data
       </a>
     </li>
   
@@ -975,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bibliography/" class="md-nav__link">
+      <a href="../../appendix/bibliography/" class="md-nav__link">
         Bibliography
       </a>
     </li>
@@ -989,8 +1003,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../internals/" class="md-nav__link">
+      <a href="../../appendix/internals/" class="md-nav__link">
         Internals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/exceptions/" class="md-nav__link">
+        Exceptions
       </a>
     </li>
   
@@ -1066,7 +1094,7 @@
 
 <span class="c">#!!! warning &quot;A note about swaps and underlying nodes/edges&quot;</span>
 </code></pre></div>
-<p>When we perform the <code>swap!</code> operation, we are modifying the network (this is    what we want!), but we are also modifying the <code>edges</code> object. If you want to    re-use the edges in another network, be mindful of the fact that this will    be the <em>randomized</em> edges. See <a href="../../internals/#Base.copy-Tuple{SpeciesInteractionNetwork}"><code>copy</code></a> for a way to create new copies of a network.</p>
+<p>When we perform the <code>swap!</code> operation, we are modifying the network (this is    what we want!), but we are also modifying the <code>edges</code> object. If you want to    re-use the edges in another network, be mindful of the fact that this will    be the <em>randomized</em> edges. See <a href="../../appendix/internals/#Base.copy-Tuple{SpeciesInteractionNetwork}"><code>copy</code></a> for a way to create new copies of a network.</p>
 <p>Finally, we can plot the result, to check that 1000 swaps are enough to bring us to some sort of equilibrium of the randomized nestedness:</p>
 <div class="highlight"><pre><span></span><code><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CairoMakie</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">backgroundcolor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">:transparent</span><span class="p">,</span><span class="w"> </span><span class="n">resolution</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">))</span>
 <span class="n">ax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CairoMakie</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">xlabel</span><span class="o">=</span><span class="s">&quot;Swap&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ylabel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Nestedness&quot;</span><span class="p">)</span>
@@ -1074,7 +1102,7 @@
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">tightlimits!</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">current_figure</span><span class="p">()</span>
 </code></pre></div>
-<p><img alt="" src="../gotgzyq.png" /></p>
+<p><img alt="" src="../slkmleb.png" /></p>
 
 
 

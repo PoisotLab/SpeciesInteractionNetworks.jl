@@ -295,7 +295,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../bibliography/" class="md-tabs__link">
+      <a href="../../appendix/bibliography/" class="md-tabs__link">
         Appendix
       </a>
     </li>
@@ -412,6 +412,20 @@
     <li class="md-nav__item">
       <a href="../../getting_started/basics/" class="md-nav__link">
         Basic descriptors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/mangal/" class="md-nav__link">
+        Getting network data
       </a>
     </li>
   
@@ -1006,7 +1020,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bibliography/" class="md-nav__link">
+      <a href="../../appendix/bibliography/" class="md-nav__link">
         Bibliography
       </a>
     </li>
@@ -1020,8 +1034,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../internals/" class="md-nav__link">
+      <a href="../../appendix/internals/" class="md-nav__link">
         Internals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/exceptions/" class="md-nav__link">
+        Exceptions
       </a>
     </li>
   
@@ -1072,23 +1100,23 @@
 <div class="highlight"><pre><span></span><code><span class="n">distancetobase</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">SPM</span><span class="p">},</span><span class="w"> </span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Unipartite</span><span class="p">{</span><span class="kt">T</span><span class="p">},</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">},</span><span class="w"> </span><span class="n">sp</span><span class="o">::</span><span class="kt">T</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="p">,</span><span class="w"> </span><span class="kt">SPM</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">ShortestPathMethod</span><span class="p">}</span>
 </code></pre></div>
 <p>Measures the distance of species <code>sp</code> to a basal species in the food web, where a basal species is defined as having a <a href="@ref"><code>generaliry</code></a> of 0.</p>
-<p>Following <em>e.g.</em> <a href="../../bibliography/#Thompson2012Food">Thompson <em>et al.</em> (2012)</a>, we assign a distance to the base of 1 to the basal species. Primary consumers have a distance of 2, etc.</p>
-<p><a href="../../bibliography/#Post2002long">Post (2002)</a> notes that the trophic level can be obtained from the maximum, mean, or minimum distance to a producer. Given that consumers may be connected to more than one producer, one might argue that the mode or median of these connections may be relevant. For this reason, the function <code>f</code> will consume an array of distances, and return a scalar.</p>
+<p>Following <em>e.g.</em> <a href="../../appendix/bibliography/#Thompson2012Food">Thompson <em>et al.</em> (2012)</a>, we assign a distance to the base of 1 to the basal species. Primary consumers have a distance of 2, etc.</p>
+<p><a href="../../appendix/bibliography/#Post2002long">Post (2002)</a> notes that the trophic level can be obtained from the maximum, mean, or minimum distance to a producer. Given that consumers may be connected to more than one producer, one might argue that the mode or median of these connections may be relevant. For this reason, the function <code>f</code> will consume an array of distances, and return a scalar.</p>
 <p>In favor of the minimum, one can argue that most energy transfer should happen along short chains; but imagining a consumer atop a chain of length 5, also connected directly to a producer, the minimum would give it a trophic level of 2, hiding its position at the top of the food web.</p>
-<p>In favor of the maximum, one can argue that the higher chains give a better idea of how far energy coming from the bottom of the food web can go. This is a strong indication of how <em>vertically</em> diverse it is <a href="../../bibliography/#Duffy2007functional">(Duffy <em>et al.</em>, 2007)</a>.</p>
+<p>In favor of the maximum, one can argue that the higher chains give a better idea of how far energy coming from the bottom of the food web can go. This is a strong indication of how <em>vertically</em> diverse it is <a href="../../appendix/bibliography/#Duffy2007functional">(Duffy <em>et al.</em>, 2007)</a>.</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Duffy2007functional">Duffy, Cardinale, France, McIntyre, Thébault and Loreau (2007)</a></p>
-<p><a href="../../bibliography/#Post2002long">Post (2002)</a></p>
-<p><a href="../../bibliography/#Thompson2012Food">Thompson, Brose, Dunne, Hall, Hladyz, Kitching, Martinez, Rantala, Romanuk, Stouffer and Tylianakis (2012)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7e2dab3c1fc4921c8c418319beccda5cae064938/src/micro_level/foodwebs.jl#L1-L33' class='documenter-source'>source</a><br></p>
+<p><a href="../../appendix/bibliography/#Duffy2007functional">Duffy, Cardinale, France, McIntyre, Thébault and Loreau (2007)</a></p>
+<p><a href="../../appendix/bibliography/#Post2002long">Post (2002)</a></p>
+<p><a href="../../appendix/bibliography/#Thompson2012Food">Thompson, Brose, Dunne, Hall, Hladyz, Kitching, Martinez, Rantala, Romanuk, Stouffer and Tylianakis (2012)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fdd0d2cbb41aea4258f3e205918cd93c09bc11e0/src/micro_level/foodwebs.jl#L1-L33' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>distancetobase(N::SpeciesInteractionNetwork{&lt;:Unipartite{T}, &lt;:Interactions}, sp::T) where {T}
 </code></pre></div>
 <p>Default measure of <a href="./#SpeciesInteractionNetworks.distancetobase"><code>distancetobase</code></a> using the <a href="../../meso_level/paths/#SpeciesInteractionNetworks.BellmanFord"><code>BellmanFord</code></a> shortest paths and the maximum distance.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7e2dab3c1fc4921c8c418319beccda5cae064938/src/micro_level/foodwebs.jl#L45-L50' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fdd0d2cbb41aea4258f3e205918cd93c09bc11e0/src/micro_level/foodwebs.jl#L45-L50' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>distancetobase(N::SpeciesInteractionNetwork{&lt;:Unipartite{T}, &lt;:Interactions}, sp::T, f) where {T}
 </code></pre></div>
 <p>Default measure of <a href="./#SpeciesInteractionNetworks.distancetobase"><code>distancetobase</code></a> using the <a href="../../meso_level/paths/#SpeciesInteractionNetworks.BellmanFord"><code>BellmanFord</code></a> shortest paths and the distance returned by <code>f</code>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/7e2dab3c1fc4921c8c418319beccda5cae064938/src/micro_level/foodwebs.jl#L53-L58' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fdd0d2cbb41aea4258f3e205918cd93c09bc11e0/src/micro_level/foodwebs.jl#L53-L58' class='documenter-source'>source</a><br></p>
 
 
 

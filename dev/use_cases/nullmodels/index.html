@@ -295,7 +295,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../bibliography/" class="md-tabs__link">
+      <a href="../../appendix/bibliography/" class="md-tabs__link">
         Appendix
       </a>
     </li>
@@ -412,6 +412,20 @@
     <li class="md-nav__item">
       <a href="../../getting_started/basics/" class="md-nav__link">
         Basic descriptors
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/mangal/" class="md-nav__link">
+        Getting network data
       </a>
     </li>
   
@@ -975,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bibliography/" class="md-nav__link">
+      <a href="../../appendix/bibliography/" class="md-nav__link">
         Bibliography
       </a>
     </li>
@@ -989,8 +1003,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../internals/" class="md-nav__link">
+      <a href="../../appendix/internals/" class="md-nav__link">
         Internals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/exceptions/" class="md-nav__link">
+        Exceptions
       </a>
     </li>
   
@@ -1029,7 +1057,7 @@
 <p><a id='Null-models'></a></p>
 <p><a id='Null-models-1'></a></p>
 <h1 id="null-models">Null models</h1>
-<p>In order to illustrate the use of null models, we will look at the data from <a href="../../bibliography/#Dupont2003Structure">Dupont <em>et al.</em> (2003)</a>, and specifically generate multiple networks under different null models, then compare the nestedness (using <a href="../../macro_level/nestedness/#SpeciesInteractionNetworks.η"><code>η</code></a>) to the empirical network. We will then use the approach of <a href="../../bibliography/#Saavedra2011Strong">Saavedra <em>et al.</em> (2011)</a> to quantify the contribution of each species to nestedness.</p>
+<p>In order to illustrate the use of null models, we will look at the data from <a href="../../appendix/bibliography/#Dupont2003Structure">Dupont <em>et al.</em> (2003)</a>, and specifically generate multiple networks under different null models, then compare the nestedness (using <a href="../../macro_level/nestedness/#SpeciesInteractionNetworks.η"><code>η</code></a>) to the empirical network. We will then use the approach of <a href="../../appendix/bibliography/#Saavedra2011Strong">Saavedra <em>et al.</em> (2011)</a> to quantify the contribution of each species to nestedness.</p>
 <div class="highlight"><pre><span></span><code><span class="k">using</span><span class="w"> </span><span class="n">SpeciesInteractionNetworks</span>
 <span class="k">import</span><span class="w"> </span><span class="n">CairoMakie</span>
 <span class="k">import</span><span class="w"> </span><span class="n">Statistics</span>
@@ -1091,7 +1119,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>0.41842877034736853
 </code></pre></div>
-<p>The next step is to generate a template probabilistic network under a specific null model. Here, we will focus on the null model based on the joint degree distribution, as used by <em>e.g.</em> <a href="../../bibliography/#Bascompte2003nested">Bascompte <em>et al.</em> (2003)</a>.</p>
+<p>The next step is to generate a template probabilistic network under a specific null model. Here, we will focus on the null model based on the joint degree distribution, as used by <em>e.g.</em> <a href="../../appendix/bibliography/#Bascompte2003nested">Bascompte <em>et al.</em> (2003)</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">Nd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nullmodel</span><span class="p">(</span><span class="n">Degree</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>A probabilistic bipartite network
@@ -1104,7 +1132,7 @@
 <span class="n">nd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">η</span><span class="o">.</span><span class="p">(</span><span class="n">Rd</span><span class="p">)</span>
 <span class="nd">@info</span><span class="w"> </span><span class="n">round</span><span class="o">.</span><span class="p">((</span><span class="n">minimum</span><span class="p">(</span><span class="n">nd</span><span class="p">),</span><span class="w"> </span><span class="n">Statistics</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">nd</span><span class="p">),</span><span class="w"> </span><span class="n">maximum</span><span class="p">(</span><span class="n">nd</span><span class="p">));</span><span class="w"> </span><span class="n">digits</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>[ Info: (0.255, 0.3693, 0.5146)
+<div class="highlight"><pre><span></span><code>[ Info: (0.2414, 0.3687, 0.5166)
 </code></pre></div>
 <div class="admonition info">
 <p class="admonition-title">Alternative solution</p>
@@ -1120,7 +1148,7 @@
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">ylims!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">))</span>
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">current_figure</span><span class="p">()</span>
 </code></pre></div>
-<p><img alt="" src="../nxwqggw.png" /></p>
+<p><img alt="" src="../bktdmdg.png" /></p>
 <p>In practice, we are often interested in deriving a <em>p</em>-value from the comparison of the empirical and null values of the structure measure. Note that, functionally, the generation of null models can be seen as permutation testing, and therefore we can approximate the <em>p</em>-value corresponding to the hypothesis that the network is <em>more</em> nested than expected under its degree distribution by looking at the proportion of randomized values that are larger than the empirical observation:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@info</span><span class="w"> </span><span class="s">&quot;𝑝 ≈ </span><span class="si">$</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">Statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">n0</span><span class="w"> </span><span class="o">.&lt;=</span><span class="w"> </span><span class="n">nd</span><span class="p">);</span><span class="w"> </span><span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span><span class="s">&quot;</span>
 </code></pre></div>
@@ -1129,13 +1157,13 @@
 <p>We can then compare the result when only looking at networks without disconnected species:</p>
 <div class="highlight"><pre><span></span><code><span class="nd">@info</span><span class="w"> </span><span class="s">&quot;𝑝 ≈ </span><span class="si">$</span><span class="p">(</span><span class="n">round</span><span class="p">(</span><span class="n">Statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">n0</span><span class="w"> </span><span class="o">.&lt;=</span><span class="w"> </span><span class="n">nd</span><span class="p">[</span><span class="n">connected_networks</span><span class="p">]);</span><span class="w"> </span><span class="n">digits</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span><span class="s">&quot;</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>[ Info: 𝑝 ≈ 0.067
+<div class="highlight"><pre><span></span><code>[ Info: 𝑝 ≈ 0.068
 </code></pre></div>
-<p>At this time, we can think about the contribution of each species to the global nestedness score. To do this, we will use the approach of <a href="../../bibliography/#Saavedra2011Strong">Saavedra <em>et al.</em> (2011)</a>, in which the contribution of each species is assessed by randomizing <em>only</em> the interactions of this species.</p>
+<p>At this time, we can think about the contribution of each species to the global nestedness score. To do this, we will use the approach of <a href="../../appendix/bibliography/#Saavedra2011Strong">Saavedra <em>et al.</em> (2011)</a>, in which the contribution of each species is assessed by randomizing <em>only</em> the interactions of this species.</p>
 <p>The result will be returned as a <em>z</em>-score, where positive values indicate that the species contributes positively to nestedness, a value of zero indicates no effect, and negative values means that the species decreases nestedness.</p>
 <div class="highlight"><pre><span></span><code><span class="n">speciescontribution</span><span class="p">(</span><span class="n">Degree</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">first</span><span class="p">(</span><span class="n">species</span><span class="p">(</span><span class="n">N</span><span class="p">)),</span><span class="w"> </span><span class="n">η</span><span class="p">;</span><span class="w"> </span><span class="n">replicates</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>1.5396992082078866
+<div class="highlight"><pre><span></span><code>1.6996690719659662
 </code></pre></div>
 <p>We can also iterate over the two levels in the network:</p>
 <div class="highlight"><pre><span></span><code><span class="n">contrib_top</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="n">speciescontribution</span><span class="p">(</span><span class="n">Degree</span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">sp</span><span class="p">,</span><span class="w"> </span><span class="n">η</span><span class="p">;</span><span class="w"> </span><span class="n">replicates</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">sp</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">species</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)];</span>
@@ -1151,7 +1179,7 @@
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">ylims!</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.4</span><span class="p">))</span>
 <span class="n">CairoMakie</span><span class="o">.</span><span class="n">current_figure</span><span class="p">()</span>
 </code></pre></div>
-<p><img alt="" src="../kgpyaha.png" /></p>
+<p><img alt="" src="../ryoheze.png" /></p>
 
 
 
