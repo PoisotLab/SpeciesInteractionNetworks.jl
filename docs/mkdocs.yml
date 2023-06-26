@@ -42,6 +42,7 @@ nav:
     - Building a network: getting_started/demonstration.md
     - Type system: getting_started/types.md
     - Basic descriptors: getting_started/basics.md
+    - Getting network data: getting_started/mangal.md
   - Micro:
     - Specificity: micro_level/specificity.md
     - Centrality: micro_level/centrality.md
@@ -70,5 +71,6 @@ nav:
     - Shortest paths: use_cases/paths.md
     - Niche model of food webs: use_cases/nichemodel.md
   - Appendix:
-    - Bibliography: bibliography.md
-    - Internals: internals.md
+    - Bibliography: appendix/bibliography.md
+    - Internals: appendix/internals.md
+    - Exceptions: appendix/exceptions.md
