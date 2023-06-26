@@ -295,7 +295,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../bibliography/" class="md-tabs__link">
+      <a href="../../appendix/bibliography/" class="md-tabs__link">
         Appendix
       </a>
     </li>
@@ -1041,7 +1041,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bibliography/" class="md-nav__link">
+      <a href="../../appendix/bibliography/" class="md-nav__link">
         Bibliography
       </a>
     </li>
@@ -1055,8 +1055,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../internals/" class="md-nav__link">
+      <a href="../../appendix/internals/" class="md-nav__link">
         Internals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../appendix/exceptions/" class="md-nav__link">
+        Exceptions
       </a>
     </li>
   
@@ -1108,8 +1122,8 @@
 </code></pre></div>
 <p>Returns a <em>binary</em> network by making random draws from a <em>probabilistic</em> network. Each interaction is considered as an independent Bernoulli trial.</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Poisot2015structure">Poisot, Cirtwill, Cazelles, Gravel, Fortin and Stouffer (2015)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/random/draws.jl#L1-L10' class='documenter-source'>source</a><br></p>
+<p><a href="../../appendix/bibliography/#Poisot2015structure">Poisot, Cirtwill, Cazelles, Gravel, Fortin and Stouffer (2015)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/231894864d589d794bb965a4744546e4bc75d9af/src/random/draws.jl#L1-L10' class='documenter-source'>source</a><br></p>
 <p><a id='Null-models-for-hypothesis-testing'></a></p>
 <p><a id='Null-models-for-hypothesis-testing-1'></a></p>
 <h2 id="null-models-for-hypothesis-testing">Null models for hypothesis testing</h2>
@@ -1121,40 +1135,40 @@
 <p>Returns a probabilistic network under the null model that all interactions occurr with a probability equal to the average of their generality and vulnerability, <em>i.e.</em> proportionally to how many links the species involved are establishing:</p>
 <p>$P(i \rightarrow j) = \frac{1}{2}\left(\frac{\sum A_{i \rightarrow \cdot}}{|B|} + \frac{\sum A_{\cdot \rightarrow j}}{|T|} \right)$</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Bascompte2003nested">Bascompte, Jordano, Melián and Olesen (2003)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/random/linearfilter.jl#L80-L93' class='documenter-source'>source</a><br></p>
+<p><a href="../../appendix/bibliography/#Bascompte2003nested">Bascompte, Jordano, Melián and Olesen (2003)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/231894864d589d794bb965a4744546e4bc75d9af/src/random/linearfilter.jl#L80-L93' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>nullmodel(::Type{Connectance}, N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})
 </code></pre></div>
 <p>Returns a probabilistic network under the null model that all interactions occurr with a probability equal to the network connectance, <em>i.e.</em> in a network with $L$ links, and $|T|$ species on the top and $|B|$ species on the bottom,</p>
 <p>$P(i \rightarrow j) = \frac{L}{|T|\times |B|}$</p>
 <p>Note that for <a href="../../getting_started/types/#SpeciesInteractionNetworks.Unipartite"><code>Unipartite</code></a> networks, $|T| = |B| = |S|$ (the two sides have the same number of species).</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Fortuna2006Habitat">Fortuna and Bascompte (2006)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/random/linearfilter.jl#L96-L112' class='documenter-source'>source</a><br></p>
+<p><a href="../../appendix/bibliography/#Fortuna2006Habitat">Fortuna and Bascompte (2006)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/231894864d589d794bb965a4744546e4bc75d9af/src/random/linearfilter.jl#L96-L112' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>nullmodel(::Type{Generality}, N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})
 </code></pre></div>
 <p>Returns a probabilistic network under the null model that interactions happen proportionally to the generality of the species, <em>i.e.</em> their expected number of outgoing links:</p>
 <p>$P(i \rightarrow j) = \frac{\sum A_{i \rightarrow \cdot}}{|B|}$</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Poisot2013Facultative">Poisot, Stanko, Miklisov{á} and Morand (2013)</a></p>
-<p><a href="../../bibliography/#Weitz2013Phagebacteria">Weitz, Poisot, Meyer, Flores, Valverde, Sullivan and Hochberg (2013)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/random/linearfilter.jl#L115-L129' class='documenter-source'>source</a><br></p>
+<p><a href="../../appendix/bibliography/#Poisot2013Facultative">Poisot, Stanko, Miklisov{á} and Morand (2013)</a></p>
+<p><a href="../../appendix/bibliography/#Weitz2013Phagebacteria">Weitz, Poisot, Meyer, Flores, Valverde, Sullivan and Hochberg (2013)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/231894864d589d794bb965a4744546e4bc75d9af/src/random/linearfilter.jl#L115-L129' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>nullmodel(::Type{Generality}, N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Binary})
 </code></pre></div>
 <p>Returns a probabilistic network under the null model that interactions happen proportionally to the vulnerability of the species, <em>i.e.</em> their expected number of incomin links:</p>
 <p>$P(i \rightarrow j) = \frac{\sum A_{\cdot \rightarrow j}}{|T|}$</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Poisot2013Facultative">Poisot, Stanko, Miklisov{á} and Morand (2013)</a></p>
-<p><a href="../../bibliography/#Weitz2013Phagebacteria">Weitz, Poisot, Meyer, Flores, Valverde, Sullivan and Hochberg (2013)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/random/linearfilter.jl#L132-L146' class='documenter-source'>source</a><br></p>
+<p><a href="../../appendix/bibliography/#Poisot2013Facultative">Poisot, Stanko, Miklisov{á} and Morand (2013)</a></p>
+<p><a href="../../appendix/bibliography/#Weitz2013Phagebacteria">Weitz, Poisot, Meyer, Flores, Valverde, Sullivan and Hochberg (2013)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/231894864d589d794bb965a4744546e4bc75d9af/src/random/linearfilter.jl#L132-L146' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>nullmodel(::Type{C}, N::SpeciesInteractionNetwork{&lt;:Partiteness{T}, &lt;:Binary}, sp::T) where {C &lt;: PermutationConstraint, T}
 </code></pre></div>
 <p>Returns a probabilistic network where the interaction probabilites for species <code>sp</code> have been replaced by the probabilities given under the null model specified by the permutation constraint given as its first argument; see <a href="./#SpeciesInteractionNetworks.nullmodel"><code>nullmodel</code></a>. All interactions that do <em>not</em> involve species <code>sp</code> have their probability set to 1.</p>
-<p>The original publication <a href="../../bibliography/#Saavedra2011Strong">(Saavedra <em>et al.</em>, 2011)</a> uses [<code>Degree</code>] as the permutation constraint, but this function has been written to be more general.</p>
+<p>The original publication <a href="../../appendix/bibliography/#Saavedra2011Strong">(Saavedra <em>et al.</em>, 2011)</a> uses [<code>Degree</code>] as the permutation constraint, but this function has been written to be more general.</p>
 <p>This network can be passed to <a href="./#SpeciesInteractionNetworks.speciescontribution"><code>speciescontribution</code></a>.</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Saavedra2011Strong">Saavedra, Stouffer, Uzzi and Bascompte (2011)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/random/contributions.jl#L1-L18' class='documenter-source'>source</a><br></p>
+<p><a href="../../appendix/bibliography/#Saavedra2011Strong">Saavedra, Stouffer, Uzzi and Bascompte (2011)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/231894864d589d794bb965a4744546e4bc75d9af/src/random/contributions.jl#L1-L18' class='documenter-source'>source</a><br></p>
 <p><a id='Species-level-contributions-based-on-null-models'></a></p>
 <p><a id='Species-level-contributions-based-on-null-models-1'></a></p>
 <h2 id="species-level-contributions-based-on-null-models">Species-level contributions based on null models</h2>
@@ -1163,19 +1177,19 @@
 <strong><code>SpeciesInteractionNetworks.speciescontribution</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">speciescontribution</span><span class="p">(</span><span class="o">::</span><span class="kt">Type</span><span class="p">{</span><span class="kt">C</span><span class="p">},</span><span class="w"> </span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">{</span><span class="kt">T</span><span class="p">},</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">},</span><span class="w"> </span><span class="n">sp</span><span class="o">::</span><span class="kt">T</span><span class="p">,</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">args</span><span class="o">...</span><span class="p">;</span><span class="w"> </span><span class="n">replicates</span><span class="o">=</span><span class="mi">999</span><span class="p">,</span><span class="w"> </span><span class="n">kwargs</span><span class="o">...</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">C</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">PermutationConstraint</span><span class="p">,</span><span class="w"> </span><span class="kt">T</span><span class="p">}</span>
 </code></pre></div>
-<p>Returns the contribution of species <code>sp</code> to the value of <code>f(N, args...; kwargs...)</code>, after <a href="../../bibliography/#Saavedra2011Strong">Saavedra <em>et al.</em> (2011)</a>. Specifically, this function will generate a species-specific <a href="./#SpeciesInteractionNetworks.nullmodel"><code>nullmodel</code></a>, and then update <em>in-place</em> a copy of the network where interactions of species <code>sp</code> are randomly re-drawn according to the probabilities under the null model.</p>
+<p>Returns the contribution of species <code>sp</code> to the value of <code>f(N, args...; kwargs...)</code>, after <a href="../../appendix/bibliography/#Saavedra2011Strong">Saavedra <em>et al.</em> (2011)</a>. Specifically, this function will generate a species-specific <a href="./#SpeciesInteractionNetworks.nullmodel"><code>nullmodel</code></a>, and then update <em>in-place</em> a copy of the network where interactions of species <code>sp</code> are randomly re-drawn according to the probabilities under the null model.</p>
 <p>Note that for the sake of generality, the function <code>f</code> can accept both positional and keyword arguments.</p>
 <p>The contribution of a species to the score is defined as</p>
 <p>$\frac{f(N)-\mu_f}{\sigma_f}$</p>
 <p>where μ and σ are respectively the average and standard deviation of the values of the measure <code>f</code> on the randomized networks.</p>
 <p>In order to ensure that the networks generated under the null model are informative, we constrain the number of interactions of <code>sp</code> in the randomized network to be equal to the number of interactions of <code>sp</code> in the original network.</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Saavedra2011Strong">Saavedra, Stouffer, Uzzi and Bascompte (2011)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/random/contributions.jl#L35-L62' class='documenter-source'>source</a><br></p>
+<p><a href="../../appendix/bibliography/#Saavedra2011Strong">Saavedra, Stouffer, Uzzi and Bascompte (2011)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/231894864d589d794bb965a4744546e4bc75d9af/src/random/contributions.jl#L35-L62' class='documenter-source'>source</a><br></p>
 <p><a id='Linear-filtering'></a></p>
 <p><a id='Linear-filtering-1'></a></p>
 <h2 id="linear-filtering">Linear filtering</h2>
-<p>The linear filter from <a href="../../bibliography/#Stock2017Linear">Stock <em>et al.</em> (2017)</a> is a general formulation of the null models presented above.</p>
+<p>The linear filter from <a href="../../appendix/bibliography/#Stock2017Linear">Stock <em>et al.</em> (2017)</a> is a general formulation of the null models presented above.</p>
 <p><a id='SpeciesInteractionNetworks.linearfilter' href='#SpeciesInteractionNetworks.linearfilter'>#</a>
 <strong><code>SpeciesInteractionNetworks.linearfilter</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">linearfilter</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Binary</span><span class="p">};</span><span class="w"> </span><span class="n">α</span><span class="o">::</span><span class="kt">Vector</span><span class="p">{</span><span class="kt">T</span><span class="p">}</span><span class="o">=</span><span class="n">ones</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="w"> </span><span class="o">&lt;:</span><span class="w"> </span><span class="kt">AbstractFloat</span><span class="p">}</span>
@@ -1188,8 +1202,8 @@
 <p>$\alpha_3$ is the weight of vulnerability; it regulates how important the probability of the species <em>receing</em> an interaction is in the resulting network.</p>
 <p>$\alpha_4$ is the weight of connectance.</p>
 <p><strong>References</strong></p>
-<p><a href="../../bibliography/#Stock2017Linear">Stock, Poisot, Waegeman and Baets (2017)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/9767b36d9c219670fe6c16e4c6dea5738faa1b0d/src/random/linearfilter.jl#L1-L31' class='documenter-source'>source</a><br></p>
+<p><a href="../../appendix/bibliography/#Stock2017Linear">Stock, Poisot, Waegeman and Baets (2017)</a></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/231894864d589d794bb965a4744546e4bc75d9af/src/random/linearfilter.jl#L1-L31' class='documenter-source'>source</a><br></p>
 
 
 
