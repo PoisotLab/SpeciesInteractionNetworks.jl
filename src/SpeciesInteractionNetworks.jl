@@ -21,6 +21,9 @@ import Mangal
 # Tests to define what can be used in base types
 # include(joinpath(".", "misc", "init_tests.jl"))
 
+include("types/exceptions.jl")
+export BipartiteProjectionFailed
+
 include("types/declarations.jl")
 export Partiteness, Interactions
 export Bipartite, Unipartite
@@ -34,7 +37,7 @@ export species, richness
 
 include("types/copy.jl")
 
-include("types/conversions.jl")
+include("types/render.jl")
 export render
 
 include("interfaces/abstractarray.jl")

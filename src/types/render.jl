@@ -35,6 +35,62 @@ end
 end
 
 """
+    render(::Type{Bipartite}, N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions})
+
+Returns the bipartite projection of a unipartite network. By constructions,
+species cannot be shared between levels of bipartite network, so this operation
+may not always succeed. If it fails, it will throw a
+[`BipartiteProjectionFailed`](@ref) exception.
+"""
+function render(::Type{Bipartite}, N::SpeciesInteractionNetwork{<:Unipartite, <:Interactions})
+    top = [s for s in species(N) if isempty(predecessors(N, s))]
+    bottom = [s for s in species(N) if isempty(successors(N, s))]
+    if !isempty(top ∩ bottom)
+        throw(BipartiteProjectionFailed())
+    end
+    if length(top ∪ bottom) < richness(N)
+        throw(BipartiteProjectionFailed())
+    end
+    nodes = Bipartite(copy(top), copy(bottom))
+    edges = _edgetype(N)(zeros(eltype(N.edges), size(nodes)))
+    B = SpeciesInteractionNetwork(nodes, edges)
+    for interaction in interactions(N)
+        B[interaction[1], interaction[2]] = interaction[3]
+    end
+    return B
+end
+
+@testitem "We can convert a binary unipartite network to a bipartite network" begin
+    nodes = Unipartite([:A, :B, :a, :b])
+    edges = Binary(zeros(Bool, size(nodes)))
+    N = SpeciesInteractionNetwork(nodes, edges)
+    N[:A, :a] = true
+    N[:A, :b] = true
+    N[:B, :b] = true
+    M = render(Bipartite, N)
+    for interaction in interactions(N)
+        @test N[interaction[1], interaction[2]] == M[interaction[1], interaction[2]]
+    end
+    @test typeof(M.nodes) <: Bipartite
+    @test richness(M,1) == 2
+    @test richness(M,2) == 2
+    @test :A ∈ species(M, 1)
+    @test :a ∈ species(M, 2)
+    @test typeof(M.edges) == typeof(N.edges)
+end
+
+@testitem "We cannot convert an overlapping unipartite network to bipartite" begin
+    nodes = Unipartite([:A, :B, :a, :b])
+    edges = Binary(zeros(Bool, size(nodes)))
+    N = SpeciesInteractionNetwork(nodes, edges)
+    N[:A, :a] = true
+    N[:A, :b] = true
+    N[:B, :b] = true
+    N[:A, :B] = true
+    @test_throws BipartiteProjectionFailed render(Bipartite, N)
+end
+
+"""
     render(::Type{Quantitative{T}}, N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions}) where {T <: Number}
 
 Returns a quantitative version of the network, where interaction strengths have
