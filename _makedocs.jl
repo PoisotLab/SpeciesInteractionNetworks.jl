@@ -4,7 +4,7 @@ import Pkg
 Pkg.activate("docs/")
 
 # Add the main package (dev)
-Pkg.develop(Pkg.PackageSpec(;path="."))
+Pkg.develop(Pkg.PackageSpec(; path = "."))
 
 # Instantiate everything
 Pkg.instantiate()
