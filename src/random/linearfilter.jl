@@ -34,10 +34,16 @@ function linearfilter(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}; α:
     @assert all(α .>= 0.0)
     α = α ./ sum(α)
 
-    P = α[1] .* N.edges.edges
-    .+α[2] .* mean(N.edges.edges; dims = 2)
-    .+α[3] .* mean(N.edges.edges; dims = 1)
-    .+α[4] .* mean(N.edges.edges)
+    gen = mean(N.edges.edges; dims = 2)
+    vul = mean(N.edges.edges; dims = 1)
+    co = mean(N.edges.edges)
+
+    P = zeros(T, size(N))
+    for i in axes(N,1)
+        for j in axes(N, 2)
+            P[i,j] = α[1] * N[i,j] + α[2] * gen[i] + α[3] * vul[j] + α[4] * co
+        end
+    end
 
     clamp!(P, zero(T), one(T))
 
@@ -53,7 +59,7 @@ end
     R = linearfilter(N)
     @test typeof(R.nodes) <: Unipartite
     @test typeof(R.edges) <: Probabilistic
-    @test richness(N) == richness(R)
+     @test richness(N) == richness(R)
 end
 
 @testitem "The linearfilter with α[4] = 1 is the average only" begin
