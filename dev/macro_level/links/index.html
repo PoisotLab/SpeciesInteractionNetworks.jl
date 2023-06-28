@@ -1107,13 +1107,13 @@
 <div class="highlight"><pre><span></span><code><span class="n">links</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">})</span>
 </code></pre></div>
 <p>The number of links in a network is defined as the number of non-zero elements in the network. For quantitative networks, this is <em>not</em> weighted by the intensity of each interaction.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8b3f840be9feff9f760ce57e874cd208f94839c8/src/macro_level/connectance.jl#L1-L7' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3997281255ad4a218fdba989e5730a3caa35f2a8/src/macro_level/connectance.jl#L1-L7' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>links(N::SpeciesInteractionNetwork{&lt;:Partiteness, &lt;:Probabilistic})
 </code></pre></div>
 <p>The number of links in a probabilistic network is defined as the expected number of interactions in the network. See also <a href="./#SpeciesInteractionNetworks.links_variance"><code>links_variance</code></a>.</p>
 <p><strong>References</strong></p>
 <p><a href="../../appendix/bibliography/#Poisot2015structure">Poisot, Cirtwill, Cazelles, Gravel, Fortin and Stouffer (2015)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8b3f840be9feff9f760ce57e874cd208f94839c8/src/macro_level/connectance.jl#L12-L21' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3997281255ad4a218fdba989e5730a3caa35f2a8/src/macro_level/connectance.jl#L12-L21' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.connectance' href='#SpeciesInteractionNetworks.connectance'>#</a>
 <strong><code>SpeciesInteractionNetworks.connectance</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">connectance</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">)</span>
@@ -1121,13 +1121,13 @@
 <p>The connectance, also known as the density, of a network is defined as the ratio between the number of existing links and the number of possible links. This value is in the unit interval. For a probabilistic network, this returns the <em>expected</em> connectance.</p>
 <p><strong>References</strong></p>
 <p><a href="../../appendix/bibliography/#Martinez1992Constant">Martinez (1992)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8b3f840be9feff9f760ce57e874cd208f94839c8/src/macro_level/connectance.jl#L26-L37' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3997281255ad4a218fdba989e5730a3caa35f2a8/src/macro_level/connectance.jl#L26-L37' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.linkagedensity' href='#SpeciesInteractionNetworks.linkagedensity'>#</a>
 <strong><code>SpeciesInteractionNetworks.linkagedensity</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">connectance</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">)</span>
 </code></pre></div>
 <p>The linkage density of a network is the average number of interaction per species (or its expected value in the case of probabilistic networks).</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8b3f840be9feff9f760ce57e874cd208f94839c8/src/macro_level/connectance.jl#L42-L47' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3997281255ad4a218fdba989e5730a3caa35f2a8/src/macro_level/connectance.jl#L42-L47' class='documenter-source'>source</a><br></p>
 <p><a id='Variances-for-probabilistic-networks'></a></p>
 <p><a id='Variances-for-probabilistic-networks-1'></a></p>
 <h2 id="variances-for-probabilistic-networks">Variances for probabilistic networks</h2>
@@ -1138,7 +1138,7 @@
 <p>The variance in the expected number of links in a probabilistic network is defined as the sum of $p \times (1 - p)$, where $p$ is the probability of all interactions (including $p = 0$).</p>
 <p><strong>References</strong></p>
 <p><a href="../../appendix/bibliography/#Poisot2015structure">Poisot, Cirtwill, Cazelles, Gravel, Fortin and Stouffer (2015)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8b3f840be9feff9f760ce57e874cd208f94839c8/src/macro_level/connectance.jl#L52-L62' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3997281255ad4a218fdba989e5730a3caa35f2a8/src/macro_level/connectance.jl#L52-L62' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.connectance_variance' href='#SpeciesInteractionNetworks.connectance_variance'>#</a>
 <strong><code>SpeciesInteractionNetworks.connectance_variance</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">connectance_variance</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Probabilistic</span><span class="p">})</span>
@@ -1146,7 +1146,7 @@
 <p>See also <a href="./#SpeciesInteractionNetworks.connectance"><code>connectance</code></a>.</p>
 <p><strong>References</strong></p>
 <p><a href="../../appendix/bibliography/#Poisot2015structure">Poisot, Cirtwill, Cazelles, Gravel, Fortin and Stouffer (2015)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8b3f840be9feff9f760ce57e874cd208f94839c8/src/macro_level/connectance.jl#L69-L77' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3997281255ad4a218fdba989e5730a3caa35f2a8/src/macro_level/connectance.jl#L69-L77' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.linkagedensity_variance' href='#SpeciesInteractionNetworks.linkagedensity_variance'>#</a>
 <strong><code>SpeciesInteractionNetworks.linkagedensity_variance</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">linkagedensity_variance</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Partiteness</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Probabilistic</span><span class="p">})</span>
@@ -1154,7 +1154,7 @@
 <p>See also <a href="./#SpeciesInteractionNetworks.linkagedensity_variance"><code>linkagedensity_variance</code></a>.</p>
 <p><strong>References</strong></p>
 <p><a href="../../appendix/bibliography/#Poisot2015structure">Poisot, Cirtwill, Cazelles, Gravel, Fortin and Stouffer (2015)</a></p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/8b3f840be9feff9f760ce57e874cd208f94839c8/src/macro_level/connectance.jl#L82-L90' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/3997281255ad4a218fdba989e5730a3caa35f2a8/src/macro_level/connectance.jl#L82-L90' class='documenter-source'>source</a><br></p>
 
 
 
