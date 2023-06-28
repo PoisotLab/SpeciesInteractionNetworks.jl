@@ -39,9 +39,9 @@ function linearfilter(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}; α:
     co = mean(N.edges.edges)
 
     P = zeros(T, size(N))
-    for i in axes(N,1)
+    for i in axes(N, 1)
         for j in axes(N, 2)
-            P[i,j] = α[1] * N[i,j] + α[2] * gen[i] + α[3] * vul[j] + α[4] * co
+            P[i, j] = α[1] * N[i, j] + α[2] * gen[i] + α[3] * vul[j] + α[4] * co
         end
     end
 
@@ -59,7 +59,7 @@ end
     R = linearfilter(N)
     @test typeof(R.nodes) <: Unipartite
     @test typeof(R.edges) <: Probabilistic
-     @test richness(N) == richness(R)
+    @test richness(N) == richness(R)
 end
 
 @testitem "The linearfilter with α[4] = 1 is the average only" begin
