@@ -46,7 +46,8 @@ function mangalnetwork(MN::Mangal.MangalNetwork, query::Pair...; taxonlevel::Boo
         nodelist = convert(Vector{Mangal.MangalReferenceTaxon}, nodelist)
     end
     nodes = Unipartite(nodelist)
-    T = typeof(edgelist[1].strength)
+    int_str = [edge.strength for edge in edgelist]
+    T = eltype(promote(int_str...))
     edges = Quantitative(zeros(T, size(nodes)))
     N = SpeciesInteractionNetwork(nodes, edges)
     for edge in edgelist
@@ -62,3 +63,31 @@ end
 
 mangalnetwork(id::Integer, args...; kwargs...) = mangalnetwork(Mangal.network(id), args...; kwargs...)
 mangalnetwork(name::String, args...; kwargs...) = mangalnetwork(Mangal.network(name), args...; kwargs...)
+
+@testitem "The type promotion works as expected" begin
+    import SpeciesInteractionNetworks.Mangal
+    dataset = only(Mangal.datasets("q" => "ponisio"))
+    problematic_network = Mangal.networks(dataset)[3]
+    @test eltype(mangalnetwork(problematic_network).edges) <: AbstractFloat
+end
+
+@testitem "We can get a network to return reference taxon nodes" begin
+    import SpeciesInteractionNetworks.Mangal
+    network = first(Mangal.networks())
+    N = mangalnetwork(network; taxonlevel=true)
+    @test eltype(N.nodes) == Mangal.MangalReferenceTaxon
+end
+
+@testitem "We can get a network by name" begin
+    import SpeciesInteractionNetworks.Mangal
+    network = first(Mangal.networks())
+    N = mangalnetwork(network.name; taxonlevel=true)
+    @test eltype(N.nodes) == Mangal.MangalReferenceTaxon
+end
+
+@testitem "We can get a network by ID" begin
+    import SpeciesInteractionNetworks.Mangal
+    network = first(Mangal.networks())
+    N = mangalnetwork(network.id; taxonlevel=true)
+    @test eltype(N.nodes) == Mangal.MangalReferenceTaxon
+end
