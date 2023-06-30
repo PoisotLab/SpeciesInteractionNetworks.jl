@@ -71,23 +71,23 @@ mangalnetwork(name::String, args...; kwargs...) = mangalnetwork(Mangal.network(n
     @test eltype(mangalnetwork(problematic_network).edges) <: AbstractFloat
 end
 
-@testitem "We can get a network by taxon" begin
+@testitem "We can get a network to return reference taxon nodes" begin
     import SpeciesInteractionNetworks.Mangal
     network = first(Mangal.networks())
     N = mangalnetwork(network; taxonlevel=true)
-    @test typeof(N.nodes) == Mangal.MangalReferenceTaxon
+    @test eltype(N.nodes) == Mangal.MangalReferenceTaxon
 end
 
 @testitem "We can get a network by name" begin
     import SpeciesInteractionNetworks.Mangal
     network = first(Mangal.networks())
     N = mangalnetwork(network.name; taxonlevel=true)
-    @test typeof(N.nodes) == Mangal.MangalReferenceTaxon
+    @test eltype(N.nodes) == Mangal.MangalReferenceTaxon
 end
 
 @testitem "We can get a network by ID" begin
     import SpeciesInteractionNetworks.Mangal
     network = first(Mangal.networks())
     N = mangalnetwork(network.id; taxonlevel=true)
-    @test typeof(N.nodes) == Mangal.MangalReferenceTaxon
+    @test eltype(N.nodes) == Mangal.MangalReferenceTaxon
 end
