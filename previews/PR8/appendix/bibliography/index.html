@@ -1,0 +1,1458 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Analysis of Species Interaction Networks using Julia">
+      
+      
+        <meta name="author" content="Timothée Poisot">
+      
+      
+      
+        <link rel="prev" href="../../use_cases/nichemodel/">
+      
+      
+        <link rel="next" href="../internals/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.0">
+    
+    
+      
+        <title>Bibliography - SpeciesInteractionNetworks.jl</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.9f615399.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/Documenter.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/colors.css">
+    
+      <link rel="stylesheet" href="../../stylesheets/citations.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bibliography" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SpeciesInteractionNetworks.jl" class="md-header__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SpeciesInteractionNetworks.jl
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Bibliography
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/PoisotLab/SpeciesInteractionNetworks.jl" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting_started/demonstration/" class="md-tabs__link">
+          
+  
+  Getting started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../micro_level/specificity/" class="md-tabs__link">
+          
+  
+  Micro
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../meso_level/motifs/" class="md-tabs__link">
+          
+  
+  Meso
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../macro_level/links/" class="md-tabs__link">
+          
+  
+  Macro
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../meta_level/betadiversity/" class="md-tabs__link">
+          
+  
+  Meta
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../random_networks/permutations/" class="md-tabs__link">
+          
+  
+  Random
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../use_cases/nullmodels/" class="md-tabs__link">
+          
+  
+  Use cases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  Appendix
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SpeciesInteractionNetworks.jl" class="md-nav__button md-logo" aria-label="SpeciesInteractionNetworks.jl" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    SpeciesInteractionNetworks.jl
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/PoisotLab/SpeciesInteractionNetworks.jl" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Getting started
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/demonstration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building a network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Type system
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/basics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic descriptors
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting_started/mangal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting network data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Micro
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Micro
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../micro_level/specificity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Specificity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../micro_level/centrality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Centrality
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../micro_level/foodwebs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Food web measures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Meso
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Meso
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meso_level/motifs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Motifs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meso_level/paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Paths
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Macro
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Macro
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macro_level/links/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Links counting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macro_level/nestedness/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nestedness
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macro_level/degeneracy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Disconnected species
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macro_level/svd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SVD and complexity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Meta
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Meta
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta_level/betadiversity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta-diversity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta_level/dissimilarities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Beta-diversity measures
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta_level/sets/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Set operations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Random
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Random
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random_networks/permutations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Permutations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random_networks/randomdraws/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Random draws
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../random_networks/structural/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Structural models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Use cases
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Use cases
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/nullmodels/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Significance testing
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/permutations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network permutations
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/specificity/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Species specificity
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/centrality/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Species centrality
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/paths/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shortest paths
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../use_cases/nichemodel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Niche model of food webs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Appendix
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Appendix
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Bibliography
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../internals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Internals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exceptions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Exceptions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/edit/master/docs/appendix/bibliography.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+    </a>
+  
+  
+
+
+<p><a id='Bibliography'></a></p>
+<p><a id='Bibliography-1'></a></p>
+<h1 id="bibliography">Bibliography</h1>
+<div class="citation canonical"><ul><li>
+<div id="AlmeidaNeto2008consistent">Almeida-Neto, M.; Guimar{ã}es, P.; Guimar{ã}es, P. R.; Loyola, R. D. and Ulrich, W. (2008). <i>A consistent metric for nestedness analysis in ecological systems: reconciling concept and measurement</i>. <a href='https://doi.org/10.1111/j.0030-1299.2008.16644.x'>Oikos <b>117</b>, 1227–1239</a>.</div>
+</li><li>
+<div id="AlmeidaNeto2011straightforward">Almeida-Neto, M. and Ulrich, W. (2011). <i>A straightforward computational approach for measuring nestedness using quantitative matrices</i>. <a href='https://doi.org/10.1016/j.envsoft.2010.08.003'>Environmental Modelling {\&}amp$\mathsemicolon$ Software <b>26</b>, 173–178</a>.</div>
+</li><li>
+<div id="Baiser2013Predicting">Baiser, B.; Buckley, H. L.; Gotelli, N. J. and Ellison, A. M. (2013). <i>Predicting food-web structure with metacommunity models</i>. <a href='https://doi.org/10.1111/j.1600-0706.2012.00005.x'>Oikos <b>122</b>, 492-506</a>.</div>
+</li><li>
+<div id="Bascompte2003nested">Bascompte, J.; Jordano, P.; Melián, C. J. and Olesen, J. M. (2003). <i>The nested assembly of plant–animal mutualistic networks</i>. <a href='https://doi.org/10.1073/pnas.1633576100'>Proceedings of the National Academy of Sciences <b>100</b>, 9383–9387</a>.</div>
+</li><li>
+<div id="Bastolla2009architecture">Bastolla, U.; Fortuna, M. A.; Pascual-García, A.; Ferrera, A.; Luque, B. and Bascompte, J. (2009). <i>The architecture of mutualistic networks minimizes competition and increases biodiversity</i>. <a href='https://doi.org/10.1038/nature07950'>Nature <b>458</b>, 1018–1020</a>.</div>
+</li><li>
+<div id="Bavelas1950Communication">Bavelas, A. (1950). <i>Communication Patterns in Task‐Oriented Groups</i>. <a href='https://doi.org/10.1121/1.1906679'>The Journal of the Acoustical Society of America <b>22</b>, 725–730</a>.</div>
+</li><li>
+<div id="Canard2014Empirical">Canard, E. F.; Mouquet, N.; Mouillot, D.; Stanko, M.; Miklisova, D. and Gravel, D. (2014). <i>Empirical Evaluation of Neutral Interactions in Host-Parasite Networks</i>. <a href='https://doi.org/10.1086/675363'>The American Naturalist <b>183</b>, 468–479</a>.</div>
+</li><li>
+<div id="Cody1975Ecology">Cody, M. L. (1975). <i>Ecology and Evolution of Communities</i>. Towards a theory of continental species diversities: bird distributions over Mediterranean habitat gradients, Belknap Press.</div>
+</li><li>
+<div id="DallaRiva2016Exploring">Dalla Riva, G. V. and Stouffer, D. B. (2016). <i>Exploring the evolutionary signature of food webs' backbones using functional traits</i>. <a href='https://doi.org/10.1111/oik.02305'>Oikos <b>125</b>, 446-456</a>.</div>
+</li><li>
+<div id="Dangalchev2006Residual">Dangalchev, C. (2006). <i>Residual closeness in networks</i>. <a href='https://doi.org/10.1016/j.physa.2005.12.020'>Physica A <b>365</b>, 556–564</a>.</div>
+</li><li>
+<div id="Dangalchev2011Residual">Dangalchev, C. (2011). <i>Residual Closeness and Generalized Closeness</i>. <a href='https://doi.org/10.1142/s0129054111009136'>International Journal of Foundations of Computer Science <b>22</b>, 1939–1948</a>.</div>
+</li><li>
+<div id="Delmas2019Analysing">Delmas, E.; Besson, M.; Brice, M.-H.; Burkle, L. A.; Riva, G. V.; Fortin, M.-J.; Gravel, D.; Guimarães, P. R.; Hembry, D. H.; Newman, E. A.; Olesen, J. M.; Pires, M. M.; Yeakel, J. D. and Poisot, T. (2019). <i>Analysing ecological networks of species interactions</i>. <a href='https://doi.org/10.1111/brv.12433'>Biological Reviews <b>94</b>, 16–36</a>.</div>
+</li><li>
+<div id="Dijkstra1959note">Dijkstra, E. W. (1959). <i>A note on two problems in connexion with graphs</i>. <a href='https://doi.org/10.1007/BF01386390'>Numerische Mathematik <b>1</b>, 269–271</a>.</div>
+</li><li>
+<div id="Duffy2007functional">Duffy, J. E.; Cardinale, B. J.; France, K. E.; McIntyre, P. B.; Thébault, E. and Loreau, M. (2007). <i>The functional role of biodiversity in ecosystems: incorporating trophic complexity</i>. <a href='https://doi.org/10.1111/j.1461-0248.2007.01037.x'>Ecology Letters <b>10</b>, 522-538</a>.</div>
+</li><li>
+<div id="Dupont2003Structure">Dupont, Y. L.; Hansen, D. M. and Olesen, J. M. (2003). <i>Structure of a plant-flower-visitor network in the high-altitude sub-alpine desert of Tenerife, Canary Islands</i>. <a href='https://doi.org/10.1034/j.1600-0587.2003.03443.x'>Ecography <b>26</b>, 301–310</a>.</div>
+</li><li>
+<div id="Ellison2021Regulation">Ellison, A. M.; Gotelli, N. J.; Błędzki, L. A. and Butler, J. L. (2021). <i>{Regulation by the Pitcher Plant Sarracenia purpurea of the Structure of its Inquiline Food Web}</i>. <a href='https://doi.org/10.1674/0003-0031-186.1.1'>The American Midland Naturalist <b>186</b>, 1 – 15</a>.</div>
+</li><li>
+<div id="Fortuna2006Habitat">Fortuna, M. A. and Bascompte, J. (2006). <i>Habitat loss and the structure of plant-animal mutualistic networks</i>. <a href='https://doi.org/10.1111/j.1461-0248.2005.00868.x'>Ecology Letters <b>9</b>, 281–286</a>.</div>
+</li><li>
+<div id="Harrison1992Beta">Harrison, S.; Ross, S. J. and Lawton, J. H. (1992). <i>Beta Diversity on Geographic Gradients in Britain</i>. <a href='https://doi.org/10.2307/5518'>The Journal of Animal Ecology <b>61</b>, 151</a>.</div>
+</li><li>
+<div id="Havens1992Scale">Havens, K. (1992). <i>Scale and Structure in Natural Food Webs</i>. <a href='https://doi.org/10.1126/science.257.5073.1107'>Science <b>257</b>, 1107-1109</a>.</div>
+</li><li>
+<div id="Junker2008Analysis">Junker, B. H. and Schreiber, F. (2008). <i>Analysis of Biological Networks</i>. <a href='https://doi.org/10.1002/9780470253489'>Wiley</a>.</div>
+</li><li>
+<div id="Katz1953new">Katz, L. (1953). <i>A new status index derived from sociometric analysis</i>. <a href='https://doi.org/10.1007/bf02289026'>Psychometrika <b>18</b>, 39–43</a>.</div>
+</li><li>
+<div id="Koleff2003Measuring">Koleff, P.; Gaston, K. J. and Lennon, J. J. (2003). <i>Measuring beta diversity for presence-absence data</i>. <a href='https://doi.org/10.1046/j.1365-2656.2003.00710.x'>Journal of Animal Ecology <b>72</b>, 367–382</a>.</div>
+</li><li>
+<div id="Landau1895Zur">Landau, E. (1895). <i>Zur relativen Wertbemessung der Turnierresultate</i>. Deutsches Wochenschach <b>11</b>, 366–369.</div>
+</li><li>
+<div id="Magurran1988Ecological">Magurran, A. E. (1988). <i>Ecological diversity and its measurement</i>. Princeton university press.</div>
+</li><li>
+<div id="Martinez1992Constant">Martinez, N. D. (1992). <i>Constant Connectance in Community Food Webs</i>. <a href='https://doi.org/10.1086/285382'>The American Naturalist <b>139</b>, 1208–1218</a>.</div>
+</li><li>
+<div id="Newman2001Scientific">Newman, M. E. (2001). <i>Scientific collaboration networks. II. Shortest paths, weighted networks, and centrality</i>. <a href='https://doi.org/10.1103/physreve.64.016132'>Physical Review E <b>64</b>, 016132</a>.</div>
+</li><li>
+<div id="Phillips2011structure">Phillips, J. D. (2011). <i>The structure of ecological state transitions: Amplification, synchronization, and constraints in responses to environmental change</i>. <a href='https://doi.org/10.1016/j.ecocom.2011.07.004'>Ecological Complexity <b>8</b>, 336–346</a>.</div>
+</li><li>
+<div id="Poisot2013Facultative">Poisot, T.; Stanko, M.; Miklisov{á}, D. and Morand, S. (2013). <i>Facultative and obligate parasite communities exhibit different network properties</i>. <a href='https://doi.org/10.1017/s0031182013000851'>Parasitology <b>140</b>, 1340–1345</a>.</div>
+</li><li>
+<div id="Poisot2022Dissimilarity">Poisot, T. (2022). <i>Dissimilarity of species interaction networks: quantifying the effect of turnover and rewiring</i>. <a href='https://doi.org/10.24072/pcjournal.105'>Peer Community Journal <b>2</b></a>.</div>
+</li><li>
+<div id="Poisot2016mangal">Poisot, T.; Baiser, B.; Dunne, J. A.; Kéfi, S.; Massol, F.; Mouquet, N.; Romanuk, T. N.; Stouffer, D. B.; Wood, S. A. and Gravel, D. (2016). <i>mangal – making ecological network analysis simple</i>. <a href='https://doi.org/10.1111/ecog.00976'>Ecography <b>39</b>, 384-390</a>.</div>
+</li><li>
+<div id="Poisot2012dissimilarity">Poisot, T.; Canard, E.; Mouillot, D.; Mouquet, N. and Gravel, D. (2012). <i>The dissimilarity of species interaction networks</i>. <a href='https://doi.org/10.1111/ele.12002'>Ecology Letters <b>15</b>, 1353–1361</a>.</div>
+</li><li>
+<div id="Poisot2012comparative">Poisot, T.; Canard, E.; Mouquet, N. and Hochberg, M. E. (2012). <i>A comparative study of ecological specialization estimators</i>. <a href='https://doi.org/10.1111/j.2041-210x.2011.00174.x'>Methods in Ecology & Evolution <b>3</b>, 537–544</a>.</div>
+</li><li>
+<div id="Poisot2015structure">Poisot, T.; Cirtwill, A.; Cazelles, K.; Gravel, D.; Fortin, M.-J. and Stouffer, D. (2015). <i>The structure of probabilistic networks</i>. <a href='https://doi.org/10.1111/2041-210X.12468'>Methods in Ecology and Evolution <b>7</b>, 303–312</a>.</div>
+</li><li>
+<div id="Poisot2023Network">Poisot, T.; Ouellet, M.-A.; Mollentze, N.; Farrell, M. J.; Becker, D. J.; Brierley, L.; Albery, G. F.; Gibb, R. J.; Seifert, S. N. and Carlson, C. J. (2023). <i>Network embedding unveils the hidden interactions in the mammalian virome</i>. <a href='https://doi.org/10.1016/j.patter.2023.100738'>Patterns <b>4</b>, 100738</a>.</div>
+</li><li>
+<div id="Post2002long">Post, D. M. (2002). <i>The long and short of food-chain length</i>. <a href='https://doi.org/10.1016/s0169-5347(02)02455-2'>Trends in Ecology {\&}amp$\mathsemicolon$ Evolution <b>17</b>, 269-277</a>.</div>
+</li><li>
+<div id="Saavedra2011Strong">Saavedra, S.; Stouffer, D. B.; Uzzi, B. and Bascompte, J. (2011). <i>Strong contributors to network persistence are the most vulnerable to extinction</i>. <a href='https://doi.org/10.1038/nature10433'>Nature <b>478</b>, 233–235</a>.</div>
+</li><li>
+<div id="Schoener1989Food">Schoener, T. W. (1989). <i>Food Webs From the Small to the Large: The Robert H. MacArthur Award Lecture</i>. <a href='https://doi.org/10.2307/1938088'>Ecology <b>70</b>, 1559–1589</a>.</div>
+</li><li>
+<div id="Shimbel1955Structure">Shimbel, A. (1955). <i>Structure in communication nets</i>.  In Proceedings of the Symposium on Information Networks, 199-–203, New York, Polytechnic Press of the Polytechnic Institute of Brooklyn.</div>
+</li><li>
+<div id="Simmons2018Motifs">Simmons, B. I.; Cirtwill, A. R.; Baker, N. J.; Wauchope, H. S.; Dicks, L. V.; Stouffer, D. B. and Sutherland, W. J. (2018). <i>Motifs in bipartite ecological networks: uncovering indirect interactions</i>. <a href='https://doi.org/10.1111/oik.05670'>Oikos <b>128</b>, 154–170</a>.</div>
+</li><li>
+<div id="Southwood2009Ecological">Southwood, T. R. and Henderson, P. A. (2009). <i>Ecological methods</i>. John Wiley \& Sons.</div>
+</li><li>
+<div id="Staniczenko2013ghost">Staniczenko, P. P.; Kopp, J. C. and Allesina, S. (2013). <i>The ghost of nestedness in ecological networks</i>. <a href='https://doi.org/10.1038/ncomms2422'>Nature Communications <b>4</b></a>.</div>
+</li><li>
+<div id="Stock2017Linear">Stock, M.; Poisot, T.; Waegeman, W. and Baets, B. D. (2017). <i>Linear filtering reveals false negatives in species interaction data</i>. <a href='https://doi.org/10.1038/srep45908'>Scientific Reports <b>7</b></a>.</div>
+</li><li>
+<div id="Stouffer2007Evidence">Stouffer, D. B.; Camacho, J.; Jiang, W. and Amaral, L. A. (2007). <i>Evidence for the existence of a robust pattern of prey selection in food webs</i>. <a href='https://doi.org/10.1098/rspb.2007.0571'>Proceedings of the Royal Society B: Biological Sciences <b>274</b>, 1931-1940</a>.</div>
+</li><li>
+<div id="Strydom2022Food">Strydom, T.; Bouskila, S.; Banville, F.; Barros, C.; Caron, D.; Farrell, M. J.; Fortin, M.; Hemming, V.; Mercier, B.; Pollock, L. J.; Runghen, R.; Dalla Riva, G. V. and Poisot, T. (2022). <i>Food web reconstruction through phylogenetic transfer of low‐rank network representation</i>. <a href='https://doi.org/10.1111/2041-210x.13835'>Methods in Ecology and Evolution <b>13</b>, 2838-2849</a>.</div>
+</li><li>
+<div id="Strydom2021SVD">Strydom, T.; Dalla Riva, G. V. and Poisot, T. (2021). <i>SVD Entropy Reveals the High Complexity of Ecological Networks</i>. <a href='https://doi.org/10.3389/fevo.2021.623141'>Frontiers in Ecology and Evolution <b>9</b></a>.</div>
+</li><li>
+<div id="Thompson2012Food">Thompson, R. M.; Brose, U.; Dunne, J. A.; Hall, R. O.; Hladyz, S.; Kitching, R. L.; Martinez, N. D.; Rantala, H.; Romanuk, T. N.; Stouffer, D. B. and Tylianakis, J. M. (2012). <i>Food webs: reconciling the structure and function of biodiversity</i>. <a href='https://doi.org/10.1016/j.tree.2012.08.005'>Trends in Ecology {\&}amp$\mathsemicolon$ Evolution <b>27</b>, 689-697</a>.</div>
+</li><li>
+<div id="Weitz2013Phagebacteria">Weitz, J. S.; Poisot, T.; Meyer, J. R.; Flores, C. O.; Valverde, S.; Sullivan, M. B. and Hochberg, M. E. (2013). <i>Phage{\textendash}bacteria infection networks</i>. <a href='https://doi.org/10.1016/j.tim.2012.11.003'>Trends in Microbiology <b>21</b>, 82–91</a>.</div>
+</li><li>
+<div id="Whittaker1960Vegetation">Whittaker, R. H. (1960). <i>Vegetation of the Siskiyou Mountains, Oregon and California</i>. <a href='https://doi.org/10.2307/1943563'>Ecological Monographs <b>30</b>, 279–338</a>.</div>
+</li><li>
+<div id="Williams2000Simple">Williams, R. J. and Martinez, N. D. (2000). <i>Simple rules yield complex food webs</i>. <a href='https://doi.org/10.1038/35004572'>Nature <b>404</b>, 180–183</a>.</div>
+</li><li>
+<div id="Wilson1984Measuring">Wilson, M. V. and Shmida, A. (1984). <i>Measuring Beta Diversity with Presence-Absence Data</i>. <a href='https://doi.org/10.2307/2259551'>The Journal of Ecology <b>72</b>, 1055</a>.</div>
+</li>
+</ul></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "navigation.tabs", "toc.follow", "toc.integrate", "navigation.top", "navigation.instant", "navigation.tracking"], "search": "../../assets/javascripts/workers/search.a264c092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4e0fa4ba.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+      
+        <script src="../../assets/mathjaxhelper.js"></script>
+      
+    
+  </body>
+</html>
