@@ -63,3 +63,6 @@ end
     @test !Graphs.has_edge(N, :node_2, :node_1000)
     @test !Graphs.has_edge(N, :node_20000, :node_1000)
 end
+
+Graphs.inneighbors(N::T, v) where {T <: SpeciesInteractionNetwork} = predecessors(N, v)
+Graphs.outneighbors(N::T, v) where {T <: SpeciesInteractionNetwork} = successors(N, v)
