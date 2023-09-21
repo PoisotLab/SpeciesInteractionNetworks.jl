@@ -1355,21 +1355,21 @@
 <div class="highlight"><pre><span></span><code><span class="n">isdisconnected</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="kt">Bipartite</span><span class="p">{</span><span class="kt">T</span><span class="p">},</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">},</span><span class="w"> </span><span class="n">sp</span><span class="o">::</span><span class="kt">T</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="p">{</span><span class="kt">T</span><span class="p">}</span>
 </code></pre></div>
 <p>Returns <code>true</code> if the species has no interaction.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/a3413c2635a29f2c2215350040c0ff806fc169d2/src/macro_level/degeneracy.jl#L1-L5' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fe1da1346c0a7d32f97b789a14d5392f3068ffae/src/macro_level/degeneracy.jl#L1-L5' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>isdisconnected(N::SpeciesInteractionNetwork{Unipartite{T}, &lt;:Interactions}, sp::T, allow_self_interactions::Bool=true) where {T}
 </code></pre></div>
 <p>Returns <code>true</code> if the species has no interaction; the last argument (<code>allow_self_interactions</code>, defaults to <code>true</code>) indicates whether self-interactions are allowed. If <code>false</code>, species that only interact with themselves are considered to be disconnected.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/a3413c2635a29f2c2215350040c0ff806fc169d2/src/macro_level/degeneracy.jl#L14-L21' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fe1da1346c0a7d32f97b789a14d5392f3068ffae/src/macro_level/degeneracy.jl#L14-L21' class='documenter-source'>source</a><br></p>
 <p><a id='SpeciesInteractionNetworks.isdegenerate' href='#SpeciesInteractionNetworks.isdegenerate'>#</a>
 <strong><code>SpeciesInteractionNetworks.isdegenerate</code></strong> &mdash; <em>Function</em>.</p>
 <div class="highlight"><pre><span></span><code><span class="n">isdegenerate</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Bipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">})</span>
 </code></pre></div>
 <p>A bipartite network is degenerate if it has species with no interactions.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/a3413c2635a29f2c2215350040c0ff806fc169d2/src/macro_level/degeneracy.jl#L30-L34' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fe1da1346c0a7d32f97b789a14d5392f3068ffae/src/macro_level/degeneracy.jl#L30-L34' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>isdegenerate(N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Interactions}, allow_self_interactions::Bool=true)
 </code></pre></div>
 <p>A unipartite network is degenerate if it has species with no interactions. In some cases, it is useful to consider that a species with only self-interactions is disconnected from the network – this can be done by using <code>false</code> as the second argument (the default is to <em>allow</em> species with only self interactions to remain).</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/a3413c2635a29f2c2215350040c0ff806fc169d2/src/macro_level/degeneracy.jl#L39-L47' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fe1da1346c0a7d32f97b789a14d5392f3068ffae/src/macro_level/degeneracy.jl#L39-L47' class='documenter-source'>source</a><br></p>
 <p><a id='Simplification-of-networks-with-disconnected-species'></a></p>
 <p><a id='Simplification-of-networks-with-disconnected-species-1'></a></p>
 <h2 id="simplification-of-networks-with-disconnected-species">Simplification of networks with disconnected species</h2>
@@ -1378,11 +1378,11 @@
 <div class="highlight"><pre><span></span><code><span class="n">simplify</span><span class="p">(</span><span class="n">N</span><span class="o">::</span><span class="kt">SpeciesInteractionNetwork</span><span class="p">{</span><span class="o">&lt;:</span><span class="kt">Bipartite</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;:</span><span class="kt">Interactions</span><span class="p">})</span>
 </code></pre></div>
 <p>Returns a <em>copy</em> of a network containing only the species with interactions. Internally, this calls <a href="./#SpeciesInteractionNetworks.isdisconnected"><code>isdisconnected</code></a>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/a3413c2635a29f2c2215350040c0ff806fc169d2/src/macro_level/degeneracy.jl#L86-L91' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fe1da1346c0a7d32f97b789a14d5392f3068ffae/src/macro_level/degeneracy.jl#L86-L91' class='documenter-source'>source</a><br></p>
 <div class="highlight"><pre><span></span><code>simplify(N::SpeciesInteractionNetwork{&lt;:Unipartite, &lt;:Interactions}, allow_self_interactions::Bool=true)
 </code></pre></div>
 <p>Returns a <em>copy</em> of a network containing only the species with interactions. Internally, this calls <a href="./#SpeciesInteractionNetworks.isdisconnected"><code>isdisconnected</code></a> – see this documentation for the consequences of <code>allow_self_interactions</code>.</p>
-<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/a3413c2635a29f2c2215350040c0ff806fc169d2/src/macro_level/degeneracy.jl#L98-L104' class='documenter-source'>source</a><br></p>
+<p><a target='_blank' href='https://github.com/PoisotLab/SpeciesInteractionNetworks.jl/blob/fe1da1346c0a7d32f97b789a14d5392f3068ffae/src/macro_level/degeneracy.jl#L98-L104' class='documenter-source'>source</a><br></p>
 <div class="admonition question">
 <p class="admonition-title">Where is <code>simplify!</code></p>
 <p>In the <code>EcologicalNetworks.jl</code> package, the <code>simplify!</code> function would drop species from a network. In this package, because we try to keep networks as immutable as possible, we have not implemented this function. If you really want to reproduce this behavior, you can wrap whatever command will create the network in <code>simplify</code>.</p>
