@@ -14,7 +14,7 @@ end
     Base.reverse!(N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions})
 
 Modifies the network given as its argument so that the interactions are flipped.
-See [`reverese`](@ref) for more information.
+See [`reverse`](@ref) for more information.
 """
 function Base.reverse!(N::SpeciesInteractionNetwork{<:Partiteness, <:Interactions})
     for interaction in interactions(N)
