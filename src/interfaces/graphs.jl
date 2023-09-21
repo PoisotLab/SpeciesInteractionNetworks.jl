@@ -66,3 +66,5 @@ end
 
 Graphs.inneighbors(N::T, v) where {T <: SpeciesInteractionNetwork} = predecessors(N, v)
 Graphs.outneighbors(N::T, v) where {T <: SpeciesInteractionNetwork} = successors(N, v)
+
+Graphs.edgetype(N::T) where {T <: SpeciesInteractionNetwork} = eltype(N)
