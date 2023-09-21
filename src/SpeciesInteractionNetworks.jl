@@ -14,6 +14,7 @@ using StatsBase
 using TestItems
 import Tables
 import Mangal
+import Graphs
 
 # Various utilities for probabilities
 # include(joinpath(".", "misc", "probabilities.jl"))
@@ -45,6 +46,7 @@ include("interfaces/iteration.jl")
 include("interfaces/table.jl")
 include("interfaces/broadcast.jl")
 include("interfaces/linearalgebra.jl")
+include("interfaces/graphs.jl")
 
 export svd, rank, diag
 export complexity, tsvd, rdpg
