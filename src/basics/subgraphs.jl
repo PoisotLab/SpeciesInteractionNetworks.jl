@@ -45,6 +45,13 @@ end
     @test_throws ArgumentError subgraph(N, [:D, :E])
 end
 
+"""
+    subgraph(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Interactions}, top::Vector{T}, bottom::Vector{T}) where {T}
+
+We can induce a subgraph from a biparite network by specifying two arrays for
+nodes to be included. Note that any array can instead be `:`, in which case the
+entire series of nodes for this side of the network is used.
+"""
 function subgraph(N::SpeciesInteractionNetwork{<:Bipartite{T}, <:Interactions}, top::Vector{T}, bottom::Vector{T}) where {T}
     topindexes = indexin(top, species(N,1))
     botindexes = indexin(bottom, species(N,2))
