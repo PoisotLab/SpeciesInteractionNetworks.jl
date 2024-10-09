@@ -22,7 +22,7 @@ import Mangal
 # include(joinpath(".", "misc", "init_tests.jl"))
 
 # Various constants
-global SpeciesInteractionNetworks.CENTRALITY_MAXITER = 50
+CENTRALITY_MAXITER = 50
 
 
 include("types/exceptions.jl")
