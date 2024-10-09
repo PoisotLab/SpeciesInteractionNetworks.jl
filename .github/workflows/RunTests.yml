@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         julia-version:
-          - '1.9'
+          - '1.10'
         julia-arch:
           - x64
           - x86

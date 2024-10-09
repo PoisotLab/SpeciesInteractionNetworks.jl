@@ -1,5 +1,3 @@
-SpeciesInteractionNetworks.CENTRALITY_MAXITER = 50
-
 """
     CentralityMethod
 

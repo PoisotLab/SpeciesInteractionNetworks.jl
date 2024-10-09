@@ -1,12 +1,12 @@
 push!(LOAD_PATH, "../src/")
 
 using Documenter
-using DocumenterMarkdown
+using DocumenterVitepress
 using QuantumCitations
 using SpeciesInteractionNetworks
 using Literate
 
-bibliography = CitationBibliography(joinpath(@__DIR__, "SpeciesInteractionNetworks.bib"), style = :authoryear)
+bibliography = CitationBibliography(joinpath(@__DIR__, "SpeciesInteractionNetworks.bib"), style=:authoryear)
 
 doc_src = first(splitdir(@__FILE__))
 
@@ -19,17 +19,16 @@ end
 
 makedocs(
     bibliography;
-    sitename = "SpeciesInteractionNetworks",
-    authors = "Timothée Poisot",
-    modules = [SpeciesInteractionNetworks],
-    format = Markdown(),
+    sitename="SpeciesInteractionNetworks",
+    authors="Timothée Poisot",
+    modules=[SpeciesInteractionNetworks],
+    format=MarkdownVitpress(
+        repo="github.com/PoisotLab/SpeciesInteractionNetworks.jl",
+    ),
 )
 
 deploydocs(;
-    deps = Deps.pip("mkdocs", "pygments", "python-markdown-math", "mkdocs-material"),
-    repo = "github.com/PoisotLab/SpeciesInteractionNetworks.jl.git",
-    devbranch = "main",
-    make = () -> run(`mkdocs build`),
-    target = "site",
-    push_preview = true,
+    repo="github.com/PoisotLab/SpeciesInteractionNetworks.jl.git",
+    devbranch="main",
+    push_preview=true,
 )

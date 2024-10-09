@@ -21,6 +21,10 @@ import Mangal
 # Tests to define what can be used in base types
 # include(joinpath(".", "misc", "init_tests.jl"))
 
+# Various constants
+global SpeciesInteractionNetworks.CENTRALITY_MAXITER = 50
+
+
 include("types/exceptions.jl")
 export BipartiteProjectionFailed
 
