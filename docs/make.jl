@@ -18,13 +18,13 @@ for usecase in usecases
 end
 
 makedocs(
-    bibliography;
     sitename="SpeciesInteractionNetworks",
     authors="Timothée Poisot",
     modules=[SpeciesInteractionNetworks],
     format=MarkdownVitepress(
         repo="github.com/PoisotLab/SpeciesInteractionNetworks.jl",
     ),
+    plugins = [bibliography]
 )
 
 deploydocs(;
