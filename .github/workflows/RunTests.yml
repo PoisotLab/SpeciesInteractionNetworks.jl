@@ -11,6 +11,8 @@ jobs:
       matrix:
         julia-version:
           - '1.10'
+          - 'latest'
+          - 'lts'
         julia-arch:
           - x64
           - x86
