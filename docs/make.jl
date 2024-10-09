@@ -2,7 +2,7 @@ push!(LOAD_PATH, "../src/")
 
 using Documenter
 using DocumenterVitepress
-using QuantumCitations
+using DocumenterCitations
 using SpeciesInteractionNetworks
 using Literate
 
