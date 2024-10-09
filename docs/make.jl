@@ -22,7 +22,7 @@ makedocs(
     sitename="SpeciesInteractionNetworks",
     authors="Timothée Poisot",
     modules=[SpeciesInteractionNetworks],
-    format=MarkdownVitpress(
+    format=MarkdownVitepress(
         repo="github.com/PoisotLab/SpeciesInteractionNetworks.jl",
     ),
 )
