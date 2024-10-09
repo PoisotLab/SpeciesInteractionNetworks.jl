@@ -1,5 +1,3 @@
-SpeciesInteractionNetworks.MODULARITY_MAXITER = 1000
-
 """
     modularity(N::SpeciesInteractionNetwork{<:Partiteness[T], <:Binary}, L::Dict{T,Int}) where {T}
 

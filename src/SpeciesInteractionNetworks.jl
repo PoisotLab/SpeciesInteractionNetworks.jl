@@ -23,6 +23,8 @@ import Mangal
 
 # Various constants
 CENTRALITY_MAXITER = 50
+MODULARITY_MAXITER = 1000
+
 
 
 include("types/exceptions.jl")
