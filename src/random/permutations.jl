@@ -1,5 +1,3 @@
-const SWAP_MAXITER = 100
-
 """
     PermutationConstraint
 

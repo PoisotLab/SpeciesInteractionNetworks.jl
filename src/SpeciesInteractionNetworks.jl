@@ -24,8 +24,7 @@ import Mangal
 # Various constants
 CENTRALITY_MAXITER = 50
 MODULARITY_MAXITER = 1000
-
-
+SWAP_MAXITER = 100
 
 include("types/exceptions.jl")
 export BipartiteProjectionFailed
