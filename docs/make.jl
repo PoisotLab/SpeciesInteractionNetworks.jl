@@ -6,7 +6,7 @@ using DocumenterCitations
 using SpeciesInteractionNetworks
 using Literate
 
-bibliography = CitationBibliography(joinpath(@__DIR__, "SpeciesInteractionNetworks.bib"), style=:authoryear)
+bibliography = CitationBibliography(joinpath(@__DIR__, "references.bib"), style=:authoryear)
 
 doc_src = first(splitdir(@__FILE__))
 
