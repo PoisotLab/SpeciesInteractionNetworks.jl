@@ -52,23 +52,7 @@ function linearfilter(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}; α:
     return SpeciesInteractionNetwork(copy(N.nodes), edges)
 end
 
-"""
-    linearfilter(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}; interaction::T=1.0, generality::T=1.0, vulnerability::T=1.0, connectance::T=1.0) where {T <: AbstractFloat}
-
-Keyword version of `linearfilter` where the parameters are all set to 1.0 by default.
-"""
-function linearfilter(
-    N::SpeciesInteractionNetwork{<:Partiteness, <:Binary};
-    interaction::T = 1.0,
-    generality::T = 1.0,
-    vulnerability::T = 1.0,
-    connectance::T = 1.0,
-) where {T <: AbstractFloat}
-    α = [interaction, generality, vulnerability, connectance]
-    return linearfilter(N; α = α)
-end
-
-@testitem "The linearfilter function returns the correct type" begin
+@testitem "The linearfilter function returns the correct type" begi
     nodes = Unipartite([:A, :B, :C, :D, :E, :F])
     edges = Binary(rand(Bool, (richness(nodes, 1), richness(nodes, 2))))
     N = SpeciesInteractionNetwork(nodes, edges)
@@ -97,18 +81,6 @@ end
     R = linearfilter(N; α = [1.0, 0.0, 0.0, 0.0])
     for interaction in interactions(N)
         @test R[interaction[1], interaction[2]] == 1.0
-    end
-end
-
-@testitem "We can use the keyword version of linearfilter" begin
-    import Statistics
-    nodes = Unipartite([:A, :B, :C, :D, :E, :F])
-    edges = Binary(rand(Bool, (richness(nodes, 1), richness(nodes, 2))))
-    N = SpeciesInteractionNetwork(nodes, edges)
-    R = linearfilter(N; α = [1.0, 0.0, 0.0, 0.0])
-    S = linearfilter(N; generality=0.0, vulnerability=0.0, connectance=0.0)
-    for interaction in interactions(N)
-        @test R[interaction[1], interaction[2]] == S[interaction[1], interaction[2]]
     end
 end
 
