@@ -52,7 +52,7 @@ function linearfilter(N::SpeciesInteractionNetwork{<:Partiteness, <:Binary}; α:
     return SpeciesInteractionNetwork(copy(N.nodes), edges)
 end
 
-@testitem "The linearfilter function returns the correct type" begi
+@testitem "The linearfilter function returns the correct type" begin
     nodes = Unipartite([:A, :B, :C, :D, :E, :F])
     edges = Binary(rand(Bool, (richness(nodes, 1), richness(nodes, 2))))
     N = SpeciesInteractionNetwork(nodes, edges)
