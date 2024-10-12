@@ -17,11 +17,11 @@ function tsvd(N::SpeciesInteractionNetwork, r::Integer)
     r = min(r, rank(N))
     U, Σ, V = svd(N)
     L = similar(U)
-    R = similar(V)
+    R = similar(V')
     mul!(L, U, diagm(sqrt.(Σ)))
     mul!(R, diagm(sqrt.(Σ)), V')
-    L = L[:,1:r]
-    R = R[1:r,:]
+    L = L[:, 1:r]
+    R = R[1:r, :]
     return L, R
 end
 
@@ -63,7 +63,7 @@ This approach to RDPG has been shown to be highly predictive under strong data s
 """
 function rdpg(N::SpeciesInteractionNetwork, r::Integer, threshold::T) where {T <: AbstractFloat}
     L, R = tsvd(N, r)
-    A = (L*R).>= threshold
+    A = (L * R) .>= threshold
     return SpeciesInteractionNetwork(copy(N.nodes), Binary(A))
 end
 
